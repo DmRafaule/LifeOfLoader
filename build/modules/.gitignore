@@ -1,0 +1,6 @@
+win64/*
+android-arm64v8/*
+android-armv7/*
+android-x86_64/*
+android-x86/*
+x11/*
