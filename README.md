@@ -4,6 +4,7 @@
 This is project aimed on learning godot engine step by step.
 In this project you will find(not now at least 23.09.2021) such learned concepts as:
    * GDScript
+   * GDNative(C++)
    * 2D
    * Audio
    * Physics
