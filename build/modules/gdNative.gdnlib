@@ -3,7 +3,7 @@
 singleton=false
 load_once=true
 symbol_prefix="godot_"
-reloadable=false
+reloadable=true
 
 [entry]
 
@@ -12,6 +12,8 @@ Android.armeabi-v7a="res://modules/android-armv7/libgdnative.so"
 OSX.64="res://modules/osx/libgdnative.dylib"
 Windows.64="res://modules/win64/libgdnative.dll"
 X11.64="res://modules/x11/libgdnative.so"
+Android.x86_64="res://modules/android-x86_64/libgdnative.so"
+Android.x86="res://modules/android-x86/libgdnative.so"
 
 [dependencies]
 
@@ -20,4 +22,3 @@ Android.armeabi-v7a=[  ]
 OSX.64=[  ]
 Windows.64=[  ]
 X11.64=[  ]
-
