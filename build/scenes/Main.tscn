@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=92 format=2]
 
 [ext_resource path="res://textures/grass_layer.png" type="Texture" id=1]
 [ext_resource path="res://textures/sky_layer.png" type="Texture" id=2]
@@ -11,316 +11,25 @@
 [ext_resource path="res://textures/leafs2.png" type="Texture" id=9]
 [ext_resource path="res://textures/tree_two.png" type="Texture" id=10]
 [ext_resource path="res://textures/leaf.png" type="Texture" id=11]
+[ext_resource path="res://textures/characters/hero_texture.png" type="Texture" id=12]
+[ext_resource path="res://textures/title.png" type="Texture" id=13]
+[ext_resource path="res://textures/play.png" type="Texture" id=14]
+[ext_resource path="res://textures/quit.png" type="Texture" id=15]
 
-[sub_resource type="Animation" id=35]
-resource_name = "crowns_wigling"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 1, 4, 1, 4, 1, 4, 1, 4, 1, 4 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1.47795, 2.21907 ), Vector2( 3.44276, 2.21907 ), Vector2( 0.635891, 2.5455 ), Vector2( 2.6645, 2.7087 ) ]
+[sub_resource type="ArrayMesh" id=1]
+surfaces/0 = {
+"aabb": AABB( -213.8, 228, 0, 406.5, 110, 0 ),
+"array_data": PoolByteArray( 0, 0, 45, 195, 152, 153, 108, 67, 174, 71, 145, 62, 69, 182, 75, 63, 96, 102, 190, 193, 52, 179, 118, 67, 156, 196, 240, 62, 170, 241, 78, 63, 0, 0, 128, 63, 52, 51, 109, 67, 236, 81, 0, 63, 109, 231, 75, 63, 0, 0, 128, 63, 152, 153, 104, 67, 236, 81, 0, 63, 151, 110, 74, 63, 0, 0, 34, 67, 204, 76, 110, 67, 10, 215, 51, 63, 137, 65, 76, 63, 0, 0, 34, 67, 104, 230, 117, 67, 10, 215, 51, 63, 33, 176, 78, 63, 52, 179, 64, 67, 102, 38, 145, 67, 252, 169, 61, 63, 96, 229, 92, 63, 0, 0, 59, 67, 0, 128, 150, 67, 10, 215, 59, 63, 236, 81, 96, 63, 204, 204, 53, 67, 0, 128, 150, 67, 14, 45, 58, 63, 236, 81, 96, 63, 104, 230, 14, 67, 0, 0, 158, 67, 95, 186, 45, 63, 184, 30, 101, 63, 152, 153, 248, 66, 0, 0, 158, 67, 168, 198, 39, 63, 184, 30, 101, 63, 208, 204, 84, 66, 204, 204, 152, 67, 37, 6, 17, 63, 192, 202, 97, 63, 48, 51, 151, 193, 0, 0, 169, 67, 109, 231, 243, 62, 246, 40, 108, 63, 52, 51, 131, 194, 0, 0, 169, 67, 24, 4, 214, 62, 246, 40, 108, 63, 0, 0, 40, 195, 154, 25, 152, 67, 225, 122, 148, 62, 17, 88, 97, 63, 0, 0, 40, 195, 102, 38, 150, 67, 225, 122, 148, 62, 147, 24, 96, 63, 205, 204, 85, 195, 154, 217, 128, 67, 4, 86, 110, 62, 201, 118, 82, 63, 205, 204, 80, 195, 0, 0, 117, 67, 106, 188, 116, 62, 102, 102, 78, 63, 154, 153, 75, 195, 0, 0, 117, 67, 90, 100, 123, 62, 102, 102, 78, 63, 0, 0, 45, 195, 0, 0, 100, 67, 174, 71, 145, 62, 195, 245, 72, 63 ),
+"array_index_data": PoolByteArray( 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 12, 0, 13, 0, 13, 0, 14, 0, 15, 0, 15, 0, 16, 0, 17, 0, 18, 0, 19, 0, 0, 0, 1, 0, 2, 0, 4, 0, 5, 0, 7, 0, 8, 0, 8, 0, 10, 0, 11, 0, 11, 0, 13, 0, 15, 0, 15, 0, 17, 0, 18, 0, 18, 0, 0, 0, 1, 0, 1, 0, 4, 0, 5, 0, 5, 0, 8, 0, 11, 0, 11, 0, 15, 0, 18, 0, 1, 0, 5, 0, 11, 0, 11, 0, 18, 0, 1, 0 ),
+"blend_shape_data": [  ],
+"format": 262417,
+"index_count": 54,
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 20
 }
 
-[sub_resource type="Animation" id=36]
-resource_name = "crowns_wigling"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 1, 4, 1, 4, 1, 4, 1, 4, 1, 4 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.5, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1.47795, 2.21907 ), Vector2( 3.44276, 2.21907 ), Vector2( 0.635891, 2.5455 ), Vector2( 2.6645, 2.7087 ) ]
-}
-
-[sub_resource type="Animation" id=37]
-resource_name = "crowns_wigling"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 1, 4, 1, 4, 1, 4, 1, 4, 1, 4 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4, 0.7, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1.47795, 2.21907 ), Vector2( 3.44276, 2.21907 ), Vector2( 0.635891, 2.5455 ), Vector2( 2.6645, 2.7087 ) ]
-}
-
-[sub_resource type="Animation" id=38]
-resource_name = "crowns_wigling"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 1, 4, 1, 4, 1, 4, 1, 4, 1, 4 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1.47795, 2.21907 ), Vector2( 3.44276, 2.21907 ), Vector2( 0.635891, 2.5455 ), Vector2( 2.6645, 2.7087 ) ]
-}
-
-[sub_resource type="Animation" id=39]
-resource_name = "crowns_wigling"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 1, 4, 1, 4, 1, 4, 1, 4, 1, 4 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.7, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1.47795, 2.21907 ), Vector2( 3.44276, 2.21907 ), Vector2( 0.635891, 2.5455 ), Vector2( 2.6645, 2.7087 ) ]
-}
-
-[sub_resource type="Animation" id=40]
-resource_name = "crowns_wigling"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 1, 4, 1, 4, 1, 4, 1, 4, 1, 4 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4, 0.6, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1.47795, 2.21907 ), Vector2( 3.44276, 2.21907 ), Vector2( 0.635891, 2.5455 ), Vector2( 2.6645, 2.7087 ) ]
-}
-
-[sub_resource type="Animation" id=41]
-resource_name = "crowns_wigling"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 1, 4, 1, 4, 1, 4, 1, 4, 1, 4 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.1, 0.4, 0.6, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1.47795, 2.21907 ), Vector2( 3.44276, 2.21907 ), Vector2( 0.635891, 2.5455 ), Vector2( 2.6645, 2.7087 ) ]
-}
-
-[sub_resource type="Animation" id=42]
-resource_name = "crowns_wigling"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 1, 4, 1, 4, 1, 4, 1, 4, 1, 4 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1.47795, 2.21907 ), Vector2( 3.44276, 2.21907 ), Vector2( 0.635891, 2.5455 ), Vector2( 2.6645, 2.7087 ) ]
-}
-
-[sub_resource type="Animation" id=43]
-resource_name = "crowns_wigling"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 1, 4, 1, 4, 1, 4, 1, 4, 1, 4 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1.47795, 2.21907 ), Vector2( 3.44276, 2.21907 ), Vector2( 0.635891, 2.5455 ), Vector2( 2.6645, 2.7087 ) ]
-}
-
-[sub_resource type="Animation" id=44]
-resource_name = "crowns_wigling"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 1, 4, 1, 4, 1, 4, 1, 4, 1, 4 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1.47795, 2.21907 ), Vector2( 3.44276, 2.21907 ), Vector2( 0.635891, 2.5455 ), Vector2( 2.6645, 2.7087 ) ]
-}
-
-[sub_resource type="Animation" id=45]
-resource_name = "crowns_wigling"
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 1, 4, 1, 4, 1, 4, 1, 4, 1, 4 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1.47795, 2.21907 ), Vector2( 3.44276, 2.21907 ), Vector2( 0.635891, 2.5455 ), Vector2( 2.6645, 2.7087 ) ]
-}
-
-[sub_resource type="Animation" id=46]
+[sub_resource type="Animation" id=2]
 resource_name = "crowns_wigling"
 loop = true
 tracks/0/type = "value"
@@ -349,6 +58,314 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=3]
+resource_name = "crowns_wigling"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 4, 1, 4, 1, 4, 1, 4, 1, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.47795, 2.21907 ), Vector2( 3.44276, 2.21907 ), Vector2( 0.635891, 2.5455 ), Vector2( 2.6645, 2.7087 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "crowns_wigling"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 4, 1, 4, 1, 4, 1, 4, 1, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.47795, 2.21907 ), Vector2( 3.44276, 2.21907 ), Vector2( 0.635891, 2.5455 ), Vector2( 2.6645, 2.7087 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "crowns_wigling"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 4, 1, 4, 1, 4, 1, 4, 1, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.47795, 2.21907 ), Vector2( 3.44276, 2.21907 ), Vector2( 0.635891, 2.5455 ), Vector2( 2.6645, 2.7087 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "crowns_wigling"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 4, 1, 4, 1, 4, 1, 4, 1, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.47795, 2.21907 ), Vector2( 3.44276, 2.21907 ), Vector2( 0.635891, 2.5455 ), Vector2( 2.6645, 2.7087 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "crowns_wigling"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 4, 1, 4, 1, 4, 1, 4, 1, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.47795, 2.21907 ), Vector2( 3.44276, 2.21907 ), Vector2( 0.635891, 2.5455 ), Vector2( 2.6645, 2.7087 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "crowns_wigling"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 4, 1, 4, 1, 4, 1, 4, 1, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.47795, 2.21907 ), Vector2( 3.44276, 2.21907 ), Vector2( 0.635891, 2.5455 ), Vector2( 2.6645, 2.7087 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "crowns_wigling"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 4, 1, 4, 1, 4, 1, 4, 1, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.47795, 2.21907 ), Vector2( 3.44276, 2.21907 ), Vector2( 0.635891, 2.5455 ), Vector2( 2.6645, 2.7087 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "crowns_wigling"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 4, 1, 4, 1, 4, 1, 4, 1, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.47795, 2.21907 ), Vector2( 3.44276, 2.21907 ), Vector2( 0.635891, 2.5455 ), Vector2( 2.6645, 2.7087 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "crowns_wigling"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 4, 1, 4, 1, 4, 1, 4, 1, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.47795, 2.21907 ), Vector2( 3.44276, 2.21907 ), Vector2( 0.635891, 2.5455 ), Vector2( 2.6645, 2.7087 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "crowns_wigling"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 4, 1, 4, 1, 4, 1, 4, 1, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.47795, 2.21907 ), Vector2( 3.44276, 2.21907 ), Vector2( 0.635891, 2.5455 ), Vector2( 2.6645, 2.7087 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "crowns_wigling"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 4, 1, 4, 1, 4, 1, 4, 1, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.47795, 2.21907 ), Vector2( 3.44276, 2.21907 ), Vector2( 0.635891, 2.5455 ), Vector2( 2.6645, 2.7087 ) ]
+}
+
+[sub_resource type="Animation" id=14]
 length = 2.8
 loop = true
 step = 0.0333333
@@ -964,13 +981,25 @@ tracks/50/keys = {
 "update": 0,
 "values": [ Vector2( 117.269, 66.4028 ), Vector2( 124.277, 58.3938 ) ]
 }
+tracks/51/type = "value"
+tracks/51/path = NodePath("../../intermission/Particles2D2:emitting")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=15]
 length = 2.5
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=16]
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=17]
 length = 2.5
 loop = true
 tracks/0/type = "value"
@@ -1369,8 +1398,20 @@ tracks/32/keys = {
 "update": 0,
 "values": [ Vector2( 134.447, 35.6108 ), Vector2( 141.228, 34.9751 ) ]
 }
+tracks/33/type = "value"
+tracks/33/path = NodePath("../../intermission/Particles2D:emitting")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=18]
 length = 2.8
 loop = true
 step = 0.0333333
@@ -1939,12 +1980,12 @@ tracks/46/keys = {
 "values": [ Vector2( 117.269, 66.4028 ), Vector2( 124.277, 58.3938 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=19]
 length = 2.5
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=20]
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=21]
 length = 2.5
 loop = true
 tracks/0/type = "value"
@@ -2344,31 +2385,44 @@ tracks/32/keys = {
 "values": [ Vector2( 134.447, 35.6108 ), Vector2( 141.228, 34.9751 ) ]
 }
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="ArrayMesh" id=22]
+surfaces/0 = {
+"aabb": AABB( -400, 237, 0, 800, 163, 0 ),
+"array_data": PoolByteArray( 0, 0, 170, 194, 0, 0, 111, 67, 154, 153, 201, 62, 225, 122, 76, 63, 0, 0, 160, 194, 0, 0, 115, 67, 205, 204, 204, 62, 143, 194, 77, 63, 0, 0, 160, 194, 204, 204, 119, 67, 205, 204, 204, 62, 198, 75, 79, 63, 104, 102, 162, 194, 0, 0, 121, 67, 49, 8, 204, 62, 20, 174, 79, 63, 0, 0, 154, 194, 52, 51, 125, 67, 82, 184, 206, 62, 37, 6, 81, 63, 0, 0, 154, 194, 52, 179, 128, 67, 82, 184, 206, 62, 54, 94, 82, 63, 0, 0, 170, 194, 52, 51, 130, 67, 154, 153, 201, 62, 248, 83, 83, 63, 0, 0, 170, 194, 0, 128, 135, 67, 154, 153, 201, 62, 82, 184, 86, 63, 48, 51, 203, 193, 0, 128, 135, 67, 119, 190, 239, 62, 82, 184, 86, 63, 48, 51, 211, 193, 0, 128, 132, 67, 160, 26, 239, 62, 205, 204, 84, 63, 96, 102, 194, 193, 0, 128, 132, 67, 177, 114, 240, 62, 205, 204, 84, 63, 96, 102, 170, 193, 0, 0, 129, 67, 54, 94, 242, 62, 92, 143, 82, 63, 0, 0, 48, 65, 0, 0, 129, 67, 31, 133, 3, 63, 92, 143, 82, 63, 0, 0, 48, 65, 52, 51, 130, 67, 31, 133, 3, 63, 248, 83, 83, 63, 0, 0, 112, 65, 52, 51, 133, 67, 205, 204, 4, 63, 125, 63, 85, 63, 0, 0, 112, 65, 154, 25, 134, 67, 205, 204, 4, 63, 242, 210, 85, 63, 0, 0, 104, 65, 0, 128, 135, 67, 215, 163, 4, 63, 82, 184, 86, 63, 104, 102, 64, 66, 0, 128, 135, 67, 90, 100, 15, 63, 82, 184, 86, 63, 104, 102, 72, 66, 0, 0, 137, 67, 49, 8, 16, 63, 20, 174, 87, 63, 0, 0, 200, 67, 0, 0, 137, 67, 0, 0, 128, 63, 20, 174, 87, 63, 0, 0, 200, 67, 0, 0, 200, 67, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 200, 195, 0, 0, 200, 67, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 200, 195, 0, 0, 137, 67, 0, 0, 0, 0, 20, 174, 87, 63, 154, 25, 6, 195, 0, 0, 137, 67, 14, 45, 170, 62, 20, 174, 87, 63, 0, 0, 188, 194, 204, 140, 135, 67, 10, 215, 195, 62, 131, 192, 86, 63, 0, 0, 188, 194, 0, 128, 130, 67, 10, 215, 195, 62, 31, 133, 83, 63, 0, 0, 198, 194, 0, 128, 130, 67, 215, 163, 192, 62, 31, 133, 83, 63, 0, 0, 198, 194, 154, 89, 129, 67, 215, 163, 192, 62, 180, 200, 82, 63, 152, 153, 204, 194, 52, 51, 126, 67, 44, 135, 190, 62, 17, 88, 81, 63, 104, 102, 202, 194, 0, 0, 124, 67, 100, 59, 191, 62, 215, 163, 80, 63, 0, 0, 199, 194, 0, 0, 124, 67, 236, 81, 192, 62, 215, 163, 80, 63, 204, 204, 190, 194, 0, 0, 122, 67, 170, 241, 194, 62, 0, 0, 80, 63, 152, 153, 198, 194, 152, 25, 116, 67, 177, 114, 192, 62, 172, 28, 78, 63, 104, 102, 196, 194, 0, 0, 114, 67, 233, 38, 193, 62, 164, 112, 77, 63, 152, 153, 193, 194, 0, 0, 114, 67, 74, 12, 194, 62, 164, 112, 77, 63, 0, 0, 188, 194, 52, 51, 111, 67, 10, 215, 195, 62, 68, 139, 76, 63, 0, 0, 188, 194, 0, 0, 109, 67, 10, 215, 195, 62, 10, 215, 75, 63, 0, 0, 170, 194, 0, 0, 109, 67, 154, 153, 201, 62, 10, 215, 75, 63 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 8, 0, 9, 0, 10, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 18, 0, 19, 0, 20, 0, 20, 0, 21, 0, 22, 0, 25, 0, 26, 0, 27, 0, 27, 0, 28, 0, 29, 0, 31, 0, 32, 0, 33, 0, 35, 0, 36, 0, 37, 0, 0, 0, 2, 0, 3, 0, 3, 0, 5, 0, 6, 0, 8, 0, 10, 0, 12, 0, 13, 0, 15, 0, 16, 0, 16, 0, 18, 0, 20, 0, 20, 0, 22, 0, 23, 0, 25, 0, 27, 0, 29, 0, 31, 0, 33, 0, 34, 0, 34, 0, 35, 0, 37, 0, 0, 0, 3, 0, 6, 0, 8, 0, 12, 0, 13, 0, 16, 0, 20, 0, 23, 0, 25, 0, 29, 0, 30, 0, 31, 0, 34, 0, 37, 0, 8, 0, 13, 0, 16, 0, 16, 0, 23, 0, 24, 0, 25, 0, 30, 0, 31, 0, 31, 0, 37, 0, 0, 0, 8, 0, 16, 0, 24, 0, 25, 0, 31, 0, 0, 0, 7, 0, 8, 0, 24, 0, 24, 0, 25, 0, 0, 0, 6, 0, 7, 0, 24, 0, 24, 0, 0, 0, 6, 0 ),
+"blend_shape_data": [  ],
+"format": 262417,
+"index_count": 108,
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 38
+}
+
+[sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 16, 13 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=24]
 atlas = ExtResource( 4 )
 region = Rect2( 16, 0, 16, 13 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=25]
 atlas = ExtResource( 4 )
 region = Rect2( 32, 0, 16, 13 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=26]
 atlas = ExtResource( 4 )
 region = Rect2( 16, 0, 16, 13 )
 
-[sub_resource type="SpriteFrames" id=15]
+[sub_resource type="SpriteFrames" id=27]
 animations = [ {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 13 ), SubResource( 14 ), SubResource( 11 ) ],
+"frames": [ SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 25 ), SubResource( 26 ), SubResource( 23 ) ],
 "loop": true,
 "name": "wigling",
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=28]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Skeleton2D/Bone2D:rotation_degrees")
@@ -2623,7 +2677,7 @@ tracks/20/keys = {
 "values": [ 0.344634, 16.2716, -33.7586, 16.239 ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=29]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Skeleton2D/Bone2D:rotation_degrees")
@@ -2878,7 +2932,7 @@ tracks/20/keys = {
 "values": [ 0.344634, 16.2716, -33.7586, 16.239 ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=30]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Skeleton2D/Bone2D:rotation_degrees")
@@ -3133,7 +3187,7 @@ tracks/20/keys = {
 "values": [ 0.344634, 16.2716, -33.7586, 16.239 ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=31]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Skeleton2D/Bone2D:rotation_degrees")
@@ -3388,7 +3442,7 @@ tracks/20/keys = {
 "values": [ 0.344634, 16.2716, -33.7586, 16.239 ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=32]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Skeleton2D/Bone2D:rotation_degrees")
@@ -3643,7 +3697,7 @@ tracks/20/keys = {
 "values": [ 0.344634, 16.2716, -33.7586, 16.239 ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=33]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Skeleton2D/Bone2D:rotation_degrees")
@@ -3898,7 +3952,7 @@ tracks/20/keys = {
 "values": [ 0.344634, 16.2716, -33.7586, 16.239 ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=34]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Skeleton2D/Bone2D:rotation_degrees")
@@ -4153,7 +4207,7 @@ tracks/20/keys = {
 "values": [ 0.344634, 16.2716, -33.7586, 16.239 ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=35]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Skeleton2D/Bone2D:rotation_degrees")
@@ -4408,7 +4462,7 @@ tracks/20/keys = {
 "values": [ 0.344634, 16.2716, -33.7586, 16.239 ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=36]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Skeleton2D/Bone2D:rotation_degrees")
@@ -4663,7 +4717,7 @@ tracks/20/keys = {
 "values": [ 0.344634, 16.2716, -33.7586, 16.239 ]
 }
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=37]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Skeleton2D/Bone2D:rotation_degrees")
@@ -4918,7 +4972,7 @@ tracks/20/keys = {
 "values": [ 0.344634, 16.2716, -33.7586, 16.239 ]
 }
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=38]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Skeleton2D/Bone2D:rotation_degrees")
@@ -5173,7 +5227,7 @@ tracks/20/keys = {
 "values": [ 0.344634, 16.2716, -33.7586, 16.239 ]
 }
 
-[sub_resource type="Animation" id=27]
+[sub_resource type="Animation" id=39]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Skeleton2D/Bone2D:rotation_degrees")
@@ -5428,20 +5482,20 @@ tracks/20/keys = {
 "values": [ 0.344634, 16.2716, -33.7586, 16.239 ]
 }
 
-[sub_resource type="Gradient" id=52]
+[sub_resource type="Gradient" id=40]
 offsets = PoolRealArray( 0, 0.465116, 1 )
 colors = PoolColorArray( 0.1891, 0.31, 0.24552, 1, 0.239216, 0.635294, 0.427451, 0.984314, 0.188235, 0.309804, 0.247059, 0 )
 
-[sub_resource type="GradientTexture" id=51]
-gradient = SubResource( 52 )
+[sub_resource type="GradientTexture" id=41]
+gradient = SubResource( 40 )
 
-[sub_resource type="Curve" id=48]
+[sub_resource type="Curve" id=42]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=49]
-curve = SubResource( 48 )
+[sub_resource type="CurveTexture" id=43]
+curve = SubResource( 42 )
 
-[sub_resource type="ParticlesMaterial" id=47]
+[sub_resource type="ParticlesMaterial" id=44]
 emission_shape = 2
 emission_box_extents = Vector3( 5, 30, 50 )
 flag_disable_z = true
@@ -5454,25 +5508,25 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 0.3
 scale_random = 0.3
-scale_curve = SubResource( 49 )
-color_ramp = SubResource( 51 )
+scale_curve = SubResource( 43 )
+color_ramp = SubResource( 41 )
 hue_variation = 0.02
 hue_variation_random = 0.36
 
-[sub_resource type="Gradient" id=53]
+[sub_resource type="Gradient" id=45]
 offsets = PoolRealArray( 0, 0.457364, 1 )
 colors = PoolColorArray( 0.360937, 0.38, 0.2166, 1, 0.7, 0.675267, 0.329, 1, 0.58, 0.29, 0.29, 0.960784 )
 
-[sub_resource type="GradientTexture" id=54]
-gradient = SubResource( 53 )
+[sub_resource type="GradientTexture" id=46]
+gradient = SubResource( 45 )
 
-[sub_resource type="Curve" id=55]
+[sub_resource type="Curve" id=47]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.453947, 0.718182 ), 1.78485, 1.78485, 0, 0, Vector2( 1, 0.0272727 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=56]
-curve = SubResource( 55 )
+[sub_resource type="CurveTexture" id=48]
+curve = SubResource( 47 )
 
-[sub_resource type="ParticlesMaterial" id=57]
+[sub_resource type="ParticlesMaterial" id=49]
 lifetime_randomness = 0.41
 emission_shape = 2
 emission_box_extents = Vector3( 40, 40, 20 )
@@ -5487,12 +5541,109 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 0.5
 scale_random = 0.3
-scale_curve = SubResource( 56 )
-color_ramp = SubResource( 54 )
+scale_curve = SubResource( 48 )
+color_ramp = SubResource( 46 )
 hue_variation = 0.12
 hue_variation_random = 0.56
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="AtlasTexture" id=50]
+atlas = ExtResource( 12 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=51]
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=52]
+atlas = ExtResource( 12 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=53]
+atlas = ExtResource( 12 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=54]
+atlas = ExtResource( 12 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=55]
+atlas = ExtResource( 12 )
+region = Rect2( 160, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=56]
+atlas = ExtResource( 12 )
+region = Rect2( 192, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=57]
+atlas = ExtResource( 12 )
+region = Rect2( 256, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=58]
+atlas = ExtResource( 12 )
+region = Rect2( 224, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=59]
+atlas = ExtResource( 12 )
+region = Rect2( 288, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=60]
+atlas = ExtResource( 12 )
+region = Rect2( 128, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=61]
+atlas = ExtResource( 12 )
+region = Rect2( 96, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=62]
+atlas = ExtResource( 12 )
+region = Rect2( 160, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=63]
+atlas = ExtResource( 12 )
+region = Rect2( 224, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=64]
+atlas = ExtResource( 12 )
+region = Rect2( 192, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=65]
+atlas = ExtResource( 12 )
+region = Rect2( 256, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=66]
+atlas = ExtResource( 12 )
+region = Rect2( 64, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=67]
+atlas = ExtResource( 12 )
+region = Rect2( 32, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=68]
+atlas = ExtResource( 12 )
+region = Rect2( 0, 32, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=69]
+animations = [ {
+"frames": [ SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 52 ), SubResource( 51 ), SubResource( 50 ), SubResource( 51 ), SubResource( 50 ), SubResource( 51 ), SubResource( 54 ), SubResource( 55 ), SubResource( 54 ), SubResource( 51 ), SubResource( 50 ), SubResource( 51 ), SubResource( 56 ), SubResource( 51 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 58 ), SubResource( 59 ), SubResource( 58 ), SubResource( 59 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 61 ), SubResource( 62 ), SubResource( 61 ), SubResource( 62 ), SubResource( 61 ), SubResource( 62 ), SubResource( 61 ), SubResource( 62 ), SubResource( 61 ), SubResource( 62 ), SubResource( 61 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 64 ), SubResource( 65 ), SubResource( 64 ), SubResource( 65 ), SubResource( 64 ), SubResource( 65 ), SubResource( 64 ), SubResource( 64 ), SubResource( 64 ), SubResource( 64 ), SubResource( 65 ), SubResource( 65 ), SubResource( 65 ), SubResource( 64 ), SubResource( 65 ), SubResource( 64 ), SubResource( 65 ), SubResource( 64 ), SubResource( 65 ), SubResource( 64 ), SubResource( 65 ), SubResource( 64 ), SubResource( 64 ), SubResource( 64 ), SubResource( 64 ), SubResource( 64 ), SubResource( 64 ), SubResource( 60 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ) ],
+"loop": true,
+"name": "idle",
+"speed": 4.0
+} ]
+
+[sub_resource type="ArrayMesh" id=70]
+surfaces/0 = {
+"aabb": AABB( -46.4, -41.4, 0, 80.8, 108.4, 0 ),
+"array_data": PoolByteArray( 0, 0, 96, 193, 51, 51, 7, 194, 109, 178, 201, 62, 29, 181, 125, 62, 0, 0, 96, 193, 0, 0, 36, 194, 109, 178, 201, 62, 195, 175, 70, 62, 152, 153, 25, 193, 0, 0, 36, 194, 126, 195, 218, 62, 195, 175, 70, 62, 204, 204, 4, 193, 51, 51, 23, 194, 90, 206, 223, 62, 235, 35, 95, 62, 104, 102, 230, 192, 0, 0, 32, 194, 158, 18, 228, 62, 15, 84, 78, 62, 128, 102, 102, 191, 0, 0, 32, 194, 83, 130, 252, 62, 15, 84, 78, 62, 0, 0, 128, 63, 205, 204, 20, 194, 124, 240, 1, 63, 178, 185, 99, 62, 0, 0, 0, 65, 0, 0, 32, 194, 225, 131, 15, 63, 15, 84, 78, 62, 0, 0, 0, 65, 51, 51, 17, 194, 225, 131, 15, 63, 94, 154, 106, 62, 0, 0, 48, 65, 52, 51, 235, 193, 85, 85, 21, 63, 105, 170, 143, 62, 0, 0, 48, 65, 204, 204, 212, 193, 85, 85, 21, 63, 59, 93, 154, 62, 48, 51, 35, 65, 0, 0, 196, 193, 37, 200, 19, 63, 88, 99, 162, 62, 0, 0, 200, 65, 52, 51, 219, 193, 31, 124, 48, 63, 181, 78, 151, 62, 0, 0, 200, 65, 102, 102, 198, 193, 31, 124, 48, 63, 230, 61, 161, 62, 52, 51, 219, 65, 0, 0, 180, 193, 176, 35, 53, 63, 164, 7, 170, 62, 104, 102, 210, 65, 0, 0, 160, 193, 142, 1, 51, 63, 4, 149, 179, 62, 152, 153, 197, 65, 0, 0, 160, 193, 45, 231, 47, 63, 4, 149, 179, 62, 0, 0, 176, 65, 0, 0, 144, 193, 171, 170, 42, 63, 80, 57, 187, 62, 0, 0, 168, 65, 0, 0, 80, 193, 47, 186, 40, 63, 15, 84, 206, 62, 0, 0, 232, 65, 0, 0, 128, 193, 16, 62, 56, 63, 157, 221, 194, 62, 0, 0, 232, 65, 204, 204, 76, 193, 16, 62, 56, 63, 177, 23, 207, 62, 154, 153, 9, 66, 0, 0, 240, 192, 20, 183, 66, 63, 225, 87, 227, 62, 52, 51, 5, 66, 0, 0, 160, 192, 242, 148, 64, 63, 65, 229, 236, 62, 52, 51, 251, 65, 0, 0, 160, 192, 160, 229, 60, 63, 65, 229, 236, 62, 204, 204, 200, 65, 208, 204, 108, 192, 197, 173, 48, 63, 217, 220, 241, 62, 0, 0, 208, 65, 96, 102, 70, 192, 155, 108, 50, 63, 189, 39, 244, 62, 0, 0, 208, 65, 0, 204, 204, 61, 155, 108, 50, 63, 232, 48, 0, 63, 204, 204, 188, 65, 128, 153, 217, 63, 11, 197, 45, 63, 109, 63, 3, 63, 52, 51, 203, 65, 0, 0, 96, 64, 183, 66, 49, 63, 195, 175, 6, 63, 104, 102, 194, 65, 0, 0, 192, 64, 149, 32, 47, 63, 115, 118, 11, 63, 0, 0, 184, 65, 0, 0, 192, 64, 39, 155, 44, 63, 115, 118, 11, 63, 52, 51, 167, 65, 0, 0, 16, 65, 137, 136, 40, 63, 172, 49, 17, 63, 52, 51, 179, 65, 0, 0, 16, 65, 67, 113, 43, 63, 172, 49, 17, 63, 104, 102, 206, 65, 0, 0, 152, 65, 80, 9, 50, 63, 107, 76, 36, 63, 204, 204, 180, 65, 0, 0, 152, 65, 143, 212, 43, 63, 107, 76, 36, 63, 152, 153, 121, 65, 0, 0, 192, 65, 42, 65, 30, 63, 203, 217, 45, 63, 152, 153, 89, 65, 0, 0, 192, 65, 49, 96, 26, 63, 203, 217, 45, 63, 48, 51, 35, 65, 204, 204, 180, 65, 37, 200, 19, 63, 22, 45, 43, 63, 0, 0, 64, 64, 0, 0, 224, 65, 116, 209, 5, 63, 23, 126, 53, 63, 96, 102, 6, 64, 52, 51, 57, 66, 158, 18, 4, 63, 40, 116, 88, 63, 0, 0, 112, 65, 102, 102, 100, 66, 70, 23, 29, 63, 41, 22, 109, 63, 0, 0, 112, 65, 0, 0, 114, 66, 70, 23, 29, 63, 4, 149, 115, 63, 152, 153, 137, 65, 0, 0, 130, 66, 138, 91, 33, 63, 218, 45, 124, 63, 208, 204, 76, 192, 0, 0, 130, 66, 127, 150, 243, 62, 218, 45, 124, 63, 104, 102, 166, 192, 0, 0, 134, 66, 143, 212, 235, 62, 0, 0, 128, 63, 204, 204, 108, 193, 0, 0, 134, 66, 13, 152, 198, 62, 0, 0, 128, 63, 204, 204, 124, 193, 0, 0, 132, 66, 20, 183, 194, 62, 237, 22, 126, 63, 0, 0, 200, 193, 0, 0, 132, 66, 194, 7, 159, 62, 237, 22, 126, 63, 0, 0, 200, 193, 52, 51, 127, 66, 194, 7, 159, 62, 246, 226, 121, 63, 52, 51, 219, 193, 0, 0, 118, 66, 161, 184, 149, 62, 23, 126, 117, 63, 102, 102, 210, 193, 0, 0, 108, 66, 230, 252, 153, 62, 103, 183, 112, 63, 154, 153, 197, 193, 0, 0, 108, 66, 166, 49, 160, 62, 103, 183, 112, 63, 0, 0, 160, 193, 102, 102, 92, 66, 155, 108, 178, 62, 3, 68, 105, 63, 0, 0, 160, 193, 0, 0, 82, 66, 155, 108, 178, 62, 107, 76, 100, 63, 0, 0, 128, 193, 0, 0, 54, 66, 124, 240, 193, 62, 229, 236, 86, 63, 0, 0, 128, 193, 0, 0, 0, 66, 124, 240, 193, 62, 99, 34, 61, 63, 154, 153, 133, 193, 0, 0, 0, 66, 104, 57, 191, 62, 99, 34, 61, 63, 204, 204, 140, 193, 204, 204, 212, 65, 188, 187, 187, 62, 98, 209, 50, 63, 0, 0, 232, 193, 204, 204, 0, 66, 225, 131, 143, 62, 52, 132, 61, 63, 0, 0, 232, 193, 104, 102, 230, 65, 225, 131, 143, 62, 90, 5, 55, 63, 0, 0, 0, 194, 104, 102, 206, 65, 248, 224, 131, 62, 32, 74, 49, 63, 0, 0, 0, 194, 0, 0, 184, 65, 248, 224, 131, 62, 183, 240, 43, 63, 51, 51, 15, 194, 0, 0, 184, 65, 95, 71, 106, 62, 183, 240, 43, 63, 0, 0, 28, 194, 104, 102, 158, 65, 93, 116, 81, 62, 174, 211, 37, 63, 0, 0, 28, 194, 52, 51, 135, 65, 93, 116, 81, 62, 93, 73, 32, 63, 154, 153, 19, 194, 152, 153, 121, 65, 214, 190, 97, 62, 144, 205, 29, 63, 205, 204, 32, 194, 0, 0, 16, 65, 60, 37, 72, 62, 172, 49, 17, 63, 205, 204, 20, 194, 0, 0, 16, 65, 14, 107, 95, 62, 172, 49, 17, 63, 51, 51, 19, 194, 48, 51, 3, 65, 111, 133, 98, 62, 105, 170, 15, 63, 0, 0, 44, 194, 48, 51, 131, 64, 155, 108, 50, 62, 53, 213, 7, 63, 0, 0, 44, 194, 192, 204, 204, 63, 155, 108, 50, 62, 133, 14, 3, 63, 154, 153, 35, 194, 0, 0, 128, 192, 20, 183, 66, 62, 103, 183, 240, 62, 102, 102, 40, 194, 0, 0, 128, 192, 243, 103, 57, 62, 103, 183, 240, 62, 51, 51, 53, 194, 104, 102, 14, 193, 242, 148, 32, 62, 120, 254, 221, 62, 205, 204, 48, 194, 0, 0, 48, 193, 122, 29, 41, 62, 92, 248, 213, 62, 51, 51, 41, 194, 0, 0, 48, 193, 196, 218, 55, 62, 92, 248, 213, 62, 0, 0, 22, 194, 152, 153, 81, 193, 70, 23, 93, 62, 63, 242, 205, 62, 0, 0, 36, 194, 204, 204, 108, 193, 124, 240, 65, 62, 100, 115, 199, 62, 0, 0, 36, 194, 0, 0, 140, 193, 124, 240, 65, 62, 99, 34, 189, 62, 51, 51, 19, 194, 52, 51, 207, 193, 111, 133, 98, 62, 239, 9, 157, 62, 154, 153, 57, 194, 51, 51, 5, 194, 106, 12, 24, 62, 161, 195, 128, 62, 154, 153, 53, 194, 0, 0, 16, 194, 90, 206, 31, 62, 65, 229, 108, 62, 0, 0, 46, 194, 0, 0, 16, 194, 163, 139, 46, 62, 65, 229, 108, 62, 0, 0, 20, 194, 205, 204, 28, 194, 62, 248, 96, 62, 25, 113, 84, 62, 0, 0, 20, 194, 154, 153, 17, 194, 62, 248, 96, 62, 188, 214, 105, 62, 205, 204, 12, 194, 102, 102, 14, 194, 239, 238, 110, 62, 198, 243, 111, 62, 0, 0, 252, 193, 154, 153, 29, 194, 116, 209, 133, 62, 215, 233, 82, 62, 0, 0, 232, 193, 51, 51, 25, 194, 225, 131, 143, 62, 197, 81, 91, 62, 0, 0, 232, 193, 154, 153, 19, 194, 225, 131, 143, 62, 150, 4, 102, 62, 0, 0, 208, 193, 154, 153, 9, 194, 202, 38, 155, 62, 84, 31, 121, 62, 0, 0, 192, 193, 0, 0, 26, 194, 186, 232, 162, 62, 130, 202, 89, 62, 0, 0, 192, 193, 51, 51, 33, 194, 186, 232, 162, 62, 44, 9, 76, 62, 0, 0, 172, 193, 154, 153, 37, 194, 39, 155, 172, 62, 62, 161, 67, 62 ),
+"array_index_data": PoolByteArray( 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 8, 0, 9, 0, 10, 0, 11, 0, 12, 0, 13, 0, 13, 0, 14, 0, 15, 0, 18, 0, 19, 0, 20, 0, 20, 0, 21, 0, 22, 0, 24, 0, 25, 0, 26, 0, 27, 0, 28, 0, 29, 0, 31, 0, 32, 0, 33, 0, 34, 0, 35, 0, 36, 0, 39, 0, 40, 0, 41, 0, 41, 0, 42, 0, 43, 0, 43, 0, 44, 0, 45, 0, 46, 0, 47, 0, 48, 0, 48, 0, 49, 0, 50, 0, 52, 0, 53, 0, 54, 0, 55, 0, 56, 0, 57, 0, 57, 0, 58, 0, 59, 0, 59, 0, 60, 0, 61, 0, 61, 0, 62, 0, 63, 0, 63, 0, 64, 0, 65, 0, 65, 0, 66, 0, 67, 0, 68, 0, 69, 0, 70, 0, 71, 0, 72, 0, 73, 0, 73, 0, 74, 0, 75, 0, 76, 0, 77, 0, 78, 0, 79, 0, 80, 0, 81, 0, 82, 0, 83, 0, 84, 0, 85, 0, 86, 0, 87, 0, 90, 0, 91, 0, 92, 0, 0, 0, 2, 0, 3, 0, 3, 0, 5, 0, 6, 0, 6, 0, 8, 0, 10, 0, 11, 0, 13, 0, 15, 0, 18, 0, 20, 0, 22, 0, 24, 0, 26, 0, 27, 0, 27, 0, 29, 0, 30, 0, 31, 0, 33, 0, 34, 0, 34, 0, 36, 0, 37, 0, 39, 0, 41, 0, 43, 0, 43, 0, 45, 0, 46, 0, 46, 0, 48, 0, 50, 0, 57, 0, 59, 0, 61, 0, 61, 0, 63, 0, 65, 0, 65, 0, 67, 0, 68, 0, 68, 0, 70, 0, 71, 0, 71, 0, 73, 0, 75, 0, 76, 0, 78, 0, 79, 0, 79, 0, 81, 0, 82, 0, 82, 0, 84, 0, 85, 0, 85, 0, 87, 0, 88, 0, 89, 0, 90, 0, 92, 0, 0, 0, 3, 0, 6, 0, 6, 0, 10, 0, 11, 0, 11, 0, 15, 0, 16, 0, 18, 0, 22, 0, 23, 0, 27, 0, 30, 0, 31, 0, 31, 0, 34, 0, 37, 0, 38, 0, 39, 0, 43, 0, 43, 0, 46, 0, 50, 0, 57, 0, 61, 0, 65, 0, 68, 0, 71, 0, 75, 0, 79, 0, 82, 0, 85, 0, 85, 0, 88, 0, 89, 0, 89, 0, 92, 0, 0, 0, 0, 0, 6, 0, 11, 0, 11, 0, 16, 0, 17, 0, 18, 0, 23, 0, 24, 0, 24, 0, 27, 0, 31, 0, 31, 0, 37, 0, 38, 0, 43, 0, 50, 0, 51, 0, 57, 0, 65, 0, 68, 0, 68, 0, 75, 0, 76, 0, 76, 0, 79, 0, 85, 0, 89, 0, 0, 0, 11, 0, 11, 0, 17, 0, 18, 0, 18, 0, 24, 0, 31, 0, 43, 0, 51, 0, 52, 0, 57, 0, 68, 0, 76, 0, 76, 0, 85, 0, 89, 0, 89, 0, 11, 0, 18, 0, 18, 0, 31, 0, 38, 0, 38, 0, 43, 0, 52, 0, 57, 0, 76, 0, 89, 0, 89, 0, 18, 0, 38, 0, 38, 0, 52, 0, 54, 0, 55, 0, 57, 0, 89, 0, 38, 0, 54, 0, 55, 0, 55, 0, 89, 0, 38, 0 ),
+"blend_shape_data": [  ],
+"format": 262417,
+"index_count": 273,
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 93
+}
+
+[sub_resource type="Animation" id=71]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -5615,20 +5766,32 @@ tracks/9/keys = {
 "update": 0,
 "values": [ Vector2( 7.66, 7.66 ), Vector2( 7.1, 7.66 ), Vector2( 7.8, 7.66 ) ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath("../Particles2D3:emitting")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
-[sub_resource type="Gradient" id=58]
+[sub_resource type="Gradient" id=72]
 colors = PoolColorArray( 0.58, 0.3248, 0.116, 0.960784, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=59]
-gradient = SubResource( 58 )
+[sub_resource type="GradientTexture" id=73]
+gradient = SubResource( 72 )
 
-[sub_resource type="Curve" id=60]
+[sub_resource type="Curve" id=74]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=61]
-curve = SubResource( 60 )
+[sub_resource type="CurveTexture" id=75]
+curve = SubResource( 74 )
 
-[sub_resource type="ParticlesMaterial" id=62]
+[sub_resource type="ParticlesMaterial" id=76]
 emission_shape = 2
 emission_box_extents = Vector3( 100, 100, 50 )
 flag_disable_z = true
@@ -5642,8 +5805,8 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 2.0
 scale_random = 0.4
-scale_curve = SubResource( 61 )
-color_ramp = SubResource( 59 )
+scale_curve = SubResource( 75 )
+color_ramp = SubResource( 73 )
 hue_variation = 0.09
 hue_variation_random = 0.34
 
@@ -5653,16 +5816,17 @@ position = Vector2( -1.33484, 1.33484 )
 [node name="bg_fone" type="CanvasLayer" parent="."]
 
 [node name="air" type="Sprite" parent="bg_fone"]
-position = Vector2( 401.943, 336.059 )
+position = Vector2( 399.943, 334.059 )
 scale = Vector2( 1.01122, 0.853454 )
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="hills" type="Sprite" parent="bg_fone"]
+[node name="hills" type="MeshInstance2D" parent="bg_fone"]
 position = Vector2( 523.907, -81.8767 )
 scale = Vector2( 2.66507, 1.91266 )
+mesh = SubResource( 1 )
 texture = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true
@@ -5676,7 +5840,7 @@ scale = Vector2( 3.11968, 2.17714 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bg_fone/all_crowns/animated_crown"]
 autoplay = "crowns_wigling"
-anims/crowns_wigling = SubResource( 35 )
+anims/crowns_wigling = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="bg_fone/all_crowns/animated_crown"]
 position = Vector2( 2.06761, 2.46239 )
@@ -5694,7 +5858,7 @@ scale = Vector2( 2.82727, 1.63154 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bg_fone/all_crowns/animated_crown2"]
 autoplay = "crowns_wigling"
-anims/crowns_wigling = SubResource( 36 )
+anims/crowns_wigling = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="bg_fone/all_crowns/animated_crown2"]
 position = Vector2( 2.06761, 2.46239 )
@@ -5712,7 +5876,7 @@ scale = Vector2( 2.92591, 1.6901 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bg_fone/all_crowns/animated_crown3"]
 autoplay = "crowns_wigling"
-anims/crowns_wigling = SubResource( 37 )
+anims/crowns_wigling = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="bg_fone/all_crowns/animated_crown3"]
 position = Vector2( 2.6645, 2.7087 )
@@ -5730,7 +5894,7 @@ scale = Vector2( 2.9965, 2.06081 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bg_fone/all_crowns/animated_crown4"]
 autoplay = "crowns_wigling"
-anims/crowns_wigling = SubResource( 38 )
+anims/crowns_wigling = SubResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="bg_fone/all_crowns/animated_crown4"]
 position = Vector2( 2.6645, 2.7087 )
@@ -5748,7 +5912,7 @@ scale = Vector2( 3.48254, 2.04996 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bg_fone/all_crowns/animated_crown5"]
 autoplay = "crowns_wigling"
-anims/crowns_wigling = SubResource( 39 )
+anims/crowns_wigling = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="bg_fone/all_crowns/animated_crown5"]
 position = Vector2( 2.6645, 2.7087 )
@@ -5766,7 +5930,7 @@ scale = Vector2( 4.44354, 2.4315 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bg_fone/all_crowns/animated_crown6"]
 autoplay = "crowns_wigling"
-anims/crowns_wigling = SubResource( 40 )
+anims/crowns_wigling = SubResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="bg_fone/all_crowns/animated_crown6"]
 position = Vector2( 2.6645, 2.7087 )
@@ -5784,7 +5948,7 @@ scale = Vector2( 4.44354, 2.4315 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bg_fone/all_crowns/animated_crown7"]
 autoplay = "crowns_wigling"
-anims/crowns_wigling = SubResource( 41 )
+anims/crowns_wigling = SubResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="bg_fone/all_crowns/animated_crown7"]
 position = Vector2( 2.6645, 2.7087 )
@@ -5802,7 +5966,7 @@ scale = Vector2( 4.44354, 2.4315 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bg_fone/all_crowns/animated_crown8"]
 autoplay = "crowns_wigling"
-anims/crowns_wigling = SubResource( 42 )
+anims/crowns_wigling = SubResource( 9 )
 
 [node name="Sprite" type="Sprite" parent="bg_fone/all_crowns/animated_crown8"]
 position = Vector2( 2.06761, 2.46239 )
@@ -5820,7 +5984,7 @@ scale = Vector2( 4.44354, 2.4315 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bg_fone/all_crowns/animated_crown9"]
 autoplay = "crowns_wigling"
-anims/crowns_wigling = SubResource( 43 )
+anims/crowns_wigling = SubResource( 10 )
 
 [node name="Sprite" type="Sprite" parent="bg_fone/all_crowns/animated_crown9"]
 position = Vector2( 2.06761, 2.46239 )
@@ -5838,7 +6002,7 @@ scale = Vector2( 2.14943, 1.58549 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bg_fone/all_crowns/animated_crown10"]
 autoplay = "crowns_wigling"
-anims/crowns_wigling = SubResource( 44 )
+anims/crowns_wigling = SubResource( 11 )
 
 [node name="Sprite" type="Sprite" parent="bg_fone/all_crowns/animated_crown10"]
 position = Vector2( 2.06761, 2.46239 )
@@ -5856,7 +6020,7 @@ scale = Vector2( 3.35951, 2.00539 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bg_fone/all_crowns/animated_crown11"]
 autoplay = "crowns_wigling"
-anims/crowns_wigling = SubResource( 45 )
+anims/crowns_wigling = SubResource( 12 )
 
 [node name="Sprite" type="Sprite" parent="bg_fone/all_crowns/animated_crown11"]
 position = Vector2( 2.06761, 2.46239 )
@@ -5874,7 +6038,7 @@ scale = Vector2( 3.49793, 2.0289 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bg_fone/all_crowns/animated_crown12"]
 autoplay = "crowns_wigling"
-anims/crowns_wigling = SubResource( 46 )
+anims/crowns_wigling = SubResource( 13 )
 
 [node name="Sprite" type="Sprite" parent="bg_fone/all_crowns/animated_crown12"]
 position = Vector2( 2.06761, 2.46239 )
@@ -5891,6 +6055,7 @@ offset = Vector2( 50, 0 )
 transform = Transform2D( 1, 0, 0, 1, 50, 0 )
 
 [node name="animated_tree1_b" type="Node2D" parent="bg"]
+position = Vector2( 0, 1 )
 
 [node name="polygons" type="Node2D" parent="bg/animated_tree1_b"]
 position = Vector2( 27.7496, 42.8857 )
@@ -6176,11 +6341,11 @@ rest = Transform2D( 0.61015, 0.792286, -0.792286, 0.61015, 27.2236, 1.41425 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bg/animated_tree1_b"]
 autoplay = "Wind"
-anims/Wind = SubResource( 3 )
-anims/Wind2 = SubResource( 4 )
+anims/Wind = SubResource( 14 )
+anims/Wind2 = SubResource( 15 )
 
 [node name="animated_tree2_b" type="Node2D" parent="bg"]
-position = Vector2( 122.517, 345.953 )
+position = Vector2( 122.517, 338.953 )
 
 [node name="polygons" type="Node2D" parent="bg/animated_tree2_b"]
 position = Vector2( 0.840912, -0.840881 )
@@ -6348,7 +6513,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bg/animated_tree2_b/polygons"]
-anims/leaf_change = SubResource( 5 )
+anims/leaf_change = SubResource( 16 )
 
 [node name="Skeleton2D" type="Skeleton2D" parent="bg/animated_tree2_b"]
 visible = false
@@ -6420,7 +6585,7 @@ rest = Transform2D( 1.39552, -0.0822487, 0.0536776, 0.910749, 26.0513, 1.36586 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bg/animated_tree2_b"]
 autoplay = "Wind"
-anims/Wind = SubResource( 6 )
+anims/Wind = SubResource( 17 )
 
 [node name="animated_tree1_b2" type="Node2D" parent="bg"]
 position = Vector2( 116.295, 192.483 )
@@ -6710,8 +6875,8 @@ rest = Transform2D( 0.61015, 0.792286, -0.792286, 0.61015, 27.2236, 1.41425 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bg/animated_tree1_b2"]
 autoplay = "Wind"
-anims/Wind = SubResource( 7 )
-anims/Wind2 = SubResource( 8 )
+anims/Wind = SubResource( 18 )
+anims/Wind2 = SubResource( 19 )
 
 [node name="animated_tree2_b2" type="Node2D" parent="bg"]
 position = Vector2( 753.969, 414.87 )
@@ -6883,7 +7048,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bg/animated_tree2_b2/polygons"]
-anims/leaf_change = SubResource( 9 )
+anims/leaf_change = SubResource( 20 )
 
 [node name="Skeleton2D" type="Skeleton2D" parent="bg/animated_tree2_b2"]
 visible = false
@@ -6955,13 +7120,14 @@ rest = Transform2D( 1.39552, -0.0822487, 0.0536776, 0.910749, 26.0513, 1.36586 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bg/animated_tree2_b2"]
 autoplay = "Wind"
-anims/Wind = SubResource( 10 )
+anims/Wind = SubResource( 21 )
 
 [node name="intermission" type="CanvasLayer" parent="."]
 
-[node name="main" type="Sprite" parent="intermission"]
+[node name="main" type="MeshInstance2D" parent="intermission"]
 position = Vector2( 434.088, -357.777 )
 scale = Vector2( 3, 3 )
+mesh = SubResource( 22 )
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -6970,9 +7136,8 @@ __meta__ = {
 [node name="trash_bucket" type="AnimatedSprite" parent="intermission"]
 position = Vector2( 351.368, 450.073 )
 scale = Vector2( 2.5, 2.5 )
-frames = SubResource( 15 )
+frames = SubResource( 27 )
 animation = "wigling"
-frame = 2
 playing = true
 
 [node name="grass" type="Node2D" parent="intermission"]
@@ -7173,7 +7338,7 @@ rest = Transform2D( 1.00081, -0.0907647, 0.0918363, 1.01262, 16.7346, -0.507599 
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="intermission/grass/animated_grass"]
 autoplay = "wigling"
-anims/wigling = SubResource( 16 )
+anims/wigling = SubResource( 28 )
 
 [node name="animated_grass2" type="Node2D" parent="intermission/grass"]
 position = Vector2( 585.406, 463.619 )
@@ -7371,7 +7536,7 @@ rest = Transform2D( 1.00081, -0.0907647, 0.0918363, 1.01262, 16.7346, -0.507599 
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="intermission/grass/animated_grass2"]
 autoplay = "wigling"
-anims/wigling = SubResource( 17 )
+anims/wigling = SubResource( 29 )
 
 [node name="animated_grass3" type="Node2D" parent="intermission/grass"]
 position = Vector2( 708.879, 461.951 )
@@ -7569,7 +7734,7 @@ rest = Transform2D( 1.00081, -0.0907647, 0.0918363, 1.01262, 16.7346, -0.507599 
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="intermission/grass/animated_grass3"]
 autoplay = "wigling"
-anims/wigling = SubResource( 18 )
+anims/wigling = SubResource( 30 )
 
 [node name="animated_grass4" type="Node2D" parent="intermission/grass"]
 position = Vector2( 726.232, 457.946 )
@@ -7767,7 +7932,7 @@ rest = Transform2D( 1.00081, -0.0907647, 0.0918363, 1.01262, 16.7346, -0.507599 
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="intermission/grass/animated_grass4"]
 autoplay = "wigling"
-anims/wigling = SubResource( 19 )
+anims/wigling = SubResource( 31 )
 
 [node name="animated_grass5" type="Node2D" parent="intermission/grass"]
 position = Vector2( 741.916, 463.286 )
@@ -7965,7 +8130,7 @@ rest = Transform2D( 1.00081, -0.0907647, 0.0918363, 1.01262, 16.7346, -0.507599 
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="intermission/grass/animated_grass5"]
 autoplay = "wigling"
-anims/wigling = SubResource( 20 )
+anims/wigling = SubResource( 32 )
 
 [node name="animated_grass6" type="Node2D" parent="intermission/grass"]
 position = Vector2( 759.603, 459.615 )
@@ -8163,7 +8328,7 @@ rest = Transform2D( 1.00081, -0.0907647, 0.0918363, 1.01262, 16.7346, -0.507599 
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="intermission/grass/animated_grass6"]
 autoplay = "wigling"
-anims/wigling = SubResource( 21 )
+anims/wigling = SubResource( 33 )
 
 [node name="animated_grass7" type="Node2D" parent="intermission/grass"]
 position = Vector2( 663.16, 471.295 )
@@ -8362,7 +8527,7 @@ rest = Transform2D( 1.00081, -0.0907647, 0.0918363, 1.01262, 16.7346, -0.507599 
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="intermission/grass/animated_grass7"]
 autoplay = "wigling"
-anims/wigling = SubResource( 22 )
+anims/wigling = SubResource( 34 )
 
 [node name="animated_grass8" type="Node2D" parent="intermission/grass"]
 position = Vector2( 546.696, 449.937 )
@@ -8561,7 +8726,7 @@ rest = Transform2D( 1.00081, -0.0907647, 0.0918363, 1.01262, 16.7346, -0.507599 
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="intermission/grass/animated_grass8"]
 autoplay = "wigling"
-anims/wigling = SubResource( 23 )
+anims/wigling = SubResource( 35 )
 
 [node name="animated_grass9" type="Node2D" parent="intermission/grass"]
 position = Vector2( 447.25, 449.604 )
@@ -8760,7 +8925,7 @@ rest = Transform2D( 1.00081, -0.0907647, 0.0918363, 1.01262, 16.7346, -0.507599 
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="intermission/grass/animated_grass9"]
 autoplay = "wigling"
-anims/wigling = SubResource( 24 )
+anims/wigling = SubResource( 36 )
 
 [node name="animated_grass10" type="Node2D" parent="intermission/grass"]
 position = Vector2( 540.689, 454.609 )
@@ -8959,7 +9124,7 @@ rest = Transform2D( 1.00081, -0.0907647, 0.0918363, 1.01262, 16.7346, -0.507599 
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="intermission/grass/animated_grass10"]
 autoplay = "wigling"
-anims/wigling = SubResource( 25 )
+anims/wigling = SubResource( 37 )
 
 [node name="animated_grass11" type="Node2D" parent="intermission/grass"]
 position = Vector2( 771.283, 461.283 )
@@ -9157,7 +9322,7 @@ rest = Transform2D( 1.00081, -0.0907647, 0.0918363, 1.01262, 16.7346, -0.507599 
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="intermission/grass/animated_grass11"]
 autoplay = "wigling"
-anims/wigling = SubResource( 26 )
+anims/wigling = SubResource( 38 )
 
 [node name="animated_grass12" type="Node2D" parent="intermission/grass"]
 position = Vector2( 775.287, 459.281 )
@@ -9355,7 +9520,7 @@ rest = Transform2D( 1.00081, -0.0907647, 0.0918363, 1.01262, 16.7346, -0.507599 
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="intermission/grass/animated_grass12"]
 autoplay = "wigling"
-anims/wigling = SubResource( 27 )
+anims/wigling = SubResource( 39 )
 
 [node name="Particles2D" type="Particles2D" parent="intermission"]
 position = Vector2( 220.317, 297.756 )
@@ -9364,7 +9529,7 @@ emitting = false
 amount = 20
 lifetime = 5.0
 preprocess = 1.0
-process_material = SubResource( 47 )
+process_material = SubResource( 44 )
 texture = ExtResource( 11 )
 
 [node name="Particles2D2" type="Particles2D" parent="intermission"]
@@ -9374,47 +9539,57 @@ amount = 20
 lifetime = 5.0
 preprocess = 1.0
 speed_scale = 2.0
-process_material = SubResource( 57 )
+process_material = SubResource( 49 )
 texture = ExtResource( 11 )
+
+[node name="mch" type="Node2D" parent="intermission"]
+position = Vector2( 488.448, 431.512 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="intermission/mch"]
+position = Vector2( 0, 5.65686 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 69 )
+animation = "idle"
+frame = 11
+playing = true
 
 [node name="fg" type="CanvasLayer" parent="."]
 
 [node name="animated_tree1" type="Node2D" parent="fg"]
 
-[node name="branches" type="Sprite" parent="fg/animated_tree1"]
+[node name="branches" type="MeshInstance2D" parent="fg/animated_tree1"]
 position = Vector2( 8.86259, 542.534 )
 scale = Vector2( 5, 5 )
+mesh = SubResource( 70 )
 texture = ExtResource( 10 )
 
 [node name="leafs1" type="Sprite" parent="fg/animated_tree1"]
-position = Vector2( 45.3149, 417.143 )
+position = Vector2( 13.2055, 425.115 )
 scale = Vector2( 7.66, 7.66 )
 texture = ExtResource( 9 )
 hframes = 2
 vframes = 2
-frame = 3
+frame = 1
 
 [node name="leafs2" type="Sprite" parent="fg/animated_tree1"]
-position = Vector2( 129.933, 512.116 )
-rotation = 0.157035
-scale = Vector2( 7.37971, 7.66 )
+position = Vector2( 102.2, 524.704 )
+scale = Vector2( 7.66, 7.66 )
 texture = ExtResource( 9 )
 hframes = 2
 vframes = 2
-frame = 3
+frame = 1
 
 [node name="leafs3" type="Sprite" parent="fg/animated_tree1"]
-position = Vector2( 46.1861, 560.687 )
-rotation = 0.188131
-scale = Vector2( 7.11387, 7.66 )
+position = Vector2( 0.491962, 544.834 )
+scale = Vector2( 7.66, 7.66 )
 texture = ExtResource( 9 )
 hframes = 2
 vframes = 2
-frame = 3
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="fg/animated_tree1"]
 autoplay = "wind"
-anims/wind = SubResource( 28 )
+anims/wind = SubResource( 71 )
 
 [node name="Particles2D3" type="Particles2D" parent="fg"]
 position = Vector2( 104, 519 )
@@ -9422,5 +9597,21 @@ emitting = false
 amount = 10
 lifetime = 10.0
 preprocess = 1.0
-process_material = SubResource( 62 )
+process_material = SubResource( 76 )
 texture = ExtResource( 11 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Title" type="Sprite" parent="HUD"]
+position = Vector2( 442.385, 141.516 )
+texture = ExtResource( 13 )
+
+[node name="play" type="Sprite" parent="HUD"]
+position = Vector2( 85.5914, 400.112 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 14 )
+
+[node name="quit" type="Sprite" parent="HUD"]
+position = Vector2( 88.1816, 531.289 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 15 )
