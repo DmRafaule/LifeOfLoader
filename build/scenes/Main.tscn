@@ -1,20 +1,23 @@
-[gd_scene load_steps=92 format=2]
+[gd_scene load_steps=95 format=2]
 
-[ext_resource path="res://textures/grass_layer.png" type="Texture" id=1]
-[ext_resource path="res://textures/sky_layer.png" type="Texture" id=2]
-[ext_resource path="res://textures/tree_two_pices.png" type="Texture" id=3]
-[ext_resource path="res://textures/trash.png" type="Texture" id=4]
-[ext_resource path="res://textures/leafs.png" type="Texture" id=5]
-[ext_resource path="res://textures/grass.png" type="Texture" id=6]
-[ext_resource path="res://textures/bg_layer.png" type="Texture" id=7]
-[ext_resource path="res://textures/tree_one_green_pieces.png" type="Texture" id=8]
-[ext_resource path="res://textures/leafs2.png" type="Texture" id=9]
-[ext_resource path="res://textures/tree_two.png" type="Texture" id=10]
-[ext_resource path="res://textures/leaf.png" type="Texture" id=11]
-[ext_resource path="res://textures/characters/hero_texture.png" type="Texture" id=12]
-[ext_resource path="res://textures/title.png" type="Texture" id=13]
-[ext_resource path="res://textures/play.png" type="Texture" id=14]
-[ext_resource path="res://textures/quit.png" type="Texture" id=15]
+[ext_resource path="res://textures/backgrounds/grass_layer.png" type="Texture" id=1]
+[ext_resource path="res://textures/backgrounds/sky_layer.png" type="Texture" id=2]
+[ext_resource path="res://textures/greenEnviroment/tree_two_pices.png" type="Texture" id=3]
+[ext_resource path="res://textures/humanEnviroment/trash.png" type="Texture" id=4]
+[ext_resource path="res://textures/greenEnviroment/leafs.png" type="Texture" id=5]
+[ext_resource path="res://textures/greenEnviroment/grass.png" type="Texture" id=6]
+[ext_resource path="res://textures/backgrounds/bg_layer.png" type="Texture" id=7]
+[ext_resource path="res://textures/greenEnviroment/tree_one_green_pieces.png" type="Texture" id=8]
+[ext_resource path="res://textures/greenEnviroment/leafs2.png" type="Texture" id=9]
+[ext_resource path="res://textures/greenEnviroment/tree_two.png" type="Texture" id=10]
+[ext_resource path="res://textures/greenEnviroment/leaf.png" type="Texture" id=11]
+[ext_resource path="res://textures/characters/hero/hero_texture.png" type="Texture" id=12]
+[ext_resource path="res://textures/hud/title.png" type="Texture" id=13]
+[ext_resource path="res://textures/hud/play.png" type="Texture" id=14]
+[ext_resource path="res://textures/hud/quit.png" type="Texture" id=15]
+[ext_resource path="res://textures/hud/play_pressed.png" type="Texture" id=16]
+[ext_resource path="res://textures/hud/quit_pressed.png" type="Texture" id=17]
+[ext_resource path="res://scripts/UIControl.gd" type="Script" id=18]
 
 [sub_resource type="ArrayMesh" id=1]
 surfaces/0 = {
@@ -7138,6 +7141,7 @@ position = Vector2( 351.368, 450.073 )
 scale = Vector2( 2.5, 2.5 )
 frames = SubResource( 27 )
 animation = "wigling"
+frame = 6
 playing = true
 
 [node name="grass" type="Node2D" parent="intermission"]
@@ -9550,7 +9554,7 @@ position = Vector2( 0, 5.65686 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 69 )
 animation = "idle"
-frame = 11
+frame = 54
 playing = true
 
 [node name="fg" type="CanvasLayer" parent="."]
@@ -9603,15 +9607,34 @@ texture = ExtResource( 11 )
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Title" type="Sprite" parent="HUD"]
-position = Vector2( 442.385, 141.516 )
+position = Vector2( 421.003, 142.407 )
 texture = ExtResource( 13 )
 
-[node name="play" type="Sprite" parent="HUD"]
-position = Vector2( 85.5914, 400.112 )
-scale = Vector2( 3, 3 )
-texture = ExtResource( 14 )
+[node name="play" type="TextureButton" parent="HUD"]
+margin_left = 37.8647
+margin_top = 319.376
+margin_right = 77.8647
+margin_bottom = 359.376
+rect_scale = Vector2( 3, 3 )
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 16 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="quit" type="Sprite" parent="HUD"]
-position = Vector2( 88.1816, 531.289 )
-scale = Vector2( 3, 3 )
-texture = ExtResource( 15 )
+[node name="quit" type="TextureButton" parent="HUD"]
+margin_left = 39.5212
+margin_top = 459.969
+margin_right = 79.5212
+margin_bottom = 499.969
+rect_scale = Vector2( 3, 3 )
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 17 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="HUD/play" to="HUD/play" method="_on_play_pressed"]
+[connection signal="pressed" from="HUD/quit" to="HUD/quit" method="_on_quit_pressed"]
