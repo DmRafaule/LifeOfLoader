@@ -1,5 +1,6 @@
 extends Node2D
 
+# This scrip provide functionality for moving between scenes
 
 func _input(event):
 	if (event is InputEventScreenTouch):

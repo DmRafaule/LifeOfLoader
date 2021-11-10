@@ -1,0 +1,700 @@
+[gd_scene load_steps=44 format=2]
+
+[ext_resource path="res://textures/hud/left_right.png" type="Texture" id=1]
+[ext_resource path="res://scripts/ControlInterface.gd" type="Script" id=2]
+[ext_resource path="res://textures/hud/pressup.png" type="Texture" id=3]
+[ext_resource path="res://textures/hud/menu.png" type="Texture" id=4]
+[ext_resource path="res://textures/hud/lifting up.png" type="Texture" id=5]
+[ext_resource path="res://textures/hud/pressdown.png" type="Texture" id=6]
+[ext_resource path="res://textures/hud/lifting down.png" type="Texture" id=7]
+[ext_resource path="res://textures/hud/openBox.png" type="Texture" id=8]
+[ext_resource path="res://textures/hud/dropBox.png" type="Texture" id=9]
+[ext_resource path="res://textures/hud/InPress.png" type="Texture" id=10]
+[ext_resource path="res://textures/hud/infoPopUp.png" type="Texture" id=11]
+[ext_resource path="res://fonts/WorkSans-Italic-VariableFont_wght.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://textures/hud/jump.png" type="Texture" id=13]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 20.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "GUI"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 3, 3 ), Vector2( 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.278431 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=3]
+custom_solver_bias = 0.14
+radius = 20.0
+
+[sub_resource type="Animation" id=4]
+resource_name = "GUI"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 3, 3 ), Vector2( 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.278431 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 20.0
+
+[sub_resource type="Animation" id=6]
+resource_name = "GUI"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 3, 3 ), Vector2( 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.278431 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "GUI"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.278431 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 3, 3 ), Vector2( 2, 2 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "appearance"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 896, 80 ), Vector2( 784, 80 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 3, 3 ), Vector2( 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.278431 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "appearance"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 896, 168 ), Vector2( 783, 168 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 3, 3 ), Vector2( 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.278431 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "appearance"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 896, 168 ), Vector2( 784, 168 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 3, 3 ), Vector2( 2, 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.278431 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "appearance"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 896, 80 ), Vector2( 784, 80 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=15]
+custom_solver_bias = 1.0
+radius = 20.0
+
+[sub_resource type="Animation" id=16]
+resource_name = "GUI"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 3, 3 ), Vector2( 2, 2 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "appearance"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 832, 16 ), Vector2( 720, 16 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=18]
+custom_solver_bias = 1.0
+radius = 20.0
+
+[sub_resource type="Animation" id=19]
+resource_name = "GUI"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 3, 3 ), Vector2( 2, 2 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "appearance"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 832, 104 ), Vector2( 720, 104 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=21]
+radius = 18.0
+
+[sub_resource type="Animation" id=22]
+resource_name = "GUI"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ), Vector2( 4, 4 ), Vector2( 3, 3 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "appearance"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 824, 184 ), Vector2( 688.297, 184 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=24]
+radius = 20.0
+
+[sub_resource type="Animation" id=25]
+resource_name = "GUI"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 3, 3 ), Vector2( 2, 2 ) ]
+}
+
+[sub_resource type="DynamicFont" id=26]
+size = 20
+outline_size = 1
+outline_color = Color( 0.00784314, 0.00784314, 0.00784314, 1 )
+use_mipmaps = true
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=27]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 12 )
+
+[sub_resource type="Animation" id=28]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "GUI"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 3, 3 ), Vector2( 2, 2 ) ]
+}
+
+[sub_resource type="DynamicFont" id=30]
+size = 60
+outline_size = 1
+font_data = ExtResource( 12 )
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="ControlInterface" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+g = 150
+
+[node name="ToRight" type="TouchScreenButton" parent="ControlInterface"]
+position = Vector2( 160, 312 )
+scale = Vector2( 2, 2 )
+z_index = 10
+normal = ExtResource( 1 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ControlInterface/ToRight"]
+anims/GUI = SubResource( 2 )
+
+[node name="ToLeft" type="TouchScreenButton" parent="ControlInterface"]
+position = Vector2( 104, 376 )
+rotation = 3.14159
+scale = Vector2( 2, 2 )
+z_index = 10
+normal = ExtResource( 1 )
+shape = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ControlInterface/ToLeft"]
+anims/GUI = SubResource( 4 )
+
+[node name="PopUpMenu" type="TouchScreenButton" parent="ControlInterface"]
+position = Vector2( 43.3674, 24 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 4 )
+shape = SubResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ControlInterface/PopUpMenu"]
+anims/GUI = SubResource( 6 )
+
+[node name="LiftUpPlatform" type="TouchScreenButton" parent="ControlInterface"]
+position = Vector2( 896, 80 )
+rotation = 3.14159
+scale = Vector2( 2, 2 )
+z_index = 10
+normal = ExtResource( 7 )
+shape = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ControlInterface/LiftUpPlatform"]
+anims/GUI = SubResource( 7 )
+anims/appearance = SubResource( 8 )
+
+[node name="LiftDownPlatform" type="TouchScreenButton" parent="ControlInterface"]
+position = Vector2( 896, 168 )
+rotation = 3.14159
+scale = Vector2( 2, 2 )
+z_index = 10
+normal = ExtResource( 5 )
+shape = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ControlInterface/LiftDownPlatform"]
+anims/GUI = SubResource( 9 )
+anims/appearance = SubResource( 10 )
+
+[node name="PressDown" type="TouchScreenButton" parent="ControlInterface"]
+position = Vector2( 896, 168 )
+rotation = 3.14159
+scale = Vector2( 2, 2 )
+z_index = 10
+normal = ExtResource( 6 )
+shape = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ControlInterface/PressDown"]
+anims/GUI = SubResource( 11 )
+anims/appearance = SubResource( 12 )
+
+[node name="PressUp" type="TouchScreenButton" parent="ControlInterface"]
+position = Vector2( 896, 80 )
+rotation = 3.14159
+scale = Vector2( 2, 2 )
+z_index = 10
+normal = ExtResource( 3 )
+shape = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ControlInterface/PressUp"]
+anims/GUI = SubResource( 13 )
+anims/appearance = SubResource( 14 )
+
+[node name="OpenBox" type="TouchScreenButton" parent="ControlInterface"]
+position = Vector2( 832, 16 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 8 )
+shape = SubResource( 15 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ControlInterface/OpenBox"]
+anims/GUI = SubResource( 16 )
+anims/appearance = SubResource( 17 )
+
+[node name="DropBox" type="TouchScreenButton" parent="ControlInterface"]
+position = Vector2( 832, 104 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 9 )
+shape = SubResource( 18 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ControlInterface/DropBox"]
+anims/GUI = SubResource( 19 )
+anims/appearance = SubResource( 20 )
+
+[node name="InPress" type="TouchScreenButton" parent="ControlInterface"]
+position = Vector2( 824, 184 )
+scale = Vector2( 3, 3 )
+normal = ExtResource( 10 )
+shape = SubResource( 21 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ControlInterface/InPress"]
+anims/GUI = SubResource( 22 )
+anims/appearance = SubResource( 23 )
+
+[node name="Jump" type="TouchScreenButton" parent="ControlInterface"]
+position = Vector2( 744, 352 )
+scale = Vector2( 2, 2 )
+shape = SubResource( 24 )
+shape_centered = false
+
+[node name="Sprite" type="Sprite" parent="ControlInterface/Jump"]
+position = Vector2( 0, -0.0320892 )
+texture = ExtResource( 13 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ControlInterface/Jump"]
+anims/GUI = SubResource( 25 )
+
+[node name="Timer" type="Timer" parent="ControlInterface/Jump"]
+one_shot = true
+
+[node name="Popup" type="Popup" parent="ControlInterface"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 592.0
+margin_right = 800.0
+margin_bottom = 128.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="borders" type="Sprite" parent="ControlInterface/Popup"]
+position = Vector2( 128, 44 )
+scale = Vector2( 2.5, 1.83333 )
+texture = ExtResource( 11 )
+
+[node name="nameGoodie" type="Label" parent="ControlInterface/Popup"]
+margin_left = 96.2974
+margin_top = 10.3784
+margin_right = 208.297
+margin_bottom = 34.3784
+custom_fonts/font = SubResource( 26 )
+custom_colors/font_color = Color( 0.792157, 0.690196, 0.184314, 1 )
+align = 1
+
+[node name="numberOfGoodie" type="Label" parent="ControlInterface/Popup"]
+margin_left = 120.0
+margin_top = 51.8378
+margin_right = 149.0
+margin_bottom = 75.8378
+custom_fonts/font = SubResource( 27 )
+custom_colors/font_color = Color( 0.792157, 0.690196, 0.184314, 1 )
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ControlInterface/Popup"]
+anims/appearance = SubResource( 28 )
+
+[node name="FallDown" type="TouchScreenButton" parent="ControlInterface"]
+position = Vector2( 648, 352 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+shape = SubResource( 24 )
+shape_centered = false
+
+[node name="Sprite" type="Sprite" parent="ControlInterface/FallDown"]
+position = Vector2( 0, -0.0320892 )
+texture = ExtResource( 13 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ControlInterface/FallDown"]
+anims/GUI = SubResource( 29 )
+
+[node name="Timer" type="Label" parent="ControlInterface"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 14.0
+rect_scale = Vector2( 0.58142, 0.552355 )
+custom_fonts/font = SubResource( 30 )
+custom_colors/font_color = Color( 0.701961, 0.709804, 0.360784, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = ":"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hour" type="Label" parent="ControlInterface/Timer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -74.7588
+margin_top = 14.4834
+margin_right = -17.7588
+margin_bottom = 159.483
+rect_scale = Vector2( 0.92675, 0.730991 )
+custom_fonts/font = SubResource( 30 )
+custom_colors/font_color = Color( 0.701961, 0.709804, 0.360784, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "11
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="min" type="Label" parent="ControlInterface/Timer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -0.894775
+margin_top = 13.407
+margin_right = 75.1052
+margin_bottom = 84.407
+rect_scale = Vector2( 0.765252, 0.761143 )
+custom_fonts/font = SubResource( 30 )
+custom_colors/font_color = Color( 0.701961, 0.709804, 0.360784, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="ControlInterface/ToRight" to="ControlInterface" method="_on_ToRight_pressed"]
+[connection signal="released" from="ControlInterface/ToRight" to="ControlInterface" method="_on_ToRight_released"]
+[connection signal="pressed" from="ControlInterface/ToLeft" to="ControlInterface" method="_on_ToLeft_pressed"]
+[connection signal="released" from="ControlInterface/ToLeft" to="ControlInterface" method="_on_ToLeft_released"]
+[connection signal="pressed" from="ControlInterface/PopUpMenu" to="ControlInterface" method="_on_PopUpMenu_pressed"]
+[connection signal="pressed" from="ControlInterface/LiftUpPlatform" to="ControlInterface" method="_on_LiftUpPlatform_pressed"]
+[connection signal="pressed" from="ControlInterface/LiftDownPlatform" to="ControlInterface" method="_on_LiftDownPlatform_pressed"]
+[connection signal="pressed" from="ControlInterface/PressDown" to="ControlInterface" method="_on_PressDown_pressed"]
+[connection signal="pressed" from="ControlInterface/PressUp" to="ControlInterface" method="_on_PressUp_pressed"]
+[connection signal="pressed" from="ControlInterface/OpenBox" to="ControlInterface" method="_on_OpenBox_pressed"]
+[connection signal="pressed" from="ControlInterface/DropBox" to="ControlInterface" method="_on_DropBox_pressed"]
+[connection signal="pressed" from="ControlInterface/InPress" to="ControlInterface" method="_on_InPress_pressed"]
+[connection signal="pressed" from="ControlInterface/Jump" to="ControlInterface" method="_on_Jump_pressed"]
+[connection signal="timeout" from="ControlInterface/Jump/Timer" to="ControlInterface" method="_on_Timer_timeout"]
+[connection signal="pressed" from="ControlInterface/FallDown" to="ControlInterface" method="_on_FallDown_pressed"]

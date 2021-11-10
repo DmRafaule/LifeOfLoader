@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/ExtendBodyPh.gd" type="Script" id=1]
+[ext_resource path="res://textures/goodies/fairy.png" type="Texture" id=2]
+
+[node name="fairy" type="RigidBody2D"]
+position = Vector2( 571.029, 334.371 )
+z_index = 2
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 6.79456, 16.9685, 9.04456, 9.46851, 8.04456, 4.96851, 0.0445557, -10.2815, -8.45544, 4.46851, -10.2054, 8.96851, -7.20544, 16.7185 )

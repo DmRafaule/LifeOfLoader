@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/ExtendBodyPh.gd" type="Script" id=1]
+[ext_resource path="res://textures/goodies/pizza.png" type="Texture" id=2]
+
+[node name="pizza" type="RigidBody2D"]
+position = Vector2( 511.629, 334.371 )
+z_index = 2
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -12.8615, 17.1287, 12.3654, 16.7083, 15.5187, 13.5549, 15.729, -15.2458, 12.7858, -18.3992, -12.8615, -17.9787, -16.4353, -14.1947, -16.8558, 13.5549 )

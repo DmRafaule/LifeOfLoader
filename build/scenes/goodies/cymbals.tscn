@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/ExtendBodyPh.gd" type="Script" id=1]
+[ext_resource path="res://textures/goodies/cymbals.png" type="Texture" id=2]
+
+[node name="cymbals" type="RigidBody2D"]
+position = Vector2( 546.132, 335.695 )
+z_index = 2
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 6.21503, 10.4889, 11.5665, 7.66452, 11.8637, -4.22754, -0.920227, -2.74103, -14.0015, -4.37619, -14.2988, 7.8132, -9.83929, 10.1916 )

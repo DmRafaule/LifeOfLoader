@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/ExtendBodyPh.gd" type="Script" id=1]
+[ext_resource path="res://textures/boxes/box_type2.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=105]
+extents = Vector2( 13.4738, 12.1508 )
+
+[node name="box2" type="RigidBody2D" groups=[
+"boxes",
+]]
+position = Vector2( 84.7742, -0.0882568 )
+z_index = 4
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -1.43366, 1.55127 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -2.12134, 0.88385 )
+shape = SubResource( 105 )

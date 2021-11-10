@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/ExtendBodyPh.gd" type="Script" id=1]
+[ext_resource path="res://textures/goodies/notebooks.png" type="Texture" id=2]
+
+[node name="notebooks" type="RigidBody2D"]
+position = Vector2( 538.772, 383.277 )
+z_index = 2
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 10.9326, 16.659, 12.1576, 8.1954, 11.8235, -0.602203, -13.1216, -0.824921, -15.3489, 7.74997, -13.9012, 16.993 )
