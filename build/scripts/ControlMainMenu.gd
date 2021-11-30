@@ -9,4 +9,5 @@ func _on_quit_pressed():
 
 
 func _on_play_pressed():
+	# Chang this to intro
 	get_tree().change_scene("res://scenes/WorkSession.tscn");

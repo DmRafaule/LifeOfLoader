@@ -1,0 +1,156 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://fonts/WorkSans-Italic-VariableFont_wght.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/DialogControl.gd" type="Script" id=2]
+[ext_resource path="res://textures/hud/dialog.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 10
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "GUI1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Popup/Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 2, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.176309, 0.148817 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.0571635, 0.0429598 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "GUI2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.176309, 0.148817 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite3:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.0571635, 0.0429598 ), Vector2( 1e-05, 1e-05 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "play_text"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[node name="Popup" type="Node2D"]
+position = Vector2( 20.7653, -88.7242 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 58.3169, 28.5353 )
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": "	"
+}
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( -6.60773, 53.9881 )
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": "	"
+}
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( -12.8664, 62.9177 )
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": "	"
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 2.37714
+margin_top = 0.181717
+margin_right = 116.377
+margin_bottom = 58.1817
+custom_fonts/normal_font = SubResource( 1 )
+visible_characters = 0
+percent_visible = 0.0
+scroll_following = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/GUI1 = SubResource( 2 )
+anims/GUI2 = SubResource( 3 )
+anims/play_text = SubResource( 4 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]

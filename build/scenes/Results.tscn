@@ -1,0 +1,296 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://textures/hud/quitP_pressed.png" type="Texture" id=1]
+[ext_resource path="res://textures/hud/next_pressed.png" type="Texture" id=2]
+[ext_resource path="res://textures/hud/next_still.png" type="Texture" id=3]
+[ext_resource path="res://textures/hud/quitP_still.png" type="Texture" id=4]
+[ext_resource path="res://textures/hud/menu_popup.png" type="Texture" id=5]
+[ext_resource path="res://textures/hud/total.png" type="Texture" id=6]
+[ext_resource path="res://scripts/ControlResults.gd" type="Script" id=7]
+[ext_resource path="res://fonts/WorkSans-Italic-VariableFont_wght.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 15.0
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 8 )
+
+[node name="Results" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.667419
+margin_top = 1.33485
+margin_right = -0.667419
+margin_bottom = 1.33484
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 200.0
+margin_top = 50.0
+margin_right = -200.0
+margin_bottom = -50.0
+rect_pivot_offset = Vector2( 200, 150 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+margin_right = 400.0
+margin_bottom = 300.0
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Total" type="Sprite" parent="MarginContainer"]
+position = Vector2( 200, 30 )
+texture = ExtResource( 6 )
+
+[node name="HSeparator" type="HSeparator" parent="."]
+anchor_right = 0.414
+margin_left = 216.0
+margin_top = 96.0
+margin_right = 256.0
+margin_bottom = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Next" type="TouchScreenButton" parent="."]
+position = Vector2( 685.993, 285.088 )
+scale = Vector2( 3, 3 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 2 )
+shape = SubResource( 1 )
+
+[node name="Exit" type="TouchScreenButton" parent="."]
+position = Vector2( 36.5269, 279.743 )
+scale = Vector2( 3, 3 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 1 )
+shape = SubResource( 2 )
+
+[node name="Fields" type="VBoxContainer" parent="."]
+anchor_left = 0.27
+anchor_top = 0.25
+anchor_right = 0.49375
+anchor_bottom = 0.875
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Selling" type="RichTextLabel" parent="Fields"]
+margin_right = 178.0
+margin_bottom = 20.0
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0.819608, 0.996078, 0.996078, 1 )
+text = "Selling "
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="Fields"]
+margin_top = 24.0
+margin_right = 178.0
+margin_bottom = 28.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="isClean" type="RichTextLabel" parent="Fields"]
+margin_top = 32.0
+margin_right = 178.0
+margin_bottom = 52.0
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0.819608, 0.996078, 0.996078, 1 )
+text = "Is Clean  ?"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator2" type="HSeparator" parent="Fields"]
+margin_top = 56.0
+margin_right = 178.0
+margin_bottom = 60.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="isLightOff" type="RichTextLabel" parent="Fields"]
+margin_top = 64.0
+margin_right = 178.0
+margin_bottom = 84.0
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0.819608, 0.996078, 0.996078, 1 )
+text = "Is lights off ?"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator4" type="HSeparator" parent="Fields"]
+margin_top = 88.0
+margin_right = 178.0
+margin_bottom = 92.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="isOutShop" type="RichTextLabel" parent="Fields"]
+margin_top = 96.0
+margin_right = 178.0
+margin_bottom = 116.0
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0.819608, 0.996078, 0.996078, 1 )
+text = "Is stuff in the shop ?"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator5" type="HSeparator" parent="Fields"]
+margin_top = 120.0
+margin_right = 178.0
+margin_bottom = 124.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="isSorted" type="RichTextLabel" parent="Fields"]
+margin_top = 128.0
+margin_right = 178.0
+margin_bottom = 148.0
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0.819608, 0.996078, 0.996078, 1 )
+text = "Is Sorted ?"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator6" type="HSeparator" parent="Fields"]
+margin_top = 152.0
+margin_right = 178.0
+margin_bottom = 156.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="isHelped" type="RichTextLabel" parent="Fields"]
+margin_top = 160.0
+margin_right = 178.0
+margin_bottom = 200.0
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0.819608, 0.996078, 0.996078, 1 )
+text = "How many times helped ?"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSeparator" type="VSeparator" parent="."]
+margin_left = 395.0
+margin_top = 100.0
+margin_right = 400.0
+margin_bottom = 300.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Results" type="VBoxContainer" parent="."]
+margin_left = 400.0
+margin_top = 100.0
+margin_right = 587.0
+margin_bottom = 336.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel0" type="RichTextLabel" parent="Results"]
+margin_right = 187.0
+margin_bottom = 20.0
+custom_fonts/normal_font = SubResource( 4 )
+fit_content_height = true
+
+[node name="HSeparator" type="HSeparator" parent="Results"]
+margin_top = 24.0
+margin_right = 187.0
+margin_bottom = 28.0
+
+[node name="RichTextLabel1" type="RichTextLabel" parent="Results"]
+margin_top = 32.0
+margin_right = 187.0
+margin_bottom = 52.0
+custom_fonts/normal_font = SubResource( 4 )
+fit_content_height = true
+
+[node name="HSeparator2" type="HSeparator" parent="Results"]
+margin_top = 56.0
+margin_right = 187.0
+margin_bottom = 60.0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Results"]
+margin_top = 64.0
+margin_right = 187.0
+margin_bottom = 84.0
+custom_fonts/normal_font = SubResource( 4 )
+fit_content_height = true
+
+[node name="HSeparator3" type="HSeparator" parent="Results"]
+margin_top = 88.0
+margin_right = 187.0
+margin_bottom = 92.0
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="Results"]
+margin_top = 96.0
+margin_right = 187.0
+margin_bottom = 116.0
+custom_fonts/normal_font = SubResource( 4 )
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator4" type="HSeparator" parent="Results"]
+margin_top = 120.0
+margin_right = 187.0
+margin_bottom = 124.0
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="Results"]
+margin_top = 128.0
+margin_right = 187.0
+margin_bottom = 148.0
+custom_fonts/normal_font = SubResource( 4 )
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator5" type="HSeparator" parent="Results"]
+margin_top = 152.0
+margin_right = 187.0
+margin_bottom = 156.0
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="Results"]
+margin_top = 160.0
+margin_right = 187.0
+margin_bottom = 180.0
+custom_fonts/normal_font = SubResource( 4 )
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Next" to="." method="_on_Next_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]

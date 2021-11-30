@@ -587,6 +587,7 @@ anims/GUI = SubResource( 25 )
 one_shot = true
 
 [node name="Popup" type="Popup" parent="ControlInterface"]
+visible = true
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 592.0
 margin_right = 800.0

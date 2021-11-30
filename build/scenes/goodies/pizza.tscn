@@ -3,7 +3,9 @@
 [ext_resource path="res://scripts/ExtendBodyPh.gd" type="Script" id=1]
 [ext_resource path="res://textures/goodies/pizza.png" type="Texture" id=2]
 
-[node name="pizza" type="RigidBody2D"]
+[node name="pizza" type="RigidBody2D" groups=[
+"goodies",
+]]
 position = Vector2( 511.629, 334.371 )
 z_index = 2
 collision_layer = 2

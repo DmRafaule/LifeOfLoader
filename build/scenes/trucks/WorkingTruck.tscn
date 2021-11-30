@@ -1,0 +1,206 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://textures/cars/truck/body.png" type="Texture" id=1]
+[ext_resource path="res://textures/cars/truck/wheel.png" type="Texture" id=2]
+[ext_resource path="res://textures/cars/truck/platform.png" type="Texture" id=3]
+[ext_resource path="res://textures/cars/truck/body_inside.png" type="Texture" id=4]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+
+func createTray(pos):
+	var obj = load(\"res://scenes/tray.tscn\").instance()
+	obj.add_to_group(\"save\")
+	obj.set_position(pos)
+	get_node(\"main\").add_child(obj)
+
+
+func _ready():
+	get_node(\"AnimationPlayer\").animation_set_next(\"Appearance\",\"platform_active\")
+	get_node(\"AnimationPlayer\").play(\"Appearance\")
+func _process(delta):
+	# For shader in truck bodt
+	if get_node(\"main/body\").material != null:
+		# Set up 'absolute' position in world mch
+		var posPl = get_tree().get_root().get_node(\"WorkSession/Building/mch\").position;
+		# Set up 'absolute' position in world of body of truck
+		var posTr = get_node(\".\").position + get_node(\"main\").position + get_node(\"main/body\").position
+		# Find out relative position towards to body of truck
+		var result = posPl - posTr
+		get_node(\"main/body\").material.set_shader_param(\"mch_pos\",result)
+
+func _on_Area2D_body_entered(body):
+	if (body.get_name() == \"mch\" ):
+		get_node(\"AnimationPlayer\").play(\"platform_half_active\")
+
+
+func _on_Area2D_body_exited(body):
+	if (body.get_name() == \"mch\"):
+		get_node(\"AnimationPlayer\").play_backwards(\"platform_half_active\")
+
+
+func _on_body_body_entered(body):
+	if ((body.name == \"mch\" or body.name == \"Wheel1\") and get_node(\"main/body\").material == null):
+		var material = load(\"res://shaders/WorkingTruck.tres\")
+		get_node(\"main/body\").material = material
+
+
+func _on_body_body_exited(body):
+	if ((body.name == \"mch\" or body.name == \"Wheel1\") and get_node(\"main/body\").material != null):
+		get_node(\"main/body\").material = null
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 0.840363, 19.4286 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10, 16.0252 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 288.658, 119.39 )
+
+[sub_resource type="Animation" id=5]
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("main:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 500, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 6.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("main/platform:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.2, 3.67072, -23.7008, -0.25, 0, 0.23, 39.8131, -28.6774, -0.25, 0, 0.2689, 17.4182, -56.049, -0.25, 0, 0.263996, 9.95328, -70.9789, -0.25, 0, 0.259091, 9.95328, -75.9555, -0.25, 0, 0.232895, -24.8832, -90, -0.431219, 16.5328, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4, 1, 1.7, 2.4, 3, 4 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("main/platform:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 4, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 162.89, 294.859 ), Vector2( 163, 389 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("main/platform:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 163, 389 ), Vector2( 163.625, 295.333 ) ]
+}
+
+[node name="Truck" type="Node2D"]
+position = Vector2( 200, -16 )
+script = SubResource( 1 )
+
+[node name="main" type="Node2D" parent="."]
+position = Vector2( 500, 0 )
+
+[node name="wheelback" type="Sprite" parent="main"]
+modulate = Color( 0.0941176, 0.0941176, 0.0941176, 1 )
+position = Vector2( 303.427, 355.612 )
+scale = Vector2( 4.5, 4.5 )
+texture = ExtResource( 2 )
+
+[node name="wheelFront" type="Sprite" parent="main"]
+position = Vector2( 360, 352 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 2 )
+
+[node name="platform" type="Sprite" parent="main"]
+position = Vector2( 162.89, 294.859 )
+scale = Vector2( 5, 6.21414 )
+texture = ExtResource( 3 )
+offset = Vector2( 10, -18 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="main/platform"]
+collision_mask = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="main/platform/StaticBody2D"]
+position = Vector2( 0.0208702, -18.0809 )
+shape = SubResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="main/platform/StaticBody2D"]
+position = Vector2( 1.95998, -35.3178 )
+polygon = PoolVector2Array( -2.77349, -2.19335, -2.77517, -5.1665, -1.10579, -2.18804 )
+
+[node name="Area2D" type="Area2D" parent="main/platform"]
+position = Vector2( 12.9016, -17.9228 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="main/platform/Area2D"]
+shape = SubResource( 3 )
+
+[node name="body_in" type="Sprite" parent="main"]
+position = Vector2( 412.517, 206.823 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 4 )
+
+[node name="body" type="Sprite" parent="main"]
+position = Vector2( 82.517, 46.823 )
+scale = Vector2( 5, 5 )
+z_index = 5
+texture = ExtResource( 1 )
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="main/body"]
+position = Vector2( 63.5466, 50.55 )
+collision_mask = 56
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="main/body/StaticBody2D"]
+polygon = PoolVector2Array( -46.3841, -1.59499, -46.3841, 0.454079, 66.6098, 0.649212, 66.5615, -46.4694, 64.2307, -46.4694, 64.2438, -1.46767 )
+
+[node name="body" type="Area2D" parent="main/body"]
+position = Vector2( 72.9181, 27.3322 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="main/body/body"]
+position = Vector2( 0, 0.982452 )
+shape = SubResource( 4 )
+
+[node name="Position3" type="Position2D" parent="main"]
+position = Vector2( 226.728, 267.857 )
+
+[node name="Position2" type="Position2D" parent="main"]
+position = Vector2( 342.907, 267.857 )
+
+[node name="Position1" type="Position2D" parent="main"]
+position = Vector2( 461.056, 266.969 )
+
+[node name="Position0" type="Position2D" parent="main"]
+position = Vector2( 580.405, 266.705 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Appearance = SubResource( 5 )
+anims/platform_active = SubResource( 6 )
+anims/platform_half_active = SubResource( 7 )
+
+[connection signal="body_entered" from="main/platform/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="main/platform/Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="main/body/body" to="." method="_on_body_body_entered"]
+[connection signal="body_exited" from="main/body/body" to="." method="_on_body_body_exited"]

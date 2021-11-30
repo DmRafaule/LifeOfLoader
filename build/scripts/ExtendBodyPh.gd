@@ -12,11 +12,23 @@ var boxType
 
 var nameStr
 var nameGoodie = ""
+var typeGoodie = "none"
 var numberOfGoodie = 0
 
 func setBoxGoodie(var name, var number):
 	nameGoodie = name
 	numberOfGoodie = number
+	match(nameGoodie):
+		"bunny.png","puppy.png":
+			typeGoodie = "toy"
+		"cymbals.png":
+			typeGoodie = "utencil"
+		"fairy.png":
+			typeGoodie = "chemistry"
+		"notebooks.png":
+			typeGoodie = "office"
+		"pizza.png":
+			typeGoodie = "food"
 
 func _ready():
 	isInteractable = false

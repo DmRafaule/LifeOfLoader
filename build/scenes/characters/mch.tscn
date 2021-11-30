@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://textures/characters/hero/hero_texture.png" type="Texture" id=2]
 [ext_resource path="res://scenes/ControlInterface.tscn" type="PackedScene" id=3]
@@ -88,11 +88,6 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": true,
-"name": "usingPress",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
 "name": "holdBox",
 "speed": 5.0
 }, {
@@ -105,6 +100,11 @@ animations = [ {
 "loop": true,
 "name": "usingLifter",
 "speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "usingPress",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=21]
@@ -112,6 +112,21 @@ extents = Vector2( 8.71506, 32.0655 )
 
 [sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 30, 41.0388 )
+
+[sub_resource type="Animation" id=23]
+resource_name = "StartDialog"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.8, 0.8 ) ]
+}
 
 [node name="mch" type="KinematicBody2D"]
 position = Vector2( 421.766, 493.528 )
@@ -124,7 +139,7 @@ position = Vector2( -3.1748, 4.86316 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 20 )
 animation = "idle"
-frame = 70
+frame = 71
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -149,3 +164,6 @@ position = Vector2( -3.64801, -0.561218 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
 position = Vector2( 0.224148, -5.9482 )
 shape = SubResource( 22 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/StartDialog = SubResource( 23 )

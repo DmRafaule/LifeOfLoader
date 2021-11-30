@@ -5,6 +5,8 @@ export (int) var g = 1
 export (int) var touchBoxSize = 50
 export (int) var touchPlayerSize = 100
 
+onready var session  = get_node("/root/Session") 
+
 var velocity = Vector2()
 var controlingNode
 
@@ -13,6 +15,8 @@ var isJump = false
 var currentIntObj = null
 var currentGoodie = null
 var interactableObjs
+var prevMinsLeft = 60
+var minsLeft  = 59
 var hoursLeft = 11
 var counter = 0
 
@@ -22,21 +26,21 @@ func createGoodie(var name, var number):
 		var res = load("res://scenes/goodies/" + (str(name).replace(".png","")) + ".tscn").instance()
 		res.isOpend = true
 		res.add_to_group("save")
-		res.nameGoodie = name
+		res.add_to_group("goodies")
+		res.setBoxGoodie(name,1)
 		res.nameStr = "goodie"
 		res.position = currentGoodie.get_parent().position + currentGoodie.position + Vector2(0-i*20,-20 + i*3)
-		get_tree().get_root().get_node("WorkSession").goodies.push_back(res)
 		get_tree().get_root().get_node("WorkSession/Building").add_child(res)
 #Create block (when enough empty boxes in press
 func createBlock():
 	var res = load("res://scenes/boxes/block.tscn").instance()
 	var script = load("res://scripts/ExtendBodyPh.gd")
 	res.set_script(script)
+	res.add_to_group("goodies")
 	currentIntObj.get_node("../press_counter/counter").text = str(currentIntObj.boxesCounter)
 	res.position = get_tree().get_root().get_node("WorkSession/Building/press").position + Vector2(0,50)
 	res.isOpend = true
 	get_tree().get_root().get_node("WorkSession/Building").add_child(res)
-	get_tree().get_root().get_node("WorkSession").goodies.push_back(res)
 	res.setBoxGoodie("block",1)
 #Create fix join bettween nodeA and NodeB where join will be child of NodeA
 func createJoin(var nodeA, var nodeB):
@@ -56,17 +60,30 @@ func switchIntForc():
 func getInfo():
 	if get_node("Popup").visible == false:
 		get_node("Popup").popup()
+		get_node("Popup/borders").visible = true
 		get_node("Popup/nameGoodie").text = str(currentGoodie.nameGoodie).replace(".png","")
 		get_node("Popup/numberOfGoodie").text = str(currentGoodie.numberOfGoodie)
 		get_node("Popup/AnimationPlayer").play("appearance")
 	else:
+		get_node("Popup").hide()
+func getInfoList():
+	if get_node("Popup").visible == false:
+		get_node("Popup").popup()
+		get_node("Popup/borders").visible = false
+		get_node("Popup/nameGoodie").text = str(currentGoodie.nameGoodie).replace(".png","")
+		get_node("Popup/numberOfGoodie").text = ""
+		get_node("Popup/AnimationPlayer").play("appearance")
+	else:
+		get_node("Popup/borders").visible = true
 		get_node("Popup").hide()
 func dropBox():
 	if (currentGoodie != null):
 		get_node("DropBox/AnimationPlayer").play("GUI")
 		get_node("DropBox/AnimationPlayer").play_backwards("appearance")
 		get_node("OpenBox/AnimationPlayer").play_backwards("appearance")
-		controlingNode.remove_child(controlingNode.get_node("joint"))
+		var j = controlingNode.get_node_or_null("joint")
+		if (j != null):
+			controlingNode.remove_child(j)
 		currentGoodie.call_deferred("switchColl",false)
 		currentGoodie.isInteractable = false
 		# Set z index to default
@@ -97,13 +114,41 @@ func dragBox(event):
 			currentGoodie.pos = touchScreenPositionToGlobal(event.position,controlingNode)
 			currentGoodie.rect.position = Vector2(currentGoodie.pos.x - touchBoxSize/2,currentGoodie.pos.y - touchBoxSize/2)
 			switchIntForc()
+func dayLightUpdate():
+	get_tree().get_root().get_node("WorkSession/BG").modulate -= Color(0.07,0.07,0.07,0.0)
+	get_tree().get_root().get_node("WorkSession/BG/lighters/ligherAtStreet1/Light2D").energy += 0.17
+	get_tree().get_root().get_node("WorkSession/BG/lighters/ligherAtStreet2/Light2D").energy += 0.17
+	get_tree().get_root().get_node("WorkSession/BG/lighters/ligherAtStreet3/Light2D").energy += 0.17
+	get_tree().get_root().get_node("WorkSession/BG/lighters/ligherAtStreet4/Light2D").energy += 0.17
+	get_tree().get_root().get_node("WorkSession/BG/lighters/ligherAtStreet5/Light2D").energy += 0.17
+	
 func updateSessionTimer(delta):
 	counter += delta
-	get_node("Timer/min").text = str(int(get_tree().get_root().get_node("WorkSession/EndDay").time_left) % 60)
+	minsLeft = int(get_tree().get_root().get_node("WorkSession/EndDay").time_left) % 60
+	if (prevMinsLeft != minsLeft):
+		get_node("Timer/min").text = str(minsLeft)		
+		# Execute script events (such as truck appearance or massive attack of clients
+		get_tree().get_root().get_node("WorkSession").proccesseGameEvents(hoursLeft,minsLeft)
+	prevMinsLeft = minsLeft
 	if (int(get_tree().get_root().get_node("WorkSession/EndDay").time_left) % 60 == 0 and counter >= 1 and hoursLeft > 0):
+		dayLightUpdate()
 		hoursLeft -= 1
+		session.current_hour = hoursLeft
 		counter = 0
 		get_node("Timer/hour").text = str(hoursLeft)
+	# Update dialog, called only then if previose was destroid
+	if (session.isEndPhrase):
+		session.isEndPhrase = false
+		if (session.current_dialog_win < session.dialogs.size()):
+			var ws = get_tree().get_root().get_node_or_null("WorkSession")
+			ws.createDialogWin(session.dialogs[session.current_dialog_win]["properties"][0],
+							   session.dialogs[session.current_dialog_win]["properties"][1])
+			session.current_dialog_win += 1
+		else:
+			get_tree().get_root().get_node("WorkSession/Building/mch/Camera2D/HUD/ControlInterface").visible = true
+			if (session.isDialogStart):
+				session.isDialogStart = false
+				get_tree().get_root().get_node("WorkSession/Building/mch/AnimationPlayer").play_backwards("StartDialog")
 #This function need point which to transform and node which need to get transformation delay
 func touchScreenPositionToGlobal(point,canvasNode):
 	#Get transformation our canvas layer(HUD)
@@ -136,6 +181,7 @@ func _input(event):
 	if event is InputEventScreenDrag :
 		dragBox(event)
 func onTouchPressed(event):
+	interactableObjs = get_tree().get_nodes_in_group("forPlayerInt")
 	var touchPoint = touchScreenPositionToGlobal(event.position,controlingNode)
 	# First of all check if we touch the player "touching box"
 	var size = controlingNode.get_node("CollisionShape2D").shape.extents * 4
@@ -193,6 +239,19 @@ func onTouchPressed(event):
 							get_node("InPress/AnimationPlayer").play_backwards("appearance")
 					currentIntObj.isInteractable = true
 					currentIntObj = null
+			elif(iObj.isInteractable and iObj.nameStr == "switch"):
+				var m1 = get_tree().get_root().get_node("WorkSession/Building")
+				var m2 = get_tree().get_root().get_node("WorkSession/BG")
+				if get_tree().get_root().get_node("WorkSession/Building/buildingG/LightInShop1").enabled:
+					m1.modulate = m2.modulate
+				else:
+					m1.modulate = Color(1.0,1.0,1.0,1.0)
+				iObj.use(get_tree().get_root().get_node("WorkSession/Building/buildingG/LightInShop1"))
+				iObj.use(get_tree().get_root().get_node("WorkSession/Building/buildingG/LightInShop2"))
+				iObj.use(get_tree().get_root().get_node("WorkSession/Building/buildingG/LightInShop3"))
+				iObj.use(get_tree().get_root().get_node("WorkSession/Building/buildingG/LightInStorage"))
+			elif(iObj.isInteractable and iObj.nameStr == "tray"):
+				iObj.open()
 	# Then check all boxes
 	elif (grab_zona.has_point(touchPoint)):
 		#Main node of all boxes
@@ -211,7 +270,7 @@ func onTouchPressed(event):
 				currentGoodie.call_deferred("switchColl",true)
 				currentGoodie.pos = controlingNode.get_position() + Vector2(20,0)
 				box.isInteractable = true
-		for g in get_tree().get_root().get_node("WorkSession").goodies:
+		for g in get_tree().get_nodes_in_group("goodies"):
 			var item_zona = Rect2(Vector2(g.position.x - touchBoxSize/2,g.position.y - touchBoxSize/2),Vector2(touchBoxSize,touchBoxSize));
 			g.rect = item_zona
 			if item_zona.has_point(touchPoint):
@@ -222,7 +281,39 @@ func onTouchPressed(event):
 				currentGoodie.call_deferred("switchColl",true)
 				currentGoodie.pos = controlingNode.get_position() + Vector2(20,0)
 				g.isInteractable = true
-				g.z_index = 4				
+				g.z_index = 4
+	else:
+		# Skip dialog
+		if (session.current_dialog_win <= session.dialogs.size() and session.current_dialog_win > 0):
+			get_tree().get_root().get_node("WorkSession").removeDialogWin(session.dialogs[session.current_dialog_win - 1]["properties"][1])
+		# Ask about task
+		for v in get_tree().get_nodes_in_group("visitors"):
+			var visitor_rect = Rect2(Vector2(v.position.x - 25,v.position.y - 50),Vector2(50,200))
+			if visitor_rect.has_point(touchPoint) and v.isInteractable:
+				# Compare
+				if currentGoodie != null:
+					if v.text == currentGoodie.nameGoodie.replace(".png",""):
+						#HERE animation for puff and bying 
+						v.say("That is it, I'll take it")
+						get_tree().get_root().get_node("WorkSession").closedTask += 1
+						v.remove_child(v.get_node("question"))
+						v.isInteractable = false
+						v.sum += 15
+						# Remove goodie
+						get_node("DropBox/AnimationPlayer").play("GUI")
+						get_node("DropBox/AnimationPlayer").play_backwards("appearance")
+						get_node("OpenBox/AnimationPlayer").play_backwards("appearance")
+						var j = controlingNode.get_node_or_null("joint")
+						if (j != null):
+							controlingNode.remove_child(j)
+						get_tree().get_root().get_node("WorkSession/Building").remove_child(currentGoodie)
+						currentGoodie = null
+						isDrag = false
+					else:
+						v.say("What ??? No. I did say " + v.text)
+				else:
+					v.say("Mr. can you find me " + v.text)
+
 func onTouchRelease(event):
 	if isDrag == true:
 		dropBox()
@@ -262,7 +353,13 @@ func _on_FallDown_pressed():
 	controlingNode.set_collision_mask_bit(1,false);
 
 func _on_PopUpMenu_pressed():
+	get_tree().get_root().get_node("WorkSession/EndDay").paused = true
 	get_node("PopUpMenu/AnimationPlayer").play("GUI")
+	get_tree().get_root().get_node("WorkSession").isEndDay = true
+	var res = load("res://scenes/PopupMenu.tscn").instance()
+	get_tree().get_root().get_node("WorkSession/Building/mch/Camera2D/HUD").add_child(res)
+	get_tree().get_root().get_node("WorkSession/Building/mch/Camera2D/HUD/ControlInterface").visible = false
+	get_tree().get_root().get_node("WorkSession").modulate = Color(0.06,0.06,0.06,1.0) 
 	
 func _on_PressUp_pressed():
 	if (currentIntObj.get_node("AnimatedSprite").is_playing()):
@@ -297,7 +394,10 @@ func _on_OpenBox_pressed():
 		openBox()
 		dropBox()
 func _on_DropBox_pressed():
-	getInfo()
+	if currentGoodie.nameStr == "list":
+		getInfoList()
+	else:
+		getInfo()
 func _on_InPress_pressed():
 	if (currentGoodie != null and currentIntObj.boxesCounter < currentIntObj.maxCapacity):
 		currentIntObj.boxesCounter += 1

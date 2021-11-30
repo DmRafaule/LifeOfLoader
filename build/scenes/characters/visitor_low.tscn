@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/VisitorControl.gd" type="Script" id=1]
+[ext_resource path="res://textures/characters/visitors/low.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "enter"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 202.165, 443.574 ), Vector2( 400.165, 443.574 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "exit"
+
+[sub_resource type="Animation" id=3]
+resource_name = "patrole"
+
+[node name="visitor_low" type="Node2D" groups=[
+"visitors",
+]]
+position = Vector2( 361.702, 446.04 )
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -4.9812, 40.7095 )
+scale = Vector2( 6, 6 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/enter = SubResource( 1 )
+anims/exit = SubResource( 2 )
+anims/patrole = SubResource( 3 )
+
+[node name="Tween" type="Tween" parent="."]
+playback_process_mode = 0
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( -7.85727, -23.0105 )
+
+[node name="PositionForTouch" type="Position2D" parent="."]
+position = Vector2( -8.63092, 48.836 )
+
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]

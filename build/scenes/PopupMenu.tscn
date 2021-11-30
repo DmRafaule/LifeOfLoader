@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://textures/hud/quitP_pressed.png" type="Texture" id=1]
+[ext_resource path="res://textures/hud/next_pressed.png" type="Texture" id=2]
+[ext_resource path="res://textures/hud/next_still.png" type="Texture" id=3]
+[ext_resource path="res://textures/hud/quitP_still.png" type="Texture" id=4]
+[ext_resource path="res://scripts/PopupMenuControl.gd" type="Script" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 15.0
+
+[node name="PopupMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Next" type="TouchScreenButton" parent="."]
+position = Vector2( 685.993, 285.088 )
+scale = Vector2( 3, 3 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 2 )
+shape = SubResource( 1 )
+
+[node name="Exit" type="TouchScreenButton" parent="."]
+position = Vector2( 36.5269, 279.743 )
+scale = Vector2( 3, 3 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 1 )
+shape = SubResource( 2 )
+
+[node name="Settings" type="TouchScreenButton" parent="."]
+position = Vector2( 334.251, 234.234 )
+scale = Vector2( 3, 3 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 2 )
+shape = SubResource( 1 )
+
+[node name="Credits" type="TouchScreenButton" parent="."]
+position = Vector2( 332.132, 94.3845 )
+scale = Vector2( 3, 3 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 2 )
+shape = SubResource( 1 )
+
+[connection signal="pressed" from="Next" to="." method="_on_Next_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_Credits_pressed"]

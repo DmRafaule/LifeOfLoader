@@ -1,0 +1,74 @@
+extends Node2D
+
+var deathTime
+var isExit
+var isStart
+var sum = 0
+var isInteractable = false
+var text
+
+func setInter():
+	isInteractable = true
+	var texture = ImageTexture.new()
+	var image = Image.new()
+	image.load("res://textures/humanEnviroment/question.png")
+	texture.create_from_image(image)
+	var spr = Sprite.new()
+	spr.texture = texture
+	spr.name = "question"
+	spr.position = get_node("Position2D").position
+	add_child(spr)
+func say(var sentence):
+	var res = load("res://scenes/Popup.tscn").instance()
+	add_child(res)
+	res.scale = Vector2(2,2)
+	res.get_node("Sprite").visible = false
+	res.get_node("Sprite2").visible = false
+	res.get_node("Sprite3").visible = false
+	get_node("Popup/RichTextLabel").text = sentence
+func take():
+	var rnd    = RandomNumberGenerator.new()	
+	rnd.randomize()
+	if get_tree().get_nodes_in_group("goodies").size() > 0:
+		var g = get_tree().get_nodes_in_group("goodies")[rnd.randi_range(0,get_tree().get_nodes_in_group("goodies").size()-1)]
+		if !g.isInteractable:
+			sum += 10
+			get_tree().get_root().get_node("WorkSession/Building").remove_child(g)
+			#TODO HERE animation of bying goodie (puph)
+func partol():
+	var rnd    = RandomNumberGenerator.new()	
+	rnd.randomize()
+	get_node("Tween").interpolate_property(self,"position",self.position,Vector2(rnd.randi_range(-600,700),self.position.y),5,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
+	get_node("Tween").start()
+	if (rnd.randi_range(0,20) == 1):	
+		take()
+
+
+func exit():
+	isExit = true
+	var rnd    = RandomNumberGenerator.new()	
+	rnd.randomize()
+	get_node("Tween").interpolate_property(get_node("."),"position",self.position, Vector2(-1000,self.position.y),5,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
+	get_node("Tween").start()
+func enter():
+	isStart = true
+	var rnd    = RandomNumberGenerator.new()	
+	rnd.randomize()
+	get_node("Tween").interpolate_property(get_node("."),"position",self.position,self.position + Vector2(400,0),rnd.randf_range(1.5,2.0),Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
+	get_node("Tween").start()
+func _ready():
+	enter()
+	
+func self_kill():
+	self.remove_child(get_node("Sprite"))
+	self.remove_child(get_node("Tween"))
+	self.remove_child(get_node("AnimationPlayer"))
+	remove_and_skip()
+
+
+func _on_Tween_tween_all_completed():
+	if (isExit):
+		#HERE animation of $555 on cassier
+		self_kill()
+	elif (isStart):
+		partol()

@@ -1,7 +1,7 @@
-[gd_scene load_steps=161 format=2]
+[gd_scene load_steps=165 format=2]
 
 [ext_resource path="res://textures/humanEnviroment/tilesSheetForWork.png" type="Texture" id=1]
-[ext_resource path="res://scenes/mch.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/characters/mch.tscn" type="PackedScene" id=2]
 [ext_resource path="res://textures/humanEnviroment/press.png" type="Texture" id=3]
 [ext_resource path="res://textures/humanEnviroment/cassa.png" type="Texture" id=4]
 [ext_resource path="res://textures/humanEnviroment/doorShop.png" type="Texture" id=5]
@@ -43,6 +43,8 @@
 [ext_resource path="res://textures/humanEnviroment/attention_sign.png" type="Texture" id=41]
 [ext_resource path="res://textures/humanEnviroment/leafsHeap2.png" type="Texture" id=42]
 [ext_resource path="res://textures/humanEnviroment/leafsHeap1.png" type="Texture" id=43]
+[ext_resource path="res://scenes/characters/julia.tscn" type="PackedScene" id=44]
+[ext_resource path="res://textures/hud/switch.png" type="Texture" id=45]
 [ext_resource path="res://textures/cars/rochla/wheel.png" type="Texture" id=50]
 [ext_resource path="res://textures/cars/rochla/laver.png" type="Texture" id=51]
 [ext_resource path="res://fonts/WorkSans-Italic-VariableFont_wght.ttf" type="DynamicFontData" id=54]
@@ -5306,6 +5308,8 @@ func _ready():
 func _on_Area2D_body_entered(body):
 	if body.name == \"mch\":
 		isInteractable = true
+		var res = load(\"res://shaders/outline.tres\")
+		body.get_node(\"AnimatedSprite\").material = res
 		get_node(\"AnimatedSprite\").play(\"opening\",false)
 
 
@@ -5320,31 +5324,33 @@ func _on_Area2D_body_exited(body):
 			button.play_backwards(\"appearance\")
 	buttonsObj.clear()
 	get_node(\"AnimatedSprite\").play(\"opening\",true)
+	if (body.name == \"mch\"):
+		body.get_node(\"AnimatedSprite\").material = null
 "
 
 [sub_resource type="AtlasTexture" id=69]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 64, 64 )
+region = Rect2( 64, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=70]
 atlas = ExtResource( 3 )
-region = Rect2( 256, 0, 64, 64 )
+region = Rect2( 0, 192, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=71]
 atlas = ExtResource( 3 )
-region = Rect2( 192, 0, 64, 64 )
+region = Rect2( 64, 192, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=72]
 atlas = ExtResource( 3 )
-region = Rect2( 320, 0, 64, 64 )
+region = Rect2( 128, 192, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=73]
 atlas = ExtResource( 3 )
-region = Rect2( 128, 0, 64, 64 )
+region = Rect2( 192, 192, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=74]
 atlas = ExtResource( 3 )
-region = Rect2( 64, 0, 64, 64 )
+region = Rect2( 256, 192, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=75]
 atlas = ExtResource( 3 )
@@ -5352,124 +5358,124 @@ region = Rect2( 64, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=76]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 192, 64, 64 )
+region = Rect2( 128, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=77]
 atlas = ExtResource( 3 )
-region = Rect2( 64, 192, 64, 64 )
+region = Rect2( 192, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=78]
 atlas = ExtResource( 3 )
-region = Rect2( 128, 192, 64, 64 )
+region = Rect2( 320, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=79]
 atlas = ExtResource( 3 )
-region = Rect2( 192, 192, 64, 64 )
+region = Rect2( 256, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=80]
 atlas = ExtResource( 3 )
-region = Rect2( 256, 192, 64, 64 )
+region = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=81]
 atlas = ExtResource( 3 )
-region = Rect2( 64, 0, 64, 64 )
+region = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=82]
 atlas = ExtResource( 3 )
-region = Rect2( 128, 0, 64, 64 )
+region = Rect2( 0, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=83]
 atlas = ExtResource( 3 )
-region = Rect2( 192, 0, 64, 64 )
+region = Rect2( 64, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=84]
 atlas = ExtResource( 3 )
-region = Rect2( 320, 0, 64, 64 )
+region = Rect2( 128, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=85]
 atlas = ExtResource( 3 )
-region = Rect2( 256, 0, 64, 64 )
+region = Rect2( 192, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=86]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 64, 64 )
+region = Rect2( 256, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=87]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 64, 64 )
+region = Rect2( 320, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=88]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 64, 64, 64 )
+region = Rect2( 384, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=89]
 atlas = ExtResource( 3 )
-region = Rect2( 64, 64, 64, 64 )
+region = Rect2( 448, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=90]
 atlas = ExtResource( 3 )
-region = Rect2( 128, 64, 64, 64 )
+region = Rect2( 512, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=91]
 atlas = ExtResource( 3 )
-region = Rect2( 192, 64, 64, 64 )
+region = Rect2( 576, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=92]
 atlas = ExtResource( 3 )
-region = Rect2( 256, 64, 64, 64 )
+region = Rect2( 0, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=93]
 atlas = ExtResource( 3 )
-region = Rect2( 320, 64, 64, 64 )
+region = Rect2( 64, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=94]
 atlas = ExtResource( 3 )
-region = Rect2( 384, 64, 64, 64 )
+region = Rect2( 128, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=95]
 atlas = ExtResource( 3 )
-region = Rect2( 448, 64, 64, 64 )
+region = Rect2( 192, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=96]
 atlas = ExtResource( 3 )
-region = Rect2( 512, 64, 64, 64 )
+region = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=97]
 atlas = ExtResource( 3 )
-region = Rect2( 576, 64, 64, 64 )
+region = Rect2( 256, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=98]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 128, 64, 64 )
+region = Rect2( 192, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=99]
 atlas = ExtResource( 3 )
-region = Rect2( 64, 128, 64, 64 )
+region = Rect2( 320, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=100]
 atlas = ExtResource( 3 )
-region = Rect2( 128, 128, 64, 64 )
+region = Rect2( 128, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=101]
 atlas = ExtResource( 3 )
-region = Rect2( 192, 128, 64, 64 )
+region = Rect2( 64, 0, 64, 64 )
 
 [sub_resource type="SpriteFrames" id=102]
 animations = [ {
 "frames": [ SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ) ],
 "loop": false,
-"name": "opening",
-"speed": 6.0
-}, {
-"frames": [ SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ) ],
-"loop": false,
 "name": "openingBottom",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ), SubResource( 89 ), SubResource( 90 ), SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ), SubResource( 99 ), SubResource( 100 ), SubResource( 101 ) ],
+"frames": [ SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ), SubResource( 89 ), SubResource( 90 ), SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ) ],
 "loop": false,
 "name": "pressing",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 96 ), SubResource( 97 ), SubResource( 98 ), SubResource( 99 ), SubResource( 100 ), SubResource( 101 ) ],
+"loop": false,
+"name": "opening",
+"speed": 6.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=103]
@@ -5520,10 +5526,13 @@ func _on_Area2D_body_exited(body):
 # When player entered  he can interact with rochla
 func _on_pen_body_entered(body):
 	if body.get_name() == \"mch\":
+		var res = load(\"res://shaders/outline.tres\")
+		body.get_node(\"AnimatedSprite\").material = res
 		isInteractable = true
 # When he leaves he can't
 func _on_pen_body_exited(body):
 	if body.get_name() == \"mch\":
+		body.get_node(\"AnimatedSprite\").material = null
 		isInteractable = false
 "
 
@@ -5620,7 +5629,47 @@ tracks/1/keys = {
 "values": [ Vector2( 0.465881, -7.66709 ), Vector2( 0.111755, -10.6661 ) ]
 }
 
-[sub_resource type="ArrayMesh" id=113]
+[sub_resource type="GDScript" id=113]
+script/source = "extends Node2D
+
+
+var   isInteractable = false 	# Used in ControlInterface.gd, for interacting
+var   isUnderControl = false	# Used in ControlInterface.gd, for switching control
+var   isLightOn = true
+
+const nameStr = \"switch\" 		# Used in ControlInterface.gd, for sellect right node
+
+func use(var node):
+	if node.enabled:
+		isLightOn = false
+		node.enabled = false
+	else:
+		isLightOn = true
+		node.enabled = true
+func setModulate(var from, var to):
+	to.modulate = from.modulate
+
+func _ready():
+	pass # Replace with function body.
+
+
+func _on_Area2D_body_entered(body):
+	if body.get_name() == \"mch\":
+		var res = load(\"res://shaders/outline.tres\")
+		body.get_node(\"AnimatedSprite\").material = res
+		isInteractable = true
+
+
+func _on_Area2D_body_exited(body):
+	if body.get_name() == \"mch\":
+		body.get_node(\"AnimatedSprite\").material = null
+		isInteractable = false
+"
+
+[sub_resource type="RectangleShape2D" id=114]
+extents = Vector2( 25.2665, 26.4669 )
+
+[sub_resource type="ArrayMesh" id=115]
 surfaces/0 = {
 "aabb": AABB( -46.4, -41.4, 0, 80.8, 108.4, 0 ),
 "array_data": PoolByteArray( 0, 0, 96, 193, 51, 51, 7, 194, 109, 178, 201, 62, 29, 181, 125, 62, 0, 0, 96, 193, 0, 0, 36, 194, 109, 178, 201, 62, 195, 175, 70, 62, 152, 153, 25, 193, 0, 0, 36, 194, 126, 195, 218, 62, 195, 175, 70, 62, 204, 204, 4, 193, 51, 51, 23, 194, 90, 206, 223, 62, 235, 35, 95, 62, 104, 102, 230, 192, 0, 0, 32, 194, 158, 18, 228, 62, 15, 84, 78, 62, 128, 102, 102, 191, 0, 0, 32, 194, 83, 130, 252, 62, 15, 84, 78, 62, 0, 0, 128, 63, 205, 204, 20, 194, 124, 240, 1, 63, 178, 185, 99, 62, 0, 0, 0, 65, 0, 0, 32, 194, 225, 131, 15, 63, 15, 84, 78, 62, 0, 0, 0, 65, 51, 51, 17, 194, 225, 131, 15, 63, 94, 154, 106, 62, 0, 0, 48, 65, 52, 51, 235, 193, 85, 85, 21, 63, 105, 170, 143, 62, 0, 0, 48, 65, 204, 204, 212, 193, 85, 85, 21, 63, 59, 93, 154, 62, 48, 51, 35, 65, 0, 0, 196, 193, 37, 200, 19, 63, 88, 99, 162, 62, 0, 0, 200, 65, 52, 51, 219, 193, 31, 124, 48, 63, 181, 78, 151, 62, 0, 0, 200, 65, 102, 102, 198, 193, 31, 124, 48, 63, 230, 61, 161, 62, 52, 51, 219, 65, 0, 0, 180, 193, 176, 35, 53, 63, 164, 7, 170, 62, 104, 102, 210, 65, 0, 0, 160, 193, 142, 1, 51, 63, 4, 149, 179, 62, 152, 153, 197, 65, 0, 0, 160, 193, 45, 231, 47, 63, 4, 149, 179, 62, 0, 0, 176, 65, 0, 0, 144, 193, 171, 170, 42, 63, 80, 57, 187, 62, 0, 0, 168, 65, 0, 0, 80, 193, 47, 186, 40, 63, 15, 84, 206, 62, 0, 0, 232, 65, 0, 0, 128, 193, 16, 62, 56, 63, 157, 221, 194, 62, 0, 0, 232, 65, 204, 204, 76, 193, 16, 62, 56, 63, 177, 23, 207, 62, 154, 153, 9, 66, 0, 0, 240, 192, 20, 183, 66, 63, 225, 87, 227, 62, 52, 51, 5, 66, 0, 0, 160, 192, 242, 148, 64, 63, 65, 229, 236, 62, 52, 51, 251, 65, 0, 0, 160, 192, 160, 229, 60, 63, 65, 229, 236, 62, 204, 204, 200, 65, 208, 204, 108, 192, 197, 173, 48, 63, 217, 220, 241, 62, 0, 0, 208, 65, 96, 102, 70, 192, 155, 108, 50, 63, 189, 39, 244, 62, 0, 0, 208, 65, 0, 204, 204, 61, 155, 108, 50, 63, 232, 48, 0, 63, 204, 204, 188, 65, 128, 153, 217, 63, 11, 197, 45, 63, 109, 63, 3, 63, 52, 51, 203, 65, 0, 0, 96, 64, 183, 66, 49, 63, 195, 175, 6, 63, 104, 102, 194, 65, 0, 0, 192, 64, 149, 32, 47, 63, 115, 118, 11, 63, 0, 0, 184, 65, 0, 0, 192, 64, 39, 155, 44, 63, 115, 118, 11, 63, 52, 51, 167, 65, 0, 0, 16, 65, 137, 136, 40, 63, 172, 49, 17, 63, 52, 51, 179, 65, 0, 0, 16, 65, 67, 113, 43, 63, 172, 49, 17, 63, 104, 102, 206, 65, 0, 0, 152, 65, 80, 9, 50, 63, 107, 76, 36, 63, 204, 204, 180, 65, 0, 0, 152, 65, 143, 212, 43, 63, 107, 76, 36, 63, 152, 153, 121, 65, 0, 0, 192, 65, 42, 65, 30, 63, 203, 217, 45, 63, 152, 153, 89, 65, 0, 0, 192, 65, 49, 96, 26, 63, 203, 217, 45, 63, 48, 51, 35, 65, 204, 204, 180, 65, 37, 200, 19, 63, 22, 45, 43, 63, 0, 0, 64, 64, 0, 0, 224, 65, 116, 209, 5, 63, 23, 126, 53, 63, 96, 102, 6, 64, 52, 51, 57, 66, 158, 18, 4, 63, 40, 116, 88, 63, 0, 0, 112, 65, 102, 102, 100, 66, 70, 23, 29, 63, 41, 22, 109, 63, 0, 0, 112, 65, 0, 0, 114, 66, 70, 23, 29, 63, 4, 149, 115, 63, 152, 153, 137, 65, 0, 0, 130, 66, 138, 91, 33, 63, 218, 45, 124, 63, 208, 204, 76, 192, 0, 0, 130, 66, 127, 150, 243, 62, 218, 45, 124, 63, 104, 102, 166, 192, 0, 0, 134, 66, 143, 212, 235, 62, 0, 0, 128, 63, 204, 204, 108, 193, 0, 0, 134, 66, 13, 152, 198, 62, 0, 0, 128, 63, 204, 204, 124, 193, 0, 0, 132, 66, 20, 183, 194, 62, 237, 22, 126, 63, 0, 0, 200, 193, 0, 0, 132, 66, 194, 7, 159, 62, 237, 22, 126, 63, 0, 0, 200, 193, 52, 51, 127, 66, 194, 7, 159, 62, 246, 226, 121, 63, 52, 51, 219, 193, 0, 0, 118, 66, 161, 184, 149, 62, 23, 126, 117, 63, 102, 102, 210, 193, 0, 0, 108, 66, 230, 252, 153, 62, 103, 183, 112, 63, 154, 153, 197, 193, 0, 0, 108, 66, 166, 49, 160, 62, 103, 183, 112, 63, 0, 0, 160, 193, 102, 102, 92, 66, 155, 108, 178, 62, 3, 68, 105, 63, 0, 0, 160, 193, 0, 0, 82, 66, 155, 108, 178, 62, 107, 76, 100, 63, 0, 0, 128, 193, 0, 0, 54, 66, 124, 240, 193, 62, 229, 236, 86, 63, 0, 0, 128, 193, 0, 0, 0, 66, 124, 240, 193, 62, 99, 34, 61, 63, 154, 153, 133, 193, 0, 0, 0, 66, 104, 57, 191, 62, 99, 34, 61, 63, 204, 204, 140, 193, 204, 204, 212, 65, 188, 187, 187, 62, 98, 209, 50, 63, 0, 0, 232, 193, 204, 204, 0, 66, 225, 131, 143, 62, 52, 132, 61, 63, 0, 0, 232, 193, 104, 102, 230, 65, 225, 131, 143, 62, 90, 5, 55, 63, 0, 0, 0, 194, 104, 102, 206, 65, 248, 224, 131, 62, 32, 74, 49, 63, 0, 0, 0, 194, 0, 0, 184, 65, 248, 224, 131, 62, 183, 240, 43, 63, 51, 51, 15, 194, 0, 0, 184, 65, 95, 71, 106, 62, 183, 240, 43, 63, 0, 0, 28, 194, 104, 102, 158, 65, 93, 116, 81, 62, 174, 211, 37, 63, 0, 0, 28, 194, 52, 51, 135, 65, 93, 116, 81, 62, 93, 73, 32, 63, 154, 153, 19, 194, 152, 153, 121, 65, 214, 190, 97, 62, 144, 205, 29, 63, 205, 204, 32, 194, 0, 0, 16, 65, 60, 37, 72, 62, 172, 49, 17, 63, 205, 204, 20, 194, 0, 0, 16, 65, 14, 107, 95, 62, 172, 49, 17, 63, 51, 51, 19, 194, 48, 51, 3, 65, 111, 133, 98, 62, 105, 170, 15, 63, 0, 0, 44, 194, 48, 51, 131, 64, 155, 108, 50, 62, 53, 213, 7, 63, 0, 0, 44, 194, 192, 204, 204, 63, 155, 108, 50, 62, 133, 14, 3, 63, 154, 153, 35, 194, 0, 0, 128, 192, 20, 183, 66, 62, 103, 183, 240, 62, 102, 102, 40, 194, 0, 0, 128, 192, 243, 103, 57, 62, 103, 183, 240, 62, 51, 51, 53, 194, 104, 102, 14, 193, 242, 148, 32, 62, 120, 254, 221, 62, 205, 204, 48, 194, 0, 0, 48, 193, 122, 29, 41, 62, 92, 248, 213, 62, 51, 51, 41, 194, 0, 0, 48, 193, 196, 218, 55, 62, 92, 248, 213, 62, 0, 0, 22, 194, 152, 153, 81, 193, 70, 23, 93, 62, 63, 242, 205, 62, 0, 0, 36, 194, 204, 204, 108, 193, 124, 240, 65, 62, 100, 115, 199, 62, 0, 0, 36, 194, 0, 0, 140, 193, 124, 240, 65, 62, 99, 34, 189, 62, 51, 51, 19, 194, 52, 51, 207, 193, 111, 133, 98, 62, 239, 9, 157, 62, 154, 153, 57, 194, 51, 51, 5, 194, 106, 12, 24, 62, 161, 195, 128, 62, 154, 153, 53, 194, 0, 0, 16, 194, 90, 206, 31, 62, 65, 229, 108, 62, 0, 0, 46, 194, 0, 0, 16, 194, 163, 139, 46, 62, 65, 229, 108, 62, 0, 0, 20, 194, 205, 204, 28, 194, 62, 248, 96, 62, 25, 113, 84, 62, 0, 0, 20, 194, 154, 153, 17, 194, 62, 248, 96, 62, 188, 214, 105, 62, 205, 204, 12, 194, 102, 102, 14, 194, 239, 238, 110, 62, 198, 243, 111, 62, 0, 0, 252, 193, 154, 153, 29, 194, 116, 209, 133, 62, 215, 233, 82, 62, 0, 0, 232, 193, 51, 51, 25, 194, 225, 131, 143, 62, 197, 81, 91, 62, 0, 0, 232, 193, 154, 153, 19, 194, 225, 131, 143, 62, 150, 4, 102, 62, 0, 0, 208, 193, 154, 153, 9, 194, 202, 38, 155, 62, 84, 31, 121, 62, 0, 0, 192, 193, 0, 0, 26, 194, 186, 232, 162, 62, 130, 202, 89, 62, 0, 0, 192, 193, 51, 51, 33, 194, 186, 232, 162, 62, 44, 9, 76, 62, 0, 0, 172, 193, 154, 153, 37, 194, 39, 155, 172, 62, 62, 161, 67, 62 ),
@@ -5633,7 +5682,7 @@ surfaces/0 = {
 "vertex_count": 93
 }
 
-[sub_resource type="Animation" id=114]
+[sub_resource type="Animation" id=116]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -5792,7 +5841,7 @@ scale = Vector2( 8.72064, 7.39464 )
 texture = ExtResource( 43 )
 
 [node name="unseentilesAll" type="Sprite" parent="BG"]
-position = Vector2( 621.744, 219.442 )
+position = Vector2( 623.989, 134.135 )
 scale = Vector2( 6.65866, 4.83271 )
 z_index = -10
 texture = ExtResource( 9 )
@@ -5805,7 +5854,7 @@ z_index = -10
 texture = ExtResource( 36 )
 
 [node name="landBGGameSession" type="Sprite" parent="BG"]
-position = Vector2( 673.126, 391.538 )
+position = Vector2( 666.776, 417.73 )
 scale = Vector2( 6.33075, 37.6785 )
 z_index = -10
 texture = ExtResource( 29 )
@@ -8148,13 +8197,15 @@ scale = Vector2( 8.61759, 10.32 )
 texture = ExtResource( 24 )
 
 [node name="Light2D" type="Light2D" parent="BG/lighters/ligherAtStreet1"]
+light_mask = 3073
 position = Vector2( 7.1759, 10.8319 )
 scale = Vector2( 0.934721, 0.957142 )
 enabled = false
 texture = ExtResource( 22 )
-energy = 0.5
+energy = 0.0
 range_z_min = -2
 range_z_max = 0
+shadow_filter_smooth = 60.2
 
 [node name="ligherAtStreet2" type="Sprite" parent="BG/lighters"]
 position = Vector2( 1912, 104 )
@@ -8166,7 +8217,7 @@ position = Vector2( 7.1759, 10.8319 )
 scale = Vector2( 0.919143, 1.14262 )
 enabled = false
 texture = ExtResource( 22 )
-energy = 0.5
+energy = 0.0
 range_z_min = -4
 range_z_max = 0
 
@@ -8180,7 +8231,7 @@ position = Vector2( 7.1759, 10.8319 )
 scale = Vector2( 0.934721, 0.957142 )
 enabled = false
 texture = ExtResource( 22 )
-energy = 0.5
+energy = 0.0
 range_z_min = -4
 range_z_max = -1
 
@@ -8194,7 +8245,7 @@ position = Vector2( 7.1759, 10.8319 )
 scale = Vector2( 0.934721, 0.957142 )
 enabled = false
 texture = ExtResource( 22 )
-energy = 0.5
+energy = 0.0
 range_z_min = -4
 range_z_max = -1
 
@@ -8208,7 +8259,7 @@ position = Vector2( 7.1759, 10.8319 )
 scale = Vector2( 0.934721, 0.957142 )
 enabled = false
 texture = ExtResource( 22 )
-energy = 0.5
+energy = 0.0
 range_z_min = -4
 range_z_max = -1
 
@@ -8584,7 +8635,10 @@ position = Vector2( 653.92, 449.904 )
 scale = Vector2( 36.2796, 1.26727 )
 
 [node name="mch" parent="Building" instance=ExtResource( 2 )]
-position = Vector2( 643.655, 476.673 )
+position = Vector2( 270.267, 472.264 )
+
+[node name="julia" parent="Building" instance=ExtResource( 44 )]
+position = Vector2( 164.305, 484.607 )
 
 [node name="boxes" type="Node2D" parent="Building"]
 position = Vector2( 900.413, 309.103 )
@@ -8651,11 +8705,11 @@ __meta__ = {
 "forPlayerInt",
 "save",
 ]]
-position = Vector2( 796.236, 536.524 )
+position = Vector2( 941.575, 525.193 )
 rotation = -0.00682116
 z_index = 5
 collision_layer = 8
-collision_mask = 64
+collision_mask = 32
 contacts_reported = 10
 contact_monitor = true
 linear_velocity = Vector2( 10, 0 )
@@ -8737,18 +8791,35 @@ anims/lifting0 = SubResource( 110 )
 anims/lifting1 = SubResource( 111 )
 anims/lifting2 = SubResource( 112 )
 
+[node name="visitors" type="Node2D" parent="Building"]
+
+[node name="switch" type="Node2D" parent="Building" groups=[
+"forPlayerInt",
+]]
+position = Vector2( 729.646, 455.249 )
+scale = Vector2( 0.5, 0.5 )
+script = SubResource( 113 )
+
+[node name="Area2D" type="Area2D" parent="Building/switch"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Building/switch/Area2D"]
+shape = SubResource( 114 )
+
+[node name="Sprite" type="Sprite" parent="Building/switch"]
+texture = ExtResource( 45 )
+
 [node name="FG" type="Node2D" parent="."]
 z_index = 4
 
 [node name="animated_tree1" type="Node2D" parent="FG"]
-position = Vector2( 2088.27, -64.1446 )
+position = Vector2( 2104.98, -328 )
 rotation = -0.176352
 scale = Vector2( -1, 1 )
 
 [node name="branches" type="MeshInstance2D" parent="FG/animated_tree1"]
 position = Vector2( 8.86259, 542.534 )
 scale = Vector2( 5, 5 )
-mesh = SubResource( 113 )
+mesh = SubResource( 115 )
 texture = ExtResource( 34 )
 
 [node name="leafs1" type="Sprite" parent="FG/animated_tree1"]
@@ -8776,10 +8847,10 @@ vframes = 2
 frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FG/animated_tree1"]
-anims/wind = SubResource( 114 )
+anims/wind = SubResource( 116 )
 
 [node name="EndDay" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 720.0
 one_shot = true
 autostart = true
 
@@ -8795,4 +8866,6 @@ autostart = true
 [connection signal="body_exited" from="Building/platform/pen" to="Building/platform" method="_on_pen_body_exited"]
 [connection signal="body_entered" from="Building/platform/Area2D" to="Building/platform" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Building/platform/Area2D" to="Building/platform" method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="Building/switch/Area2D" to="Building/switch" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Building/switch/Area2D" to="Building/switch" method="_on_Area2D_body_exited"]
 [connection signal="timeout" from="EndDay" to="." method="_on_EndDay_timeout"]

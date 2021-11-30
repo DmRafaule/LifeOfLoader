@@ -1,3 +1,25 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/FromHomeToWorkControl.gd" type="Script" id=1]
 
 [node name="FromHomeToWork" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 367.0
+margin_top = 173.0
+margin_right = 426.0
+margin_bottom = 187.0
+rect_scale = Vector2( 2.07317, 2.46429 )
+text = "From home to work
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -3,7 +3,9 @@
 [ext_resource path="res://scripts/ExtendBodyPh.gd" type="Script" id=1]
 [ext_resource path="res://textures/goodies/bunny.png" type="Texture" id=2]
 
-[node name="bunny" type="RigidBody2D"]
+[node name="bunny" type="RigidBody2D" groups=[
+"goodies",
+]]
 position = Vector2( 608.449, 330.166 )
 z_index = 2
 collision_layer = 2
