@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/ExtendBodyPh.gd" type="Script" id=1]
+[ext_resource path="res://textures/goodies/Covers.png" type="Texture" id=2]
+
+[node name="Covers" type="RigidBody2D" groups=[
+"goodies",
+]]
+position = Vector2( 546.132, 335.695 )
+z_index = 2
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -11.8101, -11.6059, -12.3398, 12.4969, 9.37921, 13.0266, 8.84943, -12.1356 )

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/ExtendBodyPh.gd" type="Script" id=1]
+[ext_resource path="res://textures/goodies/liquid_antifat.png" type="Texture" id=2]
+
+[node name="liquid_antifat" type="RigidBody2D" groups=[
+"goodies",
+]]
+position = Vector2( 571.029, 334.371 )
+z_index = 2
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -7.17694, 16.9912, -7.17694, -12.2689, -2.81152, -15.1006, 1.08197, -15.2185, 4.85742, -11.797, 5.09338, 16.8732 )

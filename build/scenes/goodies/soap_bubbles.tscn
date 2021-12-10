@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/ExtendBodyPh.gd" type="Script" id=1]
+[ext_resource path="res://textures/goodies/soap_bubbles.png" type="Texture" id=2]
+
+[node name="soap_bubbles" type="RigidBody2D" groups=[
+"goodies",
+]]
+position = Vector2( 511.629, 334.371 )
+z_index = 2
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -5.76901, 16.8752, -5.90143, -5.1087, -1.66357, -12.1277, -0.47168, -12.1277, 3.63376, -5.24115, 3.76614, 17.0076 )

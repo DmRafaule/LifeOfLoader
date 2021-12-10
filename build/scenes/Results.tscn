@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://textures/hud/quitP_pressed.png" type="Texture" id=1]
 [ext_resource path="res://textures/hud/next_pressed.png" type="Texture" id=2]
@@ -21,12 +21,400 @@ font_data = ExtResource( 8 )
 [sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 8 )
 
+[sub_resource type="Animation" id=5]
+resource_name = "disappearing"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "itog"
+tracks/0/type = "value"
+tracks/0/path = NodePath("sumDay:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sumDay:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 432.21, 192 ), Vector2( 492.314, 260 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fields/Selling:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Fields/HSeparator:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0.690196, 0.615686, 0.384314, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Results/HSeparator:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0.690196, 0.615686, 0.384314, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Fields/isClean:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Fields/HSeparator2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0.690196, 0.615686, 0.384314, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Results/HSeparator2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0.690196, 0.615686, 0.384314, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Fields/isLightOff:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 2, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Fields/HSeparator4:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 2, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0.690196, 0.615686, 0.384314, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Results/HSeparator3:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 2, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0.690196, 0.615686, 0.384314, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Fields/isOutShop:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 3, 3.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Fields/HSeparator5:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 3, 3.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0.690196, 0.615686, 0.384314, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Results/HSeparator4:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 3, 3.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0.690196, 0.615686, 0.384314, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Fields/isSorted:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 4, 4.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Fields/HSeparator6:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 4, 4.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0.690196, 0.615686, 0.384314, 1 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Results/HSeparator5:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 4, 4.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0.690196, 0.615686, 0.384314, 1 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Fields/isHelped:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 5, 5.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Results/RichTextLabel0:percent_visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Results/RichTextLabel1:percent_visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Results/RichTextLabel2:percent_visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 2.5, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Results/RichTextLabel6:percent_visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 3.5, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Results/RichTextLabel7:percent_visible")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 4.5, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("Results/RichTextLabel8:percent_visible")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 5.5, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Results/RichTextLabel0:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Results/RichTextLabel1:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Results/RichTextLabel2:percent_visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Results/RichTextLabel6:percent_visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Results/RichTextLabel7:percent_visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Results/RichTextLabel8:percent_visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="DynamicFont" id=9]
+size = 40
+font_data = ExtResource( 8 )
+
 [node name="Results" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -0.667419
+margin_left = -1.37451
 margin_top = 1.33485
-margin_right = -0.667419
+margin_right = -1.37451
 margin_bottom = 1.33484
 script = ExtResource( 7 )
 __meta__ = {
@@ -34,33 +422,36 @@ __meta__ = {
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-anchor_right = 1.0
+anchor_left = -0.148112
+anchor_right = 0.851888
 anchor_bottom = 1.0
 margin_left = 200.0
 margin_top = 50.0
 margin_right = -200.0
 margin_bottom = -50.0
+rect_scale = Vector2( 1.3, 1.3 )
 rect_pivot_offset = Vector2( 200, 150 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
-margin_right = 400.0
+margin_right = 399.0
 margin_bottom = 300.0
 texture = ExtResource( 5 )
 expand = true
 
 [node name="Total" type="Sprite" parent="MarginContainer"]
-position = Vector2( 200, 30 )
+position = Vector2( 200, 39.7686 )
 texture = ExtResource( 6 )
 
 [node name="HSeparator" type="HSeparator" parent="."]
+modulate = Color( 0.541176, 0.305882, 0.305882, 1 )
 anchor_right = 0.414
-margin_left = 216.0
-margin_top = 96.0
-margin_right = 256.0
-margin_bottom = 100.0
+margin_left = 89.4924
+margin_top = 87.9819
+margin_right = 129.492
+margin_bottom = 91.9819
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -73,26 +464,27 @@ pressed = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="Exit" type="TouchScreenButton" parent="."]
-position = Vector2( 36.5269, 279.743 )
+position = Vector2( 685.993, 37.1992 )
 scale = Vector2( 3, 3 )
 normal = ExtResource( 4 )
 pressed = ExtResource( 1 )
 shape = SubResource( 2 )
 
 [node name="Fields" type="VBoxContainer" parent="."]
-anchor_left = 0.27
+anchor_left = 0.0851385
 anchor_top = 0.25
-anchor_right = 0.49375
+anchor_right = 0.308889
 anchor_bottom = 0.875
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="Selling" type="RichTextLabel" parent="Fields"]
-margin_right = 178.0
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 179.0
 margin_bottom = 20.0
 custom_fonts/normal_font = SubResource( 3 )
-custom_colors/default_color = Color( 0.819608, 0.996078, 0.996078, 1 )
+custom_colors/default_color = Color( 0.690196, 0.615686, 0.384314, 1 )
 text = "Selling "
 fit_content_height = true
 __meta__ = {
@@ -100,19 +492,21 @@ __meta__ = {
 }
 
 [node name="HSeparator" type="HSeparator" parent="Fields"]
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 24.0
-margin_right = 178.0
+margin_right = 179.0
 margin_bottom = 28.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="isClean" type="RichTextLabel" parent="Fields"]
+modulate = Color( 1, 1, 1, 0.028934 )
 margin_top = 32.0
-margin_right = 178.0
+margin_right = 179.0
 margin_bottom = 52.0
 custom_fonts/normal_font = SubResource( 3 )
-custom_colors/default_color = Color( 0.819608, 0.996078, 0.996078, 1 )
+custom_colors/default_color = Color( 0.690196, 0.615686, 0.384314, 1 )
 text = "Is Clean  ?"
 fit_content_height = true
 __meta__ = {
@@ -120,19 +514,21 @@ __meta__ = {
 }
 
 [node name="HSeparator2" type="HSeparator" parent="Fields"]
+modulate = Color( 0.991036, 0.98888, 0.982186, 0.028934 )
 margin_top = 56.0
-margin_right = 178.0
+margin_right = 179.0
 margin_bottom = 60.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="isLightOff" type="RichTextLabel" parent="Fields"]
+modulate = Color( 1, 1, 1, 0.0141172 )
 margin_top = 64.0
-margin_right = 178.0
+margin_right = 179.0
 margin_bottom = 84.0
 custom_fonts/normal_font = SubResource( 3 )
-custom_colors/default_color = Color( 0.819608, 0.996078, 0.996078, 1 )
+custom_colors/default_color = Color( 0.690196, 0.615686, 0.384314, 1 )
 text = "Is lights off ?"
 fit_content_height = true
 __meta__ = {
@@ -140,19 +536,21 @@ __meta__ = {
 }
 
 [node name="HSeparator4" type="HSeparator" parent="Fields"]
+modulate = Color( 0.995626, 0.994575, 0.991308, 0.0141172 )
 margin_top = 88.0
-margin_right = 178.0
+margin_right = 179.0
 margin_bottom = 92.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="isOutShop" type="RichTextLabel" parent="Fields"]
+modulate = Color( 1, 1, 1, 0.0307789 )
 margin_top = 96.0
-margin_right = 178.0
+margin_right = 179.0
 margin_bottom = 116.0
 custom_fonts/normal_font = SubResource( 3 )
-custom_colors/default_color = Color( 0.819608, 0.996078, 0.996078, 1 )
+custom_colors/default_color = Color( 0.690196, 0.615686, 0.384314, 1 )
 text = "Is stuff in the shop ?"
 fit_content_height = true
 __meta__ = {
@@ -160,19 +558,21 @@ __meta__ = {
 }
 
 [node name="HSeparator5" type="HSeparator" parent="Fields"]
+modulate = Color( 0.990465, 0.988171, 0.98105, 0.0307789 )
 margin_top = 120.0
-margin_right = 178.0
+margin_right = 179.0
 margin_bottom = 124.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="isSorted" type="RichTextLabel" parent="Fields"]
+modulate = Color( 1, 1, 1, 0.00918102 )
 margin_top = 128.0
-margin_right = 178.0
+margin_right = 179.0
 margin_bottom = 148.0
 custom_fonts/normal_font = SubResource( 3 )
-custom_colors/default_color = Color( 0.819608, 0.996078, 0.996078, 1 )
+custom_colors/default_color = Color( 0.690196, 0.615686, 0.384314, 1 )
 text = "Is Sorted ?"
 fit_content_height = true
 __meta__ = {
@@ -180,19 +580,21 @@ __meta__ = {
 }
 
 [node name="HSeparator6" type="HSeparator" parent="Fields"]
+modulate = Color( 0.997156, 0.996472, 0.994347, 0.00918102 )
 margin_top = 152.0
-margin_right = 178.0
+margin_right = 179.0
 margin_bottom = 156.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="isHelped" type="RichTextLabel" parent="Fields"]
+modulate = Color( 1, 1, 1, 0.016778 )
 margin_top = 160.0
-margin_right = 178.0
+margin_right = 179.0
 margin_bottom = 200.0
 custom_fonts/normal_font = SubResource( 3 )
-custom_colors/default_color = Color( 0.819608, 0.996078, 0.996078, 1 )
+custom_colors/default_color = Color( 0.690196, 0.615686, 0.384314, 1 )
 text = "How many times helped ?"
 fit_content_height = true
 __meta__ = {
@@ -200,18 +602,19 @@ __meta__ = {
 }
 
 [node name="VSeparator" type="VSeparator" parent="."]
-margin_left = 395.0
+modulate = Color( 0.541176, 0.305882, 0.305882, 1 )
+margin_left = 264.038
 margin_top = 100.0
-margin_right = 400.0
+margin_right = 269.038
 margin_bottom = 300.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Results" type="VBoxContainer" parent="."]
-margin_left = 400.0
+margin_left = 280.62
 margin_top = 100.0
-margin_right = 587.0
+margin_right = 467.62
 margin_bottom = 336.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -221,9 +624,12 @@ __meta__ = {
 margin_right = 187.0
 margin_bottom = 20.0
 custom_fonts/normal_font = SubResource( 4 )
+visible_characters = 0
+percent_visible = 0.0120652
 fit_content_height = true
 
 [node name="HSeparator" type="HSeparator" parent="Results"]
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 24.0
 margin_right = 187.0
 margin_bottom = 28.0
@@ -233,9 +639,12 @@ margin_top = 32.0
 margin_right = 187.0
 margin_bottom = 52.0
 custom_fonts/normal_font = SubResource( 4 )
+visible_characters = 0
+percent_visible = 0.00161767
 fit_content_height = true
 
 [node name="HSeparator2" type="HSeparator" parent="Results"]
+modulate = Color( 0.991036, 0.98888, 0.982186, 0.028934 )
 margin_top = 56.0
 margin_right = 187.0
 margin_bottom = 60.0
@@ -245,9 +654,12 @@ margin_top = 64.0
 margin_right = 187.0
 margin_bottom = 84.0
 custom_fonts/normal_font = SubResource( 4 )
+visible_characters = 0
+percent_visible = 0.0252228
 fit_content_height = true
 
 [node name="HSeparator3" type="HSeparator" parent="Results"]
+modulate = Color( 0.995626, 0.994575, 0.991308, 0.0141172 )
 margin_top = 88.0
 margin_right = 187.0
 margin_bottom = 92.0
@@ -257,12 +669,15 @@ margin_top = 96.0
 margin_right = 187.0
 margin_bottom = 116.0
 custom_fonts/normal_font = SubResource( 4 )
+visible_characters = 0
+percent_visible = 0.0207844
 fit_content_height = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HSeparator4" type="HSeparator" parent="Results"]
+modulate = Color( 0.990465, 0.988171, 0.98105, 0.0307789 )
 margin_top = 120.0
 margin_right = 187.0
 margin_bottom = 124.0
@@ -272,12 +687,15 @@ margin_top = 128.0
 margin_right = 187.0
 margin_bottom = 148.0
 custom_fonts/normal_font = SubResource( 4 )
+visible_characters = 0
+percent_visible = 0.0267553
 fit_content_height = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HSeparator5" type="HSeparator" parent="Results"]
+modulate = Color( 0.997156, 0.996472, 0.994347, 0.00918102 )
 margin_top = 152.0
 margin_right = 187.0
 margin_bottom = 156.0
@@ -287,10 +705,30 @@ margin_top = 160.0
 margin_right = 187.0
 margin_bottom = 180.0
 custom_fonts/normal_font = SubResource( 4 )
+visible_characters = 0
+percent_visible = 0.000293732
 fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/disappearing = SubResource( 5 )
+anims/itog = SubResource( 6 )
+anims/popuping = SubResource( 7 )
+anims/recalculate = SubResource( 8 )
+
+[node name="sumDay" type="RichTextLabel" parent="."]
+margin_left = 492.314
+margin_top = 260.0
+margin_right = 607.313
+margin_bottom = 341.0
+custom_fonts/normal_font = SubResource( 9 )
+scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [connection signal="pressed" from="Next" to="." method="_on_Next_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

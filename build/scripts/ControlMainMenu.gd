@@ -1,4 +1,4 @@
-extends TextureButton
+extends TouchScreenButton
 
 func _ready():
 	pass # Replace with function body.

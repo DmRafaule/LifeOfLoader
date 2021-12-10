@@ -19,15 +19,15 @@ func setBoxGoodie(var name, var number):
 	nameGoodie = name
 	numberOfGoodie = number
 	match(nameGoodie):
-		"bunny.png","puppy.png":
+		"bunny.png","puzzles.png","soap_bubbles.png","puzzles_small.png","inflatable_ring.png","helicopter.png","doll.png","car.png","bear.png","ball.png":
 			typeGoodie = "toy"
-		"cymbals.png":
+		"cymbals.png","Bowls.png","CimbalsSmall.png","Cups.png","jar.png","Teapot.png":
 			typeGoodie = "utencil"
-		"fairy.png":
+		"fairy.png","solid_soap_super.png","solid_soap_avtar.png","soap-powder_zebra.png","soap-powder_mur.png","soap-powder_aqu.png","soap-powder.png","liquid_Xpower.png","liquid_soap_for_kids.png","liquid_soap_b2.png","liquid_antifat.png","liquid_1004.png","bleach.png","anti-raid.png":
 			typeGoodie = "chemistry"
-		"notebooks.png":
+		"notebooks.png","A4Paper.png","Covers.png","Markers.png","Pens.png","Pensil.png","SchoolNotebookObjects.png","SchoolNotebook.png":
 			typeGoodie = "office"
-		"pizza.png":
+		"pizza.png","tea_another.png","tea.png","seeds.png","Energizer.png","Crackers.png","coffee.png","Chips.png","Beer.png":
 			typeGoodie = "food"
 
 func _ready():

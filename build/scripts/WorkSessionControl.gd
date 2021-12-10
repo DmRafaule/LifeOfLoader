@@ -1,6 +1,15 @@
 extends Node2D
 
 var events = [] # Contain all events(functions) to execute
+var goo = {} # Contain all preload goodies types
+var bo0 = preload("res://scenes/boxes/box0.tscn")
+var bo1 = preload("res://scenes/boxes/box1.tscn")
+var bo2 = preload("res://scenes/boxes/box2.tscn")
+var bo3 = preload("res://scenes/boxes/box3.tscn")
+var bo4 = preload("res://scenes/boxes/box4.tscn")
+var bo5 = preload("res://scenes/boxes/box5.tscn")
+var bo6 = preload("res://scenes/boxes/box6.tscn")
+
 
 onready var session  = get_node("/root/Session") # Get access to global script property such as current day(for loading and saving)
 onready var boxP = get_node("Building/boxes") # Contain parent node for all boxes
@@ -10,10 +19,11 @@ var isListMatch = false
 var isEndDay = false # Used for disable ability enable visible GUI control in ConrolInterface.gd
 var numTask = 0
 var closedTask = 0
+var cashDay = 0
 
 var savePath : String= "user://save.txt" # Where to save 
 
-# Save all nodes in group "save" in savePath
+# (INTERNAL) Save all nodes in group "save" in savePath
 func saving():	
 	session.current_day+=1
 	var file = File.new()
@@ -57,8 +67,18 @@ func saving():
 					"name"	   : var2str(saved_node.nameStr),
 				}	
 				file.store_line(to_json(data))
+	var cash : Dictionary = {
+		"name"			: "cash",
+		"cash"			: var2str(session.cash)
+	}
+	file.store_line(to_json(cash))
+	var mistakes : Dictionary = {
+		"name"			: "mistake",
+		"mistake_count" : var2str(session.lethalMistakes)
+	}
+	file.store_line(to_json(mistakes))
 	file.close()
-# Load all nodes in group "save" if file already exist (not new game) overwise random generate new boxes and goodies
+# (INTERNAL) Load all nodes in group "save" if file already exist (not new game) overwise random generate new boxes and goodies
 func loading():
 	var file = File.new()
 	if file.file_exists(savePath):	
@@ -66,9 +86,22 @@ func loading():
 		var counterBox = 0		
 		while file.get_position() < file.get_len():
 			var data = parse_json(file.get_line())
-			if (data["name"] == "day" ):
-				loadDayScript("day" + data["current_day"])
-				session.current_day = str2var(data["current_day"])
+			match(str2var(data["name"])):
+				"day":
+					session.current_day = str2var(data["current_day"])
+					# This check exist only for one reason if player exit from game when he go to home or in "free day" what is almouste impossible
+					# I will redirect them to next working day
+					if session.month[session.current_day] == "free":
+						if session.month[session.current_day+1] == "free":
+							session.current_day += 2
+						else:
+							session.current_day += 1
+					loadDayScript("day" + str(session.current_day))
+					showDayName(str(session.current_day))
+				"cash":
+					session.cash = str2var(data["cash"])
+				"mistake":
+					session.lethalMistakes = str2var(data["mistake_count"])
 			# If yesterday was a free day partition randomize
 			if (session.month[session.current_day - 1] == "free"):
 				var rnd    = RandomNumberGenerator.new()	
@@ -120,10 +153,8 @@ func loading():
 					str(types[int(rnd.randf_range(0,types.size()))]),
 					int(rnd.randf_range(1,3)))
 
-		loadDayScript("day1")
-
-# Load all timing functions to proccesGameEvents
-# Form file
+		loadDayScript("day9")
+# (INTERNAL) Load all timing functions to proccesGameEvents Form file
 func loadDayScript(var name):
 	var file = File.new()
 	if (file.file_exists("res://dayScripts/" + name + ".tres")):
@@ -137,7 +168,91 @@ func loadDayScript(var name):
 				"properties" : str2var(data["properties"]),
 			})
 		file.close()
-# Used for defining when to start dialog and what of dialog to start
+# (INTERNAL) popup day name
+func showDayName(var num):
+	var res = load("res://scenes/dayNumber.tscn").instance()
+	match(num):
+		"2":
+			res.get_node("digit").texture = load("res://textures/hud/two.png")
+			res.get_node("tens")
+		"5":
+			res.get_node("digit").texture = load("res://textures/hud/five.png")
+			res.get_node("tens")
+		"6":
+			res.get_node("digit").texture = load("res://textures/hud/six.png")
+			res.get_node("tens")
+		"9":
+			res.get_node("digit").texture = load("res://textures/hud/nine.png")
+			res.get_node("tens")
+		"10":
+			res.get_node("digit").texture = load("res://textures/hud/zero.png")
+			res.get_node("tens").texture = load("res://textures/hud/one.png")
+		"13":
+			res.get_node("digit").texture = load("res://textures/hud/three.png")
+			res.get_node("tens").texture = load("res://textures/hud/one.png")
+		"14":
+			res.get_node("digit").texture = load("res://textures/hud/four.png")
+			res.get_node("tens").texture = load("res://textures/hud/one.png")
+		"17":
+			res.get_node("digit").texture = load("res://textures/hud/seven.png")
+			res.get_node("tens").texture = load("res://textures/hud/one.png")
+		"18":
+			res.get_node("digit").texture = load("res://textures/hud/eight.png")
+			res.get_node("tens").texture = load("res://textures/hud/one.png")
+		"21":
+			res.get_node("digit").texture = load("res://textures/hud/one.png")
+			res.get_node("tens").texture = load("res://textures/hud/two.png")
+		"22":
+			res.get_node("digit").texture = load("res://textures/hud/two.png")
+			res.get_node("tens").texture = load("res://textures/hud/two.png")
+		"25":
+			res.get_node("digit").texture = load("res://textures/hud/five.png")
+			res.get_node("tens").texture = load("res://textures/hud/two.png")
+		"26":
+			res.get_node("digit").texture = load("res://textures/hud/six.png")
+			res.get_node("tens").texture = load("res://textures/hud/two.png")
+		"29":
+			res.get_node("digit").texture = load("res://textures/hud/nine.png")
+			res.get_node("tens").texture = load("res://textures/hud/two.png")
+		"30":
+			res.get_node("digit").texture = load("res://textures/hud/zero.png")
+			res.get_node("tens").texture = load("res://textures/hud/three.png")
+	get_node("Building/mch/Camera2D/HUD").add_child(res)
+# (EXTERNAL) Used for defining when to start dialog and what of dialog to start(for defining end by fired)
+func startDialogResultCheck():
+	session.isDialogStart = true
+	get_node("Building/mch/Camera2D/HUD/ControlInterface").visible = false
+	get_node("Building/mch/AnimationPlayer").play("StartDialog")
+	var file = File.new()
+	var dialog
+	match (session.lethalMistakes):
+		0:
+			dialog = "res://dayDialog/breathing.tres"
+		1,2,3:
+			dialog = "res://dayDialog/warning.tres"
+		4:
+			dialog = "res://dayDialog/last_warning.tres"
+		5:
+			dialog = "res://dayDialog/dismissal.tres" # Fired here
+	if file.file_exists(dialog):
+		file.open(dialog,file.READ)
+		while file.get_position() < file.get_len():
+			var data = parse_json(file.get_line())
+			session.dialogs.append({
+				"properties" : [data["text"],data["who"],data["pos"],data["spead"]]
+			})
+			# set all needed characters near by mch
+			if (data["who"] != "mch" and !session.setCharacters.has(data["who"]) ):
+				call_deferred("setCharacterNearByForDialog",data["who"])
+		file.close()
+		# First dialog win start here
+		call_deferred("createDialogWinForEmployee",session.dialogs[session.current_dialog_win]["properties"][0],
+													session.dialogs[session.current_dialog_win]["properties"][1])
+		session.current_dialog_win += 1
+# (EXTERNAL) used only after startDialogResultCheck() and in the 30 day fon opening right scene of end game
+func theEnd():
+	pass
+# (EXTERNAL) Used for defining when to start dialog and what of dialog to start
 func startDialog(var dayname):
 	session.isDialogStart = true
 	get_node("Building/mch/Camera2D/HUD/ControlInterface").visible = false
@@ -148,61 +263,129 @@ func startDialog(var dayname):
 		while file.get_position() < file.get_len():
 			var data = parse_json(file.get_line())
 			session.dialogs.append({
-				"properties" : [data["text"],data["who"]]
+				"properties" : [data["text"],data["who"],data["pos"],data["spead"]]
 			})
+			# set all needed characters near by mch
+			if (data["who"] != "mch" and !session.setCharacters.has(data["who"]) ):
+				call_deferred("setCharacterNearByForDialog",data["who"])
 		file.close()
 		# First dialog win start here
-		callv("createDialogWin",session.dialogs[session.current_dialog_win]["properties"])
+		call_deferred("createDialogWinForEmployee",session.dialogs[session.current_dialog_win]["properties"][0],
+													session.dialogs[session.current_dialog_win]["properties"][1])
 		session.current_dialog_win += 1
-# For create dialog window
-func createDialogWin(var text, var forWho):
-	var res = load("res://scenes/Popup.tscn").instance()
+# (INTERNAL) For create dialog window
+func createDialogWinForEmployee(var text, var forWho):
+	var res = session.pp.instance()
+	res.type = "Employee"
 	var HUD = get_node_or_null("Building/" + forWho)
 	if (HUD != null):
 		res.get_node("Sprite").visible = false
 		HUD.add_child(res)
 		HUD.get_node("Popup/RichTextLabel").text = text
-# Create dialog win for random visitor
+# (EXTERNAL) Create dialog win for random visitor
 func createDialogWinForVisitors(var text, var forWho):
-	var res = load("res://scenes/Popup.tscn").instance()
+	var res = session.pp.instance()
 	var arr = []
 	var rnd    = RandomNumberGenerator.new()	
 	rnd.randomize()
+	res.type = "Vis"
 	for node in get_node("Building/visitors").get_children():
 		arr.append(node.name)
-	var HUD = get_node_or_null("Building/" + forWho + "/" + arr[rnd.randi_range(0,arr.size()-1)])
-	if (HUD != null):
-		HUD.add_child(res)
-		res.scale = Vector2(2,2)
-		res.get_node("Sprite").visible = false
-		res.get_node("Sprite2").visible = false
-		res.get_node("Sprite3").visible = false
-		HUD.get_node("Popup/RichTextLabel").text = text
-# This func used only if you intendent close dialog early than it supposed to be
+	if (arr.size() != 0):
+		var HUD = get_node_or_null("Building/" + forWho + "/" + arr[rnd.randi_range(0,arr.size()-1)])
+		if (HUD != null):
+			HUD.add_child(res)
+			res.scale = Vector2(2,2)
+			res.get_node("Sprite").visible = false
+			res.get_node("Sprite2").visible = false
+			res.get_node("Sprite3").visible = false
+			HUD.get_node("Popup/RichTextLabel").text = text
+# (INTERNAL) This func used only if you intendent close dialog early than it supposed to be
 func removeDialogWin(var forWho):
 	var HUD = get_node_or_null("Building/" + forWho + "/Popup")
 	if (HUD != null):
 		HUD.hide()
-# Set task to this visitor
+# (EXTERNAL) Set task to this visitor
 func setTask(var name):
 	var arr = []
 	var rnd    = RandomNumberGenerator.new()	
 	rnd.randomize()
 	for node in get_node("Building/visitors").get_children():
 		arr.append(node.name)
-	var visitor = get_node_or_null("Building/visitors/" + arr[rnd.randi_range(0,arr.size()-1)])
-	if (visitor != null):
-		numTask += 1
-		visitor.setInter()
-		visitor.text = name
-		
-
+	var dT = 0
+	var iI = true
+	var visitor
+	while dT <= 1 and iI:
+		visitor = get_node_or_null("Building/visitors/" + arr[rnd.randi_range(0,arr.size()-1)])
+		if (visitor != null):
+			iI = visitor.isInteractable
+			dT = visitor.deathTime
+	numTask += 1
+	visitor.setInter()
+	visitor.text = name
+# (EXTERNAL) Create character for current day
+func setCharacter(var name, var position, var animation):
+	var character = load("res://scenes/characters/" + name + ".tscn").instance()
+	character.position = position
+	character.get_node("AnimationPlayer").play(animation)
+	session.setCharacters.append({
+		"name" : name,
+		"firstPlAnim" : animation,
+		"defaultPos" : position,
+	})
+	get_node("Building").add_child(character)
+# (EXTERNAL) Move to new position
+func moveCharacter(var name, var position, var spead):
+	var character = get_node("Building/" + name)
+	if (character != null):
+		character.walk_to(position,spead)
+func jumpCharacter(var name, var position):
+	var character = get_node("Building/" + name)
+	character.position = position
+# (EXTERNAL) Remove from scene
+func unSetCharacter(var name, var position):
+	var character = get_node("Building/" + name)
+	if (character != null):
+		character.leave(position)
+# (INTERNAL) Prepare character for dialog
+func setCharacterNearByForDialog(var forWho):
+	var rnd    = RandomNumberGenerator.new()	
+	rnd.randomize()
+	var character = get_node_or_null("Building/" + forWho)
+	if (character.position.x < get_node("Building/mch").position.x):
+		if (character.position.x <= get_node("Building/mch").position.x - 800):
+			character.position.x = get_node("Building/mch").position.x - 800
+		character.get_node("Tween").interpolate_property(character,"position:x",character.position.x,get_node("Building/mch").position.x - rnd.randi_range(60,120),2,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
+		character.get_node("Tween").start()
+	else:
+		if (character.position.x >= get_node("Building/mch").position.x + 800):
+			character.position.x = get_node("Building/mch").position.x + 800
+		character.get_node("Tween").interpolate_property(character,"position:x",character.position.x,get_node("Building/mch").position.x + rnd.randi_range(60,120),2,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
+		character.get_node("Tween").start()
+	if (get_node("Building/mch").position.x > 1250):
+		character.position.y = 514
+	character.get_node("AnimationPlayer").play("walk")
+# (INTERNAL) move character to needed position
+func setCharacterMovement(var forWho, var pos , var spead : float):
+	if pos != "null":
+		pos = str2var(pos)
+		var character = get_node_or_null("Building/" + forWho)
+		character.get_node("Tween").interpolate_property(character,"position:x",character.position.x,pos.x,abs(pos.x/spead),Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
+		character.get_node("Tween").start()
+# (EXTERNAL) create a bunch of rnd visitors and define their death time
 func createVisitor(var size):
 	for i in range(0,size):
 		var rnd    = RandomNumberGenerator.new()	
 		rnd.randomize()
 		var types = ["low","medium","tall"]
-		var res = load("res://scenes/characters/visitor_" + str(types[rnd.randi_range(0,2)]) + ".tscn").instance()
+		var res
+		match (str(types[rnd.randi_range(0,2)])):
+			"low":
+				res = session.v_l.instance()
+			"medium":
+				res = session.v_m.instance()
+			"tall":
+				res = session.v_t.instance()
 		res.set_position(Vector2(-850,res.position.y))
 		res.z_index = rnd.randi_range(2,5)
 		# Run animation for intering
@@ -218,12 +401,14 @@ func createVisitor(var size):
 			"executionMin" :  0,
 			"properties" : [res],
 		})
+# (INTERNAL) remove chosen visitor
 func removeVisitor(var visitor):
 	sum_result += visitor.sum
 	visitor.exit()
+# (INTERNAL) create a bunch of goodies
 func createGoodie(var pos, var name, var number):
 	for i in range(0,number):
-		var res = load("res://scenes/goodies/" + (str(name).replace(".png","")) + ".tscn").instance()
+		var res = goo[name].instance()
 		res.add_to_group("save")
 		res.add_to_group("goodies")
 		res.setBoxGoodie(name,1)
@@ -231,16 +416,30 @@ func createGoodie(var pos, var name, var number):
 		res.isOpend = true
 		res.position = pos
 		get_tree().get_root().get_node("WorkSession/Building").add_child(res)
+# (INTERNAL) create a box
 func createBox(var type, var pos, var content, var num, var isOpend = false):
-	var box = load("res://scenes/boxes/box" + type + ".tscn").instance()
+	var box
+	match (type):
+		"0":
+			box = bo0.instance()
+		"1":
+			box = bo1.instance()
+		"2":
+			box = bo2.instance()
+		"3":
+			box = bo3.instance()
+		"4":
+			box = bo4.instance()
+		"5":
+			box = bo5.instance()
+		"6":
+			box = bo6.instance()
 	box.add_to_group("save")
-	box.add_to_group("boxes")
 	box.nameStr = "box"
 	box.boxType = type
 	box.set_position(pos)
 	box.setBoxGoodie(content,num)
 	if (isOpend):
-		
 		box.setBoxGoodie("empty_box",0)
 		var previousHeight = box.get_node("Sprite").get_rect().size.y
 		var newImageForBox :StreamTexture = load("res://textures/boxes/box_opened" + str(box.boxType) + ".png")
@@ -249,6 +448,7 @@ func createBox(var type, var pos, var content, var num, var isOpend = false):
 		box.get_node("CollisionShape2D").position += Vector2(0,(newHeight - previousHeight)/2 )
 	box.z_index = 3
 	get_node("Building/boxes").add_child(box)
+# (EXTERNAL) create the truck with specified num of trayes
 func createTruck(var numTray):
 	var res = load("res://scenes/trucks/WorkingTruck.tscn").instance()
 	
@@ -257,9 +457,12 @@ func createTruck(var numTray):
 	# Here implement box loading and tray
 	for i in range(0,numTray):
 		res.createTray(res.get_node("main/Position" + str(i)).position)
+# (EXTERNAL) play animation of leaving and prepare for die
 func removeTruck():
-	get_node("Building").call_deferred("remove_child",get_node("Building/Truck"))
-# Read all images in texture/goodies and return array of strings(names of goodies)
+	get_node("Building/Truck").isEnd = true
+	get_node("Building/Truck/main/platform").remove_child(get_node("Building/Truck/main/platform/Area2D"))
+	get_node("Building/Truck/AnimationPlayer").play_backwards("platform_active")
+# (INTERNAL) Read all images in texture/goodies and return array of strings(names of goodies)
 func getAllTypesOfGoodies():
 	var files = []
 	var dir = Directory.new()
@@ -275,14 +478,21 @@ func getAllTypesOfGoodies():
 	
 	dir.list_dir_end()
 	return files
-# Execute all setted functions to events array(Used in ControlInterface.gd when timer reached predefinde time(hours))
+# (INTERNAL) Execute all setted functions to events array(Used in ControlInterface.gd when timer reached predefinde time(hours))
 func proccesseGameEvents(var current_hour, var current_minutes):
 	for event in events:
 		if (current_minutes == event.executionMin):
 			if (current_hour == event.executionHour):
 				callv(event.name,event.properties)
+# (INTERNAL) Preload all goodies types
+func preloadGoodies():
+	var files = getAllTypesOfGoodies()
+	for f in files:
+		var path = "res://scenes/goodies/" + (str(f).replace(".png","")) + ".tscn"
+		goo[f] = load(path)
 
 func _ready():
+	preloadGoodies()
 	loading()
 
 func _on_leftBuildingNotifier_screen_entered():
@@ -337,8 +547,12 @@ func inTheShop(var res):
 			isInShop = false
 	if isInShop:
 		res.resultDict["isInShop"] = "Yes"
+		session.cash += 0
+		cashDay += 0
 	else: 
 		res.resultDict["isInShop"] = "No"
+		session.cash -= 15
+		cashDay -= 15
 # Check if goodie on the floor and if boxes in TZ
 func isClean(var res):
 	var isClean = true
@@ -353,15 +567,23 @@ func isClean(var res):
 	
 	if isClean:
 		res.resultDict["isClean"] = "Yes"
+		session.cash += 3
+		cashDay += 3
 	else: 
 		res.resultDict["isClean"] = "No"
+		session.cash += 0
+		cashDay += 0
 # Check if lights off
 func isLightOff(var res):
 	var switch = get_node("Building/switch")
 	if switch.isLightOn:
 		res.resultDict["isLightOff"] = "No"
+		session.cash += 0
+		cashDay += 0
 	else:
 		res.resultDict["isLightOff"] = "Yes"
+		session.cash += 2
+		cashDay += 2
 # Check if goodie in right place 
 func isSorted(var res):
 	var howManyNotInRightPlace = 0
@@ -402,31 +624,58 @@ func isSorted(var res):
 					
 	if howManyNotInRightPlace == 0:
 		res.resultDict["isSorted"] = "Perfect"
+		session.cash += 3
+		cashDay += 3
 	else:
 		var out = howManyInRightPlace/howManyNotInRightPlace
 		if out == 1:
 			res.resultDict["isSorted"] = "Not realy"
+			session.cash += 1
+			cashDay += 1
 		elif out > 1 and out <= 2:
 			res.resultDict["isSorted"] = "Kind of"
+			session.cash += 0
+			cashDay += 0 
 		elif out < 1 and out >= 0.5:
 			res.resultDict["isSorted"] = "Mess"
+			session.cash -= 5
+			cashDay -= 5
 		elif out < 0.5:
 			res.resultDict["isSorted"] = "What are you doing"
+			session.cash -= 15
+			cashDay -= 15
+# Count how many times do you help
 func isHelped(var res):
 	res.resultDict["isHelped"] = str(closedTask) + "/" + str(numTask)
+	res.recalculated["isHelped"] = "+"+str(closedTask)+"$"
+	session.cash += closedTask
+	cashDay += closedTask
+# Check if player actualy worked
+func isWorking(var res):
+	var amountOfGoodies = get_tree().get_nodes_in_group("goodies").size()
+	var amountOfBoxes   = get_tree().get_nodes_in_group("boxes").size()
+	if (amountOfBoxes > 0):
+		if (amountOfGoodies/amountOfBoxes <= 0.1):
+			session.lethalMistakes += 1
 func _on_EndDay_timeout():
-	saving()
 	isEndDay = true
 	var res = load("res://scenes/Results.tscn").instance()
 	res.resultDict["selling"] = str(sum_result/20) + "$"
+	session.cash += sum_result/20
+	session.setCharacters.clear()
+	cashDay += sum_result/20
 	inTheShop(res)
 	isClean(res)
 	isLightOff(res)
 	isSorted(res)
 	isHelped(res)
+	isWorking(res)
+	res.cashDay = str(cashDay)
+	if (cashDay <= -15):
+		session.lethalMistakes += 1
+	saving()
+	
 	get_tree().get_root().get_node("WorkSession/Building/mch/Camera2D/HUD").add_child(res)
 	get_node("Building/mch/Camera2D/HUD/ControlInterface").visible = false
-	# ADD animation of fading out for BG 
-	# ADD animation for fading in for Result popup
 	modulate = Color(0.06,0.06,0.06,1.0) 
 	

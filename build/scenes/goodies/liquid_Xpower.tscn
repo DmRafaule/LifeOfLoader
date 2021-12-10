@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/ExtendBodyPh.gd" type="Script" id=1]
+[ext_resource path="res://textures/goodies/liquid_Xpower.png" type="Texture" id=2]
+
+[node name="liquid_Xpower" type="RigidBody2D" groups=[
+"goodies",
+]]
+position = Vector2( 511.629, 334.371 )
+z_index = 2
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -7.10092, 16.879, -6.98294, -1.0546, -2.97147, -7.18979, -0.139862, -7.30777, 3.75363, -0.936615, 4.10757, 16.761 )

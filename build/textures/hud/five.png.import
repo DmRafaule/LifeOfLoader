@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/portret.png-48da2eeb291ea685bd3e4239ef05666c.stex"
+path="res://.import/five.png-929c5fd57c5e0d61f8e42ea1dd08a46d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/characters/hero/portret.png"
-dest_files=[ "res://.import/portret.png-48da2eeb291ea685bd3e4239ef05666c.stex" ]
+source_file="res://textures/hud/five.png"
+dest_files=[ "res://.import/five.png-929c5fd57c5e0d61f8e42ea1dd08a46d.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

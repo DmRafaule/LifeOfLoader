@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/ExtendBodyPh.gd" type="Script" id=1]
+[ext_resource path="res://textures/goodies/soap-powder_mur.png" type="Texture" id=2]
+
+[node name="soap-powder_mur" type="RigidBody2D" groups=[
+"goodies",
+]]
+position = Vector2( 511.629, 334.371 )
+z_index = 2
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -10.669, 16.8752, -8.1528, 1.7778, -10.1393, -10.9358, 7.60672, -11.9952, 7.73917, 1.7778, 10.123, 16.7427 )

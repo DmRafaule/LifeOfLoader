@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=2]
+[gd_scene load_steps=97 format=2]
 
 [ext_resource path="res://textures/backgrounds/grass_layer.png" type="Texture" id=1]
 [ext_resource path="res://textures/backgrounds/sky_layer.png" type="Texture" id=2]
@@ -5813,6 +5813,12 @@ color_ramp = SubResource( 73 )
 hue_variation = 0.09
 hue_variation_random = 0.34
 
+[sub_resource type="CircleShape2D" id=77]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id=78]
+radius = 15.0
+
 [node name="MainMenu" type="Node2D"]
 position = Vector2( -2.3943, 0.275377 )
 
@@ -7142,7 +7148,6 @@ position = Vector2( 315.761, 254.818 )
 scale = Vector2( 2.5, 2.5 )
 frames = SubResource( 27 )
 animation = "wigling"
-frame = 6
 playing = true
 
 [node name="grass" type="Node2D" parent="intermission"]
@@ -9556,7 +9561,7 @@ position = Vector2( 0, 5.65686 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 69 )
 animation = "idle"
-frame = 64
+frame = 71
 playing = true
 
 [node name="fg" type="CanvasLayer" parent="."]
@@ -9614,31 +9619,23 @@ position = Vector2( 416.799, 71.7717 )
 scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 13 )
 
-[node name="play" type="TextureButton" parent="HUD"]
-margin_left = 35.342
-margin_top = 187.664
-margin_right = 75.342
-margin_bottom = 227.664
-rect_scale = Vector2( 2, 2 )
-texture_normal = ExtResource( 14 )
-texture_pressed = ExtResource( 16 )
+[node name="play" type="TouchScreenButton" parent="HUD"]
+position = Vector2( 35.4513, 187.528 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 14 )
+pressed = ExtResource( 16 )
+shape = SubResource( 77 )
+shape_visible = false
 script = ExtResource( 18 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="quit" type="TextureButton" parent="HUD"]
-margin_left = 34.3759
-margin_top = 316.453
-margin_right = 74.3759
-margin_bottom = 356.453
-rect_scale = Vector2( 2, 2 )
-texture_normal = ExtResource( 15 )
-texture_pressed = ExtResource( 17 )
+[node name="quit" type="TouchScreenButton" parent="HUD"]
+position = Vector2( 34.3916, 317.882 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 15 )
+pressed = ExtResource( 17 )
+shape = SubResource( 78 )
+shape_visible = false
 script = ExtResource( 18 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [connection signal="pressed" from="HUD/play" to="HUD/play" method="_on_play_pressed"]
 [connection signal="pressed" from="HUD/quit" to="HUD/quit" method="_on_quit_pressed"]
