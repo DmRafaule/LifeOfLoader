@@ -51,6 +51,11 @@ func createJoin(var nodeA, var nodeB):
 	joint.set_node_b(NodePath(nodeB.get_path()))
 	joint.set_softness(2)
 	nodeA.add_child(joint)
+func createPuff(var pos):
+	var res = load("res://scenes/Puph.tscn").instance()
+	res.position = pos
+	res.scale = Vector2(3,3)
+	get_tree().get_root().get_node("WorkSession/Building").add_child(res)
 #This one used for droping box(deleting join)
 func switchIntForc():
 	if (!currentGoodie.isInteractable):
@@ -84,6 +89,7 @@ func dropBox():
 		var j = controlingNode.get_node_or_null("joint")
 		if (j != null):
 			controlingNode.remove_child(j)
+		currentGoodie.get_node("Sprite").material = null
 		currentGoodie.call_deferred("switchColl",false)
 		currentGoodie.isInteractable = false
 		# Set z index to default
@@ -92,6 +98,9 @@ func dropBox():
 		isDrag = false
 func openBox():
 	get_node("Popup").hide()
+	var eff = get_tree().get_root().get_node("WorkSession").openEff.instance()
+	get_tree().get_root().get_node("WorkSession/Building/mch/AnimationPlayer").play("openBox")
+	get_tree().get_root().get_node("WorkSession/Building/mch").add_child(eff)
 	currentGoodie.isOpend = true
 	createGoodie(currentGoodie.nameGoodie,currentGoodie.numberOfGoodie)
 	currentGoodie.nameGoodie = "empty box"
@@ -139,6 +148,7 @@ func updateSessionTimer(delta):
 	if (session.isEndPhrase):
 		session.isEndPhrase = false
 		var ws = get_tree().get_root().get_node_or_null("WorkSession")
+		ws.get_node("Building/mch/AnimatedSprite").play("idle")# stop talking animation
 		if (session.current_dialog_win < session.dialogs.size()):
 			ws.createDialogWinForEmployee(session.dialogs[session.current_dialog_win]["properties"][0],
 											session.dialogs[session.current_dialog_win]["properties"][1])
@@ -255,7 +265,7 @@ func onTouchPressed(event):
 			elif(iObj.isInteractable and iObj.nameStr == "tray"):
 				iObj.open()
 	# Then check all boxes
-	elif (grab_zona.has_point(touchPoint)):
+	if (grab_zona.has_point(touchPoint)):
 		#Main node of all boxes
 		var boxes = get_tree().get_nodes_in_group("boxes")
 		#Position of node which contain all boxes(global)
@@ -270,8 +280,13 @@ func onTouchPressed(event):
 				get_node("OpenBox/AnimationPlayer").play("appearance")
 				currentGoodie = box
 				currentGoodie.call_deferred("switchColl",true)
-				currentGoodie.pos = controlingNode.get_position() + Vector2(20,0)
-				box.isInteractable = true
+				currentGoodie.pos = controlingNode.get_position() + Vector2(10,0)
+				currentGoodie.z_index += 2
+				if box.isInteractable:
+					box.isInteractable = false
+				else:
+					box.isInteractable = true
+				
 		for g in get_tree().get_nodes_in_group("goodies"):
 			var item_zona = Rect2(Vector2(g.position.x - touchBoxSize/2,g.position.y - touchBoxSize/2),Vector2(touchBoxSize,touchBoxSize));
 			g.rect = item_zona
@@ -281,42 +296,44 @@ func onTouchPressed(event):
 				get_node("DropBox/AnimationPlayer").play("appearance")
 				currentGoodie = g
 				currentGoodie.call_deferred("switchColl",true)
-				currentGoodie.pos = controlingNode.get_position() + Vector2(20,0)
-				g.isInteractable = true
+				currentGoodie.pos = controlingNode.get_position() + Vector2(10,0)
+				if g.isInteractable:
+					g.isInteractable = false
+				else:
+					g.isInteractable = true
 				g.z_index = 4
-	else:
-		# Skip dialog
-		if (session.current_dialog_win <= session.dialogs.size() and session.current_dialog_win > 0):
-			get_tree().get_root().get_node("WorkSession").removeDialogWin(session.dialogs[session.current_dialog_win - 1]["properties"][1])
-		# Ask about task
-		if (!session.isDialogStart):
-			for v in get_tree().get_nodes_in_group("visitors"):
-				var visitor_rect = Rect2(Vector2(v.position.x - 25,v.position.y - 50),Vector2(50,200))
-				if visitor_rect.has_point(touchPoint) and v.isInteractable:
-					# Compare
-					if currentGoodie != null:
-						if v.text == currentGoodie.nameGoodie.replace(".png",""):
-							#HERE animation for puff and bying 
-							v.say("That is it, I'll take it")
-							get_tree().get_root().get_node("WorkSession").closedTask += 1
-							v.createPuff(currentGoodie.position)
-							v.remove_question()
-							v.isInteractable = false
-							v.sum += 15
-							# Remove goodie
-							get_node("DropBox/AnimationPlayer").play("GUI")
-							get_node("DropBox/AnimationPlayer").play_backwards("appearance")
-							get_node("OpenBox/AnimationPlayer").play_backwards("appearance")
-							var j = controlingNode.get_node_or_null("joint")
-							if (j != null):
-								controlingNode.remove_child(j)
-							get_tree().get_root().get_node("WorkSession/Building").remove_child(currentGoodie)
-							currentGoodie = null
-							isDrag = false
-						else:
-							v.say("What ??? No. I did say " + v.text)
+	# Skip dialog
+	if (session.current_dialog_win <= session.dialogs.size() and session.current_dialog_win > 0):
+		get_tree().get_root().get_node("WorkSession").removeDialogWin(session.dialogs[session.current_dialog_win - 1]["properties"][1])
+	# Ask about task
+	if (!session.isDialogStart):
+		for v in get_tree().get_nodes_in_group("visitors"):
+			var visitor_rect = Rect2(Vector2(v.position.x - 25,v.position.y - 50),Vector2(50,200))
+			if visitor_rect.has_point(touchPoint) and v.isInteractable:
+				# Compare
+				if currentGoodie != null:
+					if v.text == currentGoodie.nameGoodie.replace(".png",""):
+						#HERE animation for puff and bying 
+						v.say("That is it, I'll take it")
+						get_tree().get_root().get_node("WorkSession").closedTask += 1
+						v.createPuff(currentGoodie.position)
+						v.remove_question()
+						v.isInteractable = false
+						v.sum += 15
+						# Remove goodie
+						get_node("DropBox/AnimationPlayer").play("GUI")
+						get_node("DropBox/AnimationPlayer").play_backwards("appearance")
+						get_node("OpenBox/AnimationPlayer").play_backwards("appearance")
+						var j = controlingNode.get_node_or_null("joint")
+						if (j != null):
+							controlingNode.remove_child(j)
+						get_tree().get_root().get_node("WorkSession/Building").remove_child(currentGoodie)
+						currentGoodie = null
+						isDrag = false
 					else:
-						v.say("Mr. can you find me " + v.text)
+						v.say("What ??? No. I did say " + v.text)
+				else:
+					v.say("Mr. can you find me " + v.text)
 
 func onTouchRelease(event):
 	if isDrag == true:
@@ -329,11 +346,21 @@ func _on_ToRight_pressed():
 	velocity.x += 1 
 	velocity.x *= speed
 	if (!currentGoodie == null):
-		currentGoodie.pos = controlingNode.get_position() + Vector2(20,0)
+		get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").flip_h = false
+		get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").play("runWithBox")
+		currentGoodie.pos = controlingNode.get_position() + Vector2(30,-10)
+		currentGoodie.get_node("Sprite").material = load("res://shaders/floatingGoodie.tres")
 		switchIntForc()
+	elif (currentIntObj != null and currentIntObj.nameStr == "platform"):
+		get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").flip_h = false
+		get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").play("runWithBox")
 func _on_ToRight_released():
 	get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").flip_h = false
 	get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").play("idle")
+	if (!currentGoodie == null):
+		currentGoodie.isInteractable = true
+		currentGoodie.get_node("Sprite").material = null
+		currentGoodie.pos = controlingNode.get_position() + Vector2(0,0)
 	velocity.x = 0
 	
 func _on_ToLeft_pressed():
@@ -343,11 +370,21 @@ func _on_ToLeft_pressed():
 	velocity.x -= 1 
 	velocity.x *= speed
 	if (!currentGoodie == null):
-		currentGoodie.pos = controlingNode.get_position() + Vector2(-40,0)
+		get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").flip_h = true
+		get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").play("runWithBox")
+		currentGoodie.pos = controlingNode.get_position() + Vector2(-50,-10)
+		currentGoodie.get_node("Sprite").material = load("res://shaders/floatingGoodie.tres")
 		switchIntForc()
+	elif (currentIntObj != null and currentIntObj.nameStr == "platform"):
+		get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").flip_h = false
+		get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").play("runWithBox",true)
 func _on_ToLeft_released():
 	get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").flip_h = false
 	get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").play("idle")
+	if (!currentGoodie == null):
+		currentGoodie.isInteractable = true
+		currentGoodie.get_node("Sprite").material = null
+		currentGoodie.pos = controlingNode.get_position() + Vector2(0,0)
 	velocity.x = 0
 
 func _on_Jump_pressed():
@@ -360,7 +397,9 @@ func _on_Jump_pressed():
 		isJump = true
 		controlingNode.set_collision_mask_bit(1,true);
 func _on_FallDown_pressed():
+	get_node("Jump/Timer").start()
 	get_node("FallDown/AnimationPlayer").play("GUI")
+	get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").play("fallFromSurf")
 	velocity.y = 7
 	velocity.y *= speed
 	controlingNode.set_collision_mask_bit(1,false);
@@ -376,6 +415,7 @@ func _on_PopUpMenu_pressed():
 	
 func _on_PressUp_pressed():
 	if (currentIntObj.get_node("AnimatedSprite").is_playing()):
+		get_tree().get_root().get_node("WorkSession/Building/mch/AnimationPlayer").play("usingPress")
 		get_node("PressUp/AnimationPlayer").play("GUI")
 		currentIntObj.get_node("AnimatedSprite").play("pressing",true)
 		if (currentIntObj.isStartCreatingBlock):
@@ -386,6 +426,7 @@ func _on_PressUp_pressed():
 			createBlock()
 func _on_PressDown_pressed():
 	if (currentIntObj.get_node("AnimatedSprite").is_playing()):
+		get_tree().get_root().get_node("WorkSession/Building/mch/AnimationPlayer").play("usingPress")
 		get_node("PressDown/AnimationPlayer").play("GUI")
 		currentIntObj.get_node("AnimatedSprite").play("pressing")
 		if (currentIntObj.boxesCounter == currentIntObj.maxCapacity):
@@ -412,7 +453,9 @@ func _on_DropBox_pressed():
 	else:
 		getInfo()
 func _on_InPress_pressed():
-	if (currentGoodie != null and currentIntObj.boxesCounter < currentIntObj.maxCapacity):
+	if (currentGoodie != null and currentIntObj.boxesCounter < currentIntObj.maxCapacity and currentGoodie.nameGoodie != "block"):
+		get_tree().get_root().get_node("WorkSession/Building/mch/AnimationPlayer").play("usingPress")
+		createPuff(get_tree().get_root().get_node("WorkSession/Building/mch").position)
 		currentIntObj.boxesCounter += 1
 		currentIntObj.get_node("../press_counter/counter").text = str(currentIntObj.boxesCounter)
 		get_node("DropBox/AnimationPlayer").play("GUI")
@@ -427,6 +470,10 @@ func _on_InPress_pressed():
 		isDrag = false
 # For jumping ability
 func _on_Timer_timeout():
-	get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").play("idle")
+	if (get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").animation == "jump"):
+		get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").play("idle")
+	elif (get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").animation == "fallFromSurf"):
+		get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").play("idle")
+		
 	isJump = false
 

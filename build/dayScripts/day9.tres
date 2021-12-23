@@ -6,7 +6,7 @@
 	{"name" : "removeDialogWin", "executionHour" : "11", "executionMin": "50", "properties" : "[\"mch\"]"},
 	{"name" : "createDialogWin", "executionHour" : "11", "executionMin": "50", "properties" : "[\"By\",\"julia\"]"},
 	{"name" : "removeDialogWin", "executionHour" : "11", "executionMin": "48", "properties" : "[\"julia\"]"},
-	{"name" : "createVisitor", "executionHour" : "11", "executionMin": "0", "properties" : "[8]"},
+	{"name" : "createVisitor", "executionHour" : "11", "executionMin": "50", "properties" : "[8]"},
 	{"name" : "createVisitor", "executionHour" : "9", "executionMin": "0", "properties" : "[5]"},
 	{"name" : "createVisitor", "executionHour" : "7", "executionMin": "0", "properties" : "[8]"},
 	{"name" : "createVisitor", "executionHour" : "5", "executionMin": "0", "properties" : "[6]"},

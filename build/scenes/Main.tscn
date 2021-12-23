@@ -7148,6 +7148,7 @@ position = Vector2( 315.761, 254.818 )
 scale = Vector2( 2.5, 2.5 )
 frames = SubResource( 27 )
 animation = "wigling"
+frame = 2
 playing = true
 
 [node name="grass" type="Node2D" parent="intermission"]
@@ -9561,7 +9562,7 @@ position = Vector2( 0, 5.65686 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 69 )
 animation = "idle"
-frame = 71
+frame = 22
 playing = true
 
 [node name="fg" type="CanvasLayer" parent="."]

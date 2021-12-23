@@ -13,5 +13,5 @@
 {"who" : "julia",  "pos" : "null", 			 "spead" : "0", "text" : "The next truck will arrive tomorrow"},
 {"who" : "julia",  "pos" : "null", 			 "spead" : "0", "text" : "So, do you understand your duties ?"},
 {"who" : "mch",    "pos" : "null", 			 "spead" : "0", "text" : "Yes"},
-{"who" : "julia",  "pos" : "Vector2(-700,486)", 			 "spead" : "150", "text" : "Good luck"},
+{"who" : "julia",  "pos" : "Vector2(-730,486)", 			 "spead" : "150", "text" : "Good luck"},
 {"who" : "mch",    "pos" : "null", 			 "spead" : "0", "text" : ". . . . fuck luck."},

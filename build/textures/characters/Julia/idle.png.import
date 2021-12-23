@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/portret.png-148b64ba7da50ab1d1c79b7566cc5cd9.stex"
+path="res://.import/idle.png-98b0e6dc052df90c656c69688acddf19.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/characters/kola/portret.png"
-dest_files=[ "res://.import/portret.png-148b64ba7da50ab1d1c79b7566cc5cd9.stex" ]
+source_file="res://textures/characters/Julia/idle.png"
+dest_files=[ "res://.import/idle.png-98b0e6dc052df90c656c69688acddf19.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

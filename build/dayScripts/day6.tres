@@ -1,4 +1,4 @@
-	{"name" : "setCharacter", "executionHour" : "11", "executionMin": "59", "properties" : "[\"liza\",Vector2(-700,486),\"work\"]"},
+	{"name" : "setCharacter", "executionHour" : "11", "executionMin": "59", "properties" : "[\"liza\",Vector2(-733,486),\"work\"]"},
 	{"name" : "setCharacter", "executionHour" : "11", "executionMin": "59", "properties" : "[\"lera\",Vector2(100,486),\"idle\"]"},
 	{"name" : "setCharacter", "executionHour" : "11", "executionMin": "59", "properties" : "[\"olia\",Vector2(-1000,486),\"idle\"]"},
 	{"name" : "startDialogResultCheck", "executionHour" : "11", "executionMin": "55", "properties" : "[]"},

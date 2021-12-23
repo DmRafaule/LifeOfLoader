@@ -60,6 +60,7 @@ func _ready():
 		get_node("Results/RichTextLabel7").set_modulate(Color.red)
 		recalculated["isSorted"] = "-15$"
 		
+		
 	get_node("Results/RichTextLabel8").text = resultDict["isHelped"]
 
 

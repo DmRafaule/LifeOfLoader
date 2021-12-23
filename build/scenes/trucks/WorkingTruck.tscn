@@ -309,6 +309,42 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 162.89, 294.859 ), Vector2( 163, 389 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("main/platform/StaticBody2D/CollisionPolygon2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("main/platform/StaticBody2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("main/platform/Area2D/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=13]
 length = 2.0
@@ -350,21 +386,24 @@ texture = ExtResource( 3 )
 offset = Vector2( 10, -18 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="main/platform"]
-collision_mask = 24
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="main/platform/StaticBody2D"]
 position = Vector2( 0.0208702, -18.0809 )
 shape = SubResource( 2 )
+disabled = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="main/platform/StaticBody2D"]
 position = Vector2( 1.95998, -35.3178 )
 polygon = PoolVector2Array( -2.77349, -2.19335, -2.77517, -5.1665, -1.10579, -2.18804 )
+disabled = true
 
 [node name="Area2D" type="Area2D" parent="main/platform"]
 position = Vector2( 12.9016, -17.9228 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="main/platform/Area2D"]
 shape = SubResource( 3 )
+disabled = true
 
 [node name="body_in" type="Sprite" parent="main"]
 visible = false

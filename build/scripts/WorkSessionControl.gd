@@ -9,7 +9,7 @@ var bo3 = preload("res://scenes/boxes/box3.tscn")
 var bo4 = preload("res://scenes/boxes/box4.tscn")
 var bo5 = preload("res://scenes/boxes/box5.tscn")
 var bo6 = preload("res://scenes/boxes/box6.tscn")
-
+var openEff = preload("res://scenes/openedBox.tscn")
 
 onready var session  = get_node("/root/Session") # Get access to global script property such as current day(for loading and saving)
 onready var boxP = get_node("Building/boxes") # Contain parent node for all boxes
@@ -21,7 +21,7 @@ var numTask = 0
 var closedTask = 0
 var cashDay = 0
 
-var savePath : String= "user://save.txt" # Where to save 
+var savePath : String = "user://save.txt" # Where to save 
 
 # (INTERNAL) Save all nodes in group "save" in savePath
 func saving():	
@@ -153,7 +153,7 @@ func loading():
 					str(types[int(rnd.randf_range(0,types.size()))]),
 					int(rnd.randf_range(1,3)))
 
-		loadDayScript("day9")
+		loadDayScript("day1")
 # (INTERNAL) Load all timing functions to proccesGameEvents Form file
 func loadDayScript(var name):
 	var file = File.new()
@@ -233,6 +233,7 @@ func startDialogResultCheck():
 		4:
 			dialog = "res://dayDialog/last_warning.tres"
 		5:
+			theEnd(true)
 			dialog = "res://dayDialog/dismissal.tres" # Fired here
 	if file.file_exists(dialog):
 		file.open(dialog,file.READ)
@@ -250,8 +251,14 @@ func startDialogResultCheck():
 													session.dialogs[session.current_dialog_win]["properties"][1])
 		session.current_dialog_win += 1
 # (EXTERNAL) used only after startDialogResultCheck() and in the 30 day fon opening right scene of end game
-func theEnd():
-	pass
+func theEnd(var isBadBadEnd):
+	if (!isBadBadEnd):
+		if (session.cash >= 300):
+			get_tree().change_scene("res://scenes/NormEnding.tscn")
+		else:
+			get_tree().change_scene("res://scenes/BadEnding.tscn")
+	else:
+		get_tree().change_scene("res://scenes/BadBadEnding.tscn")
 # (EXTERNAL) Used for defining when to start dialog and what of dialog to start
 func startDialog(var dayname):
 	session.isDialogStart = true
@@ -279,6 +286,11 @@ func createDialogWinForEmployee(var text, var forWho):
 	res.type = "Employee"
 	var HUD = get_node_or_null("Building/" + forWho)
 	if (HUD != null):
+		if HUD.name != "mch":
+			if (get_node("Building/"+forWho+"/Sprite").animation == "idle"):
+				get_node("Building/"+forWho+"/Sprite").play("talk") #here add for other employee AnimatedSprite
+		else:
+			get_node("Building/mch/AnimatedSprite").play("talking")
 		res.get_node("Sprite").visible = false
 		HUD.add_child(res)
 		HUD.get_node("Popup/RichTextLabel").text = text
@@ -300,6 +312,7 @@ func createDialogWinForVisitors(var text, var forWho):
 			res.get_node("Sprite2").visible = false
 			res.get_node("Sprite3").visible = false
 			HUD.get_node("Popup/RichTextLabel").text = text
+			HUD.get_node("Sprite").play("talk")
 # (INTERNAL) This func used only if you intendent close dialog early than it supposed to be
 func removeDialogWin(var forWho):
 	var HUD = get_node_or_null("Building/" + forWho + "/Popup")
@@ -327,7 +340,8 @@ func setTask(var name):
 func setCharacter(var name, var position, var animation):
 	var character = load("res://scenes/characters/" + name + ".tscn").instance()
 	character.position = position
-	character.get_node("AnimationPlayer").play(animation)
+	character.defAnim = animation
+	character.get_node("Sprite").play(animation)
 	session.setCharacters.append({
 		"name" : name,
 		"firstPlAnim" : animation,
@@ -339,6 +353,27 @@ func moveCharacter(var name, var position, var spead):
 	var character = get_node("Building/" + name)
 	if (character != null):
 		character.walk_to(position,spead)
+# (INTERNAL) move character to needed position
+func setCharacterMovement(var forWho, var pos , var spead : float):
+	if pos != "null":
+		pos = str2var(pos)
+		var character = get_node_or_null("Building/" + forWho)
+		if (pos.x > character.position.x):
+			character.get_node("Sprite").play("walk");
+			character.get_node("Sprite").flip_h = false
+		else:
+			character.get_node("Sprite").play("walk");
+			character.get_node("Sprite").flip_h = true
+		character.get_node("Tween").interpolate_property(character,"position:x",character.position.x,pos.x,abs(pos.x/spead),Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
+		character.get_node("Tween").start()	
+func setCustomAnimation(var forWho,var animation):
+	var character = get_node_or_null("Building/" + forWho)
+	if (character.name != "mch"):
+		character.get_node("Sprite").flip_h = false
+		character.get_node("Sprite").play(animation);
+	else:
+		character.get_node("AnimatedSprite").flip_h =  false
+		character.get_node("AnimatedSprite").play(animation)
 func jumpCharacter(var name, var position):
 	var character = get_node("Building/" + name)
 	character.position = position
@@ -364,14 +399,13 @@ func setCharacterNearByForDialog(var forWho):
 		character.get_node("Tween").start()
 	if (get_node("Building/mch").position.x > 1250):
 		character.position.y = 514
-	character.get_node("AnimationPlayer").play("walk")
-# (INTERNAL) move character to needed position
-func setCharacterMovement(var forWho, var pos , var spead : float):
-	if pos != "null":
-		pos = str2var(pos)
-		var character = get_node_or_null("Building/" + forWho)
-		character.get_node("Tween").interpolate_property(character,"position:x",character.position.x,pos.x,abs(pos.x/spead),Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
-		character.get_node("Tween").start()
+		
+	if (get_node("Building/mch").position.x > character.position.x):
+		character.get_node("Sprite").play("walk");
+		character.get_node("Sprite").flip_h = false
+	else:
+		character.get_node("Sprite").play("walk");
+		character.get_node("Sprite").flip_h = true
 # (EXTERNAL) create a bunch of rnd visitors and define their death time
 func createVisitor(var size):
 	for i in range(0,size):
@@ -632,7 +666,7 @@ func isSorted(var res):
 			res.resultDict["isSorted"] = "Not realy"
 			session.cash += 1
 			cashDay += 1
-		elif out > 1 and out <= 2:
+		elif out > 1:
 			res.resultDict["isSorted"] = "Kind of"
 			session.cash += 0
 			cashDay += 0 
@@ -644,6 +678,7 @@ func isSorted(var res):
 			res.resultDict["isSorted"] = "What are you doing"
 			session.cash -= 15
 			cashDay -= 15
+			
 # Count how many times do you help
 func isHelped(var res):
 	res.resultDict["isHelped"] = str(closedTask) + "/" + str(numTask)

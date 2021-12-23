@@ -18,6 +18,7 @@ var month =	["","work","work","free","free",
 			]
 var dialogs = [] # dialogs data
 var current_dialog_win = 0 # current dialog context
+var savePath : String = "user://save.txt"
 var isEndPhrase   = false # is resources free and can prog call createDialogWin
 var isDialogStart = false # this is exist only for one reason do not play animation for apearing UI if it is just random phase
 var cash = 0 # All cash collected throu the game

@@ -64,7 +64,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=7]
-length = 6.0
+length = 6.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Fields/Selling:modulate")
 tracks/0/interp = 1
@@ -324,10 +324,10 @@ tracks/21/loop_wrap = true
 tracks/21/imported = false
 tracks/21/enabled = true
 tracks/21/keys = {
-"times": PoolRealArray( 5.5, 6 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 5.5, 6, 6.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 1.0 ]
+"values": [ 0.0, 1.0, 1.0 ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -501,7 +501,7 @@ __meta__ = {
 }
 
 [node name="isClean" type="RichTextLabel" parent="Fields"]
-modulate = Color( 1, 1, 1, 0.028934 )
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 32.0
 margin_right = 179.0
 margin_bottom = 52.0
@@ -514,7 +514,7 @@ __meta__ = {
 }
 
 [node name="HSeparator2" type="HSeparator" parent="Fields"]
-modulate = Color( 0.991036, 0.98888, 0.982186, 0.028934 )
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 56.0
 margin_right = 179.0
 margin_bottom = 60.0
@@ -523,7 +523,7 @@ __meta__ = {
 }
 
 [node name="isLightOff" type="RichTextLabel" parent="Fields"]
-modulate = Color( 1, 1, 1, 0.0141172 )
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 64.0
 margin_right = 179.0
 margin_bottom = 84.0
@@ -536,7 +536,7 @@ __meta__ = {
 }
 
 [node name="HSeparator4" type="HSeparator" parent="Fields"]
-modulate = Color( 0.995626, 0.994575, 0.991308, 0.0141172 )
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 88.0
 margin_right = 179.0
 margin_bottom = 92.0
@@ -545,7 +545,7 @@ __meta__ = {
 }
 
 [node name="isOutShop" type="RichTextLabel" parent="Fields"]
-modulate = Color( 1, 1, 1, 0.0307789 )
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 96.0
 margin_right = 179.0
 margin_bottom = 116.0
@@ -558,7 +558,7 @@ __meta__ = {
 }
 
 [node name="HSeparator5" type="HSeparator" parent="Fields"]
-modulate = Color( 0.990465, 0.988171, 0.98105, 0.0307789 )
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 120.0
 margin_right = 179.0
 margin_bottom = 124.0
@@ -567,7 +567,7 @@ __meta__ = {
 }
 
 [node name="isSorted" type="RichTextLabel" parent="Fields"]
-modulate = Color( 1, 1, 1, 0.00918102 )
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 128.0
 margin_right = 179.0
 margin_bottom = 148.0
@@ -580,7 +580,7 @@ __meta__ = {
 }
 
 [node name="HSeparator6" type="HSeparator" parent="Fields"]
-modulate = Color( 0.997156, 0.996472, 0.994347, 0.00918102 )
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 152.0
 margin_right = 179.0
 margin_bottom = 156.0
@@ -589,7 +589,7 @@ __meta__ = {
 }
 
 [node name="isHelped" type="RichTextLabel" parent="Fields"]
-modulate = Color( 1, 1, 1, 0.016778 )
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 160.0
 margin_right = 179.0
 margin_bottom = 200.0
@@ -625,7 +625,7 @@ margin_right = 187.0
 margin_bottom = 20.0
 custom_fonts/normal_font = SubResource( 4 )
 visible_characters = 0
-percent_visible = 0.0120652
+percent_visible = 0.0
 fit_content_height = true
 
 [node name="HSeparator" type="HSeparator" parent="Results"]
@@ -640,11 +640,11 @@ margin_right = 187.0
 margin_bottom = 52.0
 custom_fonts/normal_font = SubResource( 4 )
 visible_characters = 0
-percent_visible = 0.00161767
+percent_visible = 0.0
 fit_content_height = true
 
 [node name="HSeparator2" type="HSeparator" parent="Results"]
-modulate = Color( 0.991036, 0.98888, 0.982186, 0.028934 )
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 56.0
 margin_right = 187.0
 margin_bottom = 60.0
@@ -655,11 +655,11 @@ margin_right = 187.0
 margin_bottom = 84.0
 custom_fonts/normal_font = SubResource( 4 )
 visible_characters = 0
-percent_visible = 0.0252228
+percent_visible = 0.0
 fit_content_height = true
 
 [node name="HSeparator3" type="HSeparator" parent="Results"]
-modulate = Color( 0.995626, 0.994575, 0.991308, 0.0141172 )
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 88.0
 margin_right = 187.0
 margin_bottom = 92.0
@@ -670,14 +670,14 @@ margin_right = 187.0
 margin_bottom = 116.0
 custom_fonts/normal_font = SubResource( 4 )
 visible_characters = 0
-percent_visible = 0.0207844
+percent_visible = 0.0
 fit_content_height = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HSeparator4" type="HSeparator" parent="Results"]
-modulate = Color( 0.990465, 0.988171, 0.98105, 0.0307789 )
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 120.0
 margin_right = 187.0
 margin_bottom = 124.0
@@ -688,14 +688,14 @@ margin_right = 187.0
 margin_bottom = 148.0
 custom_fonts/normal_font = SubResource( 4 )
 visible_characters = 0
-percent_visible = 0.0267553
+percent_visible = 0.0
 fit_content_height = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HSeparator5" type="HSeparator" parent="Results"]
-modulate = Color( 0.997156, 0.996472, 0.994347, 0.00918102 )
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 152.0
 margin_right = 187.0
 margin_bottom = 156.0
@@ -706,7 +706,7 @@ margin_right = 187.0
 margin_bottom = 180.0
 custom_fonts/normal_font = SubResource( 4 )
 visible_characters = 0
-percent_visible = 0.000293732
+percent_visible = 0.0
 fit_content_height = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -719,10 +719,11 @@ anims/popuping = SubResource( 7 )
 anims/recalculate = SubResource( 8 )
 
 [node name="sumDay" type="RichTextLabel" parent="."]
-margin_left = 492.314
-margin_top = 260.0
-margin_right = 607.313
-margin_bottom = 341.0
+margin_left = 432.21
+margin_top = 192.0
+margin_right = 547.209
+margin_bottom = 273.0
+rect_scale = Vector2( 3, 3 )
 custom_fonts/normal_font = SubResource( 9 )
 scroll_active = false
 __meta__ = {
