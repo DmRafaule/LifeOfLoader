@@ -26,3 +26,13 @@
 ## What I did learn
 
 ## What I Implemented in game
+
+
+#What actual todo
+    * add help popup +
+    * add settings popup ++
+    * draw ending scenes +++
+    * add music ++
+    * add reclamm support ++++
+    * write down main plot +++
+    * write down all day script ++

@@ -65,7 +65,6 @@ func switchIntForc():
 func getInfo():
 	if get_node("Popup").visible == false:
 		get_node("Popup").popup()
-		get_node("Popup/borders").visible = true
 		get_node("Popup/nameGoodie").text = str(currentGoodie.nameGoodie).replace(".png","")
 		get_node("Popup/numberOfGoodie").text = str(currentGoodie.numberOfGoodie)
 		get_node("Popup/AnimationPlayer").play("appearance")
@@ -160,6 +159,7 @@ func updateSessionTimer(delta):
 			ws.get_node("Building/mch/Camera2D/HUD/ControlInterface").visible = true
 			if (session.isDialogStart):
 				session.isDialogStart = false
+				get_tree().get_root().get_node("WorkSession/EndDay").paused = false
 				ws.get_node("Building/mch/AnimationPlayer").play_backwards("StartDialog")
 #This function need point which to transform and node which need to get transformation delay
 func touchScreenPositionToGlobal(point,canvasNode):
@@ -215,6 +215,7 @@ func onTouchPressed(event):
 					joint.set_position(Vector2(-37.442,-2.071))
 					currentIntObj.add_child(joint)
 					get_node("LiftUpPlatform/AnimationPlayer").play("appearance")
+					controlingNode.get_node("AnimatedSprite").material = null
 					get_node("LiftDownPlatform/AnimationPlayer").play("appearance")
 					currentIntObj.isUnderControl = true
 				else:
@@ -405,13 +406,14 @@ func _on_FallDown_pressed():
 	controlingNode.set_collision_mask_bit(1,false);
 
 func _on_PopUpMenu_pressed():
+	get_tree().get_root().get_node("WorkSession/blur").visible = true
 	get_tree().get_root().get_node("WorkSession/EndDay").paused = true
 	get_node("PopUpMenu/AnimationPlayer").play("GUI")
 	get_tree().get_root().get_node("WorkSession").isEndDay = true
 	var res = load("res://scenes/PopupMenu.tscn").instance()
 	get_tree().get_root().get_node("WorkSession/Building/mch/Camera2D/HUD").add_child(res)
 	get_tree().get_root().get_node("WorkSession/Building/mch/Camera2D/HUD/ControlInterface").visible = false
-	get_tree().get_root().get_node("WorkSession").modulate = Color(0.06,0.06,0.06,1.0) 
+	#get_tree().get_root().get_node("WorkSession").modulate = Color(0.06,0.06,0.06,1.0) 
 	
 func _on_PressUp_pressed():
 	if (currentIntObj.get_node("AnimatedSprite").is_playing()):

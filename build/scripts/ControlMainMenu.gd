@@ -12,6 +12,7 @@ func _on_quit_pressed():
 
 func _on_play_pressed():
 	if !isPressed:
+		get_tree().get_root().get_node("MainMenu/fg/blur").visible = true
 		isPressed = true
 		var res = load("res://scenes/ContOrNew.tscn").instance()
 		get_tree().get_root().get_node("MainMenu/HUD").add_child(res)
@@ -23,5 +24,6 @@ func _on_play_pressed():
 			res.get_node("new").visible = true
 			res.get_node("cont").visible = false
 	else:
+		get_tree().get_root().get_node("MainMenu/fg/blur").visible = false
 		isPressed = false
 		get_tree().get_root().get_node("MainMenu/HUD").remove_child(get_tree().get_root().get_node("MainMenu/HUD").get_node("Control"))

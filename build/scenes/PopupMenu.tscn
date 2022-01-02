@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://textures/hud/quitP_pressed.png" type="Texture" id=1]
 [ext_resource path="res://textures/hud/next_pressed.png" type="Texture" id=2]
 [ext_resource path="res://textures/hud/next_still.png" type="Texture" id=3]
 [ext_resource path="res://textures/hud/quitP_still.png" type="Texture" id=4]
 [ext_resource path="res://scripts/PopupMenuControl.gd" type="Script" id=5]
+[ext_resource path="res://textures/hud/settingsP_pressed.png" type="Texture" id=6]
+[ext_resource path="res://textures/hud/questionP_pressed.png" type="Texture" id=7]
+[ext_resource path="res://textures/hud/settingsP_still.png" type="Texture" id=8]
+[ext_resource path="res://textures/hud/questionP_still.png" type="Texture" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 15.0
@@ -37,15 +41,15 @@ shape = SubResource( 2 )
 [node name="Settings" type="TouchScreenButton" parent="."]
 position = Vector2( 334.251, 234.234 )
 scale = Vector2( 3, 3 )
-normal = ExtResource( 3 )
-pressed = ExtResource( 2 )
+normal = ExtResource( 8 )
+pressed = ExtResource( 6 )
 shape = SubResource( 1 )
 
 [node name="Credits" type="TouchScreenButton" parent="."]
 position = Vector2( 332.132, 94.3845 )
 scale = Vector2( 3, 3 )
-normal = ExtResource( 3 )
-pressed = ExtResource( 2 )
+normal = ExtResource( 9 )
+pressed = ExtResource( 7 )
 shape = SubResource( 1 )
 
 [connection signal="pressed" from="Next" to="." method="_on_Next_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=164 format=2]
+[gd_scene load_steps=169 format=2]
 
 [ext_resource path="res://textures/humanEnviroment/tilesSheetForWork.png" type="Texture" id=1]
 [ext_resource path="res://scenes/characters/mch.tscn" type="PackedScene" id=2]
@@ -43,6 +43,7 @@
 [ext_resource path="res://textures/humanEnviroment/attention_sign.png" type="Texture" id=41]
 [ext_resource path="res://textures/humanEnviroment/leafsHeap2.png" type="Texture" id=42]
 [ext_resource path="res://textures/humanEnviroment/leafsHeap1.png" type="Texture" id=43]
+[ext_resource path="res://textures/effects/light.png" type="Texture" id=44]
 [ext_resource path="res://textures/hud/switch.png" type="Texture" id=45]
 [ext_resource path="res://textures/cars/rochla/wheel.png" type="Texture" id=50]
 [ext_resource path="res://textures/cars/rochla/laver.png" type="Texture" id=51]
@@ -4469,6 +4470,22 @@ hue_variation_random = 0.56
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 96, 0, 32, 32 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="TileSet" id=43]
+0/name = "tilesSheetForWork.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 128, 32, 32, 32 )
 0/tile_mode = 1
 0/autotile/bitmask_mode = 0
@@ -4627,31 +4644,31 @@ hue_variation_random = 0.56
 8/shapes = [  ]
 8/z_index = 0
 
-[sub_resource type="ShaderMaterial" id=43]
-shader = ExtResource( 13 )
-
 [sub_resource type="ShaderMaterial" id=44]
 shader = ExtResource( 13 )
 
 [sub_resource type="ShaderMaterial" id=45]
 shader = ExtResource( 13 )
 
-[sub_resource type="ConvexPolygonShape2D" id=46]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+[sub_resource type="ShaderMaterial" id=46]
+shader = ExtResource( 13 )
 
 [sub_resource type="ConvexPolygonShape2D" id=47]
-points = PoolVector2Array( 0, 0, 16.1325, 5.25201, 32, 10.0748, 32, 32, 0, 32 )
+points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=48]
-points = PoolVector2Array( 0, 10.0748, 15.985, 15.3461, 32, 19.9445, 31.6775, 32, 0, 32 )
+points = PoolVector2Array( 0, 0, 16.1325, 5.25201, 32, 10.0748, 32, 32, 0, 32 )
 
 [sub_resource type="ConvexPolygonShape2D" id=49]
+points = PoolVector2Array( 0, 10.0748, 15.985, 15.3461, 32, 19.9445, 31.6775, 32, 0, 32 )
+
+[sub_resource type="ConvexPolygonShape2D" id=50]
 points = PoolVector2Array( 0, 19.9445, 32, 32, 0, 32, 0, 32, 0, 32, 0, 32 )
 
-[sub_resource type="ConcavePolygonShape2D" id=50]
+[sub_resource type="ConcavePolygonShape2D" id=51]
 segments = PoolVector2Array( 0, 32, 32, 32, 32, 32, 32, 32, 32, 32, 0, 32, 0, 32, 0, 32 )
 
-[sub_resource type="Shader" id=51]
+[sub_resource type="Shader" id=52]
 code = "shader_type canvas_item;
 
 
@@ -4664,16 +4681,16 @@ void vertex(){
 	
 }"
 
-[sub_resource type="ShaderMaterial" id=52]
-shader = SubResource( 51 )
-
-[sub_resource type="ConvexPolygonShape2D" id=53]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+[sub_resource type="ShaderMaterial" id=53]
+shader = SubResource( 52 )
 
 [sub_resource type="ConvexPolygonShape2D" id=54]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
-[sub_resource type="Shader" id=55]
+[sub_resource type="ConvexPolygonShape2D" id=55]
+points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+
+[sub_resource type="Shader" id=56]
 code = "shader_type canvas_item;
 
 void vertex(){
@@ -4688,13 +4705,13 @@ void light(){
 	
 }"
 
-[sub_resource type="ShaderMaterial" id=56]
-shader = SubResource( 55 )
+[sub_resource type="ShaderMaterial" id=57]
+shader = SubResource( 56 )
 
-[sub_resource type="ConvexPolygonShape2D" id=57]
+[sub_resource type="ConvexPolygonShape2D" id=58]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
-[sub_resource type="TileSet" id=58]
+[sub_resource type="TileSet" id=59]
 0/name = "tilesSheetForWork.png 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
@@ -4714,14 +4731,14 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 46 )
+0/shape = SubResource( 47 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 46 ),
+"shape": SubResource( 47 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -4928,14 +4945,14 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 10/navigation_offset = Vector2( 0, 0 )
 10/shape_offset = Vector2( 0, 0 )
 10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-10/shape = SubResource( 47 )
+10/shape = SubResource( 48 )
 10/shape_one_way = false
 10/shape_one_way_margin = 1.0
 10/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 47 ),
+"shape": SubResource( 48 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 10/z_index = 0
@@ -4981,14 +4998,14 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 12/navigation_offset = Vector2( 0, 0 )
 12/shape_offset = Vector2( 0, 0 )
 12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-12/shape = SubResource( 48 )
+12/shape = SubResource( 49 )
 12/shape_one_way = false
 12/shape_one_way_margin = 1.0
 12/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 48 ),
+"shape": SubResource( 49 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 12/z_index = 0
@@ -5034,20 +5051,20 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 14/navigation_offset = Vector2( 0, 0 )
 14/shape_offset = Vector2( 0, 0 )
 14/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-14/shape = SubResource( 49 )
+14/shape = SubResource( 50 )
 14/shape_one_way = false
 14/shape_one_way_margin = 1.0
 14/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 49 ),
+"shape": SubResource( 50 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 50 ),
+"shape": SubResource( 51 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 14/z_index = 0
@@ -5100,7 +5117,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 20/name = "tilesSheetForWork.png 20"
 20/texture = ExtResource( 1 )
 20/tex_offset = Vector2( 0, 0 )
-20/material = SubResource( 52 )
+20/material = SubResource( 53 )
 20/modulate = Color( 1, 1, 1, 1 )
 20/region = Rect2( 64, 64, 32, 32 )
 20/tile_mode = 1
@@ -5140,14 +5157,14 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 21/navigation_offset = Vector2( 0, 0 )
 21/shape_offset = Vector2( 0, 0 )
 21/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-21/shape = SubResource( 53 )
+21/shape = SubResource( 54 )
 21/shape_one_way = false
 21/shape_one_way_margin = 1.0
 21/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 53 ),
+"shape": SubResource( 54 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 21/z_index = 0
@@ -5170,21 +5187,21 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 22/navigation_offset = Vector2( 0, 0 )
 22/shape_offset = Vector2( 0, 0 )
 22/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-22/shape = SubResource( 54 )
+22/shape = SubResource( 55 )
 22/shape_one_way = false
 22/shape_one_way_margin = 1.0
 22/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 54 ),
+"shape": SubResource( 55 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 22/z_index = 0
 23/name = "tilesSheetForWork.png 23"
 23/texture = ExtResource( 1 )
 23/tex_offset = Vector2( 0, 0 )
-23/material = SubResource( 56 )
+23/material = SubResource( 57 )
 23/modulate = Color( 1, 1, 1, 1 )
 23/region = Rect2( 96, 64, 32, 32 )
 23/tile_mode = 1
@@ -5224,19 +5241,19 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 24/navigation_offset = Vector2( 0, 0 )
 24/shape_offset = Vector2( 0, 0 )
 24/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-24/shape = SubResource( 57 )
+24/shape = SubResource( 58 )
 24/shape_one_way = false
 24/shape_one_way_margin = 1.0
 24/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 57 ),
+"shape": SubResource( 58 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 24/z_index = 0
 
-[sub_resource type="Shader" id=59]
+[sub_resource type="Shader" id=60]
 code = "shader_type canvas_item;
 
 uniform float deapth_of_fading = 0.0;
@@ -5246,11 +5263,11 @@ void fragment(){
 	COLOR.a = UV.y + deapth_of_fading;
 }"
 
-[sub_resource type="ShaderMaterial" id=60]
-shader = SubResource( 59 )
+[sub_resource type="ShaderMaterial" id=61]
+shader = SubResource( 60 )
 shader_param/deapth_of_fading = 0.0
 
-[sub_resource type="Shader" id=61]
+[sub_resource type="Shader" id=62]
 code = "shader_type canvas_item;
 
 uniform float deapth_of_fading = 0.0;
@@ -5260,11 +5277,11 @@ void fragment(){
 	COLOR.a -= UV.y + deapth_of_fading;
 }"
 
-[sub_resource type="ShaderMaterial" id=62]
-shader = SubResource( 61 )
+[sub_resource type="ShaderMaterial" id=63]
+shader = SubResource( 62 )
 shader_param/deapth_of_fading = 0.0
 
-[sub_resource type="Shader" id=63]
+[sub_resource type="Shader" id=64]
 code = "shader_type canvas_item;
 
 uniform float deapth_of_fading = 0.0;
@@ -5274,20 +5291,20 @@ void fragment(){
 	COLOR.a = UV.x +  deapth_of_fading;
 }"
 
-[sub_resource type="ShaderMaterial" id=64]
-shader = SubResource( 63 )
+[sub_resource type="ShaderMaterial" id=65]
+shader = SubResource( 64 )
 shader_param/deapth_of_fading = 0.12
 
-[sub_resource type="RectangleShape2D" id=65]
+[sub_resource type="RectangleShape2D" id=66]
 extents = Vector2( 184.717, 10 )
 
-[sub_resource type="RectangleShape2D" id=66]
+[sub_resource type="RectangleShape2D" id=67]
 extents = Vector2( 4.07996, 110.942 )
 
-[sub_resource type="RectangleShape2D" id=67]
+[sub_resource type="RectangleShape2D" id=68]
 extents = Vector2( 176.868, 5.25385 )
 
-[sub_resource type="GDScript" id=68]
+[sub_resource type="GDScript" id=69]
 script/source = "extends Node2D
 
 
@@ -5328,166 +5345,166 @@ func _on_Area2D_body_exited(body):
 		body.get_node(\"AnimatedSprite\").material = null
 "
 
-[sub_resource type="AtlasTexture" id=69]
-atlas = ExtResource( 3 )
-region = Rect2( 64, 0, 64, 64 )
-
 [sub_resource type="AtlasTexture" id=70]
 atlas = ExtResource( 3 )
-region = Rect2( 128, 0, 64, 64 )
+region = Rect2( 64, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=71]
 atlas = ExtResource( 3 )
-region = Rect2( 192, 0, 64, 64 )
+region = Rect2( 0, 192, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=72]
 atlas = ExtResource( 3 )
-region = Rect2( 320, 0, 64, 64 )
+region = Rect2( 64, 192, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=73]
 atlas = ExtResource( 3 )
-region = Rect2( 256, 0, 64, 64 )
+region = Rect2( 128, 192, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=74]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 64, 64 )
+region = Rect2( 192, 192, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=75]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 64, 64 )
+region = Rect2( 256, 192, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=76]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 64, 64, 64 )
+region = Rect2( 64, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=77]
 atlas = ExtResource( 3 )
-region = Rect2( 64, 64, 64, 64 )
+region = Rect2( 128, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=78]
 atlas = ExtResource( 3 )
-region = Rect2( 128, 64, 64, 64 )
+region = Rect2( 192, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=79]
 atlas = ExtResource( 3 )
-region = Rect2( 192, 64, 64, 64 )
+region = Rect2( 320, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=80]
 atlas = ExtResource( 3 )
-region = Rect2( 256, 64, 64, 64 )
+region = Rect2( 256, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=81]
 atlas = ExtResource( 3 )
-region = Rect2( 320, 64, 64, 64 )
+region = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=82]
 atlas = ExtResource( 3 )
-region = Rect2( 384, 64, 64, 64 )
+region = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=83]
 atlas = ExtResource( 3 )
-region = Rect2( 448, 64, 64, 64 )
+region = Rect2( 0, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=84]
 atlas = ExtResource( 3 )
-region = Rect2( 512, 64, 64, 64 )
+region = Rect2( 64, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=85]
 atlas = ExtResource( 3 )
-region = Rect2( 576, 64, 64, 64 )
+region = Rect2( 128, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=86]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 128, 64, 64 )
+region = Rect2( 192, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=87]
 atlas = ExtResource( 3 )
-region = Rect2( 64, 128, 64, 64 )
+region = Rect2( 256, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=88]
 atlas = ExtResource( 3 )
-region = Rect2( 128, 128, 64, 64 )
+region = Rect2( 320, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=89]
 atlas = ExtResource( 3 )
-region = Rect2( 192, 128, 64, 64 )
+region = Rect2( 384, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=90]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 64, 64 )
+region = Rect2( 448, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=91]
 atlas = ExtResource( 3 )
-region = Rect2( 256, 0, 64, 64 )
+region = Rect2( 512, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=92]
 atlas = ExtResource( 3 )
-region = Rect2( 192, 0, 64, 64 )
+region = Rect2( 576, 64, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=93]
 atlas = ExtResource( 3 )
-region = Rect2( 320, 0, 64, 64 )
+region = Rect2( 0, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=94]
 atlas = ExtResource( 3 )
-region = Rect2( 128, 0, 64, 64 )
+region = Rect2( 64, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=95]
 atlas = ExtResource( 3 )
-region = Rect2( 64, 0, 64, 64 )
+region = Rect2( 128, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=96]
 atlas = ExtResource( 3 )
-region = Rect2( 64, 0, 64, 64 )
+region = Rect2( 192, 128, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=97]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 192, 64, 64 )
+region = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=98]
 atlas = ExtResource( 3 )
-region = Rect2( 64, 192, 64, 64 )
+region = Rect2( 256, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=99]
 atlas = ExtResource( 3 )
-region = Rect2( 128, 192, 64, 64 )
+region = Rect2( 192, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=100]
 atlas = ExtResource( 3 )
-region = Rect2( 192, 192, 64, 64 )
+region = Rect2( 320, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=101]
 atlas = ExtResource( 3 )
-region = Rect2( 256, 192, 64, 64 )
+region = Rect2( 128, 0, 64, 64 )
 
-[sub_resource type="SpriteFrames" id=102]
+[sub_resource type="AtlasTexture" id=102]
+atlas = ExtResource( 3 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=103]
 animations = [ {
-"frames": [ SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ), SubResource( 89 ) ],
+"frames": [ SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ) ],
+"loop": false,
+"name": "openingBottom",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ), SubResource( 89 ), SubResource( 90 ), SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ), SubResource( 96 ) ],
 "loop": false,
 "name": "pressing",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 90 ), SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ) ],
+"frames": [ SubResource( 97 ), SubResource( 98 ), SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ) ],
 "loop": false,
 "name": "opening",
 "speed": 6.0
-}, {
-"frames": [ SubResource( 96 ), SubResource( 97 ), SubResource( 98 ), SubResource( 99 ), SubResource( 100 ), SubResource( 101 ) ],
-"loop": false,
-"name": "openingBottom",
-"speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=103]
+[sub_resource type="RectangleShape2D" id=104]
 extents = Vector2( 16.4066, 19.3629 )
 
-[sub_resource type="DynamicFont" id=104]
+[sub_resource type="DynamicFont" id=105]
 size = 40
 outline_size = 1
 use_mipmaps = true
 font_data = ExtResource( 54 )
 
-[sub_resource type="GDScript" id=105]
+[sub_resource type="GDScript" id=106]
 script/source = "extends RigidBody2D
 
 
@@ -5526,7 +5543,8 @@ func _on_Area2D_body_exited(body):
 # When player entered  he can interact with rochla
 func _on_pen_body_entered(body):
 	if body.get_name() == \"mch\":
-		body.get_node(\"AnimatedSprite\").material = outliner
+		if (!isUnderControl):
+			body.get_node(\"AnimatedSprite\").material = outliner
 		isInteractable = true
 # When he leaves he can't
 func _on_pen_body_exited(body):
@@ -5535,19 +5553,19 @@ func _on_pen_body_exited(body):
 		isInteractable = false
 "
 
-[sub_resource type="RectangleShape2D" id=106]
+[sub_resource type="RectangleShape2D" id=107]
 extents = Vector2( 23.1261, 31.2296 )
 
-[sub_resource type="RectangleShape2D" id=107]
+[sub_resource type="RectangleShape2D" id=108]
 extents = Vector2( 61.9416, 4.61951 )
 
-[sub_resource type="CircleShape2D" id=108]
+[sub_resource type="CircleShape2D" id=109]
 radius = 15.6106
 
-[sub_resource type="RectangleShape2D" id=109]
+[sub_resource type="RectangleShape2D" id=110]
 extents = Vector2( 50.6113, 46.4167 )
 
-[sub_resource type="Animation" id=110]
+[sub_resource type="Animation" id=111]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("platform:position")
@@ -5574,7 +5592,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0.0453487, -0.92734 ), Vector2( -0.30365, -4.67563 ) ]
 }
 
-[sub_resource type="Animation" id=111]
+[sub_resource type="Animation" id=112]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("platform:position")
@@ -5601,7 +5619,7 @@ tracks/1/keys = {
 "values": [ Vector2( -0.30365, -4.67563 ), Vector2( 0.465881, -7.66709 ) ]
 }
 
-[sub_resource type="Animation" id=112]
+[sub_resource type="Animation" id=113]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("platform:position")
@@ -5628,7 +5646,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0.465881, -7.66709 ), Vector2( 0.111755, -10.6661 ) ]
 }
 
-[sub_resource type="GDScript" id=113]
+[sub_resource type="GDScript" id=114]
 script/source = "extends Node2D
 
 
@@ -5641,9 +5659,11 @@ const nameStr = \"switch\" 		# Used in ControlInterface.gd, for sellect right no
 func use(var node):
 	if node.enabled:
 		isLightOn = false
+		node.get_node(\"Sprite\").visible = false
 		node.enabled = false
 	else:
 		isLightOn = true
+		node.get_node(\"Sprite\").visible = true
 		node.enabled = true
 func setModulate(var from, var to):
 	to.modulate = from.modulate
@@ -5665,10 +5685,10 @@ func _on_Area2D_body_exited(body):
 		isInteractable = false
 "
 
-[sub_resource type="RectangleShape2D" id=114]
+[sub_resource type="RectangleShape2D" id=115]
 extents = Vector2( 25.2665, 26.4669 )
 
-[sub_resource type="ArrayMesh" id=115]
+[sub_resource type="ArrayMesh" id=116]
 surfaces/0 = {
 "aabb": AABB( -46.4, -41.4, 0, 80.8, 108.4, 0 ),
 "array_data": PoolByteArray( 0, 0, 96, 193, 51, 51, 7, 194, 109, 178, 201, 62, 29, 181, 125, 62, 0, 0, 96, 193, 0, 0, 36, 194, 109, 178, 201, 62, 195, 175, 70, 62, 152, 153, 25, 193, 0, 0, 36, 194, 126, 195, 218, 62, 195, 175, 70, 62, 204, 204, 4, 193, 51, 51, 23, 194, 90, 206, 223, 62, 235, 35, 95, 62, 104, 102, 230, 192, 0, 0, 32, 194, 158, 18, 228, 62, 15, 84, 78, 62, 128, 102, 102, 191, 0, 0, 32, 194, 83, 130, 252, 62, 15, 84, 78, 62, 0, 0, 128, 63, 205, 204, 20, 194, 124, 240, 1, 63, 178, 185, 99, 62, 0, 0, 0, 65, 0, 0, 32, 194, 225, 131, 15, 63, 15, 84, 78, 62, 0, 0, 0, 65, 51, 51, 17, 194, 225, 131, 15, 63, 94, 154, 106, 62, 0, 0, 48, 65, 52, 51, 235, 193, 85, 85, 21, 63, 105, 170, 143, 62, 0, 0, 48, 65, 204, 204, 212, 193, 85, 85, 21, 63, 59, 93, 154, 62, 48, 51, 35, 65, 0, 0, 196, 193, 37, 200, 19, 63, 88, 99, 162, 62, 0, 0, 200, 65, 52, 51, 219, 193, 31, 124, 48, 63, 181, 78, 151, 62, 0, 0, 200, 65, 102, 102, 198, 193, 31, 124, 48, 63, 230, 61, 161, 62, 52, 51, 219, 65, 0, 0, 180, 193, 176, 35, 53, 63, 164, 7, 170, 62, 104, 102, 210, 65, 0, 0, 160, 193, 142, 1, 51, 63, 4, 149, 179, 62, 152, 153, 197, 65, 0, 0, 160, 193, 45, 231, 47, 63, 4, 149, 179, 62, 0, 0, 176, 65, 0, 0, 144, 193, 171, 170, 42, 63, 80, 57, 187, 62, 0, 0, 168, 65, 0, 0, 80, 193, 47, 186, 40, 63, 15, 84, 206, 62, 0, 0, 232, 65, 0, 0, 128, 193, 16, 62, 56, 63, 157, 221, 194, 62, 0, 0, 232, 65, 204, 204, 76, 193, 16, 62, 56, 63, 177, 23, 207, 62, 154, 153, 9, 66, 0, 0, 240, 192, 20, 183, 66, 63, 225, 87, 227, 62, 52, 51, 5, 66, 0, 0, 160, 192, 242, 148, 64, 63, 65, 229, 236, 62, 52, 51, 251, 65, 0, 0, 160, 192, 160, 229, 60, 63, 65, 229, 236, 62, 204, 204, 200, 65, 208, 204, 108, 192, 197, 173, 48, 63, 217, 220, 241, 62, 0, 0, 208, 65, 96, 102, 70, 192, 155, 108, 50, 63, 189, 39, 244, 62, 0, 0, 208, 65, 0, 204, 204, 61, 155, 108, 50, 63, 232, 48, 0, 63, 204, 204, 188, 65, 128, 153, 217, 63, 11, 197, 45, 63, 109, 63, 3, 63, 52, 51, 203, 65, 0, 0, 96, 64, 183, 66, 49, 63, 195, 175, 6, 63, 104, 102, 194, 65, 0, 0, 192, 64, 149, 32, 47, 63, 115, 118, 11, 63, 0, 0, 184, 65, 0, 0, 192, 64, 39, 155, 44, 63, 115, 118, 11, 63, 52, 51, 167, 65, 0, 0, 16, 65, 137, 136, 40, 63, 172, 49, 17, 63, 52, 51, 179, 65, 0, 0, 16, 65, 67, 113, 43, 63, 172, 49, 17, 63, 104, 102, 206, 65, 0, 0, 152, 65, 80, 9, 50, 63, 107, 76, 36, 63, 204, 204, 180, 65, 0, 0, 152, 65, 143, 212, 43, 63, 107, 76, 36, 63, 152, 153, 121, 65, 0, 0, 192, 65, 42, 65, 30, 63, 203, 217, 45, 63, 152, 153, 89, 65, 0, 0, 192, 65, 49, 96, 26, 63, 203, 217, 45, 63, 48, 51, 35, 65, 204, 204, 180, 65, 37, 200, 19, 63, 22, 45, 43, 63, 0, 0, 64, 64, 0, 0, 224, 65, 116, 209, 5, 63, 23, 126, 53, 63, 96, 102, 6, 64, 52, 51, 57, 66, 158, 18, 4, 63, 40, 116, 88, 63, 0, 0, 112, 65, 102, 102, 100, 66, 70, 23, 29, 63, 41, 22, 109, 63, 0, 0, 112, 65, 0, 0, 114, 66, 70, 23, 29, 63, 4, 149, 115, 63, 152, 153, 137, 65, 0, 0, 130, 66, 138, 91, 33, 63, 218, 45, 124, 63, 208, 204, 76, 192, 0, 0, 130, 66, 127, 150, 243, 62, 218, 45, 124, 63, 104, 102, 166, 192, 0, 0, 134, 66, 143, 212, 235, 62, 0, 0, 128, 63, 204, 204, 108, 193, 0, 0, 134, 66, 13, 152, 198, 62, 0, 0, 128, 63, 204, 204, 124, 193, 0, 0, 132, 66, 20, 183, 194, 62, 237, 22, 126, 63, 0, 0, 200, 193, 0, 0, 132, 66, 194, 7, 159, 62, 237, 22, 126, 63, 0, 0, 200, 193, 52, 51, 127, 66, 194, 7, 159, 62, 246, 226, 121, 63, 52, 51, 219, 193, 0, 0, 118, 66, 161, 184, 149, 62, 23, 126, 117, 63, 102, 102, 210, 193, 0, 0, 108, 66, 230, 252, 153, 62, 103, 183, 112, 63, 154, 153, 197, 193, 0, 0, 108, 66, 166, 49, 160, 62, 103, 183, 112, 63, 0, 0, 160, 193, 102, 102, 92, 66, 155, 108, 178, 62, 3, 68, 105, 63, 0, 0, 160, 193, 0, 0, 82, 66, 155, 108, 178, 62, 107, 76, 100, 63, 0, 0, 128, 193, 0, 0, 54, 66, 124, 240, 193, 62, 229, 236, 86, 63, 0, 0, 128, 193, 0, 0, 0, 66, 124, 240, 193, 62, 99, 34, 61, 63, 154, 153, 133, 193, 0, 0, 0, 66, 104, 57, 191, 62, 99, 34, 61, 63, 204, 204, 140, 193, 204, 204, 212, 65, 188, 187, 187, 62, 98, 209, 50, 63, 0, 0, 232, 193, 204, 204, 0, 66, 225, 131, 143, 62, 52, 132, 61, 63, 0, 0, 232, 193, 104, 102, 230, 65, 225, 131, 143, 62, 90, 5, 55, 63, 0, 0, 0, 194, 104, 102, 206, 65, 248, 224, 131, 62, 32, 74, 49, 63, 0, 0, 0, 194, 0, 0, 184, 65, 248, 224, 131, 62, 183, 240, 43, 63, 51, 51, 15, 194, 0, 0, 184, 65, 95, 71, 106, 62, 183, 240, 43, 63, 0, 0, 28, 194, 104, 102, 158, 65, 93, 116, 81, 62, 174, 211, 37, 63, 0, 0, 28, 194, 52, 51, 135, 65, 93, 116, 81, 62, 93, 73, 32, 63, 154, 153, 19, 194, 152, 153, 121, 65, 214, 190, 97, 62, 144, 205, 29, 63, 205, 204, 32, 194, 0, 0, 16, 65, 60, 37, 72, 62, 172, 49, 17, 63, 205, 204, 20, 194, 0, 0, 16, 65, 14, 107, 95, 62, 172, 49, 17, 63, 51, 51, 19, 194, 48, 51, 3, 65, 111, 133, 98, 62, 105, 170, 15, 63, 0, 0, 44, 194, 48, 51, 131, 64, 155, 108, 50, 62, 53, 213, 7, 63, 0, 0, 44, 194, 192, 204, 204, 63, 155, 108, 50, 62, 133, 14, 3, 63, 154, 153, 35, 194, 0, 0, 128, 192, 20, 183, 66, 62, 103, 183, 240, 62, 102, 102, 40, 194, 0, 0, 128, 192, 243, 103, 57, 62, 103, 183, 240, 62, 51, 51, 53, 194, 104, 102, 14, 193, 242, 148, 32, 62, 120, 254, 221, 62, 205, 204, 48, 194, 0, 0, 48, 193, 122, 29, 41, 62, 92, 248, 213, 62, 51, 51, 41, 194, 0, 0, 48, 193, 196, 218, 55, 62, 92, 248, 213, 62, 0, 0, 22, 194, 152, 153, 81, 193, 70, 23, 93, 62, 63, 242, 205, 62, 0, 0, 36, 194, 204, 204, 108, 193, 124, 240, 65, 62, 100, 115, 199, 62, 0, 0, 36, 194, 0, 0, 140, 193, 124, 240, 65, 62, 99, 34, 189, 62, 51, 51, 19, 194, 52, 51, 207, 193, 111, 133, 98, 62, 239, 9, 157, 62, 154, 153, 57, 194, 51, 51, 5, 194, 106, 12, 24, 62, 161, 195, 128, 62, 154, 153, 53, 194, 0, 0, 16, 194, 90, 206, 31, 62, 65, 229, 108, 62, 0, 0, 46, 194, 0, 0, 16, 194, 163, 139, 46, 62, 65, 229, 108, 62, 0, 0, 20, 194, 205, 204, 28, 194, 62, 248, 96, 62, 25, 113, 84, 62, 0, 0, 20, 194, 154, 153, 17, 194, 62, 248, 96, 62, 188, 214, 105, 62, 205, 204, 12, 194, 102, 102, 14, 194, 239, 238, 110, 62, 198, 243, 111, 62, 0, 0, 252, 193, 154, 153, 29, 194, 116, 209, 133, 62, 215, 233, 82, 62, 0, 0, 232, 193, 51, 51, 25, 194, 225, 131, 143, 62, 197, 81, 91, 62, 0, 0, 232, 193, 154, 153, 19, 194, 225, 131, 143, 62, 150, 4, 102, 62, 0, 0, 208, 193, 154, 153, 9, 194, 202, 38, 155, 62, 84, 31, 121, 62, 0, 0, 192, 193, 0, 0, 26, 194, 186, 232, 162, 62, 130, 202, 89, 62, 0, 0, 192, 193, 51, 51, 33, 194, 186, 232, 162, 62, 44, 9, 76, 62, 0, 0, 172, 193, 154, 153, 37, 194, 39, 155, 172, 62, 62, 161, 67, 62 ),
@@ -5681,7 +5701,7 @@ surfaces/0 = {
 "vertex_count": 93
 }
 
-[sub_resource type="Animation" id=116]
+[sub_resource type="Animation" id=117]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -5804,6 +5824,28 @@ tracks/9/keys = {
 "update": 0,
 "values": [ Vector2( 7.66, 7.66 ), Vector2( 7.1, 7.66 ), Vector2( 7.8, 7.66 ) ]
 }
+
+[sub_resource type="Shader" id=118]
+code = "shader_type canvas_item;
+
+uniform float blur_amount : hint_range(-2.0, 10.0);
+uniform float mix_amount : hint_range(0.0, 1.0);
+uniform vec4 color_over : hint_color;
+
+void fragment() {
+	vec4 blurred = textureLod(SCREEN_TEXTURE, SCREEN_UV, 1.0);
+	vec4 fin = mix(blurred, vec4(1.0), 0.1);
+	COLOR = fin;
+}"
+
+[sub_resource type="ShaderMaterial" id=119]
+shader = SubResource( 118 )
+shader_param/blur_amount = null
+shader_param/mix_amount = null
+shader_param/color_over = null
+
+[sub_resource type="ExternalTexture" id=120]
+size = Vector2( 2000, 500 )
 
 [node name="WorkSession" type="Node2D"]
 script = ExtResource( 38 )
@@ -8204,7 +8246,10 @@ texture = ExtResource( 22 )
 energy = 0.0
 range_z_min = -2
 range_z_max = 0
-shadow_filter_smooth = 60.2
+shadow_enabled = true
+shadow_buffer_size = 1024
+shadow_filter = 3
+shadow_filter_smooth = 16.1
 
 [node name="ligherAtStreet2" type="Sprite" parent="BG/lighters"]
 position = Vector2( 1912, 104 )
@@ -8219,6 +8264,10 @@ texture = ExtResource( 22 )
 energy = 0.0
 range_z_min = -4
 range_z_max = 0
+shadow_enabled = true
+shadow_buffer_size = 1024
+shadow_filter = 3
+shadow_filter_smooth = 20.0
 
 [node name="ligherAtStreet3" type="Sprite" parent="BG/lighters"]
 position = Vector2( 576, 104 )
@@ -8289,8 +8338,15 @@ texture = ExtResource( 37 )
 
 [node name="Building" type="Node2D" parent="."]
 
-[node name="buildingBG" type="TileMap" parent="Building"]
+[node name="shelvsBG" type="TileMap" parent="Building"]
+z_index = 1
 tile_set = SubResource( 42 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 720878, 0, 0, 720879, 0, 0, 720880, 0, 0, 720881, 0, 0, 720882, 0, 0, 720883, 0, 0, 720884, 0, 0, 720885, 0, 0, 720886, 0, 0, 720887, 0, 0, 720888, 0, 0, 720889, 0, 0, 720890, 0, 0, 720891, 0, 0, 720892, 0, 0, 720893, 0, 0, 720894, 0, 0, 720895, 0, 0, 655360, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 655381, 0, 0, 786414, 0, 0, 786415, 0, 0, 786416, 0, 0, 786417, 0, 0, 786418, 0, 0, 786419, 0, 0, 786420, 0, 0, 786421, 0, 0, 786422, 0, 0, 786423, 0, 0, 786424, 0, 0, 786425, 0, 0, 786426, 0, 0, 786427, 0, 0, 786428, 0, 0, 786429, 0, 0, 786430, 0, 0, 786431, 0, 0, 720896, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0, 720917, 0, 0, 851950, 0, 0, 851951, 0, 0, 851952, 0, 0, 851953, 0, 0, 851954, 0, 0, 851955, 0, 0, 851956, 0, 0, 851957, 0, 0, 851958, 0, 0, 851959, 0, 0, 851960, 0, 0, 851961, 0, 0, 851962, 0, 0, 851963, 0, 0, 851964, 0, 0, 851965, 0, 0, 851966, 0, 0, 851967, 0, 0, 786432, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 786448, 0, 0, 786449, 0, 0, 786450, 0, 0, 786451, 0, 0, 786452, 0, 0, 786453, 0, 0, 917486, 0, 0, 917487, 0, 0, 917488, 0, 0, 917489, 0, 0, 917490, 0, 0, 917491, 0, 0, 917492, 0, 0, 917493, 0, 0, 917494, 0, 0, 917495, 0, 0, 917496, 0, 0, 917497, 0, 0, 917498, 0, 0, 917499, 0, 0, 917500, 0, 0, 917501, 0, 0, 917502, 0, 0, 917503, 0, 0, 851968, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 0, 0, 851974, 0, 0, 851975, 0, 0, 851976, 0, 0, 851977, 0, 0, 851978, 0, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 851987, 0, 0, 851988, 0, 0, 851989, 0, 0, 983022, 0, 0, 983023, 0, 0, 983024, 0, 0, 983025, 0, 0, 983026, 0, 0, 983027, 0, 0, 983028, 0, 0, 983029, 0, 0, 983030, 0, 0, 983031, 0, 0, 983032, 0, 0, 983033, 0, 0, 983034, 0, 0, 983035, 0, 0, 983036, 0, 0, 983037, 0, 0, 983038, 0, 0, 983039, 0, 0, 917504, 0, 0, 917507, 0, 0, 917508, 0, 0, 917509, 0, 0, 917510, 0, 0, 917511, 0, 0, 917512, 0, 0, 917513, 0, 0, 917514, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 917522, 0, 0, 917523, 0, 0, 917524, 0, 0, 917525, 0, 0 )
+
+[node name="buildingBG" type="TileMap" parent="Building"]
+tile_set = SubResource( 43 )
 cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 8
 format = 1
@@ -8327,6 +8383,7 @@ scale = Vector2( 3.69545, 3.23779 )
 texture = ExtResource( 6 )
 
 [node name="windowStorage" type="Sprite" parent="Building/buildingBG"]
+light_mask = 2048
 position = Vector2( 984, 392 )
 scale = Vector2( 3.875, 3.25 )
 texture = ExtResource( 6 )
@@ -8343,19 +8400,19 @@ scale = Vector2( 2.33334, 2.66667 )
 texture = ExtResource( 41 )
 
 [node name="20of" type="Sprite" parent="Building/buildingBG"]
-material = SubResource( 43 )
+material = SubResource( 44 )
 position = Vector2( -708.463, 302.302 )
 scale = Vector2( 2.50334, 3.53238 )
 texture = ExtResource( 14 )
 
 [node name="BuyOneGetTwo" type="Sprite" parent="Building/buildingBG"]
-material = SubResource( 44 )
+material = SubResource( 45 )
 position = Vector2( 76.3317, 300.085 )
 scale = Vector2( 1.85937, 1.50634 )
 texture = ExtResource( 12 )
 
 [node name="SuperPrice" type="Sprite" parent="Building/buildingBG"]
-material = SubResource( 45 )
+material = SubResource( 46 )
 position = Vector2( -51.4107, 440.925 )
 scale = Vector2( 2.86875, 3.02165 )
 texture = ExtResource( 15 )
@@ -8363,26 +8420,31 @@ texture = ExtResource( 15 )
 [node name="Food" type="Sprite" parent="Building/buildingBG"]
 position = Vector2( -492.836, 293.593 )
 scale = Vector2( 2, 2 )
+z_index = 1
 texture = ExtResource( 17 )
 
 [node name="Toys" type="Sprite" parent="Building/buildingBG"]
-position = Vector2( -297.435, 325.789 )
-scale = Vector2( 2, 2.60461 )
+position = Vector2( -290.548, 296.654 )
+scale = Vector2( 2, 2 )
+z_index = 1
 texture = ExtResource( 16 )
 
 [node name="chem" type="Sprite" parent="Building/buildingBG"]
 position = Vector2( -72.6784, 295.204 )
 scale = Vector2( 2, 2 )
+z_index = 1
 texture = ExtResource( 19 )
 
 [node name="office" type="Sprite" parent="Building/buildingBG"]
-position = Vector2( 233.977, 315.513 )
+position = Vector2( 233.977, 295.383 )
 scale = Vector2( 2, 2 )
+z_index = 1
 texture = ExtResource( 18 )
 
 [node name="utensil" type="Sprite" parent="Building/buildingBG"]
 position = Vector2( 493.983, 301.783 )
 scale = Vector2( 2, 2 )
+z_index = 1
 texture = ExtResource( 20 )
 
 [node name="attention" type="Sprite" parent="Building/buildingBG"]
@@ -8399,7 +8461,7 @@ texture = ExtResource( 40 )
 rotation = -0.00129863
 scale = Vector2( 0.987785, 1 )
 z_index = 1
-tile_set = SubResource( 58 )
+tile_set = SubResource( 59 )
 cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 8
 show_collision = true
@@ -8412,7 +8474,7 @@ tile_data = PoolIntArray( 327704, -536870911, 0, 327705, 9, 0, 327706, 161061273
 scale = Vector2( 1.01237, 1 )
 
 [node name="FadingBgTop" type="Sprite" parent="Building/buildingG/FadingBorders"]
-material = SubResource( 60 )
+material = SubResource( 61 )
 position = Vector2( -30.9641, 166.377 )
 scale = Vector2( 49.4393, 1.64062 )
 texture = ExtResource( 11 )
@@ -8421,13 +8483,13 @@ __meta__ = {
 }
 
 [node name="FadingBgBottom" type="Sprite" parent="Building/buildingG/FadingBorders"]
-material = SubResource( 62 )
+material = SubResource( 63 )
 position = Vector2( 633.227, 638.983 )
 scale = Vector2( 92.9149, 2.06656 )
 texture = ExtResource( 10 )
 
 [node name="FadingBgSide2" type="Sprite" parent="Building/buildingG/FadingBorders"]
-material = SubResource( 64 )
+material = SubResource( 65 )
 position = Vector2( -838.785, 300.1 )
 scale = Vector2( 1.05937, 5.31199 )
 texture = ExtResource( 11 )
@@ -8442,7 +8504,7 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Building/buildingG/shelves/horisontalS1"]
 position = Vector2( 290.629, -4.79755 )
 scale = Vector2( 1.65163, 0.453513 )
-shape = SubResource( 65 )
+shape = SubResource( 66 )
 one_way_collision = true
 
 [node name="horisontalS2" type="StaticBody2D" parent="Building/buildingG/shelves"]
@@ -8453,7 +8515,7 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Building/buildingG/shelves/horisontalS2"]
 position = Vector2( 290.629, -4.79755 )
 scale = Vector2( 1.65163, 0.453513 )
-shape = SubResource( 65 )
+shape = SubResource( 66 )
 one_way_collision = true
 
 [node name="horisontalS3" type="StaticBody2D" parent="Building/buildingG/shelves"]
@@ -8464,7 +8526,7 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Building/buildingG/shelves/horisontalS3"]
 position = Vector2( 290.629, -4.79755 )
 scale = Vector2( 1.65163, 0.453513 )
-shape = SubResource( 65 )
+shape = SubResource( 66 )
 one_way_collision = true
 
 [node name="horisontalS4" type="StaticBody2D" parent="Building/buildingG/shelves"]
@@ -8475,7 +8537,7 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Building/buildingG/shelves/horisontalS4"]
 position = Vector2( 290.629, -4.79755 )
 scale = Vector2( 1.65163, 0.453513 )
-shape = SubResource( 65 )
+shape = SubResource( 66 )
 one_way_collision = true
 
 [node name="verticalS1" type="StaticBody2D" parent="Building/buildingG/shelves"]
@@ -8485,7 +8547,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Building/buildingG/shelves/verticalS1"]
 position = Vector2( -2.79828, 5.94601 )
-shape = SubResource( 66 )
+shape = SubResource( 67 )
 
 [node name="verticalS2" type="StaticBody2D" parent="Building/buildingG/shelves"]
 position = Vector2( -365.905, 425.519 )
@@ -8494,7 +8556,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Building/buildingG/shelves/verticalS2"]
 position = Vector2( -2.79828, 5.94601 )
-shape = SubResource( 66 )
+shape = SubResource( 67 )
 
 [node name="verticalS3" type="StaticBody2D" parent="Building/buildingG/shelves"]
 position = Vector2( -174.637, 424.501 )
@@ -8503,7 +8565,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Building/buildingG/shelves/verticalS3"]
 position = Vector2( -2.79828, 5.94601 )
-shape = SubResource( 66 )
+shape = SubResource( 67 )
 
 [node name="verticalS4" type="StaticBody2D" parent="Building/buildingG/shelves"]
 position = Vector2( 17.2192, 429.216 )
@@ -8512,7 +8574,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Building/buildingG/shelves/verticalS4"]
 position = Vector2( -2.79828, 5.94601 )
-shape = SubResource( 66 )
+shape = SubResource( 67 )
 
 [node name="verticalS5" type="StaticBody2D" parent="Building/buildingG/shelves"]
 position = Vector2( 113.385, 424 )
@@ -8521,7 +8583,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Building/buildingG/shelves/verticalS5"]
 position = Vector2( -2.79828, 5.94601 )
-shape = SubResource( 66 )
+shape = SubResource( 67 )
 
 [node name="verticalS6" type="StaticBody2D" parent="Building/buildingG/shelves"]
 position = Vector2( 433.816, 424.964 )
@@ -8530,7 +8592,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Building/buildingG/shelves/verticalS6"]
 position = Vector2( -2.79828, 5.94601 )
-shape = SubResource( 66 )
+shape = SubResource( 67 )
 
 [node name="verticalS7" type="StaticBody2D" parent="Building/buildingG/shelves"]
 position = Vector2( 690.174, 425.414 )
@@ -8539,7 +8601,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Building/buildingG/shelves/verticalS7"]
 position = Vector2( -2.79828, 5.94601 )
-shape = SubResource( 66 )
+shape = SubResource( 67 )
 
 [node name="horisontalStorageS1" type="StaticBody2D" parent="Building/buildingG/shelves"]
 position = Vector2( 989.309, 367.092 )
@@ -8548,7 +8610,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Building/buildingG/shelves/horisontalStorageS1"]
 position = Vector2( 15.3407, 0 )
-shape = SubResource( 67 )
+shape = SubResource( 68 )
 one_way_collision = true
 
 [node name="horisontalStorageS2" type="StaticBody2D" parent="Building/buildingG/shelves"]
@@ -8559,7 +8621,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Building/buildingG/shelves/horisontalStorageS2"]
 position = Vector2( 15.3407, 0 )
-shape = SubResource( 67 )
+shape = SubResource( 68 )
 one_way_collision = true
 
 [node name="doorStoreage" type="Sprite" parent="Building/buildingG"]
@@ -8586,45 +8648,109 @@ scale = Vector2( 1.01237, 1 )
 texture = ExtResource( 21 )
 
 [node name="Light2D" type="Light2D" parent="Building/buildingG/ligherOnWall"]
-position = Vector2( 165.977, 147.199 )
-rotation = -0.753765
+position = Vector2( -26.4869, 12.6624 )
+rotation = -0.0558083
 scale = Vector2( 5.3228, 2.62913 )
 texture = ExtResource( 22 )
+offset = Vector2( 50, 50 )
 texture_scale = 2.94
 range_z_min = 1
 range_z_max = 1
+shadow_enabled = true
+shadow_buffer_size = 1024
+shadow_filter = 3
+shadow_filter_smooth = 8.9
+
+[node name="Sprite" type="Sprite" parent="Building/buildingG/ligherOnWall"]
+position = Vector2( -22.6172, 0.841309 )
+scale = Vector2( 0.0181966, 0.0708201 )
+texture = ExtResource( 44 )
 
 [node name="LightInShop1" type="Light2D" parent="Building/buildingG"]
-position = Vector2( 676.05, 639.815 )
-rotation = 0.0043855
+position = Vector2( 673.541, 168.533 )
+rotation = 3.15087
 scale = Vector2( 1.6751, 4.12468 )
 texture = ExtResource( 23 )
 texture_scale = 2.94
 energy = 0.5
+shadow_enabled = true
+shadow_buffer_size = 1024
+shadow_filter = 3
+shadow_filter_smooth = 8.9
+
+[node name="Sprite" type="Sprite" parent="Building/buildingG/LightInShop1"]
+position = Vector2( 1.4375, -24.4609 )
+scale = Vector2( 0.0284061, 0.0145153 )
+texture = ExtResource( 44 )
 
 [node name="LightInShop2" type="Light2D" parent="Building/buildingG"]
-position = Vector2( 181.83, 669.594 )
-rotation = -0.00058618
+position = Vector2( 149.372, 155.205 )
+rotation = -3.14104
 scale = Vector2( 3.65196, 4.46631 )
 texture = ExtResource( 23 )
 texture_scale = 2.94
 energy = 0.5
+shadow_enabled = true
+shadow_buffer_size = 1024
+shadow_filter = 3
+shadow_filter_smooth = 9.0
+
+[node name="Sprite" type="Sprite" parent="Building/buildingG/LightInShop2"]
+position = Vector2( 1.4375, -24.4609 )
+scale = Vector2( 0.0284061, 0.0145153 )
+texture = ExtResource( 44 )
 
 [node name="LightInShop3" type="Light2D" parent="Building/buildingG"]
-position = Vector2( -402.049, 737.939 )
-rotation = -0.00058618
-scale = Vector2( 4.64193, 5.15709 )
+position = Vector2( -329.601, 111.422 )
+rotation = -3.13069
+scale = Vector2( 2.49259, 6.22647 )
 texture = ExtResource( 23 )
 texture_scale = 2.94
 energy = 0.5
+shadow_enabled = true
+shadow_buffer_size = 1024
+shadow_filter = 3
+shadow_filter_smooth = 9.0
+
+[node name="Sprite" type="Sprite" parent="Building/buildingG/LightInShop3"]
+position = Vector2( 1.4375, -24.4609 )
+scale = Vector2( 0.0284061, 0.0145153 )
+texture = ExtResource( 44 )
+
+[node name="LightInShop4" type="Light2D" parent="Building/buildingG"]
+position = Vector2( -730.015, 184.258 )
+rotation = -3.13069
+scale = Vector2( 2.49259, 6.22647 )
+texture = ExtResource( 23 )
+texture_scale = 2.94
+energy = 0.5
+shadow_enabled = true
+shadow_buffer_size = 1024
+shadow_filter = 3
+shadow_filter_smooth = 9.0
+
+[node name="Sprite" type="Sprite" parent="Building/buildingG/LightInShop4"]
+position = Vector2( 2.64844, -14.1792 )
+scale = Vector2( 0.0284061, 0.0145153 )
+texture = ExtResource( 44 )
 
 [node name="LightInStorage" type="Light2D" parent="Building/buildingG"]
-position = Vector2( 1022.12, 1903.14 )
-rotation = 0.013362
-scale = Vector2( 2.92172, 18.2725 )
+position = Vector2( 1062.31, 230.93 )
+rotation = -3.14191
+scale = Vector2( 2.94675, 9.43565 )
 texture = ExtResource( 23 )
+offset = Vector2( 7.50076, 25.2099 )
 texture_scale = 2.94
 energy = 0.5
+shadow_enabled = true
+shadow_buffer_size = 1024
+shadow_filter = 3
+shadow_filter_smooth = 8.9
+
+[node name="Sprite" type="Sprite" parent="Building/buildingG/LightInStorage"]
+position = Vector2( 19.2256, 4.17139 )
+scale = Vector2( 0.0284061, 0.0145153 )
+texture = ExtResource( 44 )
 
 [node name="leftBuildingNotifier" type="VisibilityNotifier2D" parent="Building"]
 position = Vector2( -130.328, 432.749 )
@@ -8635,7 +8761,7 @@ position = Vector2( 653.92, 449.904 )
 scale = Vector2( 36.2796, 1.26727 )
 
 [node name="mch" parent="Building" instance=ExtResource( 2 )]
-position = Vector2( 616.951, 474.485 )
+position = Vector2( -389.132, 472.066 )
 
 [node name="boxes" type="Node2D" parent="Building"]
 position = Vector2( 900.413, 309.103 )
@@ -8647,10 +8773,10 @@ position = Vector2( 900.413, 309.103 )
 position = Vector2( 1105.56, 448.923 )
 scale = Vector2( 3, 3 )
 z_index = 1
-script = SubResource( 68 )
+script = SubResource( 69 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Building/press"]
-frames = SubResource( 102 )
+frames = SubResource( 103 )
 animation = "opening"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Building/press"]
@@ -8659,7 +8785,7 @@ animation = "opening"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Building/press/Area2D"]
 position = Vector2( -2.24744, 11.9865 )
-shape = SubResource( 103 )
+shape = SubResource( 104 )
 
 [node name="press_counter" type="Node2D" parent="Building"]
 position = Vector2( 1105.56, 448.923 )
@@ -8672,7 +8798,7 @@ margin_top = -34.7901
 margin_right = 73.4351
 margin_bottom = 13.2099
 rect_scale = Vector2( 0.339284, 0.29149 )
-custom_fonts/font = SubResource( 104 )
+custom_fonts/font = SubResource( 105 )
 custom_colors/font_color = Color( 0.67451, 0.647059, 0.407843, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 0
@@ -8688,7 +8814,7 @@ margin_top = -35.1398
 margin_right = 68.3137
 margin_bottom = 12.8602
 rect_scale = Vector2( 0.339284, 0.29149 )
-custom_fonts/font = SubResource( 104 )
+custom_fonts/font = SubResource( 105 )
 custom_colors/font_color = Color( 0.67451, 0.647059, 0.407843, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 0
@@ -8710,7 +8836,7 @@ collision_mask = 32
 contacts_reported = 10
 contact_monitor = true
 linear_velocity = Vector2( 10, 0 )
-script = SubResource( 105 )
+script = SubResource( 106 )
 
 [node name="pen" type="Area2D" parent="Building/platform"]
 position = Vector2( -74.3137, -43.3677 )
@@ -8724,7 +8850,7 @@ texture = ExtResource( 51 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Building/platform/pen"]
 position = Vector2( -0.456421, 6.93289 )
-shape = SubResource( 106 )
+shape = SubResource( 107 )
 
 [node name="platform" type="Sprite" parent="Building/platform"]
 position = Vector2( 16.5383, -1.65698 )
@@ -8733,7 +8859,7 @@ texture = ExtResource( 35 )
 
 [node name="platform_sh" type="CollisionShape2D" parent="Building/platform"]
 position = Vector2( 0.0453487, -0.92734 )
-shape = SubResource( 107 )
+shape = SubResource( 108 )
 
 [node name="Wheel1" type="RigidBody2D" parent="Building/platform"]
 position = Vector2( 56.3279, 2.81921 )
@@ -8747,7 +8873,7 @@ texture = ExtResource( 50 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Building/platform/Wheel1"]
 position = Vector2( -0.171997, 1.04755 )
 scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 108 )
+shape = SubResource( 109 )
 
 [node name="PinJoint2D" type="PinJoint2D" parent="Building/platform/Wheel1"]
 position = Vector2( 0.508606, 1.31812 )
@@ -8767,7 +8893,7 @@ texture = ExtResource( 50 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Building/platform/Wheel2"]
 position = Vector2( -0.171997, 1.04755 )
 scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 108 )
+shape = SubResource( 109 )
 
 [node name="PinJoint2D" type="PinJoint2D" parent="Building/platform/Wheel2"]
 position = Vector2( -0.197876, 1.33545 )
@@ -8781,12 +8907,12 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Building/platform/Area2D"]
 position = Vector2( 0.122925, -18.0199 )
-shape = SubResource( 109 )
+shape = SubResource( 110 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Building/platform"]
-anims/lifting0 = SubResource( 110 )
-anims/lifting1 = SubResource( 111 )
-anims/lifting2 = SubResource( 112 )
+anims/lifting0 = SubResource( 111 )
+anims/lifting1 = SubResource( 112 )
+anims/lifting2 = SubResource( 113 )
 
 [node name="visitors" type="Node2D" parent="Building"]
 
@@ -8795,12 +8921,12 @@ anims/lifting2 = SubResource( 112 )
 ]]
 position = Vector2( 729.646, 455.249 )
 scale = Vector2( 0.5, 0.5 )
-script = SubResource( 113 )
+script = SubResource( 114 )
 
 [node name="Area2D" type="Area2D" parent="Building/switch"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Building/switch/Area2D"]
-shape = SubResource( 114 )
+shape = SubResource( 115 )
 
 [node name="Sprite" type="Sprite" parent="Building/switch"]
 texture = ExtResource( 45 )
@@ -8816,7 +8942,7 @@ scale = Vector2( -1, 1 )
 [node name="branches" type="MeshInstance2D" parent="FG/animated_tree1"]
 position = Vector2( 8.86259, 542.534 )
 scale = Vector2( 5, 5 )
-mesh = SubResource( 115 )
+mesh = SubResource( 116 )
 texture = ExtResource( 34 )
 
 [node name="leafs1" type="Sprite" parent="FG/animated_tree1"]
@@ -8844,12 +8970,20 @@ vframes = 2
 frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FG/animated_tree1"]
-anims/wind = SubResource( 116 )
+anims/wind = SubResource( 117 )
 
 [node name="EndDay" type="Timer" parent="."]
 wait_time = 720.0
 one_shot = true
 autostart = true
+
+[node name="blur" type="Sprite" parent="."]
+visible = false
+material = SubResource( 119 )
+position = Vector2( 1092.31, 278.392 )
+scale = Vector2( 2.5, 2.5 )
+z_index = 5
+texture = SubResource( 120 )
 
 [connection signal="screen_entered" from="BG/bushesNotifier" to="." method="_on_bushesNotifier_screen_entered"]
 [connection signal="screen_exited" from="BG/bushesNotifier" to="." method="_on_bushesNotifier_screen_exited"]

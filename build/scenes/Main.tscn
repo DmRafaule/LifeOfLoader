@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=2]
+[gd_scene load_steps=102 format=2]
 
 [ext_resource path="res://textures/backgrounds/grass_layer.png" type="Texture" id=1]
 [ext_resource path="res://textures/backgrounds/sky_layer.png" type="Texture" id=2]
@@ -18,6 +18,37 @@
 [ext_resource path="res://textures/hud/play_pressed.png" type="Texture" id=16]
 [ext_resource path="res://textures/hud/quit_pressed.png" type="Texture" id=17]
 [ext_resource path="res://scripts/ControlMainMenu.gd" type="Script" id=18]
+
+[sub_resource type="Shader" id=83]
+code = "shader_type canvas_item;
+
+uniform float tile_factor = 10.0;
+uniform float aspect_ratio = 0.1;
+
+uniform vec2 time_factor = vec2(2.0, -3.0);
+uniform vec2 offset_factor = vec2(8.0, 1.0);
+uniform vec2 amplitude = vec2(0.05, 0.05);
+
+void fragment() {
+	vec2 tiled_uvs = UV * tile_factor;
+	tiled_uvs.y *= aspect_ratio;
+	
+	vec2 wave_uv_offset;
+	wave_uv_offset.x += sin(TIME * time_factor.x + (tiled_uvs.x + tiled_uvs.y) * offset_factor.x);
+	wave_uv_offset.y += cos(TIME * time_factor.y + (tiled_uvs.x + tiled_uvs.y) * offset_factor.y);
+	
+
+	COLOR = texture(TEXTURE, tiled_uvs + wave_uv_offset * amplitude);
+
+}"
+
+[sub_resource type="ShaderMaterial" id=84]
+shader = SubResource( 83 )
+shader_param/tile_factor = 10.0
+shader_param/aspect_ratio = 0.1
+shader_param/time_factor = Vector2( 2, -3 )
+shader_param/offset_factor = Vector2( 8, 1 )
+shader_param/amplitude = Vector2( 0.05, 0.05 )
 
 [sub_resource type="ArrayMesh" id=1]
 surfaces/0 = {
@@ -5633,6 +5664,28 @@ animations = [ {
 "speed": 4.0
 } ]
 
+[sub_resource type="Shader" id=82]
+code = "shader_type canvas_item;
+
+uniform float blur_amount : hint_range(-2.0, 10.0);
+uniform float mix_amount : hint_range(0.0, 1.0);
+uniform vec4 color_over : hint_color;
+
+void fragment() {
+	vec4 blurred = textureLod(SCREEN_TEXTURE, SCREEN_UV, 1.0);
+	vec4 fin = mix(blurred, vec4(1.0), 0.1);
+	COLOR = fin;
+}"
+
+[sub_resource type="ShaderMaterial" id=80]
+shader = SubResource( 82 )
+shader_param/blur_amount = null
+shader_param/mix_amount = null
+shader_param/color_over = null
+
+[sub_resource type="ExternalTexture" id=81]
+size = Vector2( 1000, 800 )
+
 [sub_resource type="ArrayMesh" id=70]
 surfaces/0 = {
 "aabb": AABB( -46.4, -41.4, 0, 80.8, 108.4, 0 ),
@@ -5825,6 +5878,7 @@ position = Vector2( -2.3943, 0.275377 )
 [node name="bg_fone" type="CanvasLayer" parent="."]
 
 [node name="air" type="Sprite" parent="bg_fone"]
+material = SubResource( 84 )
 position = Vector2( 401.278, 245.96 )
 scale = Vector2( 1.01878, 0.852307 )
 texture = ExtResource( 2 )
@@ -5856,14 +5910,11 @@ autoplay = "crowns_wigling"
 anims/crowns_wigling = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="bg_fone/all_crowns/animated_crown"]
-position = Vector2( 2.06761, 2.46239 )
+position = Vector2( 3.27782, 1.59531 )
 texture = ExtResource( 5 )
 hframes = 3
 vframes = 2
 frame = 4
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="animated_crown2" type="Node2D" parent="bg_fone/all_crowns"]
 position = Vector2( 373.104, 375.295 )
@@ -7148,7 +7199,6 @@ position = Vector2( 315.761, 254.818 )
 scale = Vector2( 2.5, 2.5 )
 frames = SubResource( 27 )
 animation = "wigling"
-frame = 2
 playing = true
 
 [node name="grass" type="Node2D" parent="intermission"]
@@ -9562,10 +9612,21 @@ position = Vector2( 0, 5.65686 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 69 )
 animation = "idle"
-frame = 22
+frame = 55
 playing = true
 
 [node name="fg" type="CanvasLayer" parent="."]
+
+[node name="Title" type="Sprite" parent="fg"]
+position = Vector2( 416.799, 71.7717 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 13 )
+
+[node name="blur" type="Sprite" parent="fg"]
+visible = false
+material = SubResource( 80 )
+position = Vector2( 410.449, 207.71 )
+texture = SubResource( 81 )
 
 [node name="animated_tree1" type="Node2D" parent="fg"]
 position = Vector2( -68.5992, -210.252 )
@@ -9614,11 +9675,6 @@ process_material = SubResource( 76 )
 texture = ExtResource( 11 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
-
-[node name="Title" type="Sprite" parent="HUD"]
-position = Vector2( 416.799, 71.7717 )
-scale = Vector2( 0.8, 0.8 )
-texture = ExtResource( 13 )
 
 [node name="play" type="TouchScreenButton" parent="HUD"]
 position = Vector2( 35.4513, 187.528 )

@@ -3,7 +3,7 @@
 [ext_resource path="res://textures/hud/new.png" type="Texture" id=1]
 [ext_resource path="res://textures/hud/cont.png" type="Texture" id=2]
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=1]
 script/source = "extends Control
 onready var session  = get_node(\"/root/Session\") # Get access to global script property such as current day(for loading and saving)
 
@@ -28,10 +28,10 @@ func _on_cont_pressed():
 	get_tree().change_scene(\"res://scenes/WorkSession.tscn\")
 "
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 200, 100 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 350, 100 )
 
 [node name="Control" type="Control"]
@@ -43,22 +43,22 @@ margin_left = -400.0
 margin_top = -200.0
 margin_right = 400.0
 margin_bottom = 200.0
-script = SubResource( 3 )
+script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="new" type="TouchScreenButton" parent="."]
-position = Vector2( 338.871, 223.547 )
-scale = Vector2( 0.3, 0.3 )
+position = Vector2( 260.976, 102.744 )
+scale = Vector2( 0.7, 0.7 )
 normal = ExtResource( 1 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="cont" type="TouchScreenButton" parent="."]
-position = Vector2( 298.611, 321.017 )
-scale = Vector2( 0.3, 0.3 )
+position = Vector2( 123.8, 205.535 )
+scale = Vector2( 0.7, 0.7 )
 normal = ExtResource( 2 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [connection signal="pressed" from="new" to="." method="_on_new_pressed"]
 [connection signal="pressed" from="cont" to="." method="_on_cont_pressed"]

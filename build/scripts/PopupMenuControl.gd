@@ -17,10 +17,10 @@ func _ready():
 
 
 func _on_Next_pressed():
+	get_tree().get_root().get_node("WorkSession/blur").visible = false
 	get_tree().get_root().get_node("WorkSession/EndDay").paused = false
 	get_tree().get_root().get_node("WorkSession").isEndDay = false
 	get_tree().get_root().get_node("WorkSession/Building/mch/Camera2D/HUD/ControlInterface").visible = true
-	get_tree().get_root().get_node("WorkSession").modulate = Color(1.0,1.0,1.0,1.0) 
 	var node =	get_tree().get_root().get_node("WorkSession/Building/mch/Camera2D/HUD/PopupMenu")
 	get_tree().get_root().get_node("WorkSession/Building/mch/Camera2D/HUD").remove_child(node) 
 

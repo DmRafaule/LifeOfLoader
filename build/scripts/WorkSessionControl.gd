@@ -232,7 +232,7 @@ func startDialogResultCheck():
 			dialog = "res://dayDialog/warning.tres"
 		4:
 			dialog = "res://dayDialog/last_warning.tres"
-		5:
+		5,6,7,8,9:
 			theEnd(true)
 			dialog = "res://dayDialog/dismissal.tres" # Fired here
 	if file.file_exists(dialog):
@@ -262,6 +262,7 @@ func theEnd(var isBadBadEnd):
 # (EXTERNAL) Used for defining when to start dialog and what of dialog to start
 func startDialog(var dayname):
 	session.isDialogStart = true
+	get_tree().get_root().get_node("WorkSession/EndDay").paused = true
 	get_node("Building/mch/Camera2D/HUD/ControlInterface").visible = false
 	get_node("Building/mch/AnimationPlayer").play("StartDialog")
 	var file = File.new()
@@ -712,5 +713,5 @@ func _on_EndDay_timeout():
 	
 	get_tree().get_root().get_node("WorkSession/Building/mch/Camera2D/HUD").add_child(res)
 	get_node("Building/mch/Camera2D/HUD/ControlInterface").visible = false
-	modulate = Color(0.06,0.06,0.06,1.0) 
+	get_tree().get_root().get_node("WorkSession/blur").visible = true
 	
