@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/approaching.mp3-3e9c8ea8f858e006515ca5585b2e1089.mp3str"
+
+[deps]
+
+source_file="res://sounds/forTruck/approaching.mp3"
+dest_files=[ "res://.import/approaching.mp3-3e9c8ea8f858e006515ca5585b2e1089.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/totalRes.mp3-29f04ab1d852fadb3f84b5a1bf0fe1af.mp3str"
+
+[deps]
+
+source_file="res://sounds/forResultScene/totalRes.mp3"
+dest_files=[ "res://.import/totalRes.mp3-29f04ab1d852fadb3f84b5a1bf0fe1af.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

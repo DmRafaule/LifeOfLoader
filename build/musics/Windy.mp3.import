@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Windy.mp3-d120424de0dc2f1adb4a7282256bcd9d.mp3str"
+
+[deps]
+
+source_file="res://musics/Windy.mp3"
+dest_files=[ "res://.import/Windy.mp3-d120424de0dc2f1adb4a7282256bcd9d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

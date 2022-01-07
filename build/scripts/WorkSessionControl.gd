@@ -15,6 +15,7 @@ onready var session  = get_node("/root/Session") # Get access to global script p
 onready var boxP = get_node("Building/boxes") # Contain parent node for all boxes
 var left_dialogWin = 0
 var sum_result = 0
+var isFired = false
 var isListMatch = false
 var isEndDay = false # Used for disable ability enable visible GUI control in ConrolInterface.gd
 var numTask = 0
@@ -77,6 +78,13 @@ func saving():
 		"mistake_count" : var2str(session.lethalMistakes)
 	}
 	file.store_line(to_json(mistakes))
+	var settings : Dictionary = {
+		"name"			: "settings",
+		"isMutedMusic" : var2str(session.isMutedMusic),
+		"isMutedSound" : var2str(session.isMutedSound),
+		"isMutedVoice" : var2str(session.isMutedVoice),
+	}
+	file.store_line(to_json(settings))
 	file.close()
 # (INTERNAL) Load all nodes in group "save" if file already exist (not new game) overwise random generate new boxes and goodies
 func loading():
@@ -102,6 +110,10 @@ func loading():
 					session.cash = str2var(data["cash"])
 				"mistake":
 					session.lethalMistakes = str2var(data["mistake_count"])
+				"settings":
+					session.isMutedMusic = str2var(data["isMutedMusic"])
+					session.isMutedSound = str2var(data["isMutedSound"])
+					session.isMutedVoice = str2var(data["isMutedVoice"])
 			# If yesterday was a free day partition randomize
 			if (session.month[session.current_day - 1] == "free"):
 				var rnd    = RandomNumberGenerator.new()	
@@ -152,8 +164,7 @@ func loading():
 			createGoodie(Vector2(int(rnd.randf_range(TZRect.position.x,TZRect.position.x+TZRect.size.x)),int(rnd.randf_range(TZRect.position.y,TZRect.position.y+TZRect.size.y))),
 					str(types[int(rnd.randf_range(0,types.size()))]),
 					int(rnd.randf_range(1,3)))
-
-		loadDayScript("day1")
+		loadDayScript("day30")
 # (INTERNAL) Load all timing functions to proccesGameEvents Form file
 func loadDayScript(var name):
 	var file = File.new()
@@ -221,6 +232,7 @@ func showDayName(var num):
 # (EXTERNAL) Used for defining when to start dialog and what of dialog to start(for defining end by fired)
 func startDialogResultCheck():
 	session.isDialogStart = true
+	get_node("EndDay").paused = true
 	get_node("Building/mch/Camera2D/HUD/ControlInterface").visible = false
 	get_node("Building/mch/AnimationPlayer").play("StartDialog")
 	var file = File.new()
@@ -233,7 +245,7 @@ func startDialogResultCheck():
 		4:
 			dialog = "res://dayDialog/last_warning.tres"
 		5,6,7,8,9:
-			theEnd(true)
+			isFired = true
 			dialog = "res://dayDialog/dismissal.tres" # Fired here
 	if file.file_exists(dialog):
 		file.open(dialog,file.READ)
@@ -250,19 +262,20 @@ func startDialogResultCheck():
 		call_deferred("createDialogWinForEmployee",session.dialogs[session.current_dialog_win]["properties"][0],
 													session.dialogs[session.current_dialog_win]["properties"][1])
 		session.current_dialog_win += 1
-# (EXTERNAL) used only after startDialogResultCheck() and in the 30 day fon opening right scene of end game
-func theEnd(var isBadBadEnd):
-	if (!isBadBadEnd):
-		if (session.cash >= 300):
-			get_tree().change_scene("res://scenes/NormEnding.tscn")
-		else:
-			get_tree().change_scene("res://scenes/BadEnding.tscn")
-	else:
+# (EXTERNAL) used only after startDialogResultCheck()
+func Fired():
+	if (isFired):
 		get_tree().change_scene("res://scenes/BadBadEnding.tscn")
+# (EXTERNAL) used only in the last day
+func theEnd():
+	if (session.cash >= 300):
+		get_tree().change_scene("res://scenes/NormEnding.tscn")
+	else:
+		get_tree().change_scene("res://scenes/BadEnding.tscn")
 # (EXTERNAL) Used for defining when to start dialog and what of dialog to start
 func startDialog(var dayname):
 	session.isDialogStart = true
-	get_tree().get_root().get_node("WorkSession/EndDay").paused = true
+	get_node("EndDay").paused = true
 	get_node("Building/mch/Camera2D/HUD/ControlInterface").visible = false
 	get_node("Building/mch/AnimationPlayer").play("StartDialog")
 	var file = File.new()
@@ -284,12 +297,12 @@ func startDialog(var dayname):
 # (INTERNAL) For create dialog window
 func createDialogWinForEmployee(var text, var forWho):
 	var res = session.pp.instance()
-	res.type = "Employee"
+	res.type = forWho
 	var HUD = get_node_or_null("Building/" + forWho)
 	if (HUD != null):
 		if HUD.name != "mch":
 			if (get_node("Building/"+forWho+"/Sprite").animation == "idle"):
-				get_node("Building/"+forWho+"/Sprite").play("talk") #here add for other employee AnimatedSprite
+				get_node("Building/"+forWho+"/Sprite").play("talk")
 		else:
 			get_node("Building/mch/AnimatedSprite").play("talking")
 		res.get_node("Sprite").visible = false
@@ -320,7 +333,7 @@ func removeDialogWin(var forWho):
 	if (HUD != null):
 		HUD.hide()
 # (EXTERNAL) Set task to this visitor
-func setTask(var name):
+func setTask():
 	var arr = []
 	var rnd    = RandomNumberGenerator.new()	
 	rnd.randomize()
@@ -336,7 +349,9 @@ func setTask(var name):
 			dT = visitor.deathTime
 	numTask += 1
 	visitor.setInter()
-	visitor.text = name
+	rnd.randomize()
+	var types = getAllTypesOfGoodies()
+	visitor.text = types[rnd.randi_range(0,types.size()-1)].replace(".png","")
 # (EXTERNAL) Create character for current day
 func setCharacter(var name, var position, var animation):
 	var character = load("res://scenes/characters/" + name + ".tscn").instance()
@@ -360,10 +375,10 @@ func setCharacterMovement(var forWho, var pos , var spead : float):
 		pos = str2var(pos)
 		var character = get_node_or_null("Building/" + forWho)
 		if (pos.x > character.position.x):
-			character.get_node("Sprite").play("walk");
+			character.get_node("Sprite").play("walk")
 			character.get_node("Sprite").flip_h = false
 		else:
-			character.get_node("Sprite").play("walk");
+			character.get_node("Sprite").play("walk")
 			character.get_node("Sprite").flip_h = true
 		character.get_node("Tween").interpolate_property(character,"position:x",character.position.x,pos.x,abs(pos.x/spead),Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
 		character.get_node("Tween").start()	
@@ -525,10 +540,18 @@ func preloadGoodies():
 	for f in files:
 		var path = "res://scenes/goodies/" + (str(f).replace(".png","")) + ".tscn"
 		goo[f] = load(path)
+func defineMusic():
+	if (session.isMutedMusic):
+		$Ambient.stop()
+		$Wind.stop()
+	else:
+		$Ambient.play()
+		$Wind.play()
 
 func _ready():
 	preloadGoodies()
 	loading()
+	defineMusic()
 
 func _on_leftBuildingNotifier_screen_entered():
 	for i in range(11,15):

@@ -15,6 +15,10 @@ run/main_scene="res://scenes/Splash.tscn"
 boot_splash/image="res://textures/splash/blank_first_screen.png"
 boot_splash/bg_color=Color( 0, 0, 0, 0 )
 
+[audio]
+
+default_bus_layout=""
+
 [autoload]
 
 Session="*res://scripts/Session.gd"

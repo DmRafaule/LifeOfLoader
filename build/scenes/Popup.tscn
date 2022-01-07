@@ -1,9 +1,16 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://fonts/WorkSans-Italic-VariableFont_wght.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/DialogControl.gd" type="Script" id=2]
 [ext_resource path="res://textures/hud/dialog.png" type="Texture" id=3]
 [ext_resource path="res://textures/hud/dialog_cl.png" type="Texture" id=4]
+[ext_resource path="res://sounds/forCharacters/voiceJulia.wav" type="AudioStream" id=5]
+[ext_resource path="res://sounds/forCharacters/voiceLera.wav" type="AudioStream" id=6]
+[ext_resource path="res://sounds/forCharacters/voiceAntony.wav" type="AudioStream" id=7]
+[ext_resource path="res://sounds/forCharacters/voiceLena.wav" type="AudioStream" id=8]
+[ext_resource path="res://sounds/forCharacters/voiceMCH.wav" type="AudioStream" id=9]
+[ext_resource path="res://sounds/forCharacters/voiceOlia.wav" type="AudioStream" id=10]
+[ext_resource path="res://sounds/forCharacters/voiceLiza.wav" type="AudioStream" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -159,6 +166,27 @@ anims/GUI2 = SubResource( 3 )
 anims/play_text = SubResource( 4 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="SoundMCH" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="SoundJulia" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="SoundLena" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="SoundLiza" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="SoundOlia" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="SoundAntony" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="SoundLera" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]

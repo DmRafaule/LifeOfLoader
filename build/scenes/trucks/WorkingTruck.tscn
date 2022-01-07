@@ -1,10 +1,12 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://textures/cars/truck/body.png" type="Texture" id=1]
 [ext_resource path="res://textures/cars/truck/wheel.png" type="Texture" id=2]
 [ext_resource path="res://textures/cars/truck/platform.png" type="Texture" id=3]
 [ext_resource path="res://textures/cars/truck/body_inside.png" type="Texture" id=4]
 [ext_resource path="res://textures/humanEnviroment/smoke.png" type="Texture" id=5]
+[ext_resource path="res://sounds/forTruck/platformUpDown.mp3" type="AudioStream" id=6]
+[ext_resource path="res://sounds/forTruck/approaching.mp3" type="AudioStream" id=7]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -223,6 +225,23 @@ tracks/7/keys = {
 "method": "removeAttention"
 } ]
 }
+tracks/8/type = "method"
+tracks/8/path = NodePath("main/SoundAppearing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ 1.11 ],
+"method": "play"
+}, {
+"args": [  ],
+"method": "stop"
+} ]
+}
 
 [sub_resource type="Animation" id=11]
 length = 4.0
@@ -283,6 +302,23 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("main/SoundAppearing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ 1.11 ],
+"method": "play"
+}, {
+"args": [  ],
+"method": "stop"
+} ]
 }
 
 [sub_resource type="Animation" id=12]
@@ -345,6 +381,29 @@ tracks/4/keys = {
 "update": 1,
 "values": [ true, false ]
 }
+tracks/5/type = "method"
+tracks/5/path = NodePath("main/platform/SoundUsingPlatform")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 5.9, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop"
+}, {
+"args": [ 0.35 ],
+"method": "play"
+}, {
+"args": [ 0.35 ],
+"method": "play"
+}, {
+"args": [  ],
+"method": "stop"
+} ]
+}
 
 [sub_resource type="Animation" id=13]
 length = 2.0
@@ -360,6 +419,29 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 163, 389 ), Vector2( 163.625, 295.333 ) ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath("main/platform/SoundUsingPlatform")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 1.9, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop"
+}, {
+"args": [ 0.35 ],
+"method": "play"
+}, {
+"args": [ 0.35 ],
+"method": "play"
+}, {
+"args": [  ],
+"method": "stop"
+} ]
+}
 
 [node name="Truck" type="Node2D"]
 position = Vector2( 200, -16 )
@@ -367,6 +449,11 @@ script = SubResource( 1 )
 
 [node name="main" type="Node2D" parent="."]
 position = Vector2( 500, 0 )
+
+[node name="SoundAppearing" type="AudioStreamPlayer2D" parent="main"]
+position = Vector2( 308.869, 306.161 )
+stream = ExtResource( 7 )
+max_distance = 500.0
 
 [node name="wheelback" type="Sprite" parent="main"]
 modulate = Color( 0.0941176, 0.0941176, 0.0941176, 1 )
@@ -380,7 +467,7 @@ scale = Vector2( 5, 5 )
 texture = ExtResource( 2 )
 
 [node name="platform" type="Sprite" parent="main"]
-position = Vector2( 162.89, 294.859 )
+position = Vector2( 163.625, 295.333 )
 scale = Vector2( 5, 6.21414 )
 texture = ExtResource( 3 )
 offset = Vector2( 10, -18 )
@@ -404,6 +491,13 @@ position = Vector2( 12.9016, -17.9228 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="main/platform/Area2D"]
 shape = SubResource( 3 )
 disabled = true
+
+[node name="SoundUsingPlatform" type="AudioStreamPlayer2D" parent="main/platform"]
+position = Vector2( 0.37207, -17.8063 )
+scale = Vector2( 0.2, 0.160923 )
+stream = ExtResource( 6 )
+max_distance = 250.0
+attenuation = 0.153893
 
 [node name="body_in" type="Sprite" parent="main"]
 visible = false

@@ -205,6 +205,7 @@ func onTouchPressed(event):
 		for iObj in interactableObjs:
 			# If this object is a platform we will create pinjoin for dyn interaction and two buttoms for lifting and falling
 			if (iObj.isInteractable and iObj.nameStr == "platform"):
+				$SoundInteractB.play(1.25)
 				var joint = PinJoint2D.new()
 				currentIntObj = iObj
 				if (!currentIntObj.isUnderControl):
@@ -230,6 +231,7 @@ func onTouchPressed(event):
 				currentIntObj.buttonsObj.push_back(get_node("PressUp/AnimationPlayer"))
 				currentIntObj.buttonsObj.push_back(get_node("PressUp/AnimationPlayer"))
 				if(currentIntObj.isInteractable):
+					$SoundInteractB.play(1.25)
 					get_node("PressDown/AnimationPlayer").play("appearance")
 					get_node("PressUp/AnimationPlayer").play("appearance")
 					if (currentGoodie != null):
@@ -253,6 +255,7 @@ func onTouchPressed(event):
 					currentIntObj.isInteractable = true
 					currentIntObj = null
 			elif(iObj.isInteractable and iObj.nameStr == "switch"):
+				$SoundSwitcherB.play()
 				var m1 = get_tree().get_root().get_node("WorkSession/Building")
 				var m2 = get_tree().get_root().get_node("WorkSession/BG")
 				if get_tree().get_root().get_node("WorkSession/Building/buildingG/LightInShop1").enabled:
@@ -264,6 +267,7 @@ func onTouchPressed(event):
 				iObj.use(get_tree().get_root().get_node("WorkSession/Building/buildingG/LightInShop3"))
 				iObj.use(get_tree().get_root().get_node("WorkSession/Building/buildingG/LightInStorage"))
 			elif(iObj.isInteractable and iObj.nameStr == "tray"):
+				$SoundOpenBoxB.play()
 				iObj.open()
 	# Then check all boxes
 	if (grab_zona.has_point(touchPoint)):
@@ -277,6 +281,7 @@ func onTouchPressed(event):
 			box.rect = box_zona 
 			#Check if touch was in temporary rect
 			if box_zona.has_point(touchPoint) and currentGoodie == null:
+				$SoundPickUpB.play()
 				get_node("DropBox/AnimationPlayer").play("appearance")
 				get_node("OpenBox/AnimationPlayer").play("appearance")
 				currentGoodie = box
@@ -292,6 +297,7 @@ func onTouchPressed(event):
 			var item_zona = Rect2(Vector2(g.position.x - touchBoxSize/2,g.position.y - touchBoxSize/2),Vector2(touchBoxSize,touchBoxSize));
 			g.rect = item_zona
 			if item_zona.has_point(touchPoint):
+				$SoundPickUpB.play()
 				if currentGoodie != null:
 					dropBox()
 				get_node("DropBox/AnimationPlayer").play("appearance")
@@ -318,7 +324,6 @@ func onTouchPressed(event):
 						v.say("That is it, I'll take it")
 						get_tree().get_root().get_node("WorkSession").closedTask += 1
 						v.createPuff(currentGoodie.position)
-						v.remove_question()
 						v.isInteractable = false
 						v.sum += 15
 						# Remove goodie
@@ -341,6 +346,7 @@ func onTouchRelease(event):
 		dropBox()
 
 func _on_ToRight_pressed():
+	$SoundWalkB.play()
 	get_node("ToRight/AnimationPlayer").play("GUI")
 	get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").flip_h = false
 	get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").play("run")
@@ -356,6 +362,7 @@ func _on_ToRight_pressed():
 		get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").flip_h = false
 		get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").play("runWithBox")
 func _on_ToRight_released():
+	$SoundWalkB.stop()
 	get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").flip_h = false
 	get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").play("idle")
 	if (!currentGoodie == null):
@@ -365,6 +372,7 @@ func _on_ToRight_released():
 	velocity.x = 0
 	
 func _on_ToLeft_pressed():
+	$SoundWalkB.play()
 	get_node("ToLeft/AnimationPlayer").play("GUI")
 	get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").flip_h = true
 	get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").play("run")
@@ -380,6 +388,7 @@ func _on_ToLeft_pressed():
 		get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").flip_h = false
 		get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").play("runWithBox",true)
 func _on_ToLeft_released():
+	$SoundWalkB.stop()
 	get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").flip_h = false
 	get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").play("idle")
 	if (!currentGoodie == null):
@@ -392,12 +401,14 @@ func _on_Jump_pressed():
 	get_node("Jump/AnimationPlayer").play("GUI")
 	get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").play("jump")
 	if (!isJump):
+		$SoundJumpB.play()
 		get_node("Jump/Timer").start()
 		velocity.y = -7
 		velocity.y *= speed
 		isJump = true
 		controlingNode.set_collision_mask_bit(1,true);
 func _on_FallDown_pressed():
+	$SoundGoDownB.play()
 	get_node("Jump/Timer").start()
 	get_node("FallDown/AnimationPlayer").play("GUI")
 	get_tree().get_root().get_node("WorkSession/Building/mch/AnimatedSprite").play("fallFromSurf")
@@ -406,6 +417,7 @@ func _on_FallDown_pressed():
 	controlingNode.set_collision_mask_bit(1,false);
 
 func _on_PopUpMenu_pressed():
+	$SoundCommonB.play(0.10)
 	get_tree().get_root().get_node("WorkSession/blur").visible = true
 	get_tree().get_root().get_node("WorkSession/EndDay").paused = true
 	get_node("PopUpMenu/AnimationPlayer").play("GUI")
@@ -416,6 +428,7 @@ func _on_PopUpMenu_pressed():
 	#get_tree().get_root().get_node("WorkSession").modulate = Color(0.06,0.06,0.06,1.0) 
 	
 func _on_PressUp_pressed():
+	$SoundPressB.play()
 	if (currentIntObj.get_node("AnimatedSprite").is_playing()):
 		get_tree().get_root().get_node("WorkSession/Building/mch/AnimationPlayer").play("usingPress")
 		get_node("PressUp/AnimationPlayer").play("GUI")
@@ -427,6 +440,7 @@ func _on_PressUp_pressed():
 			currentIntObj.boxesCounter = 0
 			createBlock()
 func _on_PressDown_pressed():
+	$SoundPressB.play()
 	if (currentIntObj.get_node("AnimatedSprite").is_playing()):
 		get_tree().get_root().get_node("WorkSession/Building/mch/AnimationPlayer").play("usingPress")
 		get_node("PressDown/AnimationPlayer").play("GUI")
@@ -434,27 +448,33 @@ func _on_PressDown_pressed():
 		if (currentIntObj.boxesCounter == currentIntObj.maxCapacity):
 			currentIntObj.isStartCreatingBlock = true
 func _on_LiftUpPlatform_pressed():
+	$SoundLiftUpB.play()
 	get_node("LiftUpPlatform/AnimationPlayer").play("GUI")
 	if (currentIntObj.liftCounter <= 2 && currentIntObj.liftCounter >= 0):
 		currentIntObj.get_node("AnimationPlayer").play("lifting" + String(currentIntObj.liftCounter))
 		if (currentIntObj.liftCounter != 2):
 			currentIntObj.liftCounter+=1
 func _on_LiftDownPlatform_pressed():
+	$SoundLiftDownB.play()
 	get_node("LiftDownPlatform/AnimationPlayer").play("GUI")
 	if (currentIntObj.liftCounter <= 2 && currentIntObj.liftCounter >= 0):
 		currentIntObj.get_node("AnimationPlayer").play_backwards("lifting"+String(currentIntObj.liftCounter))
 		if (currentIntObj.liftCounter != 0):
 			currentIntObj.liftCounter-=1
 func _on_OpenBox_pressed():
+	$SoundOpenBoxB.play()
 	if (!currentGoodie.isOpend):
 		openBox()
 		dropBox()
 func _on_DropBox_pressed():
+	$SoundInfoB.play()
+	$DropBox/AnimationPlayer.play("GUI")
 	if currentGoodie.nameStr == "list":
 		getInfoList()
 	else:
 		getInfo()
 func _on_InPress_pressed():
+	$SoundInPressB.play()
 	if (currentGoodie != null and currentIntObj.boxesCounter < currentIntObj.maxCapacity and currentGoodie.nameGoodie != "block"):
 		get_tree().get_root().get_node("WorkSession/Building/mch/AnimationPlayer").play("usingPress")
 		createPuff(get_tree().get_root().get_node("WorkSession/Building/mch").position)

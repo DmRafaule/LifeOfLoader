@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://textures/building/building_part.png" type="Texture" id=1]
 [ext_resource path="res://textures/humanEnviroment/ligherAtStreet.png" type="Texture" id=2]
@@ -17,6 +17,9 @@
 [ext_resource path="res://shaders/fadingLightsUp.tres" type="Material" id=15]
 [ext_resource path="res://fonts/WorkSans-Italic-VariableFont_wght.ttf" type="DynamicFontData" id=16]
 [ext_resource path="res://textures/characters/hero/hero_drinkingCoffee.png" type="Texture" id=17]
+[ext_resource path="res://shaders/fadingLightsDown.tres" type="Material" id=18]
+[ext_resource path="res://musics/Windy.mp3" type="AudioStream" id=19]
+[ext_resource path="res://musics/MainAmbient.ogg" type="AudioStream" id=20]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -366,739 +369,53 @@ tracks/19/keys = {
 "values": [ Vector2( 134.447, 35.6108 ), Vector2( 141.228, 34.9751 ) ]
 }
 
-[sub_resource type="AtlasTexture" id=29]
+[sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 17 )
 region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=30]
+[sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 17 )
 region = Rect2( 128, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=31]
+[sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 17 )
 region = Rect2( 160, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=32]
+[sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 17 )
 region = Rect2( 32, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=33]
+[sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 17 )
 region = Rect2( 192, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=34]
+[sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 17 )
 region = Rect2( 224, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=35]
+[sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 17 )
 region = Rect2( 64, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=36]
+[sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 17 )
 region = Rect2( 256, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=37]
+[sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 17 )
 region = Rect2( 288, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=38]
+[sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 17 )
 region = Rect2( 96, 0, 32, 32 )
 
-[sub_resource type="SpriteFrames" id=19]
+[sub_resource type="SpriteFrames" id=23]
 animations = [ {
-"frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 32 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 36 ), SubResource( 37 ), SubResource( 35 ), SubResource( 32 ), SubResource( 31 ), SubResource( 30 ), SubResource( 29 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 35 ), SubResource( 36 ), SubResource( 38 ), SubResource( 38 ), SubResource( 37 ), SubResource( 36 ), SubResource( 35 ), SubResource( 38 ), SubResource( 38 ), SubResource( 37 ), SubResource( 36 ), SubResource( 38 ), SubResource( 35 ), SubResource( 36 ), SubResource( 38 ), SubResource( 37 ), SubResource( 34 ), SubResource( 32 ), SubResource( 31 ), SubResource( 30 ), SubResource( 29 ), SubResource( 30 ), SubResource( 30 ), SubResource( 31 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 16 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 20 ), SubResource( 21 ), SubResource( 19 ), SubResource( 16 ), SubResource( 15 ), SubResource( 14 ), SubResource( 13 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 19 ), SubResource( 20 ), SubResource( 22 ), SubResource( 22 ), SubResource( 21 ), SubResource( 20 ), SubResource( 19 ), SubResource( 22 ), SubResource( 22 ), SubResource( 21 ), SubResource( 20 ), SubResource( 22 ), SubResource( 19 ), SubResource( 20 ), SubResource( 22 ), SubResource( 21 ), SubResource( 18 ), SubResource( 16 ), SubResource( 15 ), SubResource( 14 ), SubResource( 13 ), SubResource( 14 ), SubResource( 14 ), SubResource( 15 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
 "loop": true,
 "name": "drinkingCoffee",
 "speed": 6.0
 } ]
-
-[sub_resource type="Animation" id=20]
-length = 2.8
-loop = true
-step = 0.0333333
-tracks/0/type = "value"
-tracks/0/path = NodePath("Skeleton2D/stem/stem1:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.0116, 0.808854, 1.56693, 2.25995 ),
-"transitions": PoolRealArray( 2.92817, 1.46409, 3.605, 1.7411 ),
-"update": 0,
-"values": [ Vector2( -82.0644, -9.21948 ), Vector2( -80.3361, -12.9894 ), Vector2( -78.8958, -16.131 ), Vector2( -80.3361, -12.9894 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Skeleton2D/stem/stem1:rotation_degrees")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.0116, 0.808854, 1.56693, 2.25995 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ -160.613, -160.613, -160.613, -160.613 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Skeleton2D/stem/stem1:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0.0116, 0.808854, 1.56693, 2.25995 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 2.66118, 1.09784 ), Vector2( 2.66118, 1.09784 ), Vector2( 2.66118, 1.09784 ), Vector2( 2.66118, 1.09784 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Skeleton2D/stem/stem1/branch1/Bone2D:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.496891, 1.11147 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( -57.4061, 0.313036 ), Vector2( -44.6271, 0.00669098 ), Vector2( -26.7729, -0.0953846 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Skeleton2D/stem/stem1/branch1/Bone2D:rotation_degrees")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.496891, 1.11147 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 179.76, 179.76, 179.76 ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("Skeleton2D/stem/stem1/branch1/Bone2D:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 0.496891, 1.11147 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1.58628, 0.735196 ), Vector2( 1.58628, 0.735196 ), Vector2( 1.58628, 0.735196 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("Skeleton2D/stem/stem1/branch2/Bone2D:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0, 0.566666, 1.33333 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 17.1905, -0.00403869 ), Vector2( 6.29637, 0.0220965 ), Vector2( 4.6947, 0.034037 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("Skeleton2D/stem/stem1/branch2/Bone2D:rotation_degrees")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0, 0.566666, 1.33333 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 0.0, 0.0 ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("Skeleton2D/stem/stem1/branch2/Bone2D:scale")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0, 0.566666, 1.33333 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1.05596, 0.41877 ), Vector2( 1.05596, 0.41877 ), Vector2( 1.05596, 0.41877 ) ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("Skeleton2D/stem/stem1/branch3/Bone2D:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0, 0.366666, 0.633333, 0.899999, 1.13333 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 36.0183, -27.681 ), Vector2( 22.4577, -4.51291 ), Vector2( 19.481, -2.5152 ), Vector2( 28.8472, -22.1185 ), Vector2( 19.481, -2.5152 ) ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("Skeleton2D/stem/stem1/branch3/Bone2D:rotation_degrees")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"times": PoolRealArray( 0, 0.366666, 0.633333, 0.899999, 1.13333 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 15.4963, 15.4963, 15.4963, 15.4963, 15.4963 ]
-}
-tracks/11/type = "value"
-tracks/11/path = NodePath("Skeleton2D/stem/stem1/branch3/Bone2D:scale")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
-"times": PoolRealArray( 0, 0.366666, 0.633333, 0.899999, 1.13333 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1.75784, 1.01506 ), Vector2( 1.75784, 1.01506 ), Vector2( 1.75784, 1.01506 ), Vector2( 1.75784, 1.01506 ), Vector2( 1.75784, 1.01506 ) ]
-}
-tracks/12/type = "value"
-tracks/12/path = NodePath("Skeleton2D/stem/stem1/branch4/Bone2D:position")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
-"times": PoolRealArray( 0, 0.366666, 0.633333, 0.899999, 1.13333 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 37.4021, -3.83301 ), Vector2( 51.6494, -24.1497 ), Vector2( 59.6545, -20.7975 ), Vector2( 51.6494, -24.1497 ), Vector2( 64.8427, -27.8059 ) ]
-}
-tracks/13/type = "value"
-tracks/13/path = NodePath("Skeleton2D/stem/stem1/branch4/Bone2D:rotation_degrees")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/keys = {
-"times": PoolRealArray( 0, 0.366666, 0.633333, 0.899999, 1.13333 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ -40.8751, -40.8751, -40.8751, -40.8751, -40.8751 ]
-}
-tracks/14/type = "value"
-tracks/14/path = NodePath("Skeleton2D/stem/stem1/branch4/Bone2D:scale")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/keys = {
-"times": PoolRealArray( 0, 0.366666, 0.633333, 0.899999, 1.13333 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1.78923, -0.45382 ), Vector2( 1.78923, -0.45382 ), Vector2( 1.78923, -0.45382 ), Vector2( 1.78923, -0.45382 ), Vector2( 1.78923, -0.45382 ) ]
-}
-tracks/15/type = "value"
-tracks/15/path = NodePath("Skeleton2D/stem/stem1/branch5/Bone2D:position")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/keys = {
-"times": PoolRealArray( 0, 0.799999, 1.56667, 2.26666 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 37.0446, 0.0305181 ), Vector2( 34.754, -0.0664592 ), Vector2( 28.5002, 0.0392521 ), Vector2( 22.3968, 0.0094596 ) ]
-}
-tracks/16/type = "value"
-tracks/16/path = NodePath("Skeleton2D/stem/stem1/branch5/Bone2D:rotation_degrees")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/keys = {
-"times": PoolRealArray( 0, 0.799999, 1.56667, 2.26666 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 0.0, 0.0, 0.0 ]
-}
-tracks/17/type = "value"
-tracks/17/path = NodePath("Skeleton2D/stem/stem1/branch5/Bone2D:scale")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/keys = {
-"times": PoolRealArray( 0, 0.799999, 1.56667, 2.26666 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1, 1 ) ]
-}
-tracks/18/type = "value"
-tracks/18/path = NodePath("Skeleton2D/stem/stem1/branch6/Bone2D:position")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/keys = {
-"times": PoolRealArray( 0, 0.766666, 1.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 34.0692, 3.93835 ), Vector2( 37.4941, -5.33203 ), Vector2( 38.6444, -12.7033 ) ]
-}
-tracks/19/type = "value"
-tracks/19/path = NodePath("Skeleton2D/stem/stem1/branch6/Bone2D:rotation_degrees")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/keys = {
-"times": PoolRealArray( 0, 0.766666, 1.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 52.3997, 52.3997, 52.3997 ]
-}
-tracks/20/type = "value"
-tracks/20/path = NodePath("Skeleton2D/stem/stem1/branch6/Bone2D:scale")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/imported = false
-tracks/20/enabled = true
-tracks/20/keys = {
-"times": PoolRealArray( 0, 0.766666, 1.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1, 1 ) ]
-}
-tracks/21/type = "value"
-tracks/21/path = NodePath("polygons/torso/Sprite:position")
-tracks/21/interp = 1
-tracks/21/loop_wrap = true
-tracks/21/imported = false
-tracks/21/enabled = true
-tracks/21/keys = {
-"times": PoolRealArray( 0, 1.43333 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 89.629, 98.0656 ), Vector2( 95.6136, 93.3409 ) ]
-}
-tracks/22/type = "value"
-tracks/22/path = NodePath("polygons/branch2/Sprite:position")
-tracks/22/interp = 1
-tracks/22/loop_wrap = true
-tracks/22/imported = false
-tracks/22/enabled = true
-tracks/22/keys = {
-"times": PoolRealArray( 0, 1.33333 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 35.1811, 86.6621 ), Vector2( 43.1811, 82.1621 ) ]
-}
-tracks/23/type = "value"
-tracks/23/path = NodePath("polygons/branch2/Sprite2:position")
-tracks/23/interp = 1
-tracks/23/loop_wrap = true
-tracks/23/imported = false
-tracks/23/enabled = true
-tracks/23/keys = {
-"times": PoolRealArray( 0, 1.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 22.4676, 81.3648 ), Vector2( 27.4676, 75.3648 ) ]
-}
-tracks/24/type = "value"
-tracks/24/path = NodePath("polygons/branch1/Sprite:position")
-tracks/24/interp = 1
-tracks/24/loop_wrap = true
-tracks/24/imported = false
-tracks/24/enabled = true
-tracks/24/keys = {
-"times": PoolRealArray( 0, 1.46667 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 27.5, 110.5 ), Vector2( 30, 103.75 ) ]
-}
-tracks/25/type = "value"
-tracks/25/path = NodePath("polygons/branch1/Sprite2:position")
-tracks/25/interp = 1
-tracks/25/loop_wrap = true
-tracks/25/imported = false
-tracks/25/enabled = true
-tracks/25/keys = {
-"times": PoolRealArray( 0, 1.53333 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 13.25, 115.25 ), Vector2( 17.5, 112.25 ) ]
-}
-tracks/26/type = "value"
-tracks/26/path = NodePath("polygons/branch3/Sprite:position")
-tracks/26/interp = 1
-tracks/26/loop_wrap = true
-tracks/26/imported = false
-tracks/26/enabled = true
-tracks/26/keys = {
-"times": PoolRealArray( 0, 1.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 39.9487, 57.7917 ), Vector2( 50.4487, 52.2917 ) ]
-}
-tracks/27/type = "value"
-tracks/27/path = NodePath("polygons/branch3/Sprite2:position")
-tracks/27/interp = 1
-tracks/27/loop_wrap = true
-tracks/27/imported = false
-tracks/27/enabled = true
-tracks/27/keys = {
-"times": PoolRealArray( 0, 0.466666, 0.933332, 1.2, 2.409 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 35.5946, 40.1349 ), Vector2( 40.0946, 33.8849 ), Vector2( 32.9446, 38.1349 ), Vector2( 40.5732, 34.1706 ), Vector2( 32.3392, 41.3938 ) ]
-}
-tracks/28/type = "value"
-tracks/28/path = NodePath("polygons/branch4/Sprite:position")
-tracks/28/interp = 1
-tracks/28/loop_wrap = true
-tracks/28/imported = false
-tracks/28/enabled = true
-tracks/28/keys = {
-"times": PoolRealArray( 0, 0.4, 0.733333, 1.23333 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 62.992, 38.9863 ), Vector2( 71.6685, 31.9784 ), Vector2( 76.1365, 31.6169 ), Vector2( 76.6272, 32.065 ) ]
-}
-tracks/29/type = "value"
-tracks/29/path = NodePath("polygons/branch4/Sprite2:position")
-tracks/29/interp = 1
-tracks/29/loop_wrap = true
-tracks/29/imported = false
-tracks/29/enabled = true
-tracks/29/keys = {
-"times": PoolRealArray( 0, 0.433333, 0.633333, 1.23333 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 74.1164, 19.9159 ), Vector2( 78.1209, 13.2417 ), Vector2( 80.4522, 13.472 ), Vector2( 84.037, 12.9205 ) ]
-}
-tracks/30/type = "value"
-tracks/30/path = NodePath("polygons/branch4/Sprite3:position")
-tracks/30/interp = 1
-tracks/30/loop_wrap = true
-tracks/30/imported = false
-tracks/30/enabled = true
-tracks/30/keys = {
-"times": PoolRealArray( 0, 0.4, 0.666666, 0.799999, 1.23333 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 79.6785, 37.1322 ), Vector2( 84.3504, 31.1254 ), Vector2( 88.1696, 34.1288 ), Vector2( 84.9692, 35.3176 ), Vector2( 88.8285, 31.3726 ) ]
-}
-tracks/31/type = "value"
-tracks/31/path = NodePath("polygons/branch5/Sprite:position")
-tracks/31/interp = 1
-tracks/31/loop_wrap = true
-tracks/31/imported = false
-tracks/31/enabled = true
-tracks/31/keys = {
-"times": PoolRealArray( 0, 0.599999, 2.06666 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 107.56, 26.2241 ), Vector2( 109.904, 22.887 ), Vector2( 116.378, 22.442 ) ]
-}
-tracks/32/type = "value"
-tracks/32/path = NodePath("polygons/branch5/Sprite2:position")
-tracks/32/interp = 1
-tracks/32/loop_wrap = true
-tracks/32/imported = false
-tracks/32/enabled = true
-tracks/32/keys = {
-"times": PoolRealArray( 0, 0.533333, 1.66667 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 137.485, 19.9903 ), Vector2( 138.155, 14.9847 ), Vector2( 138.824, 24.1617 ) ]
-}
-tracks/33/type = "value"
-tracks/33/path = NodePath("polygons/branch5/Sprite3:position")
-tracks/33/interp = 1
-tracks/33/loop_wrap = true
-tracks/33/imported = false
-tracks/33/enabled = true
-tracks/33/keys = {
-"times": PoolRealArray( 0, 0.533333, 1.66667 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 134.647, 36.6073 ), Vector2( 140.675, 30.6005 ), Vector2( 134.647, 34.2713 ) ]
-}
-tracks/34/type = "value"
-tracks/34/path = NodePath("polygons/branch6/Sprite:position")
-tracks/34/interp = 1
-tracks/34/loop_wrap = true
-tracks/34/imported = false
-tracks/34/enabled = true
-tracks/34/keys = {
-"times": PoolRealArray( 0, 1.43333 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 133.963, 72.0724 ), Vector2( 138.635, 64.7308 ) ]
-}
-tracks/35/type = "value"
-tracks/35/path = NodePath("polygons/branch6/Sprite2:position")
-tracks/35/interp = 1
-tracks/35/loop_wrap = true
-tracks/35/imported = false
-tracks/35/enabled = true
-tracks/35/keys = {
-"times": PoolRealArray( 0, 1.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 117.269, 66.4028 ), Vector2( 124.277, 58.3938 ) ]
-}
-
-[sub_resource type="Animation" id=21]
-length = 2.5
-
-[sub_resource type="Animation" id=22]
-
-[sub_resource type="Animation" id=23]
-length = 2.5
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Skeleton2D/torse:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ -144.427, -142.86 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("polygons/branch1/Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 42.8023, 93.2327 ), Vector2( 46.8283, 91.5376 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Skeleton2D/torse/node/branch2:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 11.6238, -30.0492 ), Vector2( 15.321, -36.4866 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Skeleton2D/torse/node/node1/branch4:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 1.77637 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 8.46457, -6.00249 ), Vector2( 17.8574, -0.662781 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Skeleton2D/torse/node/node1/node2/branch5:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0.2, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 21.2436, -3.02048 ), Vector2( 22.3849, 0.841248 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("Skeleton2D/torse/node/node1/node2/branch6:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0.2, 1.1424 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 26.0513, 1.36586 ), Vector2( 22.5135, 3.70429 ) ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("Skeleton2D/torse/node/node1/branch3:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0, 1.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 26.1989, 1.34514 ), Vector2( 34.0279, 5.36678 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("Skeleton2D/torse/node/branch1:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0, 1.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 13.3982, -25.7853 ), Vector2( 17.2065, -26.3268 ) ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("polygons/branch1/Sprite2:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0, 1.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 33.1619, 89.2196 ), Vector2( 40.5782, 85.1936 ) ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("polygons/branch2/Sprite1:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0, 1.6 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 30.9195, 66.7349 ), Vector2( 37.2762, 64.4041 ) ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("polygons/branch2/Sprite2:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"times": PoolRealArray( 0, 1.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 48.2063, 74.3871 ), Vector2( 54.775, 72.4801 ) ]
-}
-tracks/11/type = "value"
-tracks/11/path = NodePath("polygons/branch3/Sprite:position")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
-"times": PoolRealArray( 0, 1.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 37.8236, 43.8746 ), Vector2( 44.1803, 44.2984 ) ]
-}
-tracks/12/type = "value"
-tracks/12/path = NodePath("polygons/branch3/Sprite2:position")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
-"times": PoolRealArray( 0, 1.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 52.2323, 54.0454 ), Vector2( 57.7415, 55.7406 ) ]
-}
-tracks/13/type = "value"
-tracks/13/path = NodePath("polygons/branch4/Sprite:position")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/keys = {
-"times": PoolRealArray( 0, 0.7, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 62.1912, 30.5254 ), Vector2( 64.9882, 26.4006 ), Vector2( 70.455, 30.3135 ) ]
-}
-tracks/14/type = "value"
-tracks/14/path = NodePath("polygons/branch4/Sprite2:position")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/keys = {
-"times": PoolRealArray( 0, 1.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 81.4734, 38.5773 ), Vector2( 91.4324, 39.6368 ) ]
-}
-tracks/15/type = "value"
-tracks/15/path = NodePath("polygons/branch4/Sprite3:position")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/keys = {
-"times": PoolRealArray( 0, 1.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 70.2431, 53.1979 ), Vector2( 76.8118, 50.4433 ) ]
-}
-tracks/16/type = "value"
-tracks/16/path = NodePath("polygons/branch5/Sprite:position")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/keys = {
-"times": PoolRealArray( 0, 1.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 94.6108, 73.5396 ), Vector2( 101.179, 75.2347 ) ]
-}
-tracks/17/type = "value"
-tracks/17/path = NodePath("polygons/branch5/Sprite2:position")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/keys = {
-"times": PoolRealArray( 0, 1.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 78.7188, 83.7104 ), Vector2( 85.7113, 81.5915 ) ]
-}
-tracks/18/type = "value"
-tracks/18/path = NodePath("polygons/branch6/Sprite:position")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/keys = {
-"times": PoolRealArray( 0, 1.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 149.491, 30.5254 ), Vector2( 157.967, 28.6184 ) ]
-}
-tracks/19/type = "value"
-tracks/19/path = NodePath("polygons/branch6/Sprite2:position")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/keys = {
-"times": PoolRealArray( 0, 1.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 134.447, 35.6108 ), Vector2( 141.228, 34.9751 ) ]
-}
 
 [sub_resource type="Animation" id=24]
 length = 2.8
@@ -1541,7 +858,692 @@ tracks/35/keys = {
 length = 2.5
 
 [sub_resource type="Animation" id=26]
-resource_name = "playText"
+
+[sub_resource type="Animation" id=27]
+length = 2.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Skeleton2D/torse:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -144.427, -142.86 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("polygons/branch1/Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 42.8023, 93.2327 ), Vector2( 46.8283, 91.5376 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Skeleton2D/torse/node/branch2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 11.6238, -30.0492 ), Vector2( 15.321, -36.4866 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Skeleton2D/torse/node/node1/branch4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.77637 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 8.46457, -6.00249 ), Vector2( 17.8574, -0.662781 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Skeleton2D/torse/node/node1/node2/branch5:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.2, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 21.2436, -3.02048 ), Vector2( 22.3849, 0.841248 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Skeleton2D/torse/node/node1/node2/branch6:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.2, 1.1424 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 26.0513, 1.36586 ), Vector2( 22.5135, 3.70429 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Skeleton2D/torse/node/node1/branch3:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 26.1989, 1.34514 ), Vector2( 34.0279, 5.36678 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Skeleton2D/torse/node/branch1:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 13.3982, -25.7853 ), Vector2( 17.2065, -26.3268 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("polygons/branch1/Sprite2:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 33.1619, 89.2196 ), Vector2( 40.5782, 85.1936 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("polygons/branch2/Sprite1:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 30.9195, 66.7349 ), Vector2( 37.2762, 64.4041 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("polygons/branch2/Sprite2:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 48.2063, 74.3871 ), Vector2( 54.775, 72.4801 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("polygons/branch3/Sprite:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 37.8236, 43.8746 ), Vector2( 44.1803, 44.2984 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("polygons/branch3/Sprite2:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 52.2323, 54.0454 ), Vector2( 57.7415, 55.7406 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("polygons/branch4/Sprite:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.7, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 62.1912, 30.5254 ), Vector2( 64.9882, 26.4006 ), Vector2( 70.455, 30.3135 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("polygons/branch4/Sprite2:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 81.4734, 38.5773 ), Vector2( 91.4324, 39.6368 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("polygons/branch4/Sprite3:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 70.2431, 53.1979 ), Vector2( 76.8118, 50.4433 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("polygons/branch5/Sprite:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 94.6108, 73.5396 ), Vector2( 101.179, 75.2347 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("polygons/branch5/Sprite2:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 78.7188, 83.7104 ), Vector2( 85.7113, 81.5915 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("polygons/branch6/Sprite:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 149.491, 30.5254 ), Vector2( 157.967, 28.6184 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("polygons/branch6/Sprite2:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 134.447, 35.6108 ), Vector2( 141.228, 34.9751 ) ]
+}
+
+[sub_resource type="Animation" id=28]
+length = 2.8
+loop = true
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/path = NodePath("Skeleton2D/stem/stem1:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.0116, 0.808854, 1.56693, 2.25995 ),
+"transitions": PoolRealArray( 2.92817, 1.46409, 3.605, 1.7411 ),
+"update": 0,
+"values": [ Vector2( -82.0644, -9.21948 ), Vector2( -80.3361, -12.9894 ), Vector2( -78.8958, -16.131 ), Vector2( -80.3361, -12.9894 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Skeleton2D/stem/stem1:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.0116, 0.808854, 1.56693, 2.25995 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -160.613, -160.613, -160.613, -160.613 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Skeleton2D/stem/stem1:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.0116, 0.808854, 1.56693, 2.25995 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2.66118, 1.09784 ), Vector2( 2.66118, 1.09784 ), Vector2( 2.66118, 1.09784 ), Vector2( 2.66118, 1.09784 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Skeleton2D/stem/stem1/branch1/Bone2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.496891, 1.11147 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -57.4061, 0.313036 ), Vector2( -44.6271, 0.00669098 ), Vector2( -26.7729, -0.0953846 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Skeleton2D/stem/stem1/branch1/Bone2D:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.496891, 1.11147 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 179.76, 179.76, 179.76 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Skeleton2D/stem/stem1/branch1/Bone2D:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.496891, 1.11147 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.58628, 0.735196 ), Vector2( 1.58628, 0.735196 ), Vector2( 1.58628, 0.735196 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Skeleton2D/stem/stem1/branch2/Bone2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.566666, 1.33333 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 17.1905, -0.00403869 ), Vector2( 6.29637, 0.0220965 ), Vector2( 4.6947, 0.034037 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Skeleton2D/stem/stem1/branch2/Bone2D:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.566666, 1.33333 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Skeleton2D/stem/stem1/branch2/Bone2D:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.566666, 1.33333 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.05596, 0.41877 ), Vector2( 1.05596, 0.41877 ), Vector2( 1.05596, 0.41877 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Skeleton2D/stem/stem1/branch3/Bone2D:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.366666, 0.633333, 0.899999, 1.13333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 36.0183, -27.681 ), Vector2( 22.4577, -4.51291 ), Vector2( 19.481, -2.5152 ), Vector2( 28.8472, -22.1185 ), Vector2( 19.481, -2.5152 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Skeleton2D/stem/stem1/branch3/Bone2D:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.366666, 0.633333, 0.899999, 1.13333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 15.4963, 15.4963, 15.4963, 15.4963, 15.4963 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Skeleton2D/stem/stem1/branch3/Bone2D:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.366666, 0.633333, 0.899999, 1.13333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.75784, 1.01506 ), Vector2( 1.75784, 1.01506 ), Vector2( 1.75784, 1.01506 ), Vector2( 1.75784, 1.01506 ), Vector2( 1.75784, 1.01506 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Skeleton2D/stem/stem1/branch4/Bone2D:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.366666, 0.633333, 0.899999, 1.13333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 37.4021, -3.83301 ), Vector2( 51.6494, -24.1497 ), Vector2( 59.6545, -20.7975 ), Vector2( 51.6494, -24.1497 ), Vector2( 64.8427, -27.8059 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Skeleton2D/stem/stem1/branch4/Bone2D:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.366666, 0.633333, 0.899999, 1.13333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -40.8751, -40.8751, -40.8751, -40.8751, -40.8751 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Skeleton2D/stem/stem1/branch4/Bone2D:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.366666, 0.633333, 0.899999, 1.13333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.78923, -0.45382 ), Vector2( 1.78923, -0.45382 ), Vector2( 1.78923, -0.45382 ), Vector2( 1.78923, -0.45382 ), Vector2( 1.78923, -0.45382 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Skeleton2D/stem/stem1/branch5/Bone2D:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 0.799999, 1.56667, 2.26666 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 37.0446, 0.0305181 ), Vector2( 34.754, -0.0664592 ), Vector2( 28.5002, 0.0392521 ), Vector2( 22.3968, 0.0094596 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Skeleton2D/stem/stem1/branch5/Bone2D:rotation_degrees")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 0.799999, 1.56667, 2.26666 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0, 0.0 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Skeleton2D/stem/stem1/branch5/Bone2D:scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 0.799999, 1.56667, 2.26666 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Skeleton2D/stem/stem1/branch6/Bone2D:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 0.766666, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 34.0692, 3.93835 ), Vector2( 37.4941, -5.33203 ), Vector2( 38.6444, -12.7033 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Skeleton2D/stem/stem1/branch6/Bone2D:rotation_degrees")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 0.766666, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 52.3997, 52.3997, 52.3997 ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Skeleton2D/stem/stem1/branch6/Bone2D:scale")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0, 0.766666, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("polygons/torso/Sprite:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0, 1.43333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 89.629, 98.0656 ), Vector2( 95.6136, 93.3409 ) ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("polygons/branch2/Sprite:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0, 1.33333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 35.1811, 86.6621 ), Vector2( 43.1811, 82.1621 ) ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("polygons/branch2/Sprite2:position")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 22.4676, 81.3648 ), Vector2( 27.4676, 75.3648 ) ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("polygons/branch1/Sprite:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0, 1.46667 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 27.5, 110.5 ), Vector2( 30, 103.75 ) ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("polygons/branch1/Sprite2:position")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0, 1.53333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 13.25, 115.25 ), Vector2( 17.5, 112.25 ) ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("polygons/branch3/Sprite:position")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 39.9487, 57.7917 ), Vector2( 50.4487, 52.2917 ) ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("polygons/branch3/Sprite2:position")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0, 0.466666, 0.933332, 1.2, 2.409 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 35.5946, 40.1349 ), Vector2( 40.0946, 33.8849 ), Vector2( 32.9446, 38.1349 ), Vector2( 40.5732, 34.1706 ), Vector2( 32.3392, 41.3938 ) ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("polygons/branch4/Sprite:position")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0, 0.4, 0.733333, 1.23333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 62.992, 38.9863 ), Vector2( 71.6685, 31.9784 ), Vector2( 76.1365, 31.6169 ), Vector2( 76.6272, 32.065 ) ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("polygons/branch4/Sprite2:position")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0, 0.433333, 0.633333, 1.23333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 74.1164, 19.9159 ), Vector2( 78.1209, 13.2417 ), Vector2( 80.4522, 13.472 ), Vector2( 84.037, 12.9205 ) ]
+}
+tracks/30/type = "value"
+tracks/30/path = NodePath("polygons/branch4/Sprite3:position")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray( 0, 0.4, 0.666666, 0.799999, 1.23333 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 79.6785, 37.1322 ), Vector2( 84.3504, 31.1254 ), Vector2( 88.1696, 34.1288 ), Vector2( 84.9692, 35.3176 ), Vector2( 88.8285, 31.3726 ) ]
+}
+tracks/31/type = "value"
+tracks/31/path = NodePath("polygons/branch5/Sprite:position")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/keys = {
+"times": PoolRealArray( 0, 0.599999, 2.06666 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 107.56, 26.2241 ), Vector2( 109.904, 22.887 ), Vector2( 116.378, 22.442 ) ]
+}
+tracks/32/type = "value"
+tracks/32/path = NodePath("polygons/branch5/Sprite2:position")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/keys = {
+"times": PoolRealArray( 0, 0.533333, 1.66667 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 137.485, 19.9903 ), Vector2( 138.155, 14.9847 ), Vector2( 138.824, 24.1617 ) ]
+}
+tracks/33/type = "value"
+tracks/33/path = NodePath("polygons/branch5/Sprite3:position")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"times": PoolRealArray( 0, 0.533333, 1.66667 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 134.647, 36.6073 ), Vector2( 140.675, 30.6005 ), Vector2( 134.647, 34.2713 ) ]
+}
+tracks/34/type = "value"
+tracks/34/path = NodePath("polygons/branch6/Sprite:position")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/keys = {
+"times": PoolRealArray( 0, 1.43333 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 133.963, 72.0724 ), Vector2( 138.635, 64.7308 ) ]
+}
+tracks/35/type = "value"
+tracks/35/path = NodePath("polygons/branch6/Sprite2:position")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 117.269, 66.4028 ), Vector2( 124.277, 58.3938 ) ]
+}
+
+[sub_resource type="Animation" id=29]
+length = 2.5
+
+[sub_resource type="Animation" id=30]
 length = 60.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("mess1:modulate")
@@ -1652,14 +1654,14 @@ tracks/8/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="DynamicFont" id=27]
+[sub_resource type="DynamicFont" id=31]
 size = 40
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_top = 10
 font_data = ExtResource( 16 )
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=32]
 length = 60.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG/sky_layer:position")
@@ -1709,12 +1711,12 @@ script = ExtResource( 12 )
 [node name="sky_layer" type="Sprite" parent="BG"]
 modulate = Color( 0.305882, 0.290196, 0.290196, 1 )
 material = SubResource( 2 )
-position = Vector2( -412.34, 129.057 )
+position = Vector2( 584.899, 129.057 )
 scale = Vector2( 2.90563, 1 )
 texture = ExtResource( 10 )
 
 [node name="bg_layer2" type="Sprite" parent="BG"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 404.781, 188.984 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 9 )
@@ -1774,7 +1776,7 @@ scale = Vector2( 8.30893, 4 )
 texture = ExtResource( 7 )
 
 [node name="building7" type="Sprite" parent="BG"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 196.461, 208.256 )
 texture = ExtResource( 6 )
 offset = Vector2( -80.302, -34.5596 )
@@ -1816,7 +1818,7 @@ range_z_min = 0
 range_z_max = 0
 
 [node name="building8" type="Sprite" parent="BG"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 848.173, 235.432 )
 texture = ExtResource( 6 )
 
@@ -1863,7 +1865,7 @@ __meta__ = {
 }
 
 [node name="torso" type="Polygon2D" parent="BG/animated_tree6/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( -149.836, -193.218 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 8 )
@@ -1873,7 +1875,7 @@ uv = PoolVector2Array( 57.6667, 68, 59.3333, 61.5, 63.1667, 57.5, 71.6667, 58.5,
 bones = [ NodePath("torse"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 1, 1, 1, 1 ), NodePath("torse/node"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="branch1" type="Polygon2D" parent="BG/animated_tree6/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( -144.797, -205.312 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 8 )
@@ -1883,7 +1885,7 @@ uv = PoolVector2Array( 43.6667, 78.8333, 38.8333, 75.8333, 37.5, 79.3333, 32.333
 bones = [ NodePath("torse"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0 ), NodePath("torse/node/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 0.5, 0, 0, 0, 0, 0.5, 0.5 ), NodePath("torse/node/node1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="BG/animated_tree6/polygons/branch1"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 42.8023, 93.2327 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -1891,7 +1893,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="Sprite2" type="Sprite" parent="BG/animated_tree6/polygons/branch1"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 33.1619, 89.2196 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -1899,7 +1901,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="branch2" type="Polygon2D" parent="BG/animated_tree6/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( -134.953, -195.187 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 8 )
@@ -1909,7 +1911,7 @@ uv = PoolVector2Array( 51.8333, 62.8333, 47, 58.6667, 44, 61.5, 42.5, 56.6667, 3
 bones = [ NodePath("torse"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5 ), NodePath("torse/node/node1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch4"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite2" type="Sprite" parent="BG/animated_tree6/polygons/branch2"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 48.2063, 74.3871 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -1917,7 +1919,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="Sprite1" type="Sprite" parent="BG/animated_tree6/polygons/branch2"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 30.9195, 66.7349 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -1925,7 +1927,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="branch3" type="Polygon2D" parent="BG/animated_tree6/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( -139.466, -187.267 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 8 )
@@ -1935,7 +1937,7 @@ uv = PoolVector2Array( 59.6667, 50.5, 58.5, 44.8333, 54.5, 40.1667, 51.8333, 41,
 bones = [ NodePath("torse"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2"), PoolRealArray( 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1 ), NodePath("torse/node/node1/node2/branch5"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="BG/animated_tree6/polygons/branch3"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 37.8236, 43.8746 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -1943,7 +1945,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="Sprite2" type="Sprite" parent="BG/animated_tree6/polygons/branch3"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 52.2323, 54.0454 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -1951,7 +1953,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="branch4" type="Polygon2D" parent="BG/animated_tree6/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( -144.713, -160.333 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 8 )
@@ -1961,7 +1963,7 @@ uv = PoolVector2Array( 72, 48.5, 73.5, 40.5, 74.8333, 38.6667, 78.3333, 41.3333,
 bones = [ NodePath("torse"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2"), PoolRealArray( 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1 ), NodePath("torse/node/node1/node2/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch6"), PoolRealArray( 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="BG/animated_tree6/polygons/branch4"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 62.1912, 30.5254 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -1969,7 +1971,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="Sprite2" type="Sprite" parent="BG/animated_tree6/polygons/branch4"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 81.4734, 38.5773 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -1977,7 +1979,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="Sprite3" type="Sprite" parent="BG/animated_tree6/polygons/branch4"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 70.2431, 53.1979 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -1985,7 +1987,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="branch5" type="Polygon2D" parent="BG/animated_tree6/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( -167.471, -200.409 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 8 )
@@ -1995,7 +1997,7 @@ uv = PoolVector2Array( 75.8333, 66.6667, 77.5, 63.1667, 81.5, 59.1667, 87, 59, 8
 bones = [ NodePath("torse"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1"), PoolRealArray( 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 ), NodePath("torse/node/node1/branch3"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="BG/animated_tree6/polygons/branch5"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 94.6108, 73.5396 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -2003,7 +2005,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="Sprite2" type="Sprite" parent="BG/animated_tree6/polygons/branch5"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 78.7188, 83.7104 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -2011,7 +2013,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="branch6" type="Polygon2D" parent="BG/animated_tree6/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( -303.746, -49.6567 )
 scale = Vector2( 2.5, 2.5 )
 offset = Vector2( 51.7857, -64.2585 )
@@ -2022,7 +2024,7 @@ uv = PoolVector2Array( 78.5, 89.8333, 83.3333, 86.1667, 86.6667, 84, 89.3333, 79
 bones = [ NodePath("torse"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node"), PoolRealArray( 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1 ), NodePath("torse/node/branch1"), PoolRealArray( 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 ), NodePath("torse/node/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="BG/animated_tree6/polygons/branch6"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 149.491, 30.5254 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -2030,7 +2032,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="Sprite2" type="Sprite" parent="BG/animated_tree6/polygons/branch6"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 134.447, 35.6108 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -2172,7 +2174,7 @@ texture = ExtResource( 14 )
 [node name="G" type="Node2D" parent="."]
 
 [node name="building_part" type="Sprite" parent="G"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 640.132, 201.1 )
 scale = Vector2( 4, 4.2 )
 texture = ExtResource( 1 )
@@ -2191,7 +2193,7 @@ texture = ExtResource( 14 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="G"]
 position = Vector2( 711.071, 230.868 )
 scale = Vector2( 4, 4 )
-frames = SubResource( 19 )
+frames = SubResource( 23 )
 animation = "drinkingCoffee"
 frame = 21
 playing = true
@@ -2211,7 +2213,7 @@ __meta__ = {
 }
 
 [node name="torso" type="Polygon2D" parent="FG/animated_tree1/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 220.228, 125.235 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
@@ -2221,6 +2223,7 @@ uv = PoolVector2Array( 84.72, 60.0823, 93.3619, 62.5514, 96.8599, 71.8107, 104.8
 bones = [ NodePath("stem"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0, 0, 0, 0 ), NodePath("stem/stem1"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("stem/stem1/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="FG/animated_tree1/polygons/torso"]
+material = ExtResource( 18 )
 use_parent_material = true
 position = Vector2( 89.629, 98.0656 )
 texture = ExtResource( 3 )
@@ -2229,7 +2232,7 @@ vframes = 2
 frame = 2
 
 [node name="branch1" type="Polygon2D" parent="FG/animated_tree1/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 311.694, 76.8937 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
@@ -2239,6 +2242,7 @@ uv = PoolVector2Array( 22.8076, 112.994, 21.9602, 107.91, 30.9997, 105.367, 36.9
 bones = [ NodePath("stem"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("stem/stem1/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="FG/animated_tree1/polygons/branch1"]
+material = ExtResource( 18 )
 use_parent_material = true
 position = Vector2( 27.5, 110.5 )
 texture = ExtResource( 3 )
@@ -2247,6 +2251,7 @@ vframes = 2
 frame = 2
 
 [node name="Sprite2" type="Sprite" parent="FG/animated_tree1/polygons/branch1"]
+material = ExtResource( 18 )
 use_parent_material = true
 position = Vector2( 13.25, 115.25 )
 texture = ExtResource( 3 )
@@ -2255,7 +2260,7 @@ vframes = 2
 frame = 2
 
 [node name="branch2" type="Polygon2D" parent="FG/animated_tree1/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 292.564, 101.112 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
@@ -2265,6 +2270,7 @@ uv = PoolVector2Array( 31.2822, 102.542, 42.2992, 97.1751, 53.0336, 83.6158, 40.
 bones = [ NodePath("stem"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2"), PoolRealArray( 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1 ), NodePath("stem/stem1/branch2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0 ), NodePath("stem/stem1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="FG/animated_tree1/polygons/branch2"]
+material = ExtResource( 18 )
 use_parent_material = true
 position = Vector2( 35.1811, 86.6621 )
 texture = ExtResource( 3 )
@@ -2273,6 +2279,7 @@ vframes = 2
 frame = 2
 
 [node name="Sprite2" type="Sprite" parent="FG/animated_tree1/polygons/branch2"]
+material = ExtResource( 18 )
 use_parent_material = true
 position = Vector2( 22.4676, 81.3648 )
 texture = ExtResource( 3 )
@@ -2281,7 +2288,7 @@ vframes = 2
 frame = 2
 
 [node name="branch3" type="Polygon2D" parent="FG/animated_tree1/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 296.558, 126.514 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
@@ -2291,6 +2298,7 @@ uv = PoolVector2Array( 47.1014, 31.6384, 42.0167, 25.1412, 29.8698, 26.8362, 8.6
 bones = [ NodePath("stem"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1 ), NodePath("stem/stem1/branch3/Bone2D"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="FG/animated_tree1/polygons/branch3"]
+material = ExtResource( 18 )
 use_parent_material = true
 position = Vector2( 39.9487, 57.7917 )
 texture = ExtResource( 3 )
@@ -2299,6 +2307,7 @@ vframes = 2
 frame = 1
 
 [node name="Sprite2" type="Sprite" parent="FG/animated_tree1/polygons/branch3"]
+material = ExtResource( 18 )
 use_parent_material = true
 position = Vector2( 35.5946, 40.1349 )
 texture = ExtResource( 3 )
@@ -2307,7 +2316,7 @@ vframes = 2
 frame = 2
 
 [node name="branch4" type="Polygon2D" parent="FG/animated_tree1/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 278.21, 166.925 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
@@ -2317,6 +2326,7 @@ uv = PoolVector2Array( 102.751, 43.2203, 103.599, 31.3559, 101.056, 22.5989, 99.
 bones = [ NodePath("stem"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4"), PoolRealArray( 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("stem/stem1/branch4/Bone2D"), PoolRealArray( 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="FG/animated_tree1/polygons/branch4"]
+material = ExtResource( 18 )
 use_parent_material = true
 position = Vector2( 62.992, 38.9863 )
 texture = ExtResource( 3 )
@@ -2325,6 +2335,7 @@ vframes = 2
 frame = 2
 
 [node name="Sprite2" type="Sprite" parent="FG/animated_tree1/polygons/branch4"]
+material = ExtResource( 18 )
 use_parent_material = true
 position = Vector2( 74.1164, 19.9159 )
 texture = ExtResource( 3 )
@@ -2333,6 +2344,7 @@ vframes = 2
 frame = 2
 
 [node name="Sprite3" type="Sprite" parent="FG/animated_tree1/polygons/branch4"]
+material = ExtResource( 18 )
 use_parent_material = true
 position = Vector2( 79.6785, 37.1322 )
 texture = ExtResource( 3 )
@@ -2341,7 +2353,7 @@ vframes = 2
 frame = 2
 
 [node name="branch5" type="Polygon2D" parent="FG/animated_tree1/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 201.704, 229.324 )
 scale = Vector2( 1.99302, 2 )
 texture = ExtResource( 5 )
@@ -2351,6 +2363,7 @@ uv = PoolVector2Array( 100.507, 18.7037, 101.248, 24.6296, 105.322, 30.1852, 105
 bones = [ NodePath("stem"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5 ), NodePath("stem/stem1/branch5/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0, 0 ), NodePath("stem/stem1/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="FG/animated_tree1/polygons/branch5"]
+material = ExtResource( 18 )
 use_parent_material = true
 position = Vector2( 107.56, 26.2241 )
 texture = ExtResource( 3 )
@@ -2359,6 +2372,7 @@ vframes = 2
 frame = 1
 
 [node name="Sprite2" type="Sprite" parent="FG/animated_tree1/polygons/branch5"]
+material = ExtResource( 18 )
 use_parent_material = true
 position = Vector2( 137.485, 19.9903 )
 texture = ExtResource( 3 )
@@ -2367,6 +2381,7 @@ vframes = 2
 frame = 2
 
 [node name="Sprite3" type="Sprite" parent="FG/animated_tree1/polygons/branch5"]
+material = ExtResource( 18 )
 use_parent_material = true
 position = Vector2( 134.647, 36.6073 )
 texture = ExtResource( 3 )
@@ -2375,7 +2390,7 @@ vframes = 2
 frame = 2
 
 [node name="branch6" type="Polygon2D" parent="FG/animated_tree1/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 193.897, 181.175 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
@@ -2385,6 +2400,7 @@ uv = PoolVector2Array( 117.174, 60, 127.544, 57.5926, 136.248, 61.1111, 145.137,
 bones = [ NodePath("stem"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6"), PoolRealArray( 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5 ), NodePath("stem/stem1/branch6/Bone2D"), PoolRealArray( 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="FG/animated_tree1/polygons/branch6"]
+material = ExtResource( 18 )
 use_parent_material = true
 position = Vector2( 133.963, 72.0724 )
 texture = ExtResource( 3 )
@@ -2393,6 +2409,7 @@ vframes = 2
 frame = 2
 
 [node name="Sprite2" type="Sprite" parent="FG/animated_tree1/polygons/branch6"]
+material = ExtResource( 18 )
 use_parent_material = true
 position = Vector2( 117.269, 66.4028 )
 texture = ExtResource( 3 )
@@ -2509,8 +2526,8 @@ rest = Transform2D( 0.61015, 0.792286, -0.792286, 0.61015, 27.2236, 1.41425 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FG/animated_tree1"]
 autoplay = "Wind"
-anims/Wind = SubResource( 20 )
-anims/Wind2 = SubResource( 21 )
+anims/Wind = SubResource( 24 )
+anims/Wind2 = SubResource( 25 )
 
 [node name="ligherAtStreet" type="Sprite" parent="FG"]
 position = Vector2( 644, 466 )
@@ -2543,7 +2560,7 @@ __meta__ = {
 }
 
 [node name="torso" type="Polygon2D" parent="FG/animated_tree4/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( -149.836, -193.218 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 8 )
@@ -2553,7 +2570,7 @@ uv = PoolVector2Array( 57.6667, 68, 59.3333, 61.5, 63.1667, 57.5, 71.6667, 58.5,
 bones = [ NodePath("torse"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 1, 1, 1, 1 ), NodePath("torse/node"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="branch1" type="Polygon2D" parent="FG/animated_tree4/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( -144.797, -205.312 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 8 )
@@ -2563,7 +2580,7 @@ uv = PoolVector2Array( 43.6667, 78.8333, 38.8333, 75.8333, 37.5, 79.3333, 32.333
 bones = [ NodePath("torse"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0 ), NodePath("torse/node/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 0.5, 0, 0, 0, 0, 0.5, 0.5 ), NodePath("torse/node/node1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="FG/animated_tree4/polygons/branch1"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 42.8023, 93.2327 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -2572,7 +2589,7 @@ frame = 1
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="Sprite2" type="Sprite" parent="FG/animated_tree4/polygons/branch1"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 33.1619, 89.2196 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -2581,7 +2598,7 @@ frame = 1
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="branch2" type="Polygon2D" parent="FG/animated_tree4/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( -134.953, -195.187 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 8 )
@@ -2591,7 +2608,7 @@ uv = PoolVector2Array( 51.8333, 62.8333, 47, 58.6667, 44, 61.5, 42.5, 56.6667, 3
 bones = [ NodePath("torse"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5 ), NodePath("torse/node/node1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch4"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite2" type="Sprite" parent="FG/animated_tree4/polygons/branch2"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 48.2063, 74.3871 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -2600,7 +2617,7 @@ frame = 1
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="Sprite1" type="Sprite" parent="FG/animated_tree4/polygons/branch2"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 30.9195, 66.7349 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -2609,7 +2626,7 @@ frame = 1
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="branch3" type="Polygon2D" parent="FG/animated_tree4/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( -139.466, -187.267 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 8 )
@@ -2619,7 +2636,7 @@ uv = PoolVector2Array( 59.6667, 50.5, 58.5, 44.8333, 54.5, 40.1667, 51.8333, 41,
 bones = [ NodePath("torse"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2"), PoolRealArray( 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1 ), NodePath("torse/node/node1/node2/branch5"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="FG/animated_tree4/polygons/branch3"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 37.8236, 43.8746 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -2628,7 +2645,7 @@ frame = 1
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="Sprite2" type="Sprite" parent="FG/animated_tree4/polygons/branch3"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 52.2323, 54.0454 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -2636,7 +2653,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="branch4" type="Polygon2D" parent="FG/animated_tree4/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( -144.713, -160.333 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 8 )
@@ -2646,7 +2663,7 @@ uv = PoolVector2Array( 72, 48.5, 73.5, 40.5, 74.8333, 38.6667, 78.3333, 41.3333,
 bones = [ NodePath("torse"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2"), PoolRealArray( 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1 ), NodePath("torse/node/node1/node2/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch6"), PoolRealArray( 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="FG/animated_tree4/polygons/branch4"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 62.1912, 30.5254 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -2654,7 +2671,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="Sprite2" type="Sprite" parent="FG/animated_tree4/polygons/branch4"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 81.4734, 38.5773 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -2662,7 +2679,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="Sprite3" type="Sprite" parent="FG/animated_tree4/polygons/branch4"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 70.2431, 53.1979 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -2670,7 +2687,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="branch5" type="Polygon2D" parent="FG/animated_tree4/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( -167.471, -200.409 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 8 )
@@ -2680,7 +2697,7 @@ uv = PoolVector2Array( 75.8333, 66.6667, 77.5, 63.1667, 81.5, 59.1667, 87, 59, 8
 bones = [ NodePath("torse"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1"), PoolRealArray( 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 ), NodePath("torse/node/node1/branch3"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="FG/animated_tree4/polygons/branch5"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 94.6108, 73.5396 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -2688,7 +2705,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="Sprite2" type="Sprite" parent="FG/animated_tree4/polygons/branch5"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 78.7188, 83.7104 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -2696,7 +2713,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="branch6" type="Polygon2D" parent="FG/animated_tree4/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( -303.746, -49.6567 )
 scale = Vector2( 2.5, 2.5 )
 offset = Vector2( 51.7857, -64.2585 )
@@ -2707,7 +2724,7 @@ uv = PoolVector2Array( 78.5, 89.8333, 83.3333, 86.1667, 86.6667, 84, 89.3333, 79
 bones = [ NodePath("torse"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node"), PoolRealArray( 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1 ), NodePath("torse/node/branch1"), PoolRealArray( 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 ), NodePath("torse/node/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="FG/animated_tree4/polygons/branch6"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 149.491, 30.5254 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -2715,7 +2732,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="Sprite2" type="Sprite" parent="FG/animated_tree4/polygons/branch6"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 134.447, 35.6108 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -2726,7 +2743,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FG/animated_tree4/polygons"]
-anims/leaf_change = SubResource( 22 )
+anims/leaf_change = SubResource( 26 )
 
 [node name="Skeleton2D" type="Skeleton2D" parent="FG/animated_tree4"]
 visible = false
@@ -2798,7 +2815,7 @@ rest = Transform2D( 1.39552, -0.0822487, 0.0536776, 0.910749, 26.0513, 1.36586 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FG/animated_tree4"]
 autoplay = "Wind"
-anims/Wind = SubResource( 23 )
+anims/Wind = SubResource( 27 )
 
 [node name="animated_tree8" type="Node2D" parent="FG"]
 modulate = Color( 0.839216, 0.792157, 0.792157, 1 )
@@ -2813,7 +2830,7 @@ __meta__ = {
 }
 
 [node name="torso" type="Polygon2D" parent="FG/animated_tree8/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 220.228, 125.235 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
@@ -2823,7 +2840,7 @@ uv = PoolVector2Array( 84.72, 60.0823, 93.3619, 62.5514, 96.8599, 71.8107, 104.8
 bones = [ NodePath("stem"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0, 0, 0, 0 ), NodePath("stem/stem1"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("stem/stem1/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="FG/animated_tree8/polygons/torso"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 89.629, 98.0656 )
 texture = ExtResource( 4 )
 hframes = 2
@@ -2831,7 +2848,7 @@ vframes = 2
 frame = 1
 
 [node name="branch1" type="Polygon2D" parent="FG/animated_tree8/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 311.694, 76.8937 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
@@ -2841,7 +2858,7 @@ uv = PoolVector2Array( 22.8076, 112.994, 21.9602, 107.91, 30.9997, 105.367, 36.9
 bones = [ NodePath("stem"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("stem/stem1/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="FG/animated_tree8/polygons/branch1"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 27.5, 110.5 )
 texture = ExtResource( 4 )
 hframes = 2
@@ -2849,7 +2866,7 @@ vframes = 2
 frame = 1
 
 [node name="Sprite2" type="Sprite" parent="FG/animated_tree8/polygons/branch1"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 13.25, 115.25 )
 texture = ExtResource( 4 )
 hframes = 2
@@ -2857,7 +2874,7 @@ vframes = 2
 frame = 1
 
 [node name="branch2" type="Polygon2D" parent="FG/animated_tree8/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 292.564, 101.112 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
@@ -2867,7 +2884,7 @@ uv = PoolVector2Array( 31.2822, 102.542, 42.2992, 97.1751, 53.0336, 83.6158, 40.
 bones = [ NodePath("stem"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2"), PoolRealArray( 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1 ), NodePath("stem/stem1/branch2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0 ), NodePath("stem/stem1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="FG/animated_tree8/polygons/branch2"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 35.1811, 86.6621 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -2875,7 +2892,7 @@ vframes = 2
 frame = 2
 
 [node name="Sprite2" type="Sprite" parent="FG/animated_tree8/polygons/branch2"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 22.4676, 81.3648 )
 texture = ExtResource( 4 )
 hframes = 2
@@ -2883,7 +2900,7 @@ vframes = 2
 frame = 1
 
 [node name="branch3" type="Polygon2D" parent="FG/animated_tree8/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 296.558, 126.514 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
@@ -2893,7 +2910,7 @@ uv = PoolVector2Array( 47.1014, 31.6384, 42.0167, 25.1412, 29.8698, 26.8362, 8.6
 bones = [ NodePath("stem"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1 ), NodePath("stem/stem1/branch3/Bone2D"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="FG/animated_tree8/polygons/branch3"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 39.9487, 57.7917 )
 texture = ExtResource( 4 )
 hframes = 2
@@ -2901,7 +2918,7 @@ vframes = 2
 frame = 1
 
 [node name="Sprite2" type="Sprite" parent="FG/animated_tree8/polygons/branch3"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 35.5946, 40.1349 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -2909,7 +2926,7 @@ vframes = 2
 frame = 2
 
 [node name="branch4" type="Polygon2D" parent="FG/animated_tree8/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 278.21, 166.925 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
@@ -2919,7 +2936,7 @@ uv = PoolVector2Array( 102.751, 43.2203, 103.599, 31.3559, 101.056, 22.5989, 99.
 bones = [ NodePath("stem"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4"), PoolRealArray( 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("stem/stem1/branch4/Bone2D"), PoolRealArray( 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="FG/animated_tree8/polygons/branch4"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 62.992, 38.9863 )
 texture = ExtResource( 4 )
 hframes = 2
@@ -2927,7 +2944,7 @@ vframes = 2
 frame = 1
 
 [node name="Sprite2" type="Sprite" parent="FG/animated_tree8/polygons/branch4"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 74.1164, 19.9159 )
 texture = ExtResource( 4 )
 hframes = 3
@@ -2935,7 +2952,7 @@ vframes = 2
 frame = 2
 
 [node name="Sprite3" type="Sprite" parent="FG/animated_tree8/polygons/branch4"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 79.6785, 37.1322 )
 texture = ExtResource( 4 )
 hframes = 3
@@ -2943,7 +2960,7 @@ vframes = 2
 frame = 2
 
 [node name="branch5" type="Polygon2D" parent="FG/animated_tree8/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 201.704, 229.324 )
 scale = Vector2( 1.99302, 2 )
 texture = ExtResource( 5 )
@@ -2953,7 +2970,7 @@ uv = PoolVector2Array( 100.507, 18.7037, 101.248, 24.6296, 105.322, 30.1852, 105
 bones = [ NodePath("stem"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5 ), NodePath("stem/stem1/branch5/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0, 0 ), NodePath("stem/stem1/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="FG/animated_tree8/polygons/branch5"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 107.56, 26.2241 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -2961,7 +2978,7 @@ vframes = 2
 frame = 1
 
 [node name="Sprite2" type="Sprite" parent="FG/animated_tree8/polygons/branch5"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 137.485, 19.9903 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -2969,7 +2986,7 @@ vframes = 2
 frame = 2
 
 [node name="Sprite3" type="Sprite" parent="FG/animated_tree8/polygons/branch5"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 134.647, 36.6073 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -2977,7 +2994,7 @@ vframes = 2
 frame = 2
 
 [node name="branch6" type="Polygon2D" parent="FG/animated_tree8/polygons"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 193.897, 181.175 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
@@ -2987,7 +3004,7 @@ uv = PoolVector2Array( 117.174, 60, 127.544, 57.5926, 136.248, 61.1111, 145.137,
 bones = [ NodePath("stem"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6"), PoolRealArray( 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5 ), NodePath("stem/stem1/branch6/Bone2D"), PoolRealArray( 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="FG/animated_tree8/polygons/branch6"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 133.963, 72.0724 )
 texture = ExtResource( 4 )
 hframes = 2
@@ -2995,7 +3012,7 @@ vframes = 2
 frame = 1
 
 [node name="Sprite2" type="Sprite" parent="FG/animated_tree8/polygons/branch6"]
-material = ExtResource( 15 )
+material = ExtResource( 18 )
 position = Vector2( 117.269, 66.4028 )
 texture = ExtResource( 3 )
 hframes = 3
@@ -3111,23 +3128,23 @@ rest = Transform2D( 0.61015, 0.792286, -0.792286, 0.61015, 27.2236, 1.41425 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FG/animated_tree8"]
 autoplay = "Wind"
-anims/Wind = SubResource( 24 )
-anims/Wind2 = SubResource( 25 )
+anims/Wind = SubResource( 28 )
+anims/Wind2 = SubResource( 29 )
 
 [node name="Text" type="Node2D" parent="FG"]
 z_index = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FG/Text"]
 autoplay = "playText"
-anims/playText = SubResource( 26 )
+anims/playText = SubResource( 30 )
 
 [node name="mess1" type="RichTextLabel" parent="FG/Text"]
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 1, 1, 1, 0.285714 )
 margin_left = 90.0
 margin_top = 30.0
 margin_right = 614.0
 margin_bottom = 133.0
-custom_fonts/normal_font = SubResource( 27 )
+custom_fonts/normal_font = SubResource( 31 )
 custom_colors/default_color = Color( 1, 0.698039, 0.309804, 1 )
 text = "So, this is the end for you"
 __meta__ = {
@@ -3140,7 +3157,7 @@ margin_left = 87.4802
 margin_top = 111.895
 margin_right = 611.48
 margin_bottom = 214.895
-custom_fonts/normal_font = SubResource( 27 )
+custom_fonts/normal_font = SubResource( 31 )
 custom_colors/default_color = Color( 1, 0.698039, 0.309804, 1 )
 text = "But not for him."
 __meta__ = {
@@ -3153,7 +3170,7 @@ margin_left = 87.8909
 margin_top = 231.38
 margin_right = 611.891
 margin_bottom = 358.38
-custom_fonts/normal_font = SubResource( 27 )
+custom_fonts/normal_font = SubResource( 31 )
 custom_colors/default_color = Color( 1, 0.698039, 0.309804, 1 )
 text = "He will continue working as a loader"
 __meta__ = {
@@ -3166,7 +3183,7 @@ margin_left = 75.0
 margin_top = 32.0
 margin_right = 599.0
 margin_bottom = 212.0
-custom_fonts/normal_font = SubResource( 27 )
+custom_fonts/normal_font = SubResource( 31 )
 custom_colors/default_color = Color( 1, 0.698039, 0.309804, 1 )
 text = "He have not enough money for going to cloleage"
 __meta__ = {
@@ -3179,7 +3196,7 @@ margin_left = 71.4364
 margin_top = 209.289
 margin_right = 595.436
 margin_bottom = 389.289
-custom_fonts/normal_font = SubResource( 27 )
+custom_fonts/normal_font = SubResource( 31 )
 custom_colors/default_color = Color( 1, 0.698039, 0.309804, 1 )
 text = "But at least,  he have them"
 __meta__ = {
@@ -3192,7 +3209,7 @@ margin_left = 53.0
 margin_top = 18.0
 margin_right = 577.0
 margin_bottom = 156.0
-custom_fonts/normal_font = SubResource( 27 )
+custom_fonts/normal_font = SubResource( 31 )
 custom_colors/default_color = Color( 1, 0.698039, 0.309804, 1 )
 text = "There will be another month, and another"
 __meta__ = {
@@ -3205,7 +3222,7 @@ margin_left = 47.6546
 margin_top = 156.089
 margin_right = 571.655
 margin_bottom = 294.089
-custom_fonts/normal_font = SubResource( 27 )
+custom_fonts/normal_font = SubResource( 31 )
 custom_colors/default_color = Color( 1, 0.698039, 0.309804, 1 )
 text = "Untill he will earn enough money. "
 __meta__ = {
@@ -3218,7 +3235,7 @@ margin_left = 45.8728
 margin_top = 260.324
 margin_right = 569.873
 margin_bottom = 398.324
-custom_fonts/normal_font = SubResource( 27 )
+custom_fonts/normal_font = SubResource( 31 )
 custom_colors/default_color = Color( 1, 0.698039, 0.309804, 1 )
 text = "But now he have to go."
 __meta__ = {
@@ -3231,7 +3248,7 @@ margin_left = 202.671
 margin_top = 132.926
 margin_right = 726.671
 margin_bottom = 270.926
-custom_fonts/normal_font = SubResource( 27 )
+custom_fonts/normal_font = SubResource( 31 )
 custom_colors/default_color = Color( 1, 0.698039, 0.309804, 1 )
 text = "To work"
 __meta__ = {
@@ -3240,4 +3257,13 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "scrollBG"
-anims/scrollBG = SubResource( 28 )
+anims/scrollBG = SubResource( 32 )
+
+[node name="NightMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+volume_db = -6.367
+autoplay = true
+
+[node name="Ambient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+autoplay = true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TrainMusic.mp3-1c7113f33b192012e192c9e599ba43b2.mp3str"
+
+[deps]
+
+source_file="res://musics/TrainMusic.mp3"
+dest_files=[ "res://.import/TrainMusic.mp3-1c7113f33b192012e192c9e599ba43b2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

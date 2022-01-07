@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/voiceLiza.wav-f56fbe8b2eebd2930c4f5f465b7f13cb.sample"
+
+[deps]
+
+source_file="res://sounds/forCharacters/voiceLiza.wav"
+dest_files=[ "res://.import/voiceLiza.wav-f56fbe8b2eebd2930c4f5f465b7f13cb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

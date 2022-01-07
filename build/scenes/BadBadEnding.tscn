@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=2]
+[gd_scene load_steps=88 format=2]
 
 [ext_resource path="res://textures/backgrounds/FadingBgBottom.png" type="Texture" id=1]
 [ext_resource path="res://textures/humanEnviroment/tilesSheetForWork.png" type="Texture" id=2]
@@ -22,12 +22,14 @@
 [ext_resource path="res://scripts/BadBadEnding.gd" type="Script" id=20]
 [ext_resource path="res://fonts/WorkSans-Italic-VariableFont_wght.ttf" type="DynamicFontData" id=21]
 [ext_resource path="res://textures/humanEnviroment/light.png" type="Texture" id=22]
-[ext_resource path="res://shaders/fadingLightsUp.tres" type="Material" id=23]
+[ext_resource path="res://musics/SityMusic.mp3" type="AudioStream" id=23]
 [ext_resource path="res://textures/effects/light.png" type="Texture" id=24]
 [ext_resource path="res://textures/backgrounds/stars_layer.png" type="Texture" id=25]
 [ext_resource path="res://textures/hud/skip_pressed.png" type="Texture" id=26]
 [ext_resource path="res://textures/hud/skip_still.png" type="Texture" id=27]
 [ext_resource path="res://shaders/starsShining.tres" type="Material" id=28]
+[ext_resource path="res://shaders/fadingLightsDown.tres" type="Material" id=29]
+[ext_resource path="res://musics/MainAmbient.ogg" type="AudioStream" id=30]
 
 [sub_resource type="Animation" id=1]
 resource_name = "end"
@@ -4110,7 +4112,7 @@ anims/start = SubResource( 2 )
 [node name="BG" type="Node2D" parent="."]
 
 [node name="sky" type="Sprite" parent="BG"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 379.528, 130.453 )
 scale = Vector2( 5, 0.469 )
 z_index = -1
@@ -4124,20 +4126,20 @@ texture = ExtResource( 25 )
 
 [node name="building4" type="Sprite" parent="BG"]
 modulate = Color( 0.627451, 0.627451, 0.627451, 1 )
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 153.171, 138.102 )
 scale = Vector2( 2.5, 2.5 )
 z_index = -1
 texture = ExtResource( 13 )
 
 [node name="building1" type="Sprite" parent="BG"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 354.301, 149.667 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 12 )
 
 [node name="building2" type="Sprite" parent="BG"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 621.064, 101.916 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 13 )
@@ -4149,9 +4151,9 @@ scale = Vector2( 0.02, 0.0273513 )
 texture = ExtResource( 24 )
 
 [node name="building3" type="Sprite" parent="BG"]
-material = ExtResource( 23 )
-position = Vector2( -63.3288, 103.518 )
-scale = Vector2( 3, 3 )
+material = ExtResource( 29 )
+position = Vector2( -66.0015, 103.518 )
+scale = Vector2( 3.04311, 3 )
 texture = ExtResource( 14 )
 
 [node name="Sprite" type="Sprite" parent="BG/building3"]
@@ -4173,14 +4175,14 @@ scale = Vector2( 0.00992063, 0.0598536 )
 texture = ExtResource( 24 )
 
 [node name="building6" type="Sprite" parent="BG"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -1667.46, 88.8102 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 16 )
 
 [node name="building7" type="Sprite" parent="BG"]
 modulate = Color( 0.643137, 0.643137, 0.643137, 1 )
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -566.285, 200.216 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 17 )
@@ -4199,7 +4201,7 @@ texture = ExtResource( 24 )
 
 [node name="building9" type="Sprite" parent="BG"]
 modulate = Color( 0.72549, 0.72549, 0.72549, 1 )
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -899.639, 200.26 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 15 )
@@ -4217,7 +4219,7 @@ scale = Vector2( 0.00992063, 0.0598536 )
 texture = ExtResource( 24 )
 
 [node name="building8" type="Sprite" parent="BG"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -294.373, 223.563 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 12 )
@@ -4229,7 +4231,7 @@ scale = Vector2( 2.5, 2.5 )
 texture = SubResource( 5 )
 
 [node name="building5" type="Sprite" parent="BG"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -1140.14, 103.849 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 15 )
@@ -4252,7 +4254,7 @@ __meta__ = {
 position = Vector2( -0.75, -0.25 )
 
 [node name="wood1" type="Polygon2D" parent="BG/tree6/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
 polygon = PoolVector2Array( 56.7506, 94.508, 62.9685, 91.904, 68.066, 91.904, 72.4138, 92.5037, 76.1619, 95.952, 76.4815, 106.667, 76.4815, 111.852, 78.7037, 118.333, 80.9259, 126.852, 81.2963, 134.074, 76.2963, 133.889, 66.4815, 132.407, 57.5926, 134.63, 50.5556, 134.259, 52.037, 129.444, 57.963, 113.148 )
@@ -4260,7 +4262,7 @@ uv = PoolVector2Array( 56.7506, 94.508, 62.9685, 91.904, 68.066, 91.904, 72.4138
 bones = [ NodePath("root"), PoolRealArray( 1, 1, 1, 1, 1, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0.5 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="wood2" type="Polygon2D" parent="BG/tree6/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 0.280617, 4.63016 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4269,7 +4271,7 @@ uv = PoolVector2Array( 59.6296, 92.7778, 65, 90.5555, 72.7778, 90.7407, 73.3333,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="wood3" type="Polygon2D" parent="BG/tree6/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 0.280617, 9.12 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4278,7 +4280,7 @@ uv = PoolVector2Array( 57.7778, 60, 61.2963, 60.9259, 64.8148, 62.5926, 68.8889,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="wood4" type="Polygon2D" parent="BG/tree6/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 0.794601, 14.7001 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4287,7 +4289,7 @@ uv = PoolVector2Array( 59.5142, 25.776, 63.4278, 27.1255, 69.3657, 26.9906, 66.5
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="branch1" type="Polygon2D" parent="BG/tree6/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 12.1838, 3.44325 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4296,7 +4298,7 @@ uv = PoolVector2Array( 24.0828, 102.5, 31.4162, 99.1667, 36.4162, 96.8333, 47.08
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 0.5, 0.5, 0.5, 1, 1 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree6/polygons/branch1"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 37.9292, 83.1293 )
 rotation = 0.00664225
 scale = Vector2( 2.8274, 0.769825 )
@@ -4305,7 +4307,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch2" type="Polygon2D" parent="BG/tree6/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 15.0973, 5.29731 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4314,7 +4316,7 @@ uv = PoolVector2Array( 45.9162, 79.1667, 40.5828, 79.1667, 32.9162, 79, 27.7495,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree6/polygons/branch2"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 36.1245, 59.2682 )
 rotation = 0.0807964
 scale = Vector2( 2.20797, 1.03369 )
@@ -4323,7 +4325,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch3" type="Polygon2D" parent="BG/tree6/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 22.1163, 6.22435 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4332,7 +4334,7 @@ uv = PoolVector2Array( 41.7495, 53.8333, 37.7495, 55, 33.2495, 55.3333, 32.0828,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree6/polygons/branch3"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 34.2924, 40.4047 )
 rotation = 0.0807964
 scale = Vector2( 1.50399, 0.77645 )
@@ -4341,7 +4343,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch4" type="Polygon2D" parent="BG/tree6/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 25.8244, 13.9055 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4350,7 +4352,7 @@ uv = PoolVector2Array( 37.449, 29.5547, 38.6636, 20.2429, 36.7742, 10.1215, 36.7
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree6/polygons/branch4"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 39.194, 10.2279 )
 rotation = -0.00390396
 scale = Vector2( 1.45085, 1.27695 )
@@ -4359,7 +4361,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch5" type="Polygon2D" parent="BG/tree6/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -25.692, 10.3298 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4368,7 +4370,7 @@ uv = PoolVector2Array( 87.7864, 2.9363, 88.0563, 9.68394, 89.1359, 19.2656, 90.7
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree6/polygons/branch5"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 105.843, 17.8142 )
 rotation = -0.00390396
 scale = Vector2( 1.45085, 1.35221 )
@@ -4378,7 +4380,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch6" type="Polygon2D" parent="BG/tree6/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -27.0163, 3.97299 )
 scale = Vector2( 0.998582, 1 )
 texture = ExtResource( 7 )
@@ -4388,7 +4390,7 @@ uv = PoolVector2Array( 95.127, 37.8993, 99.7747, 39.8483, 107.871, 40.5979, 113.
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree6/polygons/branch6"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 110.544, 50.6039 )
 rotation = -0.0486781
 scale = Vector2( 1.81933, 0.744425 )
@@ -4398,7 +4400,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch7" type="Polygon2D" parent="BG/tree6/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -18.2689, -1.88988 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4407,7 +4409,7 @@ uv = PoolVector2Array( 86.7312, 63.2366, 84.6322, 67.4345, 84.9321, 74.9307, 89.
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree6/polygons/branch7"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 105.074, 77.6946 )
 rotation = -0.0396448
 scale = Vector2( 2.20797, 1.03369 )
@@ -4417,7 +4419,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch8" type="Polygon2D" parent="BG/tree6/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -16.2215, -2.67733 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4426,7 +4428,7 @@ uv = PoolVector2Array( 83.2402, 83.1089, 82.4994, 89.22, 86.2031, 98.1089, 91.57
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree6/polygons/branch8"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 113.237, 97.9724 )
 rotation = 0.00664225
 scale = Vector2( 2.8274, 0.769825 )
@@ -4521,7 +4523,7 @@ __meta__ = {
 position = Vector2( -0.75, -0.25 )
 
 [node name="wood1" type="Polygon2D" parent="BG/tree3/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
 polygon = PoolVector2Array( 56.7506, 94.508, 62.9685, 91.904, 68.066, 91.904, 72.4138, 92.5037, 76.1619, 95.952, 76.4815, 106.667, 76.4815, 111.852, 78.7037, 118.333, 80.9259, 126.852, 81.2963, 134.074, 76.2963, 133.889, 66.4815, 132.407, 57.5926, 134.63, 50.5556, 134.259, 52.037, 129.444, 57.963, 113.148 )
@@ -4529,7 +4531,7 @@ uv = PoolVector2Array( 56.7506, 94.508, 62.9685, 91.904, 68.066, 91.904, 72.4138
 bones = [ NodePath("root"), PoolRealArray( 1, 1, 1, 1, 1, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0.5 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="wood2" type="Polygon2D" parent="BG/tree3/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 0.280617, 4.63016 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4538,7 +4540,7 @@ uv = PoolVector2Array( 59.6296, 92.7778, 65, 90.5555, 72.7778, 90.7407, 73.3333,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="wood3" type="Polygon2D" parent="BG/tree3/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 0.280617, 9.12 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4547,7 +4549,7 @@ uv = PoolVector2Array( 57.7778, 60, 61.2963, 60.9259, 64.8148, 62.5926, 68.8889,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="wood4" type="Polygon2D" parent="BG/tree3/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 0.794601, 14.7001 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4556,7 +4558,7 @@ uv = PoolVector2Array( 59.5142, 25.776, 63.4278, 27.1255, 69.3657, 26.9906, 66.5
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="branch1" type="Polygon2D" parent="BG/tree3/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 12.1838, 3.44325 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4565,7 +4567,7 @@ uv = PoolVector2Array( 24.0828, 102.5, 31.4162, 99.1667, 36.4162, 96.8333, 47.08
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 0.5, 0.5, 0.5, 1, 1 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree3/polygons/branch1"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 37.9292, 83.1293 )
 rotation = 0.00664225
 scale = Vector2( 2.8274, 0.769825 )
@@ -4574,7 +4576,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch2" type="Polygon2D" parent="BG/tree3/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 15.0973, 5.29731 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4583,7 +4585,7 @@ uv = PoolVector2Array( 45.9162, 79.1667, 40.5828, 79.1667, 32.9162, 79, 27.7495,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree3/polygons/branch2"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 36.1245, 59.2682 )
 rotation = 0.0807964
 scale = Vector2( 2.20797, 1.03369 )
@@ -4592,7 +4594,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch3" type="Polygon2D" parent="BG/tree3/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 22.1163, 6.22435 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4601,7 +4603,7 @@ uv = PoolVector2Array( 41.7495, 53.8333, 37.7495, 55, 33.2495, 55.3333, 32.0828,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree3/polygons/branch3"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 34.2924, 40.4047 )
 rotation = 0.0807964
 scale = Vector2( 1.50399, 0.77645 )
@@ -4610,7 +4612,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch4" type="Polygon2D" parent="BG/tree3/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 25.8244, 13.9055 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4619,7 +4621,7 @@ uv = PoolVector2Array( 37.449, 29.5547, 38.6636, 20.2429, 36.7742, 10.1215, 36.7
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree3/polygons/branch4"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 39.194, 10.2279 )
 rotation = -0.00390396
 scale = Vector2( 1.45085, 1.27695 )
@@ -4628,7 +4630,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch5" type="Polygon2D" parent="BG/tree3/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -25.692, 10.3298 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4637,7 +4639,7 @@ uv = PoolVector2Array( 87.7864, 2.9363, 88.0563, 9.68394, 89.1359, 19.2656, 90.7
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree3/polygons/branch5"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 105.843, 17.8142 )
 rotation = -0.00390396
 scale = Vector2( 1.45085, 1.35221 )
@@ -4647,7 +4649,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch6" type="Polygon2D" parent="BG/tree3/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -27.0163, 3.97299 )
 scale = Vector2( 0.998582, 1 )
 texture = ExtResource( 7 )
@@ -4657,7 +4659,7 @@ uv = PoolVector2Array( 95.127, 37.8993, 99.7747, 39.8483, 107.871, 40.5979, 113.
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree3/polygons/branch6"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 110.544, 50.6039 )
 rotation = -0.0486781
 scale = Vector2( 1.81933, 0.744425 )
@@ -4667,7 +4669,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch7" type="Polygon2D" parent="BG/tree3/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -18.2689, -1.88988 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4676,7 +4678,7 @@ uv = PoolVector2Array( 86.7312, 63.2366, 84.6322, 67.4345, 84.9321, 74.9307, 89.
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree3/polygons/branch7"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 105.074, 77.6946 )
 rotation = -0.0396448
 scale = Vector2( 2.20797, 1.03369 )
@@ -4686,7 +4688,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch8" type="Polygon2D" parent="BG/tree3/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -16.2215, -2.67733 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4695,7 +4697,7 @@ uv = PoolVector2Array( 83.2402, 83.1089, 82.4994, 89.22, 86.2031, 98.1089, 91.57
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree3/polygons/branch8"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 113.237, 97.9724 )
 rotation = 0.00664225
 scale = Vector2( 2.8274, 0.769825 )
@@ -4790,7 +4792,7 @@ __meta__ = {
 position = Vector2( -0.75, -0.25 )
 
 [node name="wood1" type="Polygon2D" parent="BG/tree5/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
 polygon = PoolVector2Array( 56.7506, 94.508, 62.9685, 91.904, 68.066, 91.904, 72.4138, 92.5037, 76.1619, 95.952, 76.4815, 106.667, 76.4815, 111.852, 78.7037, 118.333, 80.9259, 126.852, 81.2963, 134.074, 76.2963, 133.889, 66.4815, 132.407, 57.5926, 134.63, 50.5556, 134.259, 52.037, 129.444, 57.963, 113.148 )
@@ -4798,7 +4800,7 @@ uv = PoolVector2Array( 56.7506, 94.508, 62.9685, 91.904, 68.066, 91.904, 72.4138
 bones = [ NodePath("root"), PoolRealArray( 1, 1, 1, 1, 1, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0.5 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="wood2" type="Polygon2D" parent="BG/tree5/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 0.280617, 4.63016 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4807,7 +4809,7 @@ uv = PoolVector2Array( 59.6296, 92.7778, 65, 90.5555, 72.7778, 90.7407, 73.3333,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="wood3" type="Polygon2D" parent="BG/tree5/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 0.280617, 9.12 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4816,7 +4818,7 @@ uv = PoolVector2Array( 57.7778, 60, 61.2963, 60.9259, 64.8148, 62.5926, 68.8889,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="wood4" type="Polygon2D" parent="BG/tree5/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 0.794601, 14.7001 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4825,7 +4827,7 @@ uv = PoolVector2Array( 59.5142, 25.776, 63.4278, 27.1255, 69.3657, 26.9906, 66.5
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="branch1" type="Polygon2D" parent="BG/tree5/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 12.1838, 3.44325 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4834,7 +4836,7 @@ uv = PoolVector2Array( 24.0828, 102.5, 31.4162, 99.1667, 36.4162, 96.8333, 47.08
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 0.5, 0.5, 0.5, 1, 1 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree5/polygons/branch1"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 37.9292, 83.1293 )
 rotation = 0.00664225
 scale = Vector2( 2.8274, 0.769825 )
@@ -4843,7 +4845,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch2" type="Polygon2D" parent="BG/tree5/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 15.0973, 5.29731 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4852,7 +4854,7 @@ uv = PoolVector2Array( 45.9162, 79.1667, 40.5828, 79.1667, 32.9162, 79, 27.7495,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree5/polygons/branch2"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 36.1245, 59.2682 )
 rotation = 0.0807964
 scale = Vector2( 2.20797, 1.03369 )
@@ -4861,7 +4863,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch3" type="Polygon2D" parent="BG/tree5/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 22.1163, 6.22435 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4870,7 +4872,7 @@ uv = PoolVector2Array( 41.7495, 53.8333, 37.7495, 55, 33.2495, 55.3333, 32.0828,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree5/polygons/branch3"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 34.2924, 40.4047 )
 rotation = 0.0807964
 scale = Vector2( 1.50399, 0.77645 )
@@ -4878,7 +4880,7 @@ texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch4" type="Polygon2D" parent="BG/tree5/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 25.8244, 13.9055 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4887,7 +4889,7 @@ uv = PoolVector2Array( 37.449, 29.5547, 38.6636, 20.2429, 36.7742, 10.1215, 36.7
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree5/polygons/branch4"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 39.194, 10.2279 )
 rotation = -0.00390396
 scale = Vector2( 1.45085, 1.27695 )
@@ -4896,7 +4898,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch5" type="Polygon2D" parent="BG/tree5/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -25.692, 10.3298 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4905,7 +4907,7 @@ uv = PoolVector2Array( 87.7864, 2.9363, 88.0563, 9.68394, 89.1359, 19.2656, 90.7
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree5/polygons/branch5"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 105.843, 17.8142 )
 rotation = -0.00390396
 scale = Vector2( 1.45085, 1.35221 )
@@ -4915,7 +4917,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch6" type="Polygon2D" parent="BG/tree5/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -27.0163, 3.97299 )
 scale = Vector2( 0.998582, 1 )
 texture = ExtResource( 7 )
@@ -4925,7 +4927,7 @@ uv = PoolVector2Array( 95.127, 37.8993, 99.7747, 39.8483, 107.871, 40.5979, 113.
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree5/polygons/branch6"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 110.544, 50.6039 )
 rotation = -0.0486781
 scale = Vector2( 1.81933, 0.744425 )
@@ -4935,7 +4937,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch7" type="Polygon2D" parent="BG/tree5/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -18.2689, -1.88988 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4944,7 +4946,7 @@ uv = PoolVector2Array( 86.7312, 63.2366, 84.6322, 67.4345, 84.9321, 74.9307, 89.
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree5/polygons/branch7"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 105.074, 77.6946 )
 rotation = -0.0396448
 scale = Vector2( 2.20797, 1.03369 )
@@ -4954,7 +4956,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch8" type="Polygon2D" parent="BG/tree5/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -16.2215, -2.67733 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -4963,7 +4965,7 @@ uv = PoolVector2Array( 83.2402, 83.1089, 82.4994, 89.22, 86.2031, 98.1089, 91.57
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree5/polygons/branch8"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 113.237, 97.9724 )
 rotation = 0.00664225
 scale = Vector2( 2.8274, 0.769825 )
@@ -5058,7 +5060,7 @@ __meta__ = {
 position = Vector2( -0.75, -0.25 )
 
 [node name="wood1" type="Polygon2D" parent="BG/tree4/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
 polygon = PoolVector2Array( 56.7506, 94.508, 62.9685, 91.904, 68.066, 91.904, 72.4138, 92.5037, 76.1619, 95.952, 76.4815, 106.667, 76.4815, 111.852, 78.7037, 118.333, 80.9259, 126.852, 81.2963, 134.074, 76.2963, 133.889, 66.4815, 132.407, 57.5926, 134.63, 50.5556, 134.259, 52.037, 129.444, 57.963, 113.148 )
@@ -5066,7 +5068,7 @@ uv = PoolVector2Array( 56.7506, 94.508, 62.9685, 91.904, 68.066, 91.904, 72.4138
 bones = [ NodePath("root"), PoolRealArray( 1, 1, 1, 1, 1, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0.5 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="wood2" type="Polygon2D" parent="BG/tree4/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 0.280617, 4.63016 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -5075,7 +5077,7 @@ uv = PoolVector2Array( 59.6296, 92.7778, 65, 90.5555, 72.7778, 90.7407, 73.3333,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="wood3" type="Polygon2D" parent="BG/tree4/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 0.280617, 9.12 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -5084,7 +5086,7 @@ uv = PoolVector2Array( 57.7778, 60, 61.2963, 60.9259, 64.8148, 62.5926, 68.8889,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="wood4" type="Polygon2D" parent="BG/tree4/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 0.794601, 14.7001 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -5093,7 +5095,7 @@ uv = PoolVector2Array( 59.5142, 25.776, 63.4278, 27.1255, 69.3657, 26.9906, 66.5
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="branch1" type="Polygon2D" parent="BG/tree4/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 12.1838, 3.44325 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -5102,7 +5104,7 @@ uv = PoolVector2Array( 24.0828, 102.5, 31.4162, 99.1667, 36.4162, 96.8333, 47.08
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 0.5, 0.5, 0.5, 1, 1 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree4/polygons/branch1"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 37.9292, 83.1293 )
 rotation = 0.00664225
 scale = Vector2( 2.8274, 0.769825 )
@@ -5111,7 +5113,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch2" type="Polygon2D" parent="BG/tree4/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 15.0973, 5.29731 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -5120,7 +5122,7 @@ uv = PoolVector2Array( 45.9162, 79.1667, 40.5828, 79.1667, 32.9162, 79, 27.7495,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree4/polygons/branch2"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 36.1245, 59.2682 )
 rotation = 0.0807964
 scale = Vector2( 2.20797, 1.03369 )
@@ -5129,7 +5131,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch3" type="Polygon2D" parent="BG/tree4/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 22.1163, 6.22435 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -5138,7 +5140,7 @@ uv = PoolVector2Array( 41.7495, 53.8333, 37.7495, 55, 33.2495, 55.3333, 32.0828,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree4/polygons/branch3"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 34.2924, 40.4047 )
 rotation = 0.0807964
 scale = Vector2( 1.50399, 0.77645 )
@@ -5147,7 +5149,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch4" type="Polygon2D" parent="BG/tree4/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 25.8244, 13.9055 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -5156,7 +5158,7 @@ uv = PoolVector2Array( 37.449, 29.5547, 38.6636, 20.2429, 36.7742, 10.1215, 36.7
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree4/polygons/branch4"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 39.194, 10.2279 )
 rotation = -0.00390396
 scale = Vector2( 1.45085, 1.27695 )
@@ -5165,7 +5167,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch5" type="Polygon2D" parent="BG/tree4/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -25.692, 10.3298 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -5174,7 +5176,7 @@ uv = PoolVector2Array( 87.7864, 2.9363, 88.0563, 9.68394, 89.1359, 19.2656, 90.7
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree4/polygons/branch5"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 105.843, 17.8142 )
 rotation = -0.00390396
 scale = Vector2( 1.45085, 1.35221 )
@@ -5184,7 +5186,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch6" type="Polygon2D" parent="BG/tree4/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -27.0163, 3.97299 )
 scale = Vector2( 0.998582, 1 )
 texture = ExtResource( 7 )
@@ -5194,7 +5196,7 @@ uv = PoolVector2Array( 95.127, 37.8993, 99.7747, 39.8483, 107.871, 40.5979, 113.
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree4/polygons/branch6"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 110.544, 50.6039 )
 rotation = -0.0486781
 scale = Vector2( 1.81933, 0.744425 )
@@ -5204,7 +5206,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch7" type="Polygon2D" parent="BG/tree4/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -18.2689, -1.88988 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -5213,7 +5215,7 @@ uv = PoolVector2Array( 86.7312, 63.2366, 84.6322, 67.4345, 84.9321, 74.9307, 89.
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree4/polygons/branch7"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 105.074, 77.6946 )
 rotation = -0.0396448
 scale = Vector2( 2.20797, 1.03369 )
@@ -5223,7 +5225,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch8" type="Polygon2D" parent="BG/tree4/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -16.2215, -2.67733 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -5232,7 +5234,7 @@ uv = PoolVector2Array( 83.2402, 83.1089, 82.4994, 89.22, 86.2031, 98.1089, 91.57
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree4/polygons/branch8"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 113.237, 97.9724 )
 rotation = 0.00664225
 scale = Vector2( 2.8274, 0.769825 )
@@ -5326,7 +5328,7 @@ __meta__ = {
 }
 
 [node name="torso" type="Polygon2D" parent="BG/animated_tree1/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 220.228, 125.235 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
@@ -5336,7 +5338,7 @@ uv = PoolVector2Array( 84.72, 60.0823, 93.3619, 62.5514, 96.8599, 71.8107, 104.8
 bones = [ NodePath("stem"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0, 0, 0, 0 ), NodePath("stem/stem1"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("stem/stem1/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="BG/animated_tree1/polygons/torso"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 94.4459, 94.2628 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5344,7 +5346,7 @@ vframes = 2
 frame = 2
 
 [node name="branch1" type="Polygon2D" parent="BG/animated_tree1/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 311.694, 76.8937 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
@@ -5354,7 +5356,7 @@ uv = PoolVector2Array( 22.8076, 112.994, 21.9602, 107.91, 30.9997, 105.367, 36.9
 bones = [ NodePath("stem"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("stem/stem1/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="BG/animated_tree1/polygons/branch1"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 29.5625, 104.931 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5362,7 +5364,7 @@ vframes = 2
 frame = 2
 
 [node name="Sprite2" type="Sprite" parent="BG/animated_tree1/polygons/branch1"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 16.9408, 112.645 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5370,7 +5372,7 @@ vframes = 2
 frame = 2
 
 [node name="branch2" type="Polygon2D" parent="BG/animated_tree1/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 292.564, 101.112 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
@@ -5380,7 +5382,7 @@ uv = PoolVector2Array( 31.2822, 102.542, 42.2992, 97.1751, 53.0336, 83.6158, 40.
 bones = [ NodePath("stem"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2"), PoolRealArray( 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1 ), NodePath("stem/stem1/branch2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0 ), NodePath("stem/stem1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="BG/animated_tree1/polygons/branch2"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 41.1811, 83.2871 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5388,7 +5390,7 @@ vframes = 2
 frame = 2
 
 [node name="Sprite2" type="Sprite" parent="BG/animated_tree1/polygons/branch2"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 26.3962, 76.6505 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5396,7 +5398,7 @@ vframes = 2
 frame = 2
 
 [node name="branch3" type="Polygon2D" parent="BG/animated_tree1/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 296.558, 126.514 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
@@ -5406,7 +5408,7 @@ uv = PoolVector2Array( 47.1014, 31.6384, 42.0167, 25.1412, 29.8698, 26.8362, 8.6
 bones = [ NodePath("stem"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1 ), NodePath("stem/stem1/branch3/Bone2D"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="BG/animated_tree1/polygons/branch3"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 48.8333, 53.1378 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5414,7 +5416,7 @@ vframes = 2
 frame = 1
 
 [node name="Sprite2" type="Sprite" parent="BG/animated_tree1/polygons/branch3"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 37.1679, 37.1579 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5422,7 +5424,7 @@ vframes = 2
 frame = 2
 
 [node name="branch4" type="Polygon2D" parent="BG/animated_tree1/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 278.21, 166.925 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
@@ -5432,7 +5434,7 @@ uv = PoolVector2Array( 102.751, 43.2203, 103.599, 31.3559, 101.056, 22.5989, 99.
 bones = [ NodePath("stem"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4"), PoolRealArray( 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("stem/stem1/branch4/Bone2D"), PoolRealArray( 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="BG/animated_tree1/polygons/branch4"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 72.5656, 34.1267 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5440,7 +5442,7 @@ vframes = 2
 frame = 2
 
 [node name="Sprite2" type="Sprite" parent="BG/animated_tree1/polygons/branch4"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 81.0819, 15.0042 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5448,7 +5450,7 @@ vframes = 2
 frame = 2
 
 [node name="Sprite3" type="Sprite" parent="BG/animated_tree1/polygons/branch4"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 86.103, 33.0882 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5456,7 +5458,7 @@ vframes = 2
 frame = 2
 
 [node name="branch5" type="Polygon2D" parent="BG/animated_tree1/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 201.704, 229.324 )
 scale = Vector2( 1.99302, 2 )
 texture = ExtResource( 8 )
@@ -5466,7 +5468,7 @@ uv = PoolVector2Array( 100.507, 18.7037, 101.248, 24.6296, 105.322, 30.1852, 105
 bones = [ NodePath("stem"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5 ), NodePath("stem/stem1/branch5/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0, 0 ), NodePath("stem/stem1/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="BG/animated_tree1/polygons/branch5"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 114.76, 22.5532 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5474,7 +5476,7 @@ vframes = 2
 frame = 1
 
 [node name="Sprite2" type="Sprite" parent="BG/animated_tree1/polygons/branch5"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 138.785, 24.039 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5482,7 +5484,7 @@ vframes = 2
 frame = 2
 
 [node name="Sprite3" type="Sprite" parent="BG/animated_tree1/polygons/branch5"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 134.647, 34.34 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5490,7 +5492,7 @@ vframes = 2
 frame = 2
 
 [node name="branch6" type="Polygon2D" parent="BG/animated_tree1/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 193.897, 181.175 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 8 )
@@ -5500,7 +5502,7 @@ uv = PoolVector2Array( 117.174, 60, 127.544, 57.5926, 136.248, 61.1111, 145.137,
 bones = [ NodePath("stem"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch1/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch5/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("stem/stem1/branch6"), PoolRealArray( 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5 ), NodePath("stem/stem1/branch6/Bone2D"), PoolRealArray( 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="BG/animated_tree1/polygons/branch6"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 137.723, 66.1633 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5508,7 +5510,7 @@ vframes = 2
 frame = 2
 
 [node name="Sprite2" type="Sprite" parent="BG/animated_tree1/polygons/branch6"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 122.775, 60.11 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5638,7 +5640,7 @@ __meta__ = {
 }
 
 [node name="torso" type="Polygon2D" parent="BG/animated_tree4/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -149.836, -193.218 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 10 )
@@ -5648,7 +5650,7 @@ uv = PoolVector2Array( 57.6667, 68, 59.3333, 61.5, 63.1667, 57.5, 71.6667, 58.5,
 bones = [ NodePath("torse"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 1, 1, 1, 1 ), NodePath("torse/node"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="branch1" type="Polygon2D" parent="BG/animated_tree4/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -144.797, -205.312 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 10 )
@@ -5658,7 +5660,7 @@ uv = PoolVector2Array( 43.6667, 78.8333, 38.8333, 75.8333, 37.5, 79.3333, 32.333
 bones = [ NodePath("torse"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0 ), NodePath("torse/node/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 0.5, 0, 0, 0, 0, 0.5, 0.5 ), NodePath("torse/node/node1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="BG/animated_tree4/polygons/branch1"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 42.8023, 93.2327 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5667,7 +5669,7 @@ frame = 1
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="Sprite2" type="Sprite" parent="BG/animated_tree4/polygons/branch1"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 33.1619, 89.2196 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5676,7 +5678,7 @@ frame = 1
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="branch2" type="Polygon2D" parent="BG/animated_tree4/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -134.953, -195.187 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 10 )
@@ -5686,7 +5688,7 @@ uv = PoolVector2Array( 51.8333, 62.8333, 47, 58.6667, 44, 61.5, 42.5, 56.6667, 3
 bones = [ NodePath("torse"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5 ), NodePath("torse/node/node1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch4"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite2" type="Sprite" parent="BG/animated_tree4/polygons/branch2"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 48.2063, 74.3871 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5695,7 +5697,7 @@ frame = 1
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="Sprite1" type="Sprite" parent="BG/animated_tree4/polygons/branch2"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 30.9195, 66.7349 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5704,7 +5706,7 @@ frame = 1
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="branch3" type="Polygon2D" parent="BG/animated_tree4/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -139.466, -187.267 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 10 )
@@ -5714,7 +5716,7 @@ uv = PoolVector2Array( 59.6667, 50.5, 58.5, 44.8333, 54.5, 40.1667, 51.8333, 41,
 bones = [ NodePath("torse"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2"), PoolRealArray( 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1 ), NodePath("torse/node/node1/node2/branch5"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="BG/animated_tree4/polygons/branch3"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 37.8236, 43.8746 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5723,7 +5725,7 @@ frame = 1
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="Sprite2" type="Sprite" parent="BG/animated_tree4/polygons/branch3"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 52.2323, 54.0454 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5731,7 +5733,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="branch4" type="Polygon2D" parent="BG/animated_tree4/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -144.713, -160.333 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 10 )
@@ -5741,7 +5743,7 @@ uv = PoolVector2Array( 72, 48.5, 73.5, 40.5, 74.8333, 38.6667, 78.3333, 41.3333,
 bones = [ NodePath("torse"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2"), PoolRealArray( 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1 ), NodePath("torse/node/node1/node2/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch6"), PoolRealArray( 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="BG/animated_tree4/polygons/branch4"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 62.1912, 30.5254 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5749,7 +5751,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="Sprite2" type="Sprite" parent="BG/animated_tree4/polygons/branch4"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 81.4734, 38.5773 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5757,7 +5759,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="Sprite3" type="Sprite" parent="BG/animated_tree4/polygons/branch4"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 70.2431, 53.1979 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5765,7 +5767,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="branch5" type="Polygon2D" parent="BG/animated_tree4/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -167.471, -200.409 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 10 )
@@ -5775,7 +5777,7 @@ uv = PoolVector2Array( 75.8333, 66.6667, 77.5, 63.1667, 81.5, 59.1667, 87, 59, 8
 bones = [ NodePath("torse"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1"), PoolRealArray( 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 ), NodePath("torse/node/node1/branch3"), PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="BG/animated_tree4/polygons/branch5"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 94.6108, 73.5396 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5783,7 +5785,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="Sprite2" type="Sprite" parent="BG/animated_tree4/polygons/branch5"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 78.7188, 83.7104 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5791,7 +5793,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="branch6" type="Polygon2D" parent="BG/animated_tree4/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -303.746, -49.6567 )
 scale = Vector2( 2.5, 2.5 )
 offset = Vector2( 51.7857, -64.2585 )
@@ -5802,7 +5804,7 @@ uv = PoolVector2Array( 78.5, 89.8333, 83.3333, 86.1667, 86.6667, 84, 89.3333, 79
 bones = [ NodePath("torse"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node"), PoolRealArray( 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1 ), NodePath("torse/node/branch1"), PoolRealArray( 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0 ), NodePath("torse/node/branch2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/branch4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch5"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("torse/node/node1/node2/branch6"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Sprite" type="Sprite" parent="BG/animated_tree4/polygons/branch6"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 149.491, 30.5254 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5810,7 +5812,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 30, 30 )
 
 [node name="Sprite2" type="Sprite" parent="BG/animated_tree4/polygons/branch6"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 134.447, 35.6108 )
 texture = ExtResource( 9 )
 hframes = 3
@@ -5912,7 +5914,7 @@ __meta__ = {
 position = Vector2( -0.75, -0.25 )
 
 [node name="wood1" type="Polygon2D" parent="BG/tree1/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
 polygon = PoolVector2Array( 56.7506, 94.508, 62.9685, 91.904, 68.066, 91.904, 72.4138, 92.5037, 76.1619, 95.952, 76.4815, 106.667, 76.4815, 111.852, 78.7037, 118.333, 80.9259, 126.852, 81.2963, 134.074, 76.2963, 133.889, 66.4815, 132.407, 57.5926, 134.63, 50.5556, 134.259, 52.037, 129.444, 57.963, 113.148 )
@@ -5920,7 +5922,7 @@ uv = PoolVector2Array( 56.7506, 94.508, 62.9685, 91.904, 68.066, 91.904, 72.4138
 bones = [ NodePath("root"), PoolRealArray( 1, 1, 1, 1, 1, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0.5 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="wood2" type="Polygon2D" parent="BG/tree1/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 0.280617, 4.63016 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -5929,7 +5931,7 @@ uv = PoolVector2Array( 59.6296, 92.7778, 65, 90.5555, 72.7778, 90.7407, 73.3333,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="wood3" type="Polygon2D" parent="BG/tree1/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 0.280617, 9.12 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -5938,7 +5940,7 @@ uv = PoolVector2Array( 57.7778, 60, 61.2963, 60.9259, 64.8148, 62.5926, 68.8889,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="wood4" type="Polygon2D" parent="BG/tree1/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 0.794601, 14.7001 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -5947,7 +5949,7 @@ uv = PoolVector2Array( 59.5142, 25.776, 63.4278, 27.1255, 69.3657, 26.9906, 66.5
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="branch1" type="Polygon2D" parent="BG/tree1/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 12.1838, 3.44325 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -5956,7 +5958,7 @@ uv = PoolVector2Array( 24.0828, 102.5, 31.4162, 99.1667, 36.4162, 96.8333, 47.08
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 0.5, 0.5, 0.5, 1, 1 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree1/polygons/branch1"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 31.4717, 86.6989 )
 rotation = 0.00664225
 scale = Vector2( 2.8274, 0.769825 )
@@ -5965,7 +5967,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch2" type="Polygon2D" parent="BG/tree1/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 15.0973, 5.29731 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -5974,7 +5976,7 @@ uv = PoolVector2Array( 45.9162, 79.1667, 40.5828, 79.1667, 32.9162, 79, 27.7495,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree1/polygons/branch2"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 29.5797, 65.256 )
 rotation = 0.0807964
 scale = Vector2( 2.20797, 1.03369 )
@@ -5983,7 +5985,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch3" type="Polygon2D" parent="BG/tree1/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 22.1163, 6.22435 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -5992,7 +5994,7 @@ uv = PoolVector2Array( 41.7495, 53.8333, 37.7495, 55, 33.2495, 55.3333, 32.0828,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree1/polygons/branch3"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 31.4717, 44.654 )
 rotation = 0.0807964
 scale = Vector2( 1.50399, 0.77645 )
@@ -6001,7 +6003,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch4" type="Polygon2D" parent="BG/tree1/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 25.8244, 13.9055 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -6010,7 +6012,7 @@ uv = PoolVector2Array( 37.449, 29.5547, 38.6636, 20.2429, 36.7742, 10.1215, 36.7
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree1/polygons/branch4"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 32.9141, 9.00766 )
 rotation = -0.00390396
 scale = Vector2( 1.45085, 1.27695 )
@@ -6019,7 +6021,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch5" type="Polygon2D" parent="BG/tree1/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -25.692, 10.3298 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -6028,7 +6030,7 @@ uv = PoolVector2Array( 87.7864, 2.9363, 88.0563, 9.68394, 89.1359, 19.2656, 90.7
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree1/polygons/branch5"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 96.8302, 9.2841 )
 rotation = -0.00390396
 scale = Vector2( 1.45085, 1.35221 )
@@ -6038,7 +6040,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch6" type="Polygon2D" parent="BG/tree1/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -27.0163, 3.97299 )
 scale = Vector2( 0.998582, 1 )
 texture = ExtResource( 7 )
@@ -6048,7 +6050,7 @@ uv = PoolVector2Array( 95.127, 37.8993, 99.7747, 39.8483, 107.871, 40.5979, 113.
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree1/polygons/branch6"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 103.29, 50.6491 )
 rotation = -0.0486781
 scale = Vector2( 1.81933, 0.744425 )
@@ -6058,7 +6060,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch7" type="Polygon2D" parent="BG/tree1/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -18.2689, -1.88988 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -6067,7 +6069,7 @@ uv = PoolVector2Array( 86.7312, 63.2366, 84.6322, 67.4345, 84.9321, 74.9307, 89.
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree1/polygons/branch7"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 101.074, 77.0604 )
 rotation = -0.0396448
 scale = Vector2( 2.20797, 1.03369 )
@@ -6077,7 +6079,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch8" type="Polygon2D" parent="BG/tree1/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -16.2215, -2.67733 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -6086,7 +6088,7 @@ uv = PoolVector2Array( 83.2402, 83.1089, 82.4994, 89.22, 86.2031, 98.1089, 91.57
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree1/polygons/branch8"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 114.771, 90.0398 )
 rotation = 0.00664225
 scale = Vector2( 2.8274, 0.769825 )
@@ -6177,7 +6179,7 @@ __meta__ = {
 position = Vector2( -0.75, -0.25 )
 
 [node name="wood1" type="Polygon2D" parent="BG/tree2/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
 polygon = PoolVector2Array( 56.7506, 94.508, 62.9685, 91.904, 68.066, 91.904, 72.4138, 92.5037, 76.1619, 95.952, 76.4815, 106.667, 76.4815, 111.852, 78.7037, 118.333, 80.9259, 126.852, 81.2963, 134.074, 76.2963, 133.889, 66.4815, 132.407, 57.5926, 134.63, 50.5556, 134.259, 52.037, 129.444, 57.963, 113.148 )
@@ -6185,7 +6187,7 @@ uv = PoolVector2Array( 56.7506, 94.508, 62.9685, 91.904, 68.066, 91.904, 72.4138
 bones = [ NodePath("root"), PoolRealArray( 1, 1, 1, 1, 1, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0.5 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="wood2" type="Polygon2D" parent="BG/tree2/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 0.280617, 4.63016 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -6194,7 +6196,7 @@ uv = PoolVector2Array( 59.6296, 92.7778, 65, 90.5555, 72.7778, 90.7407, 73.3333,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="wood3" type="Polygon2D" parent="BG/tree2/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 0.280617, 9.12 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -6203,7 +6205,7 @@ uv = PoolVector2Array( 57.7778, 60, 61.2963, 60.9259, 64.8148, 62.5926, 68.8889,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="wood4" type="Polygon2D" parent="BG/tree2/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 0.794601, 14.7001 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -6212,7 +6214,7 @@ uv = PoolVector2Array( 59.5142, 25.776, 63.4278, 27.1255, 69.3657, 26.9906, 66.5
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="branch1" type="Polygon2D" parent="BG/tree2/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 12.1838, 3.44325 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -6221,7 +6223,7 @@ uv = PoolVector2Array( 24.0828, 102.5, 31.4162, 99.1667, 36.4162, 96.8333, 47.08
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 0.5, 0.5, 0.5, 1, 1 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree2/polygons/branch1"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 31.4717, 86.6989 )
 rotation = 0.00664225
 scale = Vector2( 2.8274, 0.769825 )
@@ -6230,7 +6232,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch2" type="Polygon2D" parent="BG/tree2/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 15.0973, 5.29731 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -6239,7 +6241,7 @@ uv = PoolVector2Array( 45.9162, 79.1667, 40.5828, 79.1667, 32.9162, 79, 27.7495,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree2/polygons/branch2"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 29.5797, 65.256 )
 rotation = 0.0807964
 scale = Vector2( 2.20797, 1.03369 )
@@ -6248,7 +6250,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch3" type="Polygon2D" parent="BG/tree2/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 22.1163, 6.22435 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -6257,7 +6259,7 @@ uv = PoolVector2Array( 41.7495, 53.8333, 37.7495, 55, 33.2495, 55.3333, 32.0828,
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree2/polygons/branch3"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 31.4717, 44.654 )
 rotation = 0.0807964
 scale = Vector2( 1.50399, 0.77645 )
@@ -6266,7 +6268,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch4" type="Polygon2D" parent="BG/tree2/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 25.8244, 13.9055 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -6275,7 +6277,7 @@ uv = PoolVector2Array( 37.449, 29.5547, 38.6636, 20.2429, 36.7742, 10.1215, 36.7
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree2/polygons/branch4"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 32.9141, 9.00766 )
 rotation = -0.00390396
 scale = Vector2( 1.45085, 1.27695 )
@@ -6284,7 +6286,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch5" type="Polygon2D" parent="BG/tree2/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -25.692, 10.3298 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -6293,7 +6295,7 @@ uv = PoolVector2Array( 87.7864, 2.9363, 88.0563, 9.68394, 89.1359, 19.2656, 90.7
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree2/polygons/branch5"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 96.8302, 9.2841 )
 rotation = -0.00390396
 scale = Vector2( 1.45085, 1.35221 )
@@ -6303,7 +6305,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch6" type="Polygon2D" parent="BG/tree2/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -27.0163, 3.97299 )
 scale = Vector2( 0.998582, 1 )
 texture = ExtResource( 7 )
@@ -6313,7 +6315,7 @@ uv = PoolVector2Array( 95.127, 37.8993, 99.7747, 39.8483, 107.871, 40.5979, 113.
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree2/polygons/branch6"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 103.29, 50.6491 )
 rotation = -0.0486781
 scale = Vector2( 1.81933, 0.744425 )
@@ -6323,7 +6325,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch7" type="Polygon2D" parent="BG/tree2/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -18.2689, -1.88988 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -6332,7 +6334,7 @@ uv = PoolVector2Array( 86.7312, 63.2366, 84.6322, 67.4345, 84.9321, 74.9307, 89.
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree2/polygons/branch7"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 101.074, 77.0604 )
 rotation = -0.0396448
 scale = Vector2( 2.20797, 1.03369 )
@@ -6342,7 +6344,7 @@ vframes = 2
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="branch8" type="Polygon2D" parent="BG/tree2/polygons"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( -16.2215, -2.67733 )
 texture = ExtResource( 7 )
 skeleton = NodePath("../../Skeleton2D")
@@ -6351,7 +6353,7 @@ uv = PoolVector2Array( 83.2402, 83.1089, 82.4994, 89.22, 86.2031, 98.1089, 91.57
 bones = [ NodePath("root"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/Bone2D2"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5 ), NodePath("root/wood2/wood3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("root/wood2/wood3/wood4/Bone2D3/Bone2D2"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="leafs" type="Sprite" parent="BG/tree2/polygons/branch8"]
-material = ExtResource( 23 )
+material = ExtResource( 29 )
 position = Vector2( 114.771, 90.0398 )
 rotation = 0.00664225
 scale = Vector2( 2.8274, 0.769825 )
@@ -6515,6 +6517,7 @@ scale = Vector2( 3, 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BG/strangers/stranger"]
 frames = SubResource( 26 )
 animation = "walk"
+frame = 2
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BG/strangers/stranger"]
@@ -6531,7 +6534,7 @@ scale = Vector2( 3, 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BG/strangers/stranger2"]
 frames = SubResource( 26 )
 animation = "walk"
-frame = 1
+frame = 3
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BG/strangers/stranger2"]
@@ -6548,7 +6551,7 @@ scale = Vector2( 3, 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BG/strangers/stranger3"]
 frames = SubResource( 26 )
 animation = "walk"
-frame = 1
+frame = 3
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BG/strangers/stranger3"]
@@ -6565,6 +6568,7 @@ scale = Vector2( 3, 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BG/strangers/stranger4"]
 frames = SubResource( 26 )
 animation = "walk"
+frame = 2
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BG/strangers/stranger4"]
@@ -6581,7 +6585,7 @@ scale = Vector2( 3, 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BG/strangers/stranger5"]
 frames = SubResource( 26 )
 animation = "walk"
-frame = 1
+frame = 3
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BG/strangers/stranger5"]
@@ -6598,7 +6602,7 @@ scale = Vector2( 3, 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BG/strangers/stranger6"]
 frames = SubResource( 26 )
 animation = "walk"
-frame = 1
+frame = 3
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BG/strangers/stranger6"]
@@ -6615,6 +6619,7 @@ scale = Vector2( 3, 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BG/strangers/stranger7"]
 frames = SubResource( 26 )
 animation = "walk"
+frame = 2
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BG/strangers/stranger7"]
@@ -6631,6 +6636,7 @@ scale = Vector2( 3, 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BG/strangers/stranger8"]
 frames = SubResource( 26 )
 animation = "walk"
+frame = 2
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BG/strangers/stranger8"]
@@ -6647,6 +6653,7 @@ scale = Vector2( 3, 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BG/strangers/stranger9"]
 frames = SubResource( 26 )
 animation = "walk"
+frame = 2
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BG/strangers/stranger9"]
@@ -6663,6 +6670,7 @@ scale = Vector2( 3, 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BG/strangers/stranger10"]
 frames = SubResource( 26 )
 animation = "walk"
+frame = 2
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BG/strangers/stranger10"]
@@ -6679,7 +6687,7 @@ scale = Vector2( 3, 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BG/strangers/stranger11"]
 frames = SubResource( 26 )
 animation = "walk"
-frame = 1
+frame = 3
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BG/strangers/stranger11"]
@@ -6696,7 +6704,7 @@ scale = Vector2( 3, 3 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BG/strangers/stranger12"]
 frames = SubResource( 26 )
 animation = "walk"
-frame = 1
+frame = 3
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BG/strangers/stranger12"]
@@ -6725,7 +6733,7 @@ position = Vector2( 393.804, 257.134 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 51 )
 animation = "walk"
-frame = 2
+frame = 5
 playing = true
 flip_h = true
 
@@ -6863,6 +6871,15 @@ text = " Until you get what you strive for"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SitySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
+volume_db = -18.04
+autoplay = true
+
+[node name="Ambient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 30 )
+autoplay = true
 
 [connection signal="pressed" from="G/AnimatedSprite/Camera2D/TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
 [connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]

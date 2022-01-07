@@ -29,6 +29,8 @@ func say(var sentence):
 	get_node("Popup/RichTextLabel").text = sentence
 	get_node("Sprite").play("talk")
 func createPuff(var pos):
+	$Puff.play()
+	$Puff.position = pos
 	var res = puff.instance()
 	res.position = pos
 	res.scale = Vector2(3,3)
@@ -87,6 +89,7 @@ func self_kill():
 	self.remove_child(get_node("Position2D"))
 	self.remove_child(get_node("PositionForTouch"))
 	self.remove_child(get_node("AnimationPlayer"))
+	self.remove_child($Puff)
 	remove_and_skip()
 
 

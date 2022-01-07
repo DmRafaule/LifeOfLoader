@@ -1,4 +1,6 @@
 extends Control
+onready var session  = get_node("/root/Session") 
+
 var resultDict : Dictionary = {
 	"selling" 		: "",# Check
 	"isClean" 		: "",# Check
@@ -65,10 +67,12 @@ func _ready():
 
 
 func _on_Exit_pressed():
+	$SoundCommonB.play(0.10)
 	get_tree().change_scene("res://scenes/Main.tscn")
 
 
 func _on_Next_pressed():
+	$SoundCommonB.play(0.10)
 	get_node("AnimationPlayer").play("disappearing")
 
 
